@@ -15,9 +15,28 @@ class UserBookRatingSerializer(serializers.ModelSerializer):
 class UserToBeReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserToBeRead
-        fields = ['id', 'work_id', 'title', 'author']
+        fields = ['id', 'work_id', 'title', 'author', 'image_url', 'date_added']
 
 class UserRecommendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserRecommendation
         fields = ['id', 'work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'reference_work_id', 'score']
+
+
+# class SignupSerializer(serializers.ModelSerializer):
+#     password = serializers.CharField(write_only=True)
+
+#     class Meta:
+#         model = User
+#         fields = ['username', 'password'
+#         # , 'email'
+#         ]
+
+#     def create(self, validated_data):
+#         user = User(
+#             username=validated_data['username'],
+#             # email=validated_data['email']
+#         )
+#         user.set_password(validated_data['password'])
+#         user.save()
+#         return user

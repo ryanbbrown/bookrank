@@ -41,6 +41,8 @@ class UserToBeRead(models.Model):
     work_id = models.CharField(max_length=50)
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
+    image_url = models.URLField()
+    date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('user', 'work_id')

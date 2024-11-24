@@ -69,8 +69,6 @@ def search(query):
 
 @shared_task
 def process_csv(file_path, user_id):
-    logger.info('Started function!')
-    logger.info('Started function v2!')
     try:
         user = UserAccount.objects.get(id=user_id)
         # Read the CSV file into a pandas DataFrame
@@ -102,11 +100,13 @@ def process_csv(file_path, user_id):
             pct_diff = records[0]['score'] / records[1]['score'] - 1
             if pct_diff >= 0.2 and records[0]['work_id'] not in existing_work_ids:
                 print(f"Adding book: {records[0]['title']}")
+                logger.info(records[0])
                 UserBookRating.objects.create(
                     user=user,
                     work_id=records[0]['work_id'],
                     title=records[0]['title'],
                     author=records[0]['author'],
+                    image_url=records[0]['image_url'],
                 )
 
         # Cleanup: delete the file after processing

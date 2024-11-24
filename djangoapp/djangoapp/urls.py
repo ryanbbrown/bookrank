@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# from django.contrib.auth.views import LogoutView
 from . import views
 
 urlpatterns = [
@@ -31,5 +32,7 @@ urlpatterns = [
     path('api/chat/', views.ChatView.as_view()),
     path('api/goodreads-import/', views.GoodreadsImportView.as_view()),
     path('api/unranked-books/', views.UnrankedBooksView.as_view()),
+    path('api/logout/', views.LogoutView.as_view()),
+    path('api/signup/', views.SignupView.as_view()),
     path('', views.ReactAppView.as_view(), name='react-app'),
 ]

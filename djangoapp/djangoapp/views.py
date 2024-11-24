@@ -1,25 +1,41 @@
 # views.py
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from .models import UserAccount, UserBookRating, UserToBeRead, UserRecommendation
-from .serializers import UserAccountSerializer
+# Python standard library imports
 import json
-from django.contrib.auth import authenticate, login
-from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth.hashers import make_password
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authtoken.models import Token
-from .serializers import UserBookRatingSerializer, UserToBeReadSerializer, UserRecommendationSerializer
-# from django.db.models.query import RawQuery
-from django.db.models.functions import Abs
-from django.db.models import F
 import math
 import os
-from django.db.models import Expression
-from django.db.models.fields import FloatField
-from rest_framework import status
+
+# Third party imports
 import pandas as pd
+from rest_framework import status
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+# Django imports
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import AnonymousUser
+from django.contrib.auth.views import LoginView, LogoutView
 from django.core.files.storage import default_storage
+from django.db.models import Expression, F
+from django.db.models.fields import FloatField
+from django.db.models.functions import Abs
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import ensure_csrf_cookie
+
+# Local imports
+from .models import UserAccount, UserBookRating, UserToBeRead, UserRecommendation
+from .serializers import (
+    UserAccountSerializer,
+    UserBookRatingSerializer,
+    UserToBeReadSerializer,
+    UserRecommendationSerializer
+)
+
+
+print('partway through imports')
 
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from dotenv import load_dotenv
@@ -35,7 +51,7 @@ import pandas as pd
 from pinecone import Pinecone
 from groq import Groq
 # from langchain_huggingface import HuggingFaceEmbeddings
-from sentence_transformers import SentenceTransformer
+
 
 
 HOST = 'https://search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com'  # Replace with your domain endpoint
@@ -93,7 +109,12 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index(PINECONE_INDEX_NAME)
 
 groq_client = Groq(api_key=GROQ_API_KEY)
-embedding_model = SentenceTransformer(EMBEDDING_MODEL)
+
+## UNCOMMENT THIS IF I WANT CHAT TO WORK
+# import shutil
+# shutil.rmtree('/home/ryanbrown/.cache/huggingface/hub/models--thenlper--gte-small', ignore_errors=True)
+# from sentence_transformers import SentenceTransformer
+# embedding_model = SentenceTransformer(EMBEDDING_MODEL)
 
 # some global variables referenced in here oh well
 # could maybe define this inside searchView later but chilling for now
@@ -128,7 +149,7 @@ def search(query):
         rowlist = [dict({'score': hit['_score']}, **hit['_source']) for hit in hitlist]
         df = pd.DataFrame(rowlist).rename(columns={'author_name': 'author'})
 
-        return df[['work_id', 'title', 'author']].to_dict(orient='records')
+        return df[['work_id', 'title', 'author', 'image_url', 'description']].to_dict(orient='records')
         # return [(book, author) for book, author in zip(df['title'], df['author_name'])]
     except Exception as e:
         raise e
@@ -142,36 +163,89 @@ def E(rating, opponent_rating, opponent_RD):
 
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('django.info')
 
 class LoginView(APIView):
     """
-    This view logs in a user if they exist, otherwise creates a new user and logs them in.
+    This view logs in a user and creates a new session.
     """
     def post(self, request):
-        logger.info(f"Origin: {request.headers.get('Origin')}")
         username = request.data.get('username')
         password = request.data.get('password')
-        print('Hello')
-        print(f"CSRF Token in Cookie: {request.COOKIES.get('csrftoken')}")
-        print(f"CSRF Token in Header: {request.headers.get('X-CSRFToken')}")
+        user = authenticate(request, username=username, password=password)
         
-        # Check if the user already exists
-        if UserAccount.objects.filter(username=username).exists():
-            user = authenticate(request, username=username, password=password)
-            
-            if user is not None:
-                login(request, user)
-                token, created = Token.objects.get_or_create(user=user)
-                return Response({'message': 'Logged in successfully', 'token': token.key})
-            else:
-                return Response({'message': 'Invalid username or password'}, status=400)
-        else:
-            # Create a new user and log them in
-            user = UserAccount.objects.create(username=username, password=make_password(password))
+        if user is not None:
+            request.session.flush()
             login(request, user)
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'message': 'Account created and logged in successfully', 'token': token.key})
+            
+            return Response({
+                'success': True,
+                'data': {'token': token.key},
+                'message': 'Successfully logged in'
+            })
+        else:
+            return Response({
+                'success': False,
+                'error': 'Invalid credentials',
+                'message': 'Login failed'
+            }, status=status.HTTP_401_UNAUTHORIZED)
+
+
+class SignupView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        password_confirm = request.data.get('password_confirm')
+
+        if password != password_confirm:
+            return Response({
+                'success': False,
+                'error': 'Passwords do not match',
+                'message': 'Signup failed'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        if UserAccount.objects.filter(username=username).exists():
+            return Response({
+                'success': False,
+                'error': 'Username already taken',
+                'message': 'Signup failed'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        user = UserAccount.objects.create_user(username=username, password=password)
+        user.save()
+
+        request.session.flush()
+        login(request, user)
+
+        auth_user_id = request.session.get('_auth_user_id')
+        logger.info(f'After Signup _auth_user_id: {auth_user_id}')
+        logger.info(f'After Signup user id: {request.user.id}')
+
+        token, created = Token.objects.get_or_create(user=user)
+        
+        return Response({
+            'success': True,
+            'data': {'token': token.key},
+            'message': 'Successfully signed up'
+        }, status=status.HTTP_201_CREATED)
+
+
+class LogoutView(APIView):
+    def post(self, request):
+        logout(request)
+        request.session.flush()
+        request.user = AnonymousUser()
+        logger.info(f'Session post-logout {request.session.items()}')
+        # TODO: needs more standardization
+        response = Response({
+            'success': True,
+            'message': 'Successfully logged out'
+        })
+        response['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+        response['Pragma'] = 'no-cache'
+        response['Expires'] = '0'
+        return response
 
 
 
@@ -182,9 +256,12 @@ class SearchView(APIView):
     def get(self, request):
         query = request.query_params.get('query')
         searchbooklist = search(query)
-        print(searchbooklist)
 
-        return Response(searchbooklist)
+        return Response({
+            'success': True,
+            'data': searchbooklist,
+            'message': 'Search results retrieved successfully'
+        })
 
 
 
@@ -196,8 +273,6 @@ class AddFinishedBookView(APIView):
     """
     def post(self, request):
         work_id = request.data.get('work_id')
-        # title = request.data.get('title')
-        # author = request.data.get('author')
         rating = request.data.get('rating')
         user = request.user
         
@@ -217,7 +292,43 @@ class AddFinishedBookView(APIView):
             }
         )
         
-        return Response({'message': 'Book added to account'})
+        return Response({
+            'success': True,
+            'message': 'Book added to account'
+        })
+
+    def patch(self, request):
+        work_id = request.data.get('work_id')
+        rating = request.data.get('rating')
+        user = request.user
+
+        user_book_rating = UserBookRating.objects.get(user=user, work_id=work_id)
+        user_book_rating.rating = rating
+        # resetting these to default values
+        user_book_rating.elo_rating = 1500
+        user_book_rating.RD = 400
+        user_book_rating.save()
+
+        return Response({
+            'success': True,
+            'message': 'Rating updated successfully'
+        })
+
+
+    def delete(self, request):
+        """
+        Deletes a book from a user's finished books list.
+        """
+        book = UserBookRating.objects.get(
+            user=request.user,
+            work_id=request.query_params.get('work_id')
+        )
+
+        book.delete()
+        return Response({
+            'success': True,
+            'message': 'Book removed from finished books list'
+        })
     
 
 
@@ -235,12 +346,12 @@ class CompareBookView(APIView):
         rating = book_obj.rating
         elo_rating = book_obj.elo_rating
 
-        # memory of which books the new book has been compared to so it doesn't repeat
         if work_id not in request.session:
             request.session[work_id] = {}
             request.session[work_id]['compared_books'] = []
+            request.session.save()
 
-        # gets potential comparison books in same rating bucket, sorted by elo rating difference
+        # Get potential comparison books
         queryset_results = (
             UserBookRating.objects
             .exclude(work_id=work_id)
@@ -249,25 +360,34 @@ class CompareBookView(APIView):
             .annotate(rating_diff=Abs(F('elo_rating') - elo_rating))
             .order_by('rating_diff')
         )
-        
-        # return None and stop comparing if no similar books found or already compared to 3 books
-        # TODO: change logic of comparing to 3 books?
+
         if queryset_results.count() == 0:
-            print('no similar books found')
+            print('No similar books found')
             book_obj.is_ranked = True
             book_obj.save()
-            return Response(None)
+            return Response({
+                'success': True,
+                'data': None,
+                'message': 'No more books to compare'
+            })
         elif len(request.session[work_id]['compared_books']) == 3:
-            print('compared to 3 books already')
+            print('Compared to 3 books already')
             book_obj.is_ranked = True
             book_obj.save()
-            return Response(None)
+            return Response({
+                'success': True,
+                'data': None,
+                'message': 'Book ranking complete'
+            })
         
-        # get book to compare
         book_to_compare = queryset_results.first()
         serializer = UserBookRatingSerializer(book_to_compare)
 
-        return Response(serializer.data)
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'message': 'Comparison book retrieved successfully'
+        })
 
     
     def calc_new_rating(self, book_obj, other_book_obj, outcome):
@@ -315,14 +435,21 @@ class CompareBookView(APIView):
         
         book_obj = UserBookRating.objects.get(work_id=work_id, user=user)
         other_book_obj = UserBookRating.objects.get(work_id=other_work_id, user=user)
-
+        
+        if not request.session.session_key:
+            request.session.save()
+        logger.info(request.session.keys())
+        logger.info(request.session.session_key)
         # add the compared book to the session memory
         request.session[work_id]['compared_books'].append(other_book_obj.work_id)
         request.session.save()
 
         self.update_ratings(book_obj, other_book_obj, outcome)
 
-        return Response({'message': 'Rating updated successfully'})
+        return Response({
+            'success': True,
+            'message': 'Rating updated successfully'
+        })
 
 
 
@@ -345,9 +472,17 @@ class RecommendationView(APIView):
         )
         if recommendation:
             serializer = UserRecommendationSerializer(recommendation)
-            return Response(serializer.data)
+            return Response({
+                'success': True,
+                'data': serializer.data,
+                'message': 'Recommendation retrieved successfully'
+            })
         else:
-            return Response(None)
+            return Response({
+                'success': True,
+                'data': None,
+                'message': 'No recommendations available'
+            })
     
 
     def post(self, request):
@@ -361,7 +496,10 @@ class RecommendationView(APIView):
             viewed=True
         )
 
-        return Response({'message': 'Recommendation viewed'})
+        return Response({
+            'success': True,
+            'message': 'Recommendation marked as viewed'
+        })
     
 
 
@@ -418,30 +556,41 @@ class AddRecommendationView(APIView):
             if added_recs >= 3:
                 break
 
-        return Response({'message': 'Recommendations added to account'})
+        return Response({
+            'success': True,
+            'message': 'Recommendations added successfully'
+        })
 
 
-
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class UserBooksView(APIView):
+    permission_classes = [IsAuthenticated]
+    
     """
     Gets all of user's finished books and sorts them by rating to display on the frontend.
     """
     def get(self, request):
+        if not request.user.is_authenticated:
+            return Response({
+                'success': False,
+                'error': 'Authentication required',
+                'message': 'Please log in'
+            }, status=status.HTTP_401_UNAUTHORIZED)
+            
         user = request.user
-        books = (
-            UserBookRating
-            .objects
-            .filter(user=user)
-        )
+        books = UserBookRating.objects.filter(user=user)
         ranked_books = list(books.filter(is_ranked=True))
         unranked_books = list(books.filter(is_ranked=False))
-        sorted_ranked_books = (sorted(ranked_books, key=lambda x: (x.normalized_rating if x.normalized_rating is not None else 0), reverse=True))
-        sorted_unranked_books = (sorted(unranked_books, key=lambda x: (x.date_added), reverse=True))
+        sorted_ranked_books = sorted(ranked_books, key=lambda x: (x.normalized_rating if x.normalized_rating is not None else 0), reverse=True)
+        sorted_unranked_books = sorted(unranked_books, key=lambda x: (x.date_added), reverse=True)
         sorted_books = sorted_ranked_books + sorted_unranked_books
-        # sorted_books = (sorted(list(books), key=lambda x: (x.normalized_rating if x.normalized_rating is not None else 0), reverse=True))
         serializer = UserBookRatingSerializer(sorted_books, many=True)
-        # print(serializer.data)
-        return Response(serializer.data)
+        
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'message': 'User books retrieved successfully'
+        })
     
 
 
@@ -461,7 +610,11 @@ class ToBeReadView(APIView):
             .filter(user=user)
         )
         serializer = UserToBeReadSerializer(books, many=True)
-        return Response(serializer.data)
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'message': 'TBR list retrieved successfully'
+        })
     
 
     def post(self, request):
@@ -471,21 +624,43 @@ class ToBeReadView(APIView):
         work_id = request.data.get('work_id')
         title = request.data.get('title')
         author = request.data.get('author')
+        image_url = request.data.get('image_url')
         user = request.user
         
         if not all([work_id, title, author]):
-            return Response({'error': 'All fields are required'}, status=400)
+            return Response({
+                'success': False,
+                'error': 'All fields are required',
+                'message': 'Failed to add book to TBR list'
+            }, status=400)
         
         var = UserToBeRead.objects.create(
             user=user,
             work_id=work_id,
             title=title,
-            author=author
-            # defaults={'title': title, 'author': author}
+            author=author,
+            image_url=image_url,
         )
-        print(var)
         
-        return Response({'message': 'Book added to account'})
+        return Response({
+            'success': True,
+            'message': 'Book added to TBR list'
+        })
+
+    def delete(self, request):
+        """
+        Deletes a book from a user's TBR list.
+        """
+        tbr_book = UserToBeRead.objects.get(
+            user=request.user,
+            work_id=request.query_params.get('work_id')
+        )
+
+        tbr_book.delete()
+        return Response({
+            'success': True,
+            'message': 'Book removed from TBR list'
+        })
     
 
 class ChatView(APIView):
@@ -502,7 +677,15 @@ class ChatView(APIView):
         # return a default message if no user input
         if 'content' not in current_message:
             response = 'Hello! How can I assist you today?'
-            return Response({'role': 'assistant', 'content': response, 'matches': matches})
+            return Response({
+                'success': True,
+                'data': {
+                    'role': 'assistant',
+                    'content': response,
+                    'matches': matches
+                },
+                'message': 'Default greeting sent'
+            })
         else:
             last_message_content = current_message['content']
             print('Last message content', last_message_content)
@@ -518,11 +701,18 @@ class ChatView(APIView):
                 include_values=False,
             ).to_dict()['matches']
 
+            # get rid of description so that it doesn't 
+            for match in matches:
+                match['metadata']['description'] = ''
+
         # get the first match and generate a response
         match = matches[0]
+        match_description = index.fetch(ids=[match['id']])['vectors'][match['id']]['metadata']['description']
+        print(match)
         filled_prompt = SUMMARY_PROMPT.format(
             user_query=last_message_content,
-            book_description=match['metadata']['description'],
+            # book_description=match['metadata']['description'],
+            book_description=match_description,
             book_title=match['metadata']['title'],
         )
         new_messages = [{'role': 'user', 'content': filled_prompt}]
@@ -530,15 +720,19 @@ class ChatView(APIView):
             messages=new_messages,
             model="llama3-8b-8192"
         )
-
+        # TODO: will have to change how front end handles this
         return Response({
-            'content': response.choices[0].message.content,
-            'image': match['metadata']['image_url'],
-            'work_id': match['id'],
-            'title': match['metadata']['title'],
-            'author': match['metadata']['author_name'],
-            'description': match['metadata']['description'],
-            'matches': matches[1:]  # get rid of the match you just showed
+            'success': True,
+            'data': {
+                'content': response.choices[0].message.content,
+                'image': match['metadata']['image_url'],
+                'work_id': match['id'],
+                'title': match['metadata']['title'],
+                'author': match['metadata']['author_name'],
+                'description': match_description,
+                'matches': matches[1:]  # get rid of the match you just showed
+            },
+            'message': 'Chat response generated successfully'
         })
 
 
@@ -563,9 +757,17 @@ class UnrankedBooksView(APIView):
         print(unranked_books.exists())
         if unranked_books.exists():
             serializer = UserBookRatingSerializer(unranked_books.first())
-            return Response(serializer.data)
+            return Response({
+                'success': True,
+                'data': serializer.data,
+                'message': 'Unranked book retrieved successfully'
+            })
         else:
-            return Response(None)
+            return Response({
+                'success': True,
+                'data': None,
+                'message': 'No unranked books available'
+            })
 
 
 
@@ -579,7 +781,11 @@ class GoodreadsImportView(APIView):
         file = request.FILES.get('file')
         
         if file is None or not file.name.endswith('.csv'):
-            return Response({'error': 'Only CSV files are allowed.'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({
+                'success': False,
+                'error': 'Only CSV files are allowed',
+                'message': 'File upload failed'
+            }, status=status.HTTP_400_BAD_REQUEST)
         
         try:
             # Save the uploaded file to a temporary location
@@ -595,10 +801,17 @@ class GoodreadsImportView(APIView):
             
             # Perform further processing here (if needed)
             
-            return Response({'message': 'Upload successful!'}, status=status.HTTP_201_CREATED)
+            return Response({
+                'success': True,
+                'message': 'File uploaded and processing started'
+            }, status=status.HTTP_201_CREATED)
         except Exception as e:
             print(e)
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({
+                'success': False,
+                'error': str(e),
+                'message': 'File processing failed'
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
