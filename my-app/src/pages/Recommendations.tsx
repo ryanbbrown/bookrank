@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig';
-import { Book } from '../types/book';
 import { Button } from '../components/ui/button';
+import { ApiResponse, Book } from '../types/types';
 
 function Recommendations() {
     const [recommendation, setRecommendation] = useState<Book | null>(null);
 
     const fetchRecommendation = () => {
-        axiosInstance.get('api/recommendations')
+        axiosInstance.get<ApiResponse<Book>>('api/recommendations')
             .then(response => {
-                setRecommendation(response.data.data);
+                setRecommendation(response.data.data || null);
             });
     };
 
@@ -22,14 +22,14 @@ function Recommendations() {
 
         const { work_id, title, author, image_url } = recommendation;
 
-        axiosInstance.post('api/to-be-read/', {
+        axiosInstance.post<ApiResponse<never>>('api/to-be-read/', {
             work_id,
             title,
             author,
             image_url,
         })
         .then(() => {
-            axiosInstance.post('api/recommendations/', { work_id })
+            axiosInstance.post<ApiResponse<never>>('api/recommendations/', { work_id })
                 .then(() => {
                     fetchRecommendation();
                 });
@@ -39,7 +39,7 @@ function Recommendations() {
     const handleNoClick = () => {
         if (!recommendation) return;
 
-        axiosInstance.post('api/recommendations/', { 
+        axiosInstance.post<ApiResponse<never>>('api/recommendations/', { 
             work_id: recommendation.work_id 
         })
         .then(() => {

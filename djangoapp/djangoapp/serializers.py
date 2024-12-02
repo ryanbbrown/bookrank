@@ -7,20 +7,21 @@ class UserAccountSerializer(serializers.ModelSerializer):
         model = UserAccount
         fields = ['id', 'username', 'password']
 
-class UserBookRatingSerializer(serializers.ModelSerializer):
+class UserBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserBookRating
-        fields = ['id', 'work_id', 'title', 'author', 'description', 'image_url', 'rating', 'elo_rating', 'RD', 'normalized_rating', 'date_added', 'is_ranked']
+        fields = ['work_id', 'title', 'author', 'image_url', 'description', 'rating', 'normalized_rating', 'date_added', 'is_ranked']
+        # fields = ['id', 'work_id', 'title', 'author', 'image_url','description', 'rating', 'elo_rating', 'RD', 'normalized_rating', 'date_added', 'is_ranked']
 
 class UserToBeReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserToBeRead
-        fields = ['id', 'work_id', 'title', 'author', 'image_url', 'date_added']
+        fields = ['work_id', 'title', 'author', 'image_url', 'date_added']
 
 class UserRecommendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserRecommendation
-        fields = ['id', 'work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'reference_work_id', 'score']
+        fields = ['work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'reference_work_id', 'score']
 
 
 # class SignupSerializer(serializers.ModelSerializer):

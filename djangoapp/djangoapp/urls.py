@@ -29,7 +29,7 @@ urlpatterns = [
     path('api/compare-book/', views.CompareBookView.as_view()),
     path('api/recommendations/', views.RecommendationView.as_view()),
     path('api/add-recommendations/', views.AddRecommendationView.as_view()),
-    path('api/chat/', views.ChatView.as_view()),
+    # path('api/chat/', views.ChatView.as_view()),
     path('api/goodreads-import/', views.GoodreadsImportView.as_view()),
     path('api/unranked-books/', views.UnrankedBooksView.as_view()),
     path('api/logout/', views.LogoutView.as_view()),

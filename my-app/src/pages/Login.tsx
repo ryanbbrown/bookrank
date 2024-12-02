@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axiosInstance from '../axiosConfig';
-import { ApiResponse, LoginResponseData } from '../types/api';
+import { ApiResponse, LoginResponseData } from '../types/types';
 import axios from 'axios';
 
 interface LoginProps {

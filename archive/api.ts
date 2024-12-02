@@ -9,7 +9,7 @@ export interface ApiResponse<T> {
 export interface LoginResponseData {
     token: string;
 }
-  
+
 export interface SearchResponseData {
     work_id: string;
     title: string;
@@ -17,3 +17,8 @@ export interface SearchResponseData {
     image_url: string;
     description: string;
 }
+
+export interface SearchBookList extends Array<SearchResponseData> {}
+  
+
+

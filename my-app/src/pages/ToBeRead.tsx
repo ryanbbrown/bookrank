@@ -3,25 +3,25 @@ import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { BookRowModal } from '../components/BookRowModal';
-import { Book, Rating } from '../types/book';
+import { ApiResponse, Book, TBRBook,UserBook, Rating } from '../types/types';
 
 interface ComparisonParams {
     workId: string;
-    getNextUnranked: boolean;
 }
 
 function ToBeRead() {
-    const [books, setBooks] = useState<Book[]>([]);
-    const [unrankedBook, setUnrankedBook] = useState<Book | null>(null);
-    const [comparedBook, setComparedBook] = useState<Book | null>(null);
+    const [books, setBooks] = useState<TBRBook[]>([]);
+    const [unratedBook, setUnratedBook] = useState<TBRBook | null>(null);
+    const [ratedBook, setRatedBook] = useState<UserBook | null>(null);
+    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
     const [activeRow, setActiveRow] = useState<number | null>(null);
     const outcome = useRef<number>(0);
 
     useEffect(() => {
-        axiosInstance.get('api/to-be-read/')
+        axiosInstance.get<ApiResponse<Array<TBRBook>>>('api/to-be-read/')
             .then(response => {
-                setBooks(response.data.data);
+                setBooks(response.data.data || []);
             })
             .catch(error => {
                 console.error(error);
@@ -30,9 +30,9 @@ function ToBeRead() {
 
     const refreshBooks = () => {
         setTimeout(() => {
-            axiosInstance.get('api/to-be-read/')
+            axiosInstance.get<ApiResponse<Array<TBRBook>>>('api/to-be-read/')
                 .then(response => {
-                    setBooks(response.data.data);
+                    setBooks(response.data.data || []);
                 })
                 .catch(error => {
                     console.error(error);
@@ -44,26 +44,27 @@ function ToBeRead() {
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
-    const handleSpecificRankClick = (book: Book) => {
-        setUnrankedBook(book);
+    const handleSpecificRankClick = (book: TBRBook) => {
+        setUnratedBook(book);
         setShowComparison(true);
     };
 
-    const handleRemoveClick = (book: Book) => {
-        axiosInstance.delete('api/to-be-read/', {
+    const handleRemoveClick = (book: TBRBook) => {
+        axiosInstance.delete<ApiResponse<never>>('api/to-be-read/', {
             params: { work_id: book.work_id }
         }).then(() => {
             refreshBooks();
         });
     };
 
-    const fetchComparison = ({ workId, getNextUnranked }: ComparisonParams) => {
-        axiosInstance.get('api/compare-book/', {
+    const fetchComparison = ({ workId }: ComparisonParams) => {
+        axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
             params: { work_id: workId }
         })
         .then(response => {
             const comparedBook = response.data.data;
             if (comparedBook) {
+                console.log('Got compared book')
                 setComparedBook(comparedBook);
                 setShowComparison(true);
             } else {
@@ -73,22 +74,24 @@ function ToBeRead() {
     };
 
     const handleRatingClick = (rating: Rating) => {
-        if (!unrankedBook) return;
+        if (!unratedBook) return;
 
-        axiosInstance.post('api/add-finished-book/', {
-            work_id: unrankedBook.work_id,
+        axiosInstance.post<ApiResponse<never>>('api/add-finished-book/', {
+            work_id: unratedBook.work_id,
             rating: rating,
         }).then(() => {
-            setUnrankedBook(prevState => prevState ? {
-                ...prevState,
-                rating: rating
-            } : null);
+            setRatedBook({
+                ...unratedBook,
+                rating: rating,
+                normalized_rating: null
+            });
             
-            if (unrankedBook) {
-                fetchComparison({ workId: unrankedBook.work_id, getNextUnranked: false });
-                axiosInstance.delete('api/to-be-read/', {
-                    params: { work_id: unrankedBook.work_id }
+            if (unratedBook) {
+                fetchComparison({ workId: unratedBook.work_id });
+                axiosInstance.delete<ApiResponse<never>>('api/to-be-read/', {
+                    params: { work_id: unratedBook.work_id }
                 }).then(() => {
+                    setUnratedBook(null);
                     refreshBooks();
                 });
             }
@@ -96,17 +99,17 @@ function ToBeRead() {
     };
 
     const handleComparisonClick = (o: number) => {
-        if (!unrankedBook || !comparedBook) return;
+        if (!ratedBook || !comparedBook) return;
 
         outcome.current = o === 1 ? 1 : 0;
         
-        axiosInstance.post('api/compare-book/', {
-            new_book_id: unrankedBook.work_id,
+        axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
+            new_book_id: ratedBook.work_id,
             existing_book_id: comparedBook.work_id,
             outcome: outcome.current,
         }).then(() => {
             refreshBooks();
-            fetchComparison({ workId: unrankedBook.work_id, getNextUnranked: false });
+            fetchComparison({ workId: ratedBook.work_id });
         });
     };
 
@@ -145,19 +148,19 @@ function ToBeRead() {
                 </tbody>
             </table>
 
-            {unrankedBook && showComparison && (
+            {unratedBook && showComparison && (
                 <RateModal
                     onClickFunction={handleRatingClick}
                     exitFunction={() => setShowComparison(false)}
-                    book={unrankedBook}
+                    book={unratedBook}
                 />
             )}
-
-            {unrankedBook && showComparison && comparedBook && unrankedBook.rating !== null && (
+            {/* .rating !== null */}
+            {showComparison && comparedBook && ratedBook && (
                 <CompareModal
                     handleComparisonClick={handleComparisonClick}
                     exitFunction={() => setShowComparison(false)}
-                    selectedBook={unrankedBook}
+                    selectedBook={ratedBook}
                     comparedBook={comparedBook}
                 />
             )}

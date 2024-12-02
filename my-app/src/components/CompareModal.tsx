@@ -1,10 +1,10 @@
-import { type Book } from '@/types/book'
+import { Book, TBRBook,UserBook } from '../types/types'
 
 interface CompareModalProps {
   handleComparisonClick: (value: number) => void
   exitFunction?: () => void
   selectedBook: Book
-  comparedBook: Book
+  comparedBook: UserBook
 }
 
 export function CompareModal({ 

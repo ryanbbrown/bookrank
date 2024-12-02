@@ -1375,3 +1375,265 @@ INFO 2024-11-23 17:03:49,895 views After Signup user id: 42
 INFO 2024-11-23 17:06:46,110 views After Signup _auth_user_id: 43
 INFO 2024-11-23 17:06:46,111 views After Signup user id: 43
 INFO 2024-11-23 17:09:51,503 views Session post-logout dict_items([])
+INFO 2024-11-30 18:28:39,352 views Session post-logout dict_items([])
+INFO 2024-11-30 18:29:36,705 views Session post-logout dict_items([])
+INFO 2024-11-30 19:19:03,934 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:03,934 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-11-30 19:19:05,660 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:05,660 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-11-30 19:19:07,631 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:07,632 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-12-01 00:12:17,109 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:17,110 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 00:12:19,363 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:19,364 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 00:12:21,002 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:21,003 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 15:42:00,739 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:42:00,740 views After Signup user id: 2
+INFO 2024-12-01 15:42:00,745 views Session post-logout dict_items([])
+INFO 2024-12-01 15:43:04,041 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:43:04,041 views After Signup user id: 2
+INFO 2024-12-01 15:43:04,046 views Session post-logout dict_items([])
+INFO 2024-12-01 15:44:54,343 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:44:54,343 views After Signup user id: 2
+INFO 2024-12-01 15:44:54,348 views Session post-logout dict_items([])
+INFO 2024-12-01 15:44:54,628 views Session post-logout dict_items([])
+INFO 2024-12-01 15:49:04,262 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:49:04,263 views After Signup user id: 2
+INFO 2024-12-01 15:49:04,269 views Session post-logout dict_items([])
+INFO 2024-12-01 15:49:04,554 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:29,594 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:50:29,595 views After Signup user id: 2
+INFO 2024-12-01 15:50:29,601 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:29,877 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:30,436 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:50:30,445 views After Signup user id: 2
+INFO 2024-12-01 15:51:38,909 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:51:38,910 views After Signup user id: 2
+INFO 2024-12-01 15:51:38,916 views Session post-logout dict_items([])
+INFO 2024-12-01 15:51:39,218 views Session post-logout dict_items([])
+INFO 2024-12-01 15:51:39,785 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:51:39,786 views After Signup user id: 2
+INFO 2024-12-01 15:51:43,605 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:51:43,606 views iia2zy8nkjgs1hqmaus4gkwo6qicagv5
+INFO 2024-12-01 15:55:04,887 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:55:04,887 views After Signup user id: 2
+INFO 2024-12-01 15:55:04,892 views Session post-logout dict_items([])
+INFO 2024-12-01 15:55:05,162 views Session post-logout dict_items([])
+INFO 2024-12-01 15:55:05,685 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:55:05,686 views After Signup user id: 2
+INFO 2024-12-01 15:55:07,690 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:55:07,691 views tcl7xpv0erferxkho76a41x400idev1i
+INFO 2024-12-01 15:57:33,869 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:57:33,869 views After Signup user id: 2
+INFO 2024-12-01 15:57:33,874 views Session post-logout dict_items([])
+INFO 2024-12-01 15:57:34,137 views Session post-logout dict_items([])
+INFO 2024-12-01 15:57:34,651 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:57:34,652 views After Signup user id: 2
+INFO 2024-12-01 15:57:36,403 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:57:36,404 views 2k3fw1n613n5l5qi35c8v7j9q6qemthk
+INFO 2024-12-01 16:06:57,503 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:06:57,504 views After Signup user id: 2
+INFO 2024-12-01 16:06:57,510 views Session post-logout dict_items([])
+INFO 2024-12-01 16:06:57,776 views Session post-logout dict_items([])
+INFO 2024-12-01 16:06:58,300 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:06:58,300 views After Signup user id: 2
+INFO 2024-12-01 16:07:00,378 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:07:00,379 views 9ljupreruzkd7536sjo03wdlch7ybt4l
+INFO 2024-12-01 16:08:26,073 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:08:26,073 views After Signup user id: 2
+INFO 2024-12-01 16:08:26,079 views Session post-logout dict_items([])
+INFO 2024-12-01 16:08:26,339 views Session post-logout dict_items([])
+INFO 2024-12-01 16:08:26,842 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:08:26,842 views After Signup user id: 2
+INFO 2024-12-01 16:08:28,493 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:08:28,494 views bnfsk0fk20al00w4ajilosv2ou4urxkt
+INFO 2024-12-01 16:16:51,968 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:16:51,968 views After Signup user id: 2
+INFO 2024-12-01 16:16:51,974 views Session post-logout dict_items([])
+INFO 2024-12-01 16:16:52,252 views Session post-logout dict_items([])
+INFO 2024-12-01 16:16:52,758 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:16:52,758 views After Signup user id: 2
+INFO 2024-12-01 16:16:54,166 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:16:54,166 views 1g41afqr5k9gy85oyxqtb9snkfhbpii1
+INFO 2024-12-01 16:17:59,958 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:17:59,959 views After Signup user id: 2
+INFO 2024-12-01 16:17:59,965 views Session post-logout dict_items([])
+INFO 2024-12-01 16:18:00,252 views Session post-logout dict_items([])
+INFO 2024-12-01 16:18:00,789 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:18:00,790 views After Signup user id: 2
+INFO 2024-12-01 16:18:02,082 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:18:02,082 views v6dozjhslc2rwexbhc6t1hhmraj4jztu
+INFO 2024-12-01 16:20:15,897 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:20:15,897 views After Signup user id: 2
+INFO 2024-12-01 16:20:15,902 views Session post-logout dict_items([])
+INFO 2024-12-01 16:20:16,166 views Session post-logout dict_items([])
+INFO 2024-12-01 16:20:16,675 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:20:16,676 views After Signup user id: 2
+INFO 2024-12-01 16:20:18,358 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:20:18,359 views w579m05fkaulftrq2tkqw85h5tar5cv8
+INFO 2024-12-01 16:21:40,848 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:21:40,849 views After Signup user id: 2
+INFO 2024-12-01 16:21:40,855 views Session post-logout dict_items([])
+INFO 2024-12-01 16:21:41,120 views Session post-logout dict_items([])
+INFO 2024-12-01 16:21:41,614 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:21:41,615 views After Signup user id: 2
+INFO 2024-12-01 16:21:42,746 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:21:42,746 views jojnab27kw55ew5vf6wd01djqfp16gic
+INFO 2024-12-01 16:22:27,934 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:22:27,935 views After Signup user id: 2
+INFO 2024-12-01 16:22:27,940 views Session post-logout dict_items([])
+INFO 2024-12-01 16:22:28,206 views Session post-logout dict_items([])
+INFO 2024-12-01 16:22:28,719 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:22:28,720 views After Signup user id: 2
+INFO 2024-12-01 16:22:30,179 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:22:30,180 views 3ll1ogmptkp475mg8kqh49lekpyhl1zk
+INFO 2024-12-01 16:29:54,652 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:29:54,652 views After Signup user id: 2
+INFO 2024-12-01 16:29:54,658 views Session post-logout dict_items([])
+INFO 2024-12-01 16:29:54,918 views Session post-logout dict_items([])
+INFO 2024-12-01 16:29:55,430 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:29:55,430 views After Signup user id: 2
+INFO 2024-12-01 16:29:58,496 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:29:58,497 views fhsiiz29hf6z0cjb6rpgehg4q986ipof
+INFO 2024-12-01 16:31:34,029 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:31:34,030 views After Signup user id: 2
+INFO 2024-12-01 16:31:34,036 views Session post-logout dict_items([])
+INFO 2024-12-01 16:31:34,300 views Session post-logout dict_items([])
+INFO 2024-12-01 16:31:34,817 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:31:34,817 views After Signup user id: 2
+INFO 2024-12-01 16:31:36,377 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:31:36,378 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,175 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:31:37,176 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,196 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:31:37,197 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,552 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,553 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,574 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,574 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,594 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,594 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:39:07,317 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:39:07,317 views After Signup user id: 2
+INFO 2024-12-01 16:39:07,322 views Session post-logout dict_items([])
+INFO 2024-12-01 16:39:07,596 views Session post-logout dict_items([])
+INFO 2024-12-01 16:39:08,121 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:39:08,121 views After Signup user id: 2
+INFO 2024-12-01 16:39:09,679 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:39:09,680 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,120 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:39:10,120 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,146 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:39:10,146 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,321 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,321 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,342 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,342 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,364 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,364 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 17:16:45,788 views Session post-logout dict_items([])
+INFO 2024-12-01 17:22:34,465 views Session post-logout dict_items([])
+INFO 2024-12-01 17:23:33,230 views Session post-logout dict_items([])
+INFO 2024-12-01 21:57:06,305 views Session post-logout dict_items([])
+INFO 2024-12-01 22:03:20,397 views Session post-logout dict_items([])
+INFO 2024-12-01 22:03:47,311 views Session post-logout dict_items([])
+INFO 2024-12-01 22:04:15,910 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:05,305 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:56,813 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:59,662 views After Signup _auth_user_id: 44
+INFO 2024-12-01 22:06:59,663 views After Signup user id: 44
+INFO 2024-12-01 22:06:59,947 views Session post-logout dict_items([])
+INFO 2024-12-01 22:08:38,762 views Session post-logout dict_items([])
+INFO 2024-12-01 22:08:41,710 views After Signup _auth_user_id: 45
+INFO 2024-12-01 22:08:41,711 views After Signup user id: 45
+INFO 2024-12-01 22:08:42,028 views Session post-logout dict_items([])
+INFO 2024-12-01 22:13:45,443 views Session post-logout dict_items([])
+INFO 2024-12-01 22:13:48,356 views After Signup _auth_user_id: 46
+INFO 2024-12-01 22:13:48,356 views After Signup user id: 46
+INFO 2024-12-01 22:13:48,672 views Session post-logout dict_items([])
+INFO 2024-12-01 22:15:33,969 views Session post-logout dict_items([])
+INFO 2024-12-01 22:15:36,842 views After Signup _auth_user_id: 47
+INFO 2024-12-01 22:15:36,842 views After Signup user id: 47
+INFO 2024-12-01 22:15:37,143 views Session post-logout dict_items([])
+INFO 2024-12-01 22:18:25,386 views Session post-logout dict_items([])
+INFO 2024-12-01 22:18:28,354 views After Signup _auth_user_id: 48
+INFO 2024-12-01 22:18:28,355 views After Signup user id: 48
+INFO 2024-12-01 22:18:28,589 views Session post-logout dict_items([])
+INFO 2024-12-01 22:22:23,311 views Session post-logout dict_items([])
+INFO 2024-12-01 22:22:26,220 views After Signup _auth_user_id: 49
+INFO 2024-12-01 22:22:26,221 views After Signup user id: 49
+INFO 2024-12-01 22:22:26,509 views Session post-logout dict_items([])
+INFO 2024-12-01 22:23:16,834 views Session post-logout dict_items([])
+INFO 2024-12-01 22:23:19,804 views After Signup _auth_user_id: 50
+INFO 2024-12-01 22:23:19,805 views After Signup user id: 50
+INFO 2024-12-01 22:23:20,093 views Session post-logout dict_items([])
+INFO 2024-12-01 22:27:08,805 views Session post-logout dict_items([])
+INFO 2024-12-01 22:27:11,541 views After Signup _auth_user_id: 51
+INFO 2024-12-01 22:27:11,542 views After Signup user id: 51
+INFO 2024-12-01 22:27:11,856 views Session post-logout dict_items([])
+INFO 2024-12-01 22:30:05,416 views Session post-logout dict_items([])
+INFO 2024-12-01 22:30:08,029 views After Signup _auth_user_id: 52
+INFO 2024-12-01 22:30:08,029 views After Signup user id: 52
+INFO 2024-12-01 22:30:08,373 views Session post-logout dict_items([])
+INFO 2024-12-01 22:31:29,011 views Session post-logout dict_items([])
+INFO 2024-12-01 22:31:31,756 views After Signup _auth_user_id: 53
+INFO 2024-12-01 22:31:31,757 views After Signup user id: 53
+INFO 2024-12-01 22:31:32,081 views Session post-logout dict_items([])
+INFO 2024-12-01 22:35:03,491 views Session post-logout dict_items([])
+INFO 2024-12-01 22:35:06,218 views After Signup _auth_user_id: 54
+INFO 2024-12-01 22:35:06,219 views After Signup user id: 54
+INFO 2024-12-01 22:35:06,498 views Session post-logout dict_items([])
+INFO 2024-12-01 22:37:09,914 views Session post-logout dict_items([])
+INFO 2024-12-01 22:37:12,786 views After Signup _auth_user_id: 55
+INFO 2024-12-01 22:37:12,787 views After Signup user id: 55
+INFO 2024-12-01 22:37:13,076 views Session post-logout dict_items([])
+INFO 2024-12-01 22:40:29,025 views Session post-logout dict_items([])
+INFO 2024-12-01 22:40:31,973 views After Signup _auth_user_id: 56
+INFO 2024-12-01 22:40:31,973 views After Signup user id: 56
+INFO 2024-12-01 22:40:32,265 views Session post-logout dict_items([])
+INFO 2024-12-01 22:44:15,193 views Session post-logout dict_items([])
+INFO 2024-12-01 22:44:17,835 views After Signup _auth_user_id: 57
+INFO 2024-12-01 22:44:17,836 views After Signup user id: 57
+INFO 2024-12-01 22:44:18,131 views Session post-logout dict_items([])
+INFO 2024-12-01 22:44:24,140 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 22:44:24,141 views g2aytw2i5m53jbgi2jiv93xacurmny62
+INFO 2024-12-01 22:51:20,587 views Session post-logout dict_items([])
+INFO 2024-12-01 22:51:23,355 views After Signup _auth_user_id: 58
+INFO 2024-12-01 22:51:23,356 views After Signup user id: 58
+INFO 2024-12-01 22:51:23,611 views Session post-logout dict_items([])
+INFO 2024-12-01 22:51:30,859 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 22:51:30,859 views cc9nhozx2yw4f3jiaabtk504hudg86ha
+INFO 2024-12-01 23:32:47,465 views After Signup _auth_user_id: 59
+INFO 2024-12-01 23:32:47,466 views After Signup user id: 59
+INFO 2024-12-01 23:32:54,244 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:32:54,244 views 504uqs0w5qeun7mgbl6oqrx5dxuc0qyr
+INFO 2024-12-01 23:35:35,587 views After Signup _auth_user_id: 60
+INFO 2024-12-01 23:35:35,587 views After Signup user id: 60
+INFO 2024-12-01 23:35:40,287 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:35:40,287 views wivoijk4ijm0wuddtl8mfrdh5gmw5v2h
+INFO 2024-12-01 23:43:49,968 views After Signup _auth_user_id: 61
+INFO 2024-12-01 23:43:49,968 views After Signup user id: 61
+INFO 2024-12-01 23:44:51,239 views After Signup _auth_user_id: 62
+INFO 2024-12-01 23:44:51,239 views After Signup user id: 62
+INFO 2024-12-01 23:44:56,085 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '8812783'])
+INFO 2024-12-01 23:44:56,086 views 6a34mjvjyn6ihjs6qynkqrw8eqvqqxuu
+INFO 2024-12-01 23:45:01,692 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '8812783'])
+INFO 2024-12-01 23:45:01,693 views 6a34mjvjyn6ihjs6qynkqrw8eqvqqxuu
+INFO 2024-12-01 23:47:05,607 views After Signup _auth_user_id: 63
+INFO 2024-12-01 23:47:05,608 views After Signup user id: 63
+INFO 2024-12-01 23:47:12,362 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:47:12,363 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:47:18,077 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:47:18,078 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:47:18,327 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:47:18,328 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:54:45,182 views After Signup _auth_user_id: 64
+INFO 2024-12-01 23:54:45,182 views After Signup user id: 64
+INFO 2024-12-01 23:54:53,236 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:54:53,236 views uye0902d5f81j26ua126mqq5z5iq6sc3
+INFO 2024-12-01 23:54:58,948 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:54:58,949 views uye0902d5f81j26ua126mqq5z5iq6sc3
+INFO 2024-12-01 23:54:59,175 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:54:59,176 views uye0902d5f81j26ua126mqq5z5iq6sc3

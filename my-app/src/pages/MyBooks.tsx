@@ -3,7 +3,7 @@ import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { BookRowModal } from '../components/BookRowModal';
-import { Book, Rating } from '../types/book';
+import { UserBook, Rating, ApiResponse } from '../types/types';
 
 interface ComparisonParams {
     workId: string;
@@ -11,16 +11,16 @@ interface ComparisonParams {
 }
 
 function MyBooks() {
-    const [books, setBooks] = useState<Book[]>([]);
-    const [unrankedBook, setUnrankedBook] = useState<Book | null>(null);
-    const [comparedBook, setComparedBook] = useState<Book | null>(null);
+    const [books, setBooks] = useState<UserBook[]>([]);
+    const [unrankedBook, setUnrankedBook] = useState<UserBook | null>(null);
+    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
-    const [activeRow, setActiveRow] = useState<number | null>(null);
+    const [activeRow, setActiveRow] = useState<string | null>(null);
     const [getNextUnranked, setGetNextUnranked] = useState(true);
     const outcome = useRef<number>(0);
 
     useEffect(() => {
-        axiosInstance.get('api/userbooks/')
+        axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
             .then(response => {
                 setBooks(response.data.data || []);
             })
@@ -31,7 +31,7 @@ function MyBooks() {
 
     const refreshBooks = () => {
         setTimeout(() => {
-            axiosInstance.get('api/userbooks/')
+            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
                 .then(response => {
                     setBooks(response.data.data || []);
                 })
@@ -42,9 +42,9 @@ function MyBooks() {
     };
 
     const fetchUnrankedBook = () => {
-        axiosInstance.get('api/unranked-books/')
+        axiosInstance.get<ApiResponse<UserBook>>('api/unranked-books/')
             .then(response => {
-                const tempUnrankedBook = response.data.data;
+                const tempUnrankedBook = response.data.data || null;
                 setUnrankedBook(tempUnrankedBook);
                 return tempUnrankedBook;
             })
@@ -61,11 +61,11 @@ function MyBooks() {
     };
 
     const fetchComparison = ({ workId, getNextUnranked }: ComparisonParams) => {
-        axiosInstance.get('api/compare-book/', {
+        axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
             params: { work_id: workId }
         })
             .then(response => {
-                const comparedBook = response.data.data;
+                const comparedBook = response.data.data || null;
                 if (comparedBook) {
                     setComparedBook(comparedBook);
                     setShowComparison(true);
@@ -80,7 +80,7 @@ function MyBooks() {
     const handleRatingClick = (rating: Rating) => {
         if (!unrankedBook) return;
 
-        axiosInstance.patch('api/add-finished-book/', {
+        axiosInstance.patch<ApiResponse<never>>('api/add-finished-book/', {
             work_id: unrankedBook.work_id,
             rating: rating,
         }).then(() => {
@@ -99,7 +99,7 @@ function MyBooks() {
 
         outcome.current = o === 1 ? 1 : 0;
         
-        axiosInstance.post('api/compare-book/', {
+        axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
             new_book_id: unrankedBook.work_id,
             existing_book_id: comparedBook.work_id,
             outcome: outcome.current,
@@ -111,7 +111,7 @@ function MyBooks() {
         });
     };
 
-    const handleSpecificRankClick = (book: Book) => {
+    const handleSpecificRankClick = (book: UserBook) => {
         setUnrankedBook(book);
         setGetNextUnranked(false);
         if (book.rating !== null) {
@@ -125,22 +125,23 @@ function MyBooks() {
         fetchUnrankedBook();
     };
 
-    const handleReRankClick = (book: Book) => {
+    const handleReRankClick = (book: UserBook) => {
         const updatedBook = { ...book, rating: null };
         setGetNextUnranked(false);
         setUnrankedBook(updatedBook);
         setShowComparison(true);
     };
 
-    const handleRemoveClick = (book: Book) => {
-        axiosInstance.delete('api/add-finished-book/', {
+    const handleRemoveClick = (book: UserBook) => {
+        axiosInstance.delete<ApiResponse<never>>('api/add-finished-book/', {
             params: { work_id: book.work_id }
         }).then(() => {
             refreshBooks();
         });
     };
 
-    const handleRowClick = (bookId: number) => {
+    const handleRowClick = (bookId: string) => {
+        console.log(bookId);
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
@@ -168,7 +169,7 @@ function MyBooks() {
                 </thead>
                 <tbody>
                     {books.map(book => (
-                        <tr key={book.id} className="hover:bg-gray-100" onClick={() => handleRowClick(book.id)}>
+                        <tr key={book.work_id} className="hover:bg-gray-100" onClick={() => handleRowClick(book.work_id)}>
                             <td className="px-4 py-2 text-center">
                                 <img src={book.image_url} alt={book.title} className="inline-block rounded" />
                             </td>
@@ -177,7 +178,7 @@ function MyBooks() {
                             <td className="px-4 py-2 text-center">{book.normalized_rating}</td>
                             <td className="px-4 py-2 text-center relative">
                                 {new Date(book.date_added).toLocaleDateString()}
-                                {activeRow === book.id && (
+                                {activeRow === book.work_id && (
                                     <BookRowModal
                                         handleSpecificRankClick={handleSpecificRankClick}
                                         handleReRankClick={handleReRankClick}

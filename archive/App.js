@@ -7,7 +7,6 @@ import MyBooks from './pages/MyBooks';
 import { Header } from './components/Header.tsx';
 import ToBeRead from './pages/ToBeRead';
 import Recommendations from './pages/Recommendations';
-import Chat from './pages/Chat';
 import GoodreadsImport from './pages/GoodreadsImport';
 import { Footer } from './components/Footer.tsx';
 import TermsOfService from './pages/TermsOfService';
@@ -66,7 +65,7 @@ const App = () => {
                         <Route path="/mybooks" element={<MyBooks />} />
                         <Route path="/toberead" element={<ToBeRead />} />
                         <Route path="/myrecs" element={<Recommendations />} />
-                        <Route path="/mychat" element={<Chat />} />
+                        {/* <Route path="/mychat" element={<Chat />} /> */}
                         <Route path="/goodreadsimport" element={<GoodreadsImport />} />
                         <Route path="/termsofservice" element={<TermsOfService />} />
                     </Routes>

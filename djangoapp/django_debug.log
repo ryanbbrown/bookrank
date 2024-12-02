@@ -47311,3 +47311,1028 @@ INFO 2024-11-23 17:13:56,443 basehttp "POST /api/login/ HTTP/1.0" 200 111
 INFO 2024-11-23 17:14:32,562 basehttp "POST /api/login/ HTTP/1.0" 200 111
 INFO 2024-11-23 17:15:43,422 basehttp "POST /api/login/ HTTP/1.0" 200 111
 INFO 2024-11-23 17:17:55,364 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-11-30 18:27:20,277 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-30 18:27:32,536 basehttp "POST /api/login/ HTTP/1.0" 401 27
+WARNING 2024-11-30 18:27:57,933 basehttp "POST /api/login/ HTTP/1.0" 403 45
+WARNING 2024-11-30 18:28:15,173 basehttp "POST /api/login/ HTTP/1.0" 403 45
+INFO 2024-11-30 18:28:33,641 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-11-30 18:28:39,352 views Session post-logout dict_items([])
+INFO 2024-11-30 18:28:39,353 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-11-30 18:29:36,705 views Session post-logout dict_items([])
+INFO 2024-11-30 18:29:36,707 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-11-30 18:29:48,310 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-11-30 18:29:52,290 basehttp "GET /api/chat?current_message=%7B%7D&matches=[] HTTP/1.0" 301 0
+INFO 2024-11-30 18:29:52,650 basehttp "GET /api/chat/?current_message=%7B%7D&matches=[] HTTP/1.0" 200 138
+INFO 2024-11-30 18:30:36,423 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+an+assassin+who+is+the+protagonist%2Fhero%22,%22image%22:null%7D&matches=[] HTTP/1.0" 301 0
+INFO 2024-11-30 18:31:02,947 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+an+assassin+who+is+the+protagonist%2Fhero%22,%22image%22:null%7D&matches=[] HTTP/1.0" 200 3379
+INFO 2024-11-30 18:31:30,945 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+an+assassin+who+is+the+protagonist%2Fhero%22,%22image%22:null%7D&matches=[%7B%22id%22:%2218453342%22,%22score%22:0.876742721,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Russell+Blake%22,%22avg_rating%22:3.8095693588256836,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1375330917m%2F18274047.jpg%22,%22ratings_count%22:2090,%22title%22:%22Night+of+the+Assassin+(Assassin,+%230.5)%22%7D%7D,%7B%22id%22:%2210074436%22,%22score%22:0.875271857,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jennifer+Estep%22,%22avg_rating%22:4.163246154785156,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1269891027m%2F7614747.jpg%22,%22ratings_count%22:19149,%22title%22:%22Venom+(Elemental+Assassin,+%233)%22%7D%7D,%7B%22id%22:%221841038%22,%22score%22:0.872516394,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Daniel+Silva%22,%22avg_rating%22:4.051814079284668,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1341575566m%2F118494.jpg%22,%22ratings_count%22:7855,%22title%22:%22The+Mark+of+the+Assassin+(Michael+Osbourne,+%231)%22%7D%7D,%7B%22id%22:%2229727%22,%22score%22:0.87135911,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Barry+Eisler%22,%22avg_rating%22:4.2326202392578125,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1266454595m%2F29264.jpg%22,%22ratings_count%22:4488,%22title%22:%22The+Killer+Ascendant+(John+Rain,+%236)%22%7D%7D,%7B%22id%22:%227921323%22,%22score%22:0.869768679,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Oliver+Bowden%22,%22avg_rating%22:3.7366271018981934,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1394133397m%2F7205214.jpg%22,%22ratings_count%22:10039,%22title%22:%22Assassin%27s+Creed:+Renaissance+(Assassin%27s+Creed,+%231)%22%7D%7D,%7B%22id%22:%221329454%22,%22score%22:0.867848,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Sherrilyn+Kenyon%22,%22avg_rating%22:4.203503608703613,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:22319,%22title%22:%22Born+of+Night+(The+League,+%231)%22%7D%7D,%7B%22id%22:%2215757439%22,%22score%22:0.864105105,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Brent+Weeks%22,%22avg_rating%22:4.1784820556640625,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1360569222m%2F10843036.jpg%22,%22ratings_count%22:11172,%22title%22:%22Perfect+Shadow+(Night+Angel,+%230.5)%22%7D%7D,%7B%22id%22:%222971965%22,%22score%22:0.863702178,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Matthew+Woodring+Stover%22,%22avg_rating%22:4.05380392074585,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2379,%22title%22:%22Caine+Black+Knife+(The+Acts+of+Caine,+%233)%22%7D%7D,%7B%22id%22:%224704444%22,%22score%22:0.863485038,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jaye+Wells%22,%22avg_rating%22:3.702336311340332,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:15195,%22title%22:%22Red-Headed+Stepchild+(Sabina+Kane,+%231)%22%7D%7D] HTTP/1.0" 301 0
+INFO 2024-11-30 18:31:31,933 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+an+assassin+who+is+the+protagonist%2Fhero%22,%22image%22:null%7D&matches=[%7B%22id%22:%2218453342%22,%22score%22:0.876742721,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Russell+Blake%22,%22avg_rating%22:3.8095693588256836,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1375330917m%2F18274047.jpg%22,%22ratings_count%22:2090,%22title%22:%22Night+of+the+Assassin+(Assassin,+%230.5)%22%7D%7D,%7B%22id%22:%2210074436%22,%22score%22:0.875271857,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jennifer+Estep%22,%22avg_rating%22:4.163246154785156,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1269891027m%2F7614747.jpg%22,%22ratings_count%22:19149,%22title%22:%22Venom+(Elemental+Assassin,+%233)%22%7D%7D,%7B%22id%22:%221841038%22,%22score%22:0.872516394,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Daniel+Silva%22,%22avg_rating%22:4.051814079284668,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1341575566m%2F118494.jpg%22,%22ratings_count%22:7855,%22title%22:%22The+Mark+of+the+Assassin+(Michael+Osbourne,+%231)%22%7D%7D,%7B%22id%22:%2229727%22,%22score%22:0.87135911,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Barry+Eisler%22,%22avg_rating%22:4.2326202392578125,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1266454595m%2F29264.jpg%22,%22ratings_count%22:4488,%22title%22:%22The+Killer+Ascendant+(John+Rain,+%236)%22%7D%7D,%7B%22id%22:%227921323%22,%22score%22:0.869768679,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Oliver+Bowden%22,%22avg_rating%22:3.7366271018981934,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1394133397m%2F7205214.jpg%22,%22ratings_count%22:10039,%22title%22:%22Assassin%27s+Creed:+Renaissance+(Assassin%27s+Creed,+%231)%22%7D%7D,%7B%22id%22:%221329454%22,%22score%22:0.867848,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Sherrilyn+Kenyon%22,%22avg_rating%22:4.203503608703613,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:22319,%22title%22:%22Born+of+Night+(The+League,+%231)%22%7D%7D,%7B%22id%22:%2215757439%22,%22score%22:0.864105105,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Brent+Weeks%22,%22avg_rating%22:4.1784820556640625,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1360569222m%2F10843036.jpg%22,%22ratings_count%22:11172,%22title%22:%22Perfect+Shadow+(Night+Angel,+%230.5)%22%7D%7D,%7B%22id%22:%222971965%22,%22score%22:0.863702178,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Matthew+Woodring+Stover%22,%22avg_rating%22:4.05380392074585,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2379,%22title%22:%22Caine+Black+Knife+(The+Acts+of+Caine,+%233)%22%7D%7D,%7B%22id%22:%224704444%22,%22score%22:0.863485038,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jaye+Wells%22,%22avg_rating%22:3.702336311340332,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:15195,%22title%22:%22Red-Headed+Stepchild+(Sabina+Kane,+%231)%22%7D%7D] HTTP/1.0" 200 3949
+INFO 2024-11-30 18:32:42,028 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-11-30 18:33:18,126 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+two+fairy+clans+that+are+at+war%22,%22image%22:null%7D&matches=[] HTTP/1.0" 301 0
+INFO 2024-11-30 18:33:19,447 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+two+fairy+clans+that+are+at+war%22,%22image%22:null%7D&matches=[] HTTP/1.0" 200 4644
+INFO 2024-11-30 18:33:58,895 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+two+fairy+clans+that+are+at+war%22,%22image%22:null%7D&matches=[%7B%22id%22:%227188824%22,%22score%22:0.870060682,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Erin+Hunter%22,%22avg_rating%22:4.36722469329834,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1259442980m%2F6953778.jpg%22,%22ratings_count%22:7524,%22title%22:%22SkyClan%27s+Destiny+(Warriors+Super+Edition,+%233)%22%7D%7D,%7B%22id%22:%221003656%22,%22score%22:0.869822,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tad+Williams%22,%22avg_rating%22:3.876099109649658,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:6255,%22title%22:%22Shadowplay+(Shadowmarch,+%232)%22%7D%7D,%7B%22id%22:%2241796499%22,%22score%22:0.867234051,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Joe+Abercrombie%22,%22avg_rating%22:4.012319087982178,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1429885218m%2F22381326.jpg%22,%22ratings_count%22:14855,%22title%22:%22Half+a+War+(Shattered+Sea,+%233)%22%7D%7D,%7B%22id%22:%221840118%22,%22score%22:0.866535246,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22David+Gemmell%22,%22avg_rating%22:4.17622184753418,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:4727,%22title%22:%22Stormrider+(The+Rigante,+%234)%22%7D%7D,%7B%22id%22:%22338931%22,%22score%22:0.866253138,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Margaret+Weis%22,%22avg_rating%22:3.863743782043457,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2965,%22title%22:%22The+Prophet+of+Akhran+(Rose+of+the+Prophet,+%233)%22%7D%7D,%7B%22id%22:%2244868262%22,%22score%22:0.865912259,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Audrey+Coulthurst%22,%22avg_rating%22:3.675816059112549,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1457102645m%2F25164304.jpg%22,%22ratings_count%22:5392,%22title%22:%22Of+Fire+and+Stars%22%7D%7D,%7B%22id%22:%2242827367%22,%22score%22:0.86559689,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Julie+Eshbaugh%22,%22avg_rating%22:3.649576187133789,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1445239856m%2F27064385.jpg%22,%22ratings_count%22:2360,%22title%22:%22Ivory+and+Bone+(Ivory+and+Bone,+%231)%22%7D%7D,%7B%22id%22:%22555170%22,%22score%22:0.86554563,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22David+Gemmell%22,%22avg_rating%22:4.21558141708374,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1403186662m%2F505352.jpg%22,%22ratings_count%22:4852,%22title%22:%22Ravenheart+(The+Rigante,+%233)%22%7D%7D,%7B%22id%22:%2250721926%22,%22score%22:0.863910913,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Cinda+Williams+Chima%22,%22avg_rating%22:4.204469680786133,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1483546794m%2F30253091.jpg%22,%22ratings_count%22:2103,%22title%22:%22Shadowcaster+(Shattered+Realms,+%232)%22%7D%7D] HTTP/1.0" 301 0
+INFO 2024-11-30 18:33:59,959 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+two+fairy+clans+that+are+at+war%22,%22image%22:null%7D&matches=[%7B%22id%22:%227188824%22,%22score%22:0.870060682,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Erin+Hunter%22,%22avg_rating%22:4.36722469329834,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1259442980m%2F6953778.jpg%22,%22ratings_count%22:7524,%22title%22:%22SkyClan%27s+Destiny+(Warriors+Super+Edition,+%233)%22%7D%7D,%7B%22id%22:%221003656%22,%22score%22:0.869822,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tad+Williams%22,%22avg_rating%22:3.876099109649658,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:6255,%22title%22:%22Shadowplay+(Shadowmarch,+%232)%22%7D%7D,%7B%22id%22:%2241796499%22,%22score%22:0.867234051,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Joe+Abercrombie%22,%22avg_rating%22:4.012319087982178,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1429885218m%2F22381326.jpg%22,%22ratings_count%22:14855,%22title%22:%22Half+a+War+(Shattered+Sea,+%233)%22%7D%7D,%7B%22id%22:%221840118%22,%22score%22:0.866535246,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22David+Gemmell%22,%22avg_rating%22:4.17622184753418,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:4727,%22title%22:%22Stormrider+(The+Rigante,+%234)%22%7D%7D,%7B%22id%22:%22338931%22,%22score%22:0.866253138,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Margaret+Weis%22,%22avg_rating%22:3.863743782043457,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2965,%22title%22:%22The+Prophet+of+Akhran+(Rose+of+the+Prophet,+%233)%22%7D%7D,%7B%22id%22:%2244868262%22,%22score%22:0.865912259,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Audrey+Coulthurst%22,%22avg_rating%22:3.675816059112549,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1457102645m%2F25164304.jpg%22,%22ratings_count%22:5392,%22title%22:%22Of+Fire+and+Stars%22%7D%7D,%7B%22id%22:%2242827367%22,%22score%22:0.86559689,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Julie+Eshbaugh%22,%22avg_rating%22:3.649576187133789,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1445239856m%2F27064385.jpg%22,%22ratings_count%22:2360,%22title%22:%22Ivory+and+Bone+(Ivory+and+Bone,+%231)%22%7D%7D,%7B%22id%22:%22555170%22,%22score%22:0.86554563,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22David+Gemmell%22,%22avg_rating%22:4.21558141708374,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1403186662m%2F505352.jpg%22,%22ratings_count%22:4852,%22title%22:%22Ravenheart+(The+Rigante,+%233)%22%7D%7D,%7B%22id%22:%2250721926%22,%22score%22:0.863910913,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Cinda+Williams+Chima%22,%22avg_rating%22:4.204469680786133,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1483546794m%2F30253091.jpg%22,%22ratings_count%22:2103,%22title%22:%22Shadowcaster+(Shattered+Realms,+%232)%22%7D%7D] HTTP/1.0" 200 3520
+INFO 2024-11-30 18:37:10,073 basehttp "GET /api/chat/?current_message=%7B%7D&matches=[] HTTP/1.0" 200 138
+INFO 2024-11-30 18:37:34,372 basehttp "GET /api/chat/?current_message=%7B%7D&matches=[] HTTP/1.0" 200 138
+INFO 2024-11-30 18:37:52,413 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+to+read+a+book+about+a+single+father+in+the+1900s%22,%22image%22:null%7D&matches=[] HTTP/1.0" 301 0
+INFO 2024-11-30 18:37:53,473 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+to+read+a+book+about+a+single+father+in+the+1900s%22,%22image%22:null%7D&matches=[] HTTP/1.0" 200 4026
+INFO 2024-11-30 18:39:03,349 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+to+read+a+book+about+a+single+father+in+the+1900s%22,%22image%22:null%7D&matches=[%7B%22id%22:%221374347%22,%22score%22:0.852060437,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Garth+Stein%22,%22avg_rating%22:3.7125084400177,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1390175683m%2F18112204.jpg%22,%22ratings_count%22:2974,%22title%22:%22How+Evan+Broke+His+Head+and+Other+Secrets%22%7D%7D,%7B%22id%22:%221294426%22,%22score%22:0.851771355,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Ivan+Turgenev%22,%22avg_rating%22:3.94242000579834,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:50712,%22title%22:%22Fathers+and+Sons%22%7D%7D,%7B%22id%22:%221802690%22,%22score%22:0.850672662,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Christopher+Isherwood%22,%22avg_rating%22:4.102379322052002,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1380688373m%2F16842.jpg%22,%22ratings_count%22:18031,%22title%22:%22A+Single+Man%22%7D%7D,%7B%22id%22:%222234336%22,%22score%22:0.847475231,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jane+Smiley%22,%22avg_rating%22:3.7895376682281494,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:50161,%22title%22:%22A+Thousand+Acres%22%7D%7D,%7B%22id%22:%2218367666%22,%22score%22:0.845336199,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Piper+Vaughn%22,%22avg_rating%22:4.033263683319092,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1327464763m%2F13186809.jpg%22,%22ratings_count%22:4299,%22title%22:%22One+Small+Thing+(One+Thing,+%231)%22%7D%7D,%7B%22id%22:%22813560%22,%22score%22:0.842401803,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tony+Parsons%22,%22avg_rating%22:3.5504133701324463,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:13181,%22title%22:%22Man+and+Boy+(Harry+Silver,+%231)%22%7D%7D,%7B%22id%22:%221043640%22,%22score%22:0.842325091,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Ann+Patchett%22,%22avg_rating%22:3.4248645305633545,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:4432,%22title%22:%22Taft%22%7D%7D,%7B%22id%22:%2246386%22,%22score%22:0.842274,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tony+Parsons%22,%22avg_rating%22:3.458045721054077,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2753,%22title%22:%22One+for+My+Baby%22%7D%7D,%7B%22id%22:%226754540%22,%22score%22:0.841401577,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Natasha+Friend%22,%22avg_rating%22:3.7448441982269287,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1311835057m%2F6603110.jpg%22,%22ratings_count%22:2085,%22title%22:%22For+Keeps%22%7D%7D] HTTP/1.0" 301 0
+INFO 2024-11-30 18:39:04,241 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+to+read+a+book+about+a+single+father+in+the+1900s%22,%22image%22:null%7D&matches=[%7B%22id%22:%221374347%22,%22score%22:0.852060437,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Garth+Stein%22,%22avg_rating%22:3.7125084400177,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1390175683m%2F18112204.jpg%22,%22ratings_count%22:2974,%22title%22:%22How+Evan+Broke+His+Head+and+Other+Secrets%22%7D%7D,%7B%22id%22:%221294426%22,%22score%22:0.851771355,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Ivan+Turgenev%22,%22avg_rating%22:3.94242000579834,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:50712,%22title%22:%22Fathers+and+Sons%22%7D%7D,%7B%22id%22:%221802690%22,%22score%22:0.850672662,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Christopher+Isherwood%22,%22avg_rating%22:4.102379322052002,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1380688373m%2F16842.jpg%22,%22ratings_count%22:18031,%22title%22:%22A+Single+Man%22%7D%7D,%7B%22id%22:%222234336%22,%22score%22:0.847475231,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Jane+Smiley%22,%22avg_rating%22:3.7895376682281494,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:50161,%22title%22:%22A+Thousand+Acres%22%7D%7D,%7B%22id%22:%2218367666%22,%22score%22:0.845336199,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Piper+Vaughn%22,%22avg_rating%22:4.033263683319092,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1327464763m%2F13186809.jpg%22,%22ratings_count%22:4299,%22title%22:%22One+Small+Thing+(One+Thing,+%231)%22%7D%7D,%7B%22id%22:%22813560%22,%22score%22:0.842401803,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tony+Parsons%22,%22avg_rating%22:3.5504133701324463,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:13181,%22title%22:%22Man+and+Boy+(Harry+Silver,+%231)%22%7D%7D,%7B%22id%22:%221043640%22,%22score%22:0.842325091,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Ann+Patchett%22,%22avg_rating%22:3.4248645305633545,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:4432,%22title%22:%22Taft%22%7D%7D,%7B%22id%22:%2246386%22,%22score%22:0.842274,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tony+Parsons%22,%22avg_rating%22:3.458045721054077,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2753,%22title%22:%22One+for+My+Baby%22%7D%7D,%7B%22id%22:%226754540%22,%22score%22:0.841401577,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Natasha+Friend%22,%22avg_rating%22:3.7448441982269287,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1311835057m%2F6603110.jpg%22,%22ratings_count%22:2085,%22title%22:%22For+Keeps%22%7D%7D] HTTP/1.0" 200 3411
+INFO 2024-11-30 18:40:22,399 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+software+engineers+in+an+intense+environment%22,%22image%22:null%7D&matches=[] HTTP/1.0" 301 0
+INFO 2024-11-30 18:40:23,489 basehttp "GET /api/chat/?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+software+engineers+in+an+intense+environment%22,%22image%22:null%7D&matches=[] HTTP/1.0" 200 4256
+INFO 2024-11-30 18:55:37,286 basehttp "GET /api/chat?current_message=%7B%22role%22:%22user%22,%22content%22:%22I+want+a+book+about+software+engineers+in+an+intense+environment%22,%22image%22:null%7D&matches=[%7B%22id%22:%2215186027%22,%22score%22:0.86318922,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Robert+C.+Martin%22,%22avg_rating%22:4.262842655181885,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:3504,%22title%22:%22The+Clean+Coder:+A+Code+of+Conduct+for+Professional+Programmers%22%7D%7D,%7B%22id%22:%22173058%22,%22score%22:0.85658592,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Eric+Evans%22,%22avg_rating%22:4.1470160484313965,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1287493789m%2F179133.jpg%22,%22ratings_count%22:2748,%22title%22:%22Domain-Driven+Design:+Tackling+Complexity+in+the+Heart+of+Software%22%7D%7D,%7B%22id%22:%227809%22,%22score%22:0.85517025,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Andy+Hunt%22,%22avg_rating%22:4.30811882019043,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1401432508m%2F4099.jpg%22,%22ratings_count%22:10827,%22title%22:%22The+Pragmatic+Programmer:+From+Journeyman+to+Master%22%7D%7D,%7B%22id%22:%221905885%22,%22score%22:0.852227628,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Frederick+P.+Brooks+Jr.%22,%22avg_rating%22:4.051746845245361,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:8271,%22title%22:%22The+Mythical+Man-Month:+Essays+on+Software+Engineering%22%7D%7D,%7B%22id%22:%2265773%22,%22score%22:0.84432596,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Tom+DeMarco%22,%22avg_rating%22:4.15271520614624,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:5985,%22title%22:%22Peopleware:+Productive+Projects+and+Teams%22%7D%7D,%7B%22id%22:%2243471%22,%22score%22:0.843574882,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Alan+Cooper%22,%22avg_rating%22:3.95035457611084,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fimages.gr-assets.com%2Fbooks%2F1294604058m%2F44098.jpg%22,%22ratings_count%22:1974,%22title%22:%22The+Inmates+Are+Running+the+Asylum:+Why+High+Tech+Products+Drive+Us+Crazy+and+How+to+Restore+the+Sanity%22%7D%7D,%7B%22id%22:%22851428%22,%22score%22:0.841941774,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Douglas+Coupland%22,%22avg_rating%22:3.87565279006958,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:21448,%22title%22:%22Microserfs%22%7D%7D,%7B%22id%22:%223779106%22,%22score%22:0.840946078,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Robert+C.+Martin%22,%22avg_rating%22:4.3701491355896,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:8375,%22title%22:%22Clean+Code:+A+Handbook+of+Agile+Software+Craftsmanship%22%7D%7D,%7B%22id%22:%223094299%22,%22score%22:0.839905441,%22values%22:[],%22metadata%22:%7B%22author_name%22:%22Andy+Hunt%22,%22avg_rating%22:4.124528408050537,%22description%22:%22%22,%22image_url%22:%22https:%2F%2Fs.gr-assets.com%2Fassets%2Fnophoto%2Fbook%2F111x148-bcc042a9c91a29c1d680899eff700a03.png%22,%22ratings_count%22:2915,%22title%22:%22Pragmatic+Thinking+and+Learning:+Refactor+Your+Wetware%22%7D%7D] HTTP/1.0" 301 0
+INFO 2024-11-30 18:55:43,713 basehttp "GET /api/userbooks/ HTTP/1.0" 200 44803
+INFO 2024-11-30 18:58:53,886 basehttp "GET /api/userbooks/ HTTP/1.0" 200 44803
+INFO 2024-11-30 19:02:09,443 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-11-30 19:02:11,049 basehttp "GET /api/userbooks/ HTTP/1.0" 200 44803
+INFO 2024-11-30 19:17:29,959 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 6984
+INFO 2024-11-30 19:18:20,628 basehttp "GET /api/search/?query=warrior+cats HTTP/1.0" 200 10290
+INFO 2024-11-30 19:18:37,872 basehttp "GET /api/search/?query=warriors+erin+hunter HTTP/1.0" 200 8429
+INFO 2024-11-30 19:18:58,710 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-11-30 19:18:58,779 basehttp "GET /api/compare-book/?work_id=1346922&title=Into+the+Wild+(Warriors,+%231)&author=Erin+Hunter HTTP/1.0" 200 451
+INFO 2024-11-30 19:19:03,934 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:03,934 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-11-30 19:19:04,007 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-11-30 19:19:04,205 basehttp "GET /api/compare-book/?work_id=1346922 HTTP/1.0" 200 1034
+INFO 2024-11-30 19:19:05,660 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:05,660 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-11-30 19:19:05,741 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-11-30 19:19:06,091 basehttp "GET /api/compare-book/?work_id=1346922 HTTP/1.0" 200 463
+INFO 2024-11-30 19:19:07,631 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '1346922'])
+INFO 2024-11-30 19:19:07,632 views ntcv67slqemdbmkoaxpjaxkpqkrn0pwz
+INFO 2024-11-30 19:19:07,697 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-11-30 19:19:08,057 basehttp "GET /api/compare-book/?work_id=1346922 HTTP/1.0" 200 62
+INFO 2024-11-30 23:27:29,162 autoreload Watching for file changes with StatReloader
+INFO 2024-11-30 23:30:53,039 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-11-30 23:30:54,158 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 751
+INFO 2024-11-30 23:48:19,440 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-11-30 23:49:29,055 autoreload Watching for file changes with StatReloader
+INFO 2024-11-30 23:57:55,163 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 751
+INFO 2024-12-01 00:06:04,105 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 751
+INFO 2024-12-01 00:06:10,364 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 751
+INFO 2024-12-01 00:06:35,520 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 751
+INFO 2024-12-01 00:07:27,049 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 00:07:27,423 basehttp "GET /api/compare-book/?work_id=18453342 HTTP/1.0" 200 1111
+INFO 2024-12-01 00:07:27,446 basehttp "DELETE /api/to-be-read/?work_id=18453342 HTTP/1.0" 200 55
+INFO 2024-12-01 00:07:27,991 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:07:39,012 basehttp "GET /api/userbooks/ HTTP/1.0" 200 46921
+INFO 2024-12-01 00:09:09,372 basehttp "GET /api/search/?query=The+Giver HTTP/1.0" 200 8666
+INFO 2024-12-01 00:09:28,384 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 00:09:30,658 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 730
+INFO 2024-12-01 00:11:00,679 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 730
+INFO 2024-12-01 00:11:04,733 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 00:11:04,777 basehttp "GET /api/compare-book/?work_id=2543234 HTTP/1.0" 200 1111
+INFO 2024-12-01 00:11:05,077 basehttp "DELETE /api/to-be-read/?work_id=2543234 HTTP/1.0" 200 55
+INFO 2024-12-01 00:11:05,925 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:11:28,821 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:12:15,364 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:12:17,109 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:17,110 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 00:12:17,157 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 00:12:17,492 basehttp "GET /api/compare-book/?work_id=2543234 HTTP/1.0" 200 1756
+INFO 2024-12-01 00:12:17,765 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:12:19,363 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:19,364 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 00:12:19,415 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 00:12:19,751 basehttp "GET /api/compare-book/?work_id=2543234 HTTP/1.0" 200 410
+INFO 2024-12-01 00:12:20,002 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:12:21,002 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '18453342', '2543234'])
+INFO 2024-12-01 00:12:21,003 views rr4r0m4cjmae7orycdrvwzmptad4phf7
+INFO 2024-12-01 00:12:21,061 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 00:12:21,410 basehttp "GET /api/compare-book/?work_id=2543234 HTTP/1.0" 200 62
+INFO 2024-12-01 00:12:21,651 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 529
+INFO 2024-12-01 00:12:23,073 basehttp "GET /api/userbooks/ HTTP/1.0" 200 47683
+INFO 2024-12-01 00:56:47,589 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-01 00:57:53,562 autoreload Watching for file changes with StatReloader
+INFO 2024-12-01 01:02:22,176 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 01:06:42,107 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 01:31:36,128 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 01:44:29,121 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 01:56:29,115 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 03:10:23,419 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-01 03:11:34,742 autoreload Watching for file changes with StatReloader
+INFO 2024-12-01 14:55:47,363 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/urls.py changed, reloading.
+INFO 2024-12-01 14:57:38,775 autoreload Watching for file changes with StatReloader
+INFO 2024-12-01 15:13:38,325 autoreload Watching for file changes with StatReloader
+INFO 2024-12-01 15:25:55,949 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 15:25:56,809 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 15:26:14,246 basehttp "GET /api/search/?query=the+broken+earth HTTP/1.0" 200 12238
+INFO 2024-12-01 15:42:00,739 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:42:00,740 views After Signup user id: 2
+INFO 2024-12-01 15:42:00,745 views Session post-logout dict_items([])
+INFO 2024-12-01 15:43:04,041 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:43:04,041 views After Signup user id: 2
+INFO 2024-12-01 15:43:04,046 views Session post-logout dict_items([])
+INFO 2024-12-01 15:44:54,343 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:44:54,343 views After Signup user id: 2
+INFO 2024-12-01 15:44:54,348 views Session post-logout dict_items([])
+INFO 2024-12-01 15:44:54,628 views Session post-logout dict_items([])
+INFO 2024-12-01 15:49:04,262 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:49:04,263 views After Signup user id: 2
+INFO 2024-12-01 15:49:04,269 views Session post-logout dict_items([])
+INFO 2024-12-01 15:49:04,554 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:29,594 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:50:29,595 views After Signup user id: 2
+INFO 2024-12-01 15:50:29,601 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:29,877 views Session post-logout dict_items([])
+INFO 2024-12-01 15:50:30,436 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:50:30,445 views After Signup user id: 2
+INFO 2024-12-01 15:51:38,909 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:51:38,910 views After Signup user id: 2
+INFO 2024-12-01 15:51:38,916 views Session post-logout dict_items([])
+INFO 2024-12-01 15:51:39,218 views Session post-logout dict_items([])
+INFO 2024-12-01 15:51:39,785 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:51:39,786 views After Signup user id: 2
+INFO 2024-12-01 15:51:43,605 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:51:43,606 views iia2zy8nkjgs1hqmaus4gkwo6qicagv5
+ERROR 2024-12-01 15:51:43,715 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 447, in post
+    self.update_ratings(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 415, in update_ratings
+    new_rating, new_RD = self.calc_new_rating(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 405, in calc_new_rating
+    new_rating = book_obj_rating + (q / (1 / book_obj_RD**2 + 1 / d2)) * g_RD * (outcome - E_score)
+TypeError: unsupported operand type(s) for -: 'str' and 'float'
+INFO 2024-12-01 15:55:04,887 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:55:04,887 views After Signup user id: 2
+INFO 2024-12-01 15:55:04,892 views Session post-logout dict_items([])
+INFO 2024-12-01 15:55:05,162 views Session post-logout dict_items([])
+INFO 2024-12-01 15:55:05,685 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:55:05,686 views After Signup user id: 2
+INFO 2024-12-01 15:55:07,690 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:55:07,691 views tcl7xpv0erferxkho76a41x400idev1i
+ERROR 2024-12-01 15:55:07,796 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 449, in post
+    self.update_ratings(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 417, in update_ratings
+    new_rating, new_RD = self.calc_new_rating(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 407, in calc_new_rating
+    new_rating = book_obj_rating + (q / (1 / book_obj_RD**2 + 1 / d2)) * g_RD * (outcome - E_score)
+TypeError: unsupported operand type(s) for -: 'str' and 'float'
+INFO 2024-12-01 15:57:33,869 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:57:33,869 views After Signup user id: 2
+INFO 2024-12-01 15:57:33,874 views Session post-logout dict_items([])
+INFO 2024-12-01 15:57:34,137 views Session post-logout dict_items([])
+INFO 2024-12-01 15:57:34,651 views After Signup _auth_user_id: 2
+INFO 2024-12-01 15:57:34,652 views After Signup user id: 2
+INFO 2024-12-01 15:57:36,403 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 15:57:36,404 views 2k3fw1n613n5l5qi35c8v7j9q6qemthk
+ERROR 2024-12-01 15:57:36,506 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 449, in post
+    self.update_ratings(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 417, in update_ratings
+    new_rating, new_RD = self.calc_new_rating(book_obj, other_book_obj, outcome)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 407, in calc_new_rating
+    new_rating = book_obj_rating + (q / (1 / book_obj_RD**2 + 1 / d2)) * g_RD * (outcome - E_score)
+TypeError: unsupported operand type(s) for -: 'str' and 'float'
+INFO 2024-12-01 16:06:57,503 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:06:57,504 views After Signup user id: 2
+INFO 2024-12-01 16:06:57,510 views Session post-logout dict_items([])
+INFO 2024-12-01 16:06:57,776 views Session post-logout dict_items([])
+INFO 2024-12-01 16:06:58,300 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:06:58,300 views After Signup user id: 2
+INFO 2024-12-01 16:07:00,378 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:07:00,379 views 9ljupreruzkd7536sjo03wdlch7ybt4l
+INFO 2024-12-01 16:08:26,073 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:08:26,073 views After Signup user id: 2
+INFO 2024-12-01 16:08:26,079 views Session post-logout dict_items([])
+INFO 2024-12-01 16:08:26,339 views Session post-logout dict_items([])
+INFO 2024-12-01 16:08:26,842 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:08:26,842 views After Signup user id: 2
+INFO 2024-12-01 16:08:28,493 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:08:28,494 views bnfsk0fk20al00w4ajilosv2ou4urxkt
+ERROR 2024-12-01 16:08:29,303 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 656, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:16:51,968 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:16:51,968 views After Signup user id: 2
+INFO 2024-12-01 16:16:51,974 views Session post-logout dict_items([])
+INFO 2024-12-01 16:16:52,252 views Session post-logout dict_items([])
+INFO 2024-12-01 16:16:52,758 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:16:52,758 views After Signup user id: 2
+INFO 2024-12-01 16:16:54,166 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:16:54,166 views 1g41afqr5k9gy85oyxqtb9snkfhbpii1
+ERROR 2024-12-01 16:16:54,621 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 655, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:17:59,958 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:17:59,959 views After Signup user id: 2
+INFO 2024-12-01 16:17:59,965 views Session post-logout dict_items([])
+INFO 2024-12-01 16:18:00,252 views Session post-logout dict_items([])
+INFO 2024-12-01 16:18:00,789 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:18:00,790 views After Signup user id: 2
+INFO 2024-12-01 16:18:02,082 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:18:02,082 views v6dozjhslc2rwexbhc6t1hhmraj4jztu
+ERROR 2024-12-01 16:18:02,587 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 655, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:20:15,897 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:20:15,897 views After Signup user id: 2
+INFO 2024-12-01 16:20:15,902 views Session post-logout dict_items([])
+INFO 2024-12-01 16:20:16,166 views Session post-logout dict_items([])
+INFO 2024-12-01 16:20:16,675 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:20:16,676 views After Signup user id: 2
+INFO 2024-12-01 16:20:18,358 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:20:18,359 views w579m05fkaulftrq2tkqw85h5tar5cv8
+ERROR 2024-12-01 16:20:18,874 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 655, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:21:40,848 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:21:40,849 views After Signup user id: 2
+INFO 2024-12-01 16:21:40,855 views Session post-logout dict_items([])
+INFO 2024-12-01 16:21:41,120 views Session post-logout dict_items([])
+INFO 2024-12-01 16:21:41,614 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:21:41,615 views After Signup user id: 2
+INFO 2024-12-01 16:21:42,746 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:21:42,746 views jojnab27kw55ew5vf6wd01djqfp16gic
+ERROR 2024-12-01 16:21:43,189 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 655, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:22:27,934 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:22:27,935 views After Signup user id: 2
+INFO 2024-12-01 16:22:27,940 views Session post-logout dict_items([])
+INFO 2024-12-01 16:22:28,206 views Session post-logout dict_items([])
+INFO 2024-12-01 16:22:28,719 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:22:28,720 views After Signup user id: 2
+INFO 2024-12-01 16:22:30,179 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:22:30,180 views 3ll1ogmptkp475mg8kqh49lekpyhl1zk
+ERROR 2024-12-01 16:22:30,574 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 655, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:29:54,652 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:29:54,652 views After Signup user id: 2
+INFO 2024-12-01 16:29:54,658 views Session post-logout dict_items([])
+INFO 2024-12-01 16:29:54,918 views Session post-logout dict_items([])
+INFO 2024-12-01 16:29:55,430 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:29:55,430 views After Signup user id: 2
+INFO 2024-12-01 16:29:58,496 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:29:58,497 views fhsiiz29hf6z0cjb6rpgehg4q986ipof
+ERROR 2024-12-01 16:29:58,976 log Internal Server Error: /api/to-be-read/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 657, in delete
+    tbr_book = UserToBeRead.objects.get(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserToBeRead.DoesNotExist: UserToBeRead matching query does not exist.
+INFO 2024-12-01 16:31:34,029 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:31:34,030 views After Signup user id: 2
+INFO 2024-12-01 16:31:34,036 views Session post-logout dict_items([])
+INFO 2024-12-01 16:31:34,300 views Session post-logout dict_items([])
+INFO 2024-12-01 16:31:34,817 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:31:34,817 views After Signup user id: 2
+INFO 2024-12-01 16:31:36,377 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:31:36,378 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,175 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:31:37,176 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,196 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:31:37,197 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,552 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,553 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,574 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,574 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:31:37,594 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:31:37,594 views l9ln2n7ms9zrj70eab8i21ungtnrexyy
+INFO 2024-12-01 16:39:07,317 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:39:07,317 views After Signup user id: 2
+INFO 2024-12-01 16:39:07,322 views Session post-logout dict_items([])
+INFO 2024-12-01 16:39:07,596 views Session post-logout dict_items([])
+INFO 2024-12-01 16:39:08,121 views After Signup _auth_user_id: 2
+INFO 2024-12-01 16:39:08,121 views After Signup user id: 2
+INFO 2024-12-01 16:39:09,679 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 16:39:09,680 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,120 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:39:10,120 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,146 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-01 16:39:10,146 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,321 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,321 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,342 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,342 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 16:39:10,364 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-01 16:39:10,364 views x29c4862xz57e2gfnva62mcbhkyqgnk2
+INFO 2024-12-01 17:16:18,647 autoreload Watching for file changes with StatReloader
+INFO 2024-12-01 17:16:45,788 views Session post-logout dict_items([])
+INFO 2024-12-01 17:16:45,790 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 17:17:04,850 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 17:21:44,914 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 17:22:34,175 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 17:22:34,465 views Session post-logout dict_items([])
+INFO 2024-12-01 17:22:34,467 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 17:23:32,876 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 17:23:33,230 views Session post-logout dict_items([])
+INFO 2024-12-01 17:23:33,231 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 17:23:35,173 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 21:57:05,958 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 21:57:06,305 views Session post-logout dict_items([])
+INFO 2024-12-01 21:57:06,307 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 21:57:08,213 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:01:51,960 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:02:19,311 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:03:20,106 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:03:20,397 views Session post-logout dict_items([])
+INFO 2024-12-01 22:03:20,398 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:03:46,959 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:03:47,311 views Session post-logout dict_items([])
+INFO 2024-12-01 22:03:47,313 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:04:15,592 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:04:15,910 views Session post-logout dict_items([])
+INFO 2024-12-01 22:04:15,911 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:04:17,782 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:06:04,964 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:06:05,305 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:05,308 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:06:56,181 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:06:56,813 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:56,816 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:06:58,681 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:06:59,662 views After Signup _auth_user_id: 44
+INFO 2024-12-01 22:06:59,663 views After Signup user id: 44
+INFO 2024-12-01 22:06:59,686 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:06:59,947 views Session post-logout dict_items([])
+INFO 2024-12-01 22:06:59,948 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:08:38,058 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:08:38,762 views Session post-logout dict_items([])
+INFO 2024-12-01 22:08:38,764 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:08:40,649 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:08:41,710 views After Signup _auth_user_id: 45
+INFO 2024-12-01 22:08:41,711 views After Signup user id: 45
+INFO 2024-12-01 22:08:41,735 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:08:42,028 views Session post-logout dict_items([])
+INFO 2024-12-01 22:08:42,030 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:08:44,091 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:13:44,766 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:13:45,443 views Session post-logout dict_items([])
+INFO 2024-12-01 22:13:45,445 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:13:47,382 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:13:48,356 views After Signup _auth_user_id: 46
+INFO 2024-12-01 22:13:48,356 views After Signup user id: 46
+INFO 2024-12-01 22:13:48,384 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:13:48,672 views Session post-logout dict_items([])
+INFO 2024-12-01 22:13:48,674 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:13:50,626 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:15:33,350 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:15:33,969 views Session post-logout dict_items([])
+INFO 2024-12-01 22:15:33,971 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:15:35,726 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:15:36,842 views After Signup _auth_user_id: 47
+INFO 2024-12-01 22:15:36,842 views After Signup user id: 47
+INFO 2024-12-01 22:15:36,866 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:15:37,143 views Session post-logout dict_items([])
+INFO 2024-12-01 22:15:37,145 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:15:39,106 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:18:24,754 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:18:25,386 views Session post-logout dict_items([])
+INFO 2024-12-01 22:18:25,388 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:18:27,140 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:18:28,354 views After Signup _auth_user_id: 48
+INFO 2024-12-01 22:18:28,355 views After Signup user id: 48
+INFO 2024-12-01 22:18:28,378 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:18:28,589 views Session post-logout dict_items([])
+INFO 2024-12-01 22:18:28,591 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:18:30,472 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:22:22,648 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:22:23,311 views Session post-logout dict_items([])
+INFO 2024-12-01 22:22:23,313 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:22:25,108 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:22:26,220 views After Signup _auth_user_id: 49
+INFO 2024-12-01 22:22:26,221 views After Signup user id: 49
+INFO 2024-12-01 22:22:26,248 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:22:26,509 views Session post-logout dict_items([])
+INFO 2024-12-01 22:22:26,510 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:22:28,506 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:23:16,190 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:23:16,834 views Session post-logout dict_items([])
+INFO 2024-12-01 22:23:16,836 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:23:18,630 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:23:19,804 views After Signup _auth_user_id: 50
+INFO 2024-12-01 22:23:19,805 views After Signup user id: 50
+INFO 2024-12-01 22:23:19,840 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:23:20,093 views Session post-logout dict_items([])
+INFO 2024-12-01 22:23:20,095 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:23:22,020 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:27:08,188 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:27:08,805 views Session post-logout dict_items([])
+INFO 2024-12-01 22:27:08,807 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:27:10,547 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:27:11,541 views After Signup _auth_user_id: 51
+INFO 2024-12-01 22:27:11,542 views After Signup user id: 51
+INFO 2024-12-01 22:27:11,570 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:27:11,856 views Session post-logout dict_items([])
+INFO 2024-12-01 22:27:11,857 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:27:13,786 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:30:04,760 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:30:05,416 views Session post-logout dict_items([])
+INFO 2024-12-01 22:30:05,419 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:30:07,213 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:30:08,029 views After Signup _auth_user_id: 52
+INFO 2024-12-01 22:30:08,029 views After Signup user id: 52
+INFO 2024-12-01 22:30:08,053 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:30:08,373 views Session post-logout dict_items([])
+INFO 2024-12-01 22:30:08,375 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:30:10,268 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:31:28,441 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:31:29,011 views Session post-logout dict_items([])
+INFO 2024-12-01 22:31:29,014 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:31:30,799 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:31:31,756 views After Signup _auth_user_id: 53
+INFO 2024-12-01 22:31:31,757 views After Signup user id: 53
+INFO 2024-12-01 22:31:31,784 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:31:32,081 views Session post-logout dict_items([])
+INFO 2024-12-01 22:31:32,083 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:31:33,963 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:35:02,872 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:35:03,491 views Session post-logout dict_items([])
+INFO 2024-12-01 22:35:03,493 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:35:05,216 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:35:06,218 views After Signup _auth_user_id: 54
+INFO 2024-12-01 22:35:06,219 views After Signup user id: 54
+INFO 2024-12-01 22:35:06,241 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:35:06,498 views Session post-logout dict_items([])
+INFO 2024-12-01 22:35:06,500 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:35:08,517 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:36:06,467 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 22:37:09,277 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:37:09,914 views Session post-logout dict_items([])
+INFO 2024-12-01 22:37:09,916 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:37:11,680 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:37:12,786 views After Signup _auth_user_id: 55
+INFO 2024-12-01 22:37:12,787 views After Signup user id: 55
+INFO 2024-12-01 22:37:12,811 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:37:13,076 views Session post-logout dict_items([])
+INFO 2024-12-01 22:37:13,078 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:37:15,060 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:37:17,475 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 22:40:28,358 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:40:29,025 views Session post-logout dict_items([])
+INFO 2024-12-01 22:40:29,027 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:40:30,903 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:40:31,973 views After Signup _auth_user_id: 56
+INFO 2024-12-01 22:40:31,973 views After Signup user id: 56
+INFO 2024-12-01 22:40:31,996 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:40:32,265 views Session post-logout dict_items([])
+INFO 2024-12-01 22:40:32,267 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:40:34,330 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:40:35,273 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 22:44:14,546 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:44:15,193 views Session post-logout dict_items([])
+INFO 2024-12-01 22:44:15,195 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:44:16,872 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:44:17,835 views After Signup _auth_user_id: 57
+INFO 2024-12-01 22:44:17,836 views After Signup user id: 57
+INFO 2024-12-01 22:44:17,864 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:44:18,131 views Session post-logout dict_items([])
+INFO 2024-12-01 22:44:18,133 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:44:20,032 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:44:20,974 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 22:44:22,465 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 22:44:22,553 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 22:44:22,767 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 22:44:23,551 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 22:44:23,656 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 22:44:23,761 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 22:44:24,140 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 22:44:24,141 views g2aytw2i5m53jbgi2jiv93xacurmny62
+INFO 2024-12-01 22:44:24,270 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+ERROR 2024-12-01 22:44:24,063 log Internal Server Error: /api/add-recommendations/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserRecommendation.DoesNotExist: UserRecommendation matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 542, in post
+    UserRecommendation.objects.update_or_create(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 986, in update_or_create
+    obj, created = self.select_for_update().get_or_create(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 955, in get_or_create
+    return self.create(**params), True
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1071, in _save_table
+    results = self._do_insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1112, in _do_insert
+    return manager._insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2024-12-01 22:44:24,299 basehttp "POST /api/add-recommendations/ HTTP/1.0" 500 276901
+INFO 2024-12-01 22:51:19,922 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:51:20,587 views Session post-logout dict_items([])
+INFO 2024-12-01 22:51:20,589 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+WARNING 2024-12-01 22:51:22,295 basehttp "POST /api/login/ HTTP/1.0" 401 72
+INFO 2024-12-01 22:51:23,355 views After Signup _auth_user_id: 58
+INFO 2024-12-01 22:51:23,356 views After Signup user id: 58
+INFO 2024-12-01 22:51:23,378 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 22:51:23,611 views Session post-logout dict_items([])
+INFO 2024-12-01 22:51:23,613 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-01 22:51:25,645 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 22:51:27,705 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 22:51:28,762 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 22:51:28,851 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 22:51:29,012 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 22:51:29,144 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 22:51:29,808 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 22:51:29,871 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 22:51:29,999 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 22:51:30,859 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 22:51:30,859 views cc9nhozx2yw4f3jiaabtk504hudg86ha
+INFO 2024-12-01 22:51:30,969 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:32:47,465 views After Signup _auth_user_id: 59
+INFO 2024-12-01 23:32:47,466 views After Signup user id: 59
+INFO 2024-12-01 23:32:47,492 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:32:51,074 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:32:52,111 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:32:52,196 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:32:52,373 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:32:52,562 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 23:32:53,155 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:32:53,218 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:32:53,359 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:32:54,244 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:32:54,244 views 504uqs0w5qeun7mgbl6oqrx5dxuc0qyr
+INFO 2024-12-01 23:32:54,291 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:32:54,341 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-01 23:32:58,186 basehttp "GET /api/userbooks/ HTTP/1.0" 200 2178
+INFO 2024-12-01 23:35:35,587 views After Signup _auth_user_id: 60
+INFO 2024-12-01 23:35:35,587 views After Signup user id: 60
+INFO 2024-12-01 23:35:35,610 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:35:36,991 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:35:38,238 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:35:38,327 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:35:38,501 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:35:38,521 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 23:35:39,240 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:35:39,303 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:35:39,424 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:35:40,287 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:35:40,287 views wivoijk4ijm0wuddtl8mfrdh5gmw5v2h
+INFO 2024-12-01 23:35:40,341 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:35:40,390 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-01 23:35:43,042 basehttp "GET /api/userbooks/ HTTP/1.0" 200 2178
+INFO 2024-12-01 23:43:49,968 views After Signup _auth_user_id: 61
+INFO 2024-12-01 23:43:49,968 views After Signup user id: 61
+INFO 2024-12-01 23:43:49,992 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:43:51,848 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:43:52,831 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:43:52,926 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:43:53,673 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+ERROR 2024-12-01 23:43:53,993 log Internal Server Error: /api/add-recommendations/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserRecommendation.DoesNotExist: UserRecommendation matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 542, in post
+    UserRecommendation.objects.update_or_create(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 986, in update_or_create
+    obj, created = self.select_for_update().get_or_create(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 955, in get_or_create
+    return self.create(**params), True
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1071, in _save_table
+    results = self._do_insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1112, in _do_insert
+    return manager._insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2024-12-01 23:43:54,041 basehttp "POST /api/add-recommendations/ HTTP/1.0" 500 257371
+INFO 2024-12-01 23:44:51,239 views After Signup _auth_user_id: 62
+INFO 2024-12-01 23:44:51,239 views After Signup user id: 62
+INFO 2024-12-01 23:44:51,263 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:44:52,108 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:44:52,884 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:44:52,977 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:44:53,087 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:44:53,336 basehttp "GET /api/search/?query=Hunger+GamesMistborn HTTP/1.0" 200 11391
+INFO 2024-12-01 23:44:54,021 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:44:54,082 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:44:54,214 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:44:56,085 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '8812783'])
+INFO 2024-12-01 23:44:56,086 views 6a34mjvjyn6ihjs6qynkqrw8eqvqqxuu
+INFO 2024-12-01 23:44:56,135 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:44:56,199 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 65
+INFO 2024-12-01 23:44:56,684 basehttp "GET /api/search/?query=Hunger+GamesMistbornbroken+earth HTTP/1.0" 200 11049
+INFO 2024-12-01 23:44:57,321 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:44:57,716 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-01 23:44:58,419 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:44:58,594 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 495
+INFO 2024-12-01 23:44:59,634 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:44:59,698 basehttp "DELETE /api/to-be-read/?work_id=2792775 HTTP/1.0" 200 55
+INFO 2024-12-01 23:44:59,718 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 1354
+INFO 2024-12-01 23:45:00,229 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:45:01,692 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '8812783'])
+INFO 2024-12-01 23:45:01,693 views 6a34mjvjyn6ihjs6qynkqrw8eqvqqxuu
+INFO 2024-12-01 23:45:01,740 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:45:01,781 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:45:02,271 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:45:27,088 basehttp "GET /api/userbooks/ HTTP/1.0" 200 2767
+INFO 2024-12-01 23:45:30,892 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:47:05,607 views After Signup _auth_user_id: 63
+INFO 2024-12-01 23:47:05,608 views After Signup user id: 63
+INFO 2024-12-01 23:47:05,630 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:47:06,516 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:47:07,864 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:47:07,937 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:47:08,061 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:47:09,531 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 23:47:10,299 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:47:10,359 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:47:10,479 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:47:12,362 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:47:12,363 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:47:12,412 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:47:12,464 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-01 23:47:13,052 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-01 23:47:13,607 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:47:14,139 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-01 23:47:14,765 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:47:14,940 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-01 23:47:16,005 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:47:16,059 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-01 23:47:16,102 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:47:16,593 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:47:18,077 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:47:18,078 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:47:18,131 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:47:18,171 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-01 23:47:18,327 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:47:18,328 views 6l8aeazbrwxv0hoh9twyp5ojqf496xul
+INFO 2024-12-01 23:47:18,382 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:47:18,435 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-01 23:47:18,664 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:47:18,912 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:47:34,339 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-01 23:54:45,182 views After Signup _auth_user_id: 64
+INFO 2024-12-01 23:54:45,182 views After Signup user id: 64
+INFO 2024-12-01 23:54:45,205 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-01 23:54:46,606 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-01 23:54:48,247 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:54:48,336 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-01 23:54:48,487 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:54:50,469 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-01 23:54:51,174 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:54:51,254 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:54:51,388 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-01 23:54:53,236 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-01 23:54:53,236 views uye0902d5f81j26ua126mqq5z5iq6sc3
+INFO 2024-12-01 23:54:53,290 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:54:53,343 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-01 23:54:53,792 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-01 23:54:54,479 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:54:54,900 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-01 23:54:55,653 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:54:55,819 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-01 23:54:56,882 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-01 23:54:56,944 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-01 23:54:56,966 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-01 23:54:57,497 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:54:58,948 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:54:58,949 views uye0902d5f81j26ua126mqq5z5iq6sc3
+INFO 2024-12-01 23:54:58,999 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:54:59,039 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-01 23:54:59,175 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-01 23:54:59,176 views uye0902d5f81j26ua126mqq5z5iq6sc3
+INFO 2024-12-01 23:54:59,229 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-01 23:54:59,280 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-01 23:54:59,533 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-01 23:54:59,610 basehttp "DELETE /api/to-be-read/?work_id=52472813 HTTP/1.0" 200 55
+INFO 2024-12-01 23:54:59,765 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-01 23:54:59,934 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-01 23:54:59,972 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-01 23:55:00,144 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-01 23:55:00,516 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:55:00,564 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:00,599 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-01 23:55:00,987 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:01,021 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-01 23:55:01,432 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:01,466 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-01 23:55:01,863 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-01 23:55:01,905 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:01,937 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-01 23:55:02,288 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:02,316 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-01 23:55:02,729 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-01 23:55:02,765 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-01 23:55:17,498 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-01 23:55:33,272 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-01 23:55:44,752 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-01 23:56:03,767 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 23:56:04,558 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-01 23:57:25,319 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-01 23:57:27,355 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 00:00:31,056 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 00:01:25,581 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 01:36:07,354 autoreload Watching for file changes with StatReloader
+INFO 2024-12-02 01:42:06,607 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-02 01:42:08,497 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656

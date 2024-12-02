@@ -1,7 +1,7 @@
-import { type Book } from '@/types/book'
+import { Book, Rating } from '../types/types'
 
 interface RateModalProps {
-  onClickFunction?: (rating: 'high' | 'medium' | 'low') => void
+  onClickFunction?: (rating: Rating) => void
   exitFunction: () => void
   addTBRFunction?: () => void
   book: Book

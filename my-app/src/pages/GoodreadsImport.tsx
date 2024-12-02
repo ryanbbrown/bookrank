@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../axiosConfig';
 import { Button } from '../components/ui/button';
+import { ApiResponse } from '../types/types';
 
 function GoodreadsImport() {
     const [file, setFile] = useState<File | null>(null);
@@ -21,7 +22,7 @@ function GoodreadsImport() {
         formData.append('file', file);
 
         try {
-            const response = await axiosInstance.post('api/goodreads-import/', formData, {
+            const response = await axiosInstance.post<ApiResponse<never>>('api/goodreads-import/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

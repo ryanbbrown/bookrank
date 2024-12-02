@@ -1,18 +1,18 @@
-import { type Book } from '@/types/book'
+import { TBRBook } from '../types/types'
 
-interface BookRowModalProps {
-  handleSpecificRankClick: (book: Book) => void
-  handleReRankClick?: (book: Book) => void
-  handleRemoveClick: (book: Book) => void
-  book: Book
-}
-
-export function BookRowModal({ 
-  handleSpecificRankClick, 
-  handleReRankClick, 
-  handleRemoveClick, 
-  book 
-}: BookRowModalProps): JSX.Element {
+interface BookRowModalProps<T extends TBRBook> {
+    handleSpecificRankClick: (book: T) => void
+    handleReRankClick?: (book: T) => void
+    handleRemoveClick: (book: T) => void
+    book: T
+  }
+  
+  export function BookRowModal<T extends TBRBook>({ 
+    handleSpecificRankClick, 
+    handleReRankClick, 
+    handleRemoveClick, 
+    book 
+  }: BookRowModalProps<T>): JSX.Element {
     return (
         <div className="flex flex-col absolute top-0 right-0 transform translate-x-full p-2 bg-white rounded shadow-lg z-10">
             {!book.is_ranked && (
