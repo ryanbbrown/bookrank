@@ -48336,3 +48336,169 @@ INFO 2024-12-02 00:01:25,581 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
 INFO 2024-12-02 01:36:07,354 autoreload Watching for file changes with StatReloader
 INFO 2024-12-02 01:42:06,607 basehttp "POST /api/login/ HTTP/1.0" 200 111
 INFO 2024-12-02 01:42:08,497 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 01:58:00,123 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 01:58:36,136 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-02 02:05:23,695 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 02:05:25,995 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-02 02:05:27,632 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-02 02:05:27,666 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1662
+INFO 2024-12-02 02:05:40,619 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-02 02:05:50,384 basehttp "GET /api/search/?query=asdf HTTP/1.0" 200 11373
+INFO 2024-12-02 02:05:50,825 basehttp "GET /api/search/?query=asdf HTTP/1.0" 200 11373
+INFO 2024-12-02 02:05:51,281 basehttp "GET /api/search/?query=asdf HTTP/1.0" 200 11373
+INFO 2024-12-02 02:05:59,832 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 10865
+INFO 2024-12-02 02:06:06,791 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 6984
+INFO 2024-12-02 02:08:23,413 views After Signup _auth_user_id: 65
+INFO 2024-12-02 02:08:23,413 views After Signup user id: 65
+INFO 2024-12-02 02:08:23,450 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-02 02:12:29,339 views After Signup _auth_user_id: 66
+INFO 2024-12-02 02:12:29,340 views After Signup user id: 66
+INFO 2024-12-02 02:12:29,375 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-02 02:12:30,793 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-02 02:12:32,172 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-02 02:12:32,261 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-02 02:12:32,471 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-02 02:12:33,989 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-02 02:12:34,769 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-02 02:12:34,845 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-02 02:12:35,019 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-02 02:12:36,815 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-02 02:12:36,815 views djecap60ox1ktveluyjvng10ygmqhg7q
+INFO 2024-12-02 02:12:36,883 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 02:12:36,944 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-02 02:12:37,304 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-02 02:12:38,049 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 02:12:38,544 basehttp "GET /api/search/?query=Mistbornbroken+earthbroken+earth HTTP/1.0" 200 12625
+INFO 2024-12-02 02:12:39,279 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 02:12:39,451 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 476
+INFO 2024-12-02 02:12:40,508 basehttp "POST /api/add-finished-book/ HTTP/1.0" 200 50
+INFO 2024-12-02 02:12:40,579 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-02 02:12:40,628 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-02 02:12:41,115 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 270
+INFO 2024-12-02 02:12:42,550 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-02 02:12:42,551 views djecap60ox1ktveluyjvng10ygmqhg7q
+INFO 2024-12-02 02:12:42,618 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 02:12:42,662 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-02 02:12:42,776 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-02 02:12:42,777 views djecap60ox1ktveluyjvng10ygmqhg7q
+INFO 2024-12-02 02:12:42,847 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 02:12:42,903 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-02 02:12:43,162 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 270
+INFO 2024-12-02 02:12:43,277 basehttp "DELETE /api/to-be-read/?work_id=3175590 HTTP/1.0" 200 55
+INFO 2024-12-02 02:12:43,386 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-02 02:12:43,526 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-02 02:12:43,564 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-02 02:12:43,813 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-02 02:12:44,164 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 02:12:44,220 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:44,261 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-02 02:12:44,649 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:44,697 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-02 02:12:45,098 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:45,142 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-02 02:12:45,543 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 02:12:45,595 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:45,634 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-02 02:12:46,078 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:46,118 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-02 02:12:46,490 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 02:12:46,533 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-02 02:12:51,179 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-02 02:12:53,956 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-02 03:49:28,893 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-02 03:49:51,881 autoreload Watching for file changes with StatReloader
+INFO 2024-12-02 04:00:52,028 views After Signup _auth_user_id: 2
+INFO 2024-12-02 04:00:52,029 views After Signup user id: 2
+INFO 2024-12-02 04:00:52,036 views Session post-logout dict_items([])
+INFO 2024-12-02 04:00:52,312 views Session post-logout dict_items([])
+INFO 2024-12-02 04:00:52,880 views After Signup _auth_user_id: 2
+INFO 2024-12-02 04:00:52,880 views After Signup user id: 2
+INFO 2024-12-02 04:00:56,204 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-02 04:00:56,205 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:00:56,791 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-02 04:00:56,791 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:00:56,817 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-02 04:00:56,818 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:00:57,037 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:00:57,038 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:00:57,062 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:00:57,064 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:00:57,097 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:00:57,098 views wba1eyrjcyl4090lib5kunurbetabap4
+INFO 2024-12-02 04:03:41,965 autoreload Watching for file changes with StatReloader
+INFO 2024-12-02 04:03:56,662 views After Signup _auth_user_id: 67
+INFO 2024-12-02 04:03:56,663 views After Signup user id: 67
+INFO 2024-12-02 04:03:56,701 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-02 04:03:58,280 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-02 04:03:59,196 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-02 04:03:59,283 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-02 04:03:59,411 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-02 04:04:01,388 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-02 04:04:02,043 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-02 04:04:02,107 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-02 04:04:02,527 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-02 04:04:04,121 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-02 04:04:04,123 views jvbr81uu5f3ii35b1zal9fiwvv5guauh
+INFO 2024-12-02 04:04:04,204 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 04:04:04,269 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-02 04:04:04,931 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-02 04:04:05,494 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 04:04:06,265 basehttp "GET /api/search/?query=Mistbornbroken+earthbroken+earth HTTP/1.0" 200 12625
+INFO 2024-12-02 04:04:06,765 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 04:04:06,963 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 476
+INFO 2024-12-02 04:04:08,016 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-02 04:04:08,107 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-02 04:04:08,130 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-02 04:04:08,644 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 270
+INFO 2024-12-02 04:04:10,026 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-02 04:04:10,026 views jvbr81uu5f3ii35b1zal9fiwvv5guauh
+INFO 2024-12-02 04:04:10,092 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 04:04:10,134 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-02 04:04:10,263 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-02 04:04:10,264 views jvbr81uu5f3ii35b1zal9fiwvv5guauh
+INFO 2024-12-02 04:04:10,335 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-02 04:04:10,403 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-02 04:04:10,636 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 270
+INFO 2024-12-02 04:04:10,719 basehttp "DELETE /api/to-be-read/?work_id=3175590 HTTP/1.0" 200 55
+INFO 2024-12-02 04:04:10,887 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-02 04:04:11,243 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-02 04:04:11,289 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-02 04:04:11,322 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-02 04:04:11,568 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 04:04:11,621 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:11,661 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-02 04:04:12,034 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:12,073 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-02 04:04:12,463 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:12,500 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-02 04:04:12,915 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-02 04:04:12,964 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:13,011 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-02 04:04:13,346 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:13,383 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-02 04:04:13,766 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-02 04:04:13,802 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-02 04:04:15,605 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-02 04:04:19,313 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-02 04:09:23,645 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-02 04:09:42,557 autoreload Watching for file changes with StatReloader
+INFO 2024-12-02 04:09:57,647 views After Signup _auth_user_id: 2
+INFO 2024-12-02 04:09:57,648 views After Signup user id: 2
+INFO 2024-12-02 04:09:57,654 views Session post-logout dict_items([])
+INFO 2024-12-02 04:09:57,944 views Session post-logout dict_items([])
+INFO 2024-12-02 04:09:58,517 views After Signup _auth_user_id: 2
+INFO 2024-12-02 04:09:58,518 views After Signup user id: 2
+INFO 2024-12-02 04:10:00,190 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-02 04:10:00,191 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:00,555 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-02 04:10:00,555 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:00,573 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-02 04:10:00,573 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:00,783 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:10:00,783 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:00,809 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:10:00,809 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:00,839 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-02 04:10:00,839 views o0vds44i3n3zibezv9k8tiexb3qnbanv
+INFO 2024-12-02 04:10:39,718 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-02 04:10:58,907 autoreload Watching for file changes with StatReloader

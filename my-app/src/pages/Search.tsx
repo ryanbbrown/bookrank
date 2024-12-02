@@ -41,7 +41,7 @@ function Search() {
 
         const { work_id, title, author } = selectedBook;
         
-        axiosInstance.post<ApiResponse<never>>('api/add-finished-book/', {
+        axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
             work_id,
             title,
             author,
@@ -116,16 +116,26 @@ function Search() {
     };
 
     return (
-        <div className="search-page">
-            <input
-                ref={searchInputRef}
-                type="text"
-                placeholder="Search for books"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="search-input"
-            />
-            <button onClick={handleSearch} className="search-button">Search</button>
+        <div className="search-page container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2 gap-4">
+            <h1 className="text-4xl font-bold mb-4 text-center">Search</h1>
+            <div className="w-full flex flex-col items-center justify-center">
+                <form onSubmit={handleSearch} className="flex w-2/3">
+                    <input
+                        ref={searchInputRef}
+                        type="text"
+                        placeholder="Search for books"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        className="flex-grow p-2 pl-10 text-sm text-black rounded-l bg-gray-200 outline-none"
+                    />
+                    <button
+                        type="submit"
+                        className="p-2 text-sm bg-gray-200 rounded-r flex items-center justify-center"
+                    >
+                        <i className="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
             <div className="search-results">
                 {books.length > 0 && (
                     <table className="w-full text-sm">

@@ -2,7 +2,7 @@
 from celery import shared_task
 import pandas as pd
 from django.core.files.storage import default_storage
-from djangoapp.models import UserBookRating, UserAccount
+from djangoapp.models import UserBook, UserAccount
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from dotenv import load_dotenv
 load_dotenv()
@@ -91,7 +91,7 @@ def process_csv(file_path, user_id):
         logger.info('Finished searching')
 
         existing_work_ids = (
-            UserBookRating.objects
+            UserBook.objects
             .filter(user=user)
             .values_list('work_id', flat=True)
         )
@@ -101,7 +101,7 @@ def process_csv(file_path, user_id):
             if pct_diff >= 0.2 and records[0]['work_id'] not in existing_work_ids:
                 print(f"Adding book: {records[0]['title']}")
                 logger.info(records[0])
-                UserBookRating.objects.create(
+                UserBook.objects.create(
                     user=user,
                     work_id=records[0]['work_id'],
                     title=records[0]['title'],

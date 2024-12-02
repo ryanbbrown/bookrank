@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from rest_framework.test import APIClient
 from rest_framework.authtoken.models import Token
-from djangoapp.models import UserAccount, UserBookRating, UserToBeRead, UserRecommendation
+from djangoapp.models import UserAccount, UserBook, TBRBook, UserRecommendation
 import random
 import string
 
@@ -105,7 +105,7 @@ class BookAPITestCase(TestCase):
         hunger_games = response.data['data'][0]
 
         # Add Hunger Games as finished book
-        response = self.client.post('/api/add-finished-book/', {
+        response = self.client.post('/api/userbooks/', {
             'work_id': hunger_games['work_id'],
             'title': hunger_games['title'],
             'author': hunger_games['author'],
@@ -132,7 +132,7 @@ class BookAPITestCase(TestCase):
         mistborn = response.data['data'][1]  # Second result
 
         # Add Mistborn as finished book
-        response = self.client.post('/api/add-finished-book/', {
+        response = self.client.post('/api/userbooks/', {
             'work_id': mistborn['work_id'],
             'title': mistborn['title'],
             'author': mistborn['author'],
@@ -162,11 +162,11 @@ class BookAPITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Verify ratings
-        mistborn_rating = UserBookRating.objects.get(
+        mistborn_rating = UserBook.objects.get(
             user__username=self.test_username,
             work_id=mistborn['work_id']
         )
-        hunger_games_rating = UserBookRating.objects.get(
+        hunger_games_rating = UserBook.objects.get(
             user__username=self.test_username,
             work_id=hunger_games['work_id']
         )
@@ -195,7 +195,7 @@ class BookAPITestCase(TestCase):
 
         # Process first TBR book
         # Add as finished book
-        response = self.client.post('/api/add-finished-book/', {
+        response = self.client.post('/api/userbooks/', {
             'work_id': broken_earth_1['work_id'],
             'title': broken_earth_1['title'],
             'author': broken_earth_1['author'],
@@ -245,7 +245,7 @@ class BookAPITestCase(TestCase):
 
         # Process second TBR book
         # Add as finished book
-        response = self.client.post('/api/add-finished-book/', {
+        response = self.client.post('/api/userbooks/', {
             'work_id': broken_earth_2['work_id'],
             'title': broken_earth_2['title'],
             'author': broken_earth_2['author'],

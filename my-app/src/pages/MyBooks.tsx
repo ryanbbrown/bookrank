@@ -80,7 +80,7 @@ function MyBooks() {
     const handleRatingClick = (rating: Rating) => {
         if (!unrankedBook) return;
 
-        axiosInstance.patch<ApiResponse<never>>('api/add-finished-book/', {
+        axiosInstance.patch<ApiResponse<never>>('api/userbooks/', {
             work_id: unrankedBook.work_id,
             rating: rating,
         }).then(() => {
@@ -133,7 +133,7 @@ function MyBooks() {
     };
 
     const handleRemoveClick = (book: UserBook) => {
-        axiosInstance.delete<ApiResponse<never>>('api/add-finished-book/', {
+        axiosInstance.delete<ApiResponse<never>>('api/userbooks/', {
             params: { work_id: book.work_id }
         }).then(() => {
             refreshBooks();
@@ -141,7 +141,6 @@ function MyBooks() {
     };
 
     const handleRowClick = (bookId: string) => {
-        console.log(bookId);
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 

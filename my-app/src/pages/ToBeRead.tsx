@@ -15,7 +15,7 @@ function ToBeRead() {
     const [ratedBook, setRatedBook] = useState<UserBook | null>(null);
     const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
-    const [activeRow, setActiveRow] = useState<number | null>(null);
+    const [activeRow, setActiveRow] = useState<string | null>(null);
     const outcome = useRef<number>(0);
 
     useEffect(() => {
@@ -40,7 +40,7 @@ function ToBeRead() {
         }, 500);
     };
 
-    const handleRowClick = (bookId: number) => {
+    const handleRowClick = (bookId: string) => {
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
@@ -76,7 +76,7 @@ function ToBeRead() {
     const handleRatingClick = (rating: Rating) => {
         if (!unratedBook) return;
 
-        axiosInstance.post<ApiResponse<never>>('api/add-finished-book/', {
+        axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
             work_id: unratedBook.work_id,
             rating: rating,
         }).then(() => {
@@ -127,7 +127,7 @@ function ToBeRead() {
                 </thead>
                 <tbody>
                     {books.map(book => (
-                        <tr key={book.id} className="hover:bg-gray-100" onClick={() => handleRowClick(book.id)}>
+                        <tr key={book.work_id} className="hover:bg-gray-100" onClick={() => handleRowClick(book.work_id)}>
                             <td className="px-4 py-2 text-center">
                                 <img src={book.image_url} alt={book.title} className="inline-block rounded" />
                             </td>
@@ -135,7 +135,7 @@ function ToBeRead() {
                             <td className="px-4 py-2 text-center">{book.author}</td>
                             <td className="px-4 py-2 text-center relative">
                                 {new Date(book.date_added).toLocaleDateString()}
-                                {activeRow === book.id && (
+                                {activeRow === book.work_id && (
                                     <BookRowModal
                                         handleSpecificRankClick={handleSpecificRankClick}
                                         handleRemoveClick={handleRemoveClick}

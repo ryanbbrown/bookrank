@@ -185,11 +185,12 @@ if run_search_tests:
         EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
     )
     search_input.clear()
+    time.sleep(0.1)
     search_input.send_keys("Hunger Games")
 
     # Click the search button instead of pressing enter
     search_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@class='search-button']"))
+        EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
     ).click()
 
     # Click on the first row result (using table row)
@@ -210,11 +211,12 @@ if run_search_tests:
         EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
     )
     search_input.clear()
+    time.sleep(0.1)
     search_input.send_keys("Mistborn")
 
     # Click the search button
-    search_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@class='search-button']"))
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
     ).click()
 
     # Click on the second row result (using table row)
@@ -241,11 +243,12 @@ if run_search_tests:
         EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
     )
     search_input.clear()
+    time.sleep(0.1)
     search_input.send_keys("broken earth")
 
     # Click the search button
-    search_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@class='search-button']"))
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
     ).click()
 
     # Click on first result
@@ -260,9 +263,10 @@ if run_search_tests:
 
     # Search again for "broken earth"
     search_input.clear()
+    time.sleep(0.1)
     search_input.send_keys("broken earth")
-    search_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@class='search-button']"))
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
     ).click()
 
     # Click on third result

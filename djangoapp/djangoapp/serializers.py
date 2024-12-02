@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import UserAccount, UserBookRating, UserToBeRead, UserRecommendation
+from .models import UserAccount, UserBook, TBRBook, UserRecommendation
 
 class UserAccountSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,13 +9,13 @@ class UserAccountSerializer(serializers.ModelSerializer):
 
 class UserBookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserBookRating
+        model = UserBook
         fields = ['work_id', 'title', 'author', 'image_url', 'description', 'rating', 'normalized_rating', 'date_added', 'is_ranked']
         # fields = ['id', 'work_id', 'title', 'author', 'image_url','description', 'rating', 'elo_rating', 'RD', 'normalized_rating', 'date_added', 'is_ranked']
 
-class UserToBeReadSerializer(serializers.ModelSerializer):
+class TBRBookSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserToBeRead
+        model = TBRBook
         fields = ['work_id', 'title', 'author', 'image_url', 'date_added']
 
 class UserRecommendationSerializer(serializers.ModelSerializer):

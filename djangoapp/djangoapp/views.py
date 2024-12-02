@@ -26,11 +26,11 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 # Local imports
-from .models import UserAccount, UserBookRating, UserToBeRead, UserRecommendation
+from .models import UserAccount, UserBook, TBRBook, UserRecommendation
 from .serializers import (
     UserAccountSerializer,
     UserBookSerializer,
-    UserToBeReadSerializer,
+    TBRBookSerializer,
     UserRecommendationSerializer
 )
 
@@ -265,13 +265,35 @@ class SearchView(APIView):
 
 
 
-class AddFinishedBookView(APIView):
-    # permission_classes = [IsAuthenticated]
-    """
-    This view adds a UserBookRating object to the database, associated with the current user.
-    It is the only way that users can add finished books to their account.
-    """
+class UserBooksView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        """
+        Gets all of user's finished books and sorts them by rating to display on the frontend.
+        """
+        if not request.user.is_authenticated:
+            return Response({
+                'success': False,
+                'error': 'Authentication required',
+                'message': 'Please log in'
+            }, status=status.HTTP_401_UNAUTHORIZED)
+            
+        user = request.user
+        sorted_books = UserBook.objects.get_user_books(user)
+        serializer = UserBookSerializer(sorted_books, many=True)
+        
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'message': 'User books retrieved successfully'
+        })
+
     def post(self, request):
+        """
+        Adds a UserBook object to the database, associated with the current user.
+        It is the only way that users can add finished books to their account.
+        """
         work_id = request.data.get('work_id')
         rating = request.data.get('rating')
         user = request.user
@@ -279,18 +301,7 @@ class AddFinishedBookView(APIView):
         # TODO: update_or_create here allows them to re-add existing book with new rating
         # not sure what it does to elo rating field
         pinecone_book = index.fetch(ids=[work_id])['vectors'][work_id]['metadata']
-
-        user_book_rating, created = UserBookRating.objects.update_or_create(
-            user=user,
-            work_id=work_id,
-            defaults={
-                'title': pinecone_book['title'], 
-                'author': pinecone_book['author_name'], 
-                'description': pinecone_book['description'],
-                'image_url': pinecone_book['image_url'],
-                'rating': rating
-            }
-        )
+        UserBook.objects.add_or_update_book(user, work_id, rating, pinecone_book)
         
         return Response({
             'success': True,
@@ -298,38 +309,32 @@ class AddFinishedBookView(APIView):
         })
 
     def patch(self, request):
+        """
+        Updates the rating of a UserBook object.
+        """
         work_id = request.data.get('work_id')
         rating = request.data.get('rating')
         user = request.user
 
-        user_book_rating = UserBookRating.objects.get(user=user, work_id=work_id)
-        user_book_rating.rating = rating
-        # resetting these to default values
-        user_book_rating.elo_rating = 1500
-        user_book_rating.RD = 400
-        user_book_rating.save()
+        UserBook.objects.update_book_rating(user, work_id, rating)
 
         return Response({
             'success': True,
             'message': 'Rating updated successfully'
         })
 
-
     def delete(self, request):
         """
         Deletes a book from a user's finished books list.
         """
-        book = UserBookRating.objects.get(
-            user=request.user,
-            work_id=request.query_params.get('work_id')
-        )
+        work_id = request.query_params.get('work_id')
+        UserBook.objects.delete_book(request.user, work_id)
 
-        book.delete()
         return Response({
             'success': True,
             'message': 'Book removed from finished books list'
         })
-    
+
 
 
 class CompareBookView(APIView):
@@ -342,7 +347,7 @@ class CompareBookView(APIView):
         """
         work_id = request.query_params.get('work_id')
         user = request.user
-        book_obj = UserBookRating.objects.get(work_id=work_id, user=user)
+        book_obj = UserBook.objects.get(work_id=work_id, user=user)
         rating = book_obj.rating
         elo_rating = book_obj.elo_rating
 
@@ -353,7 +358,7 @@ class CompareBookView(APIView):
 
         # Get potential comparison books
         queryset_results = (
-            UserBookRating.objects
+            UserBook.objects
             .exclude(work_id=work_id)
             .exclude(work_id__in=request.session[work_id]['compared_books'])
             .filter(user=user, rating=rating)
@@ -434,8 +439,8 @@ class CompareBookView(APIView):
         outcome = request.data.get('outcome')
         user = request.user
         
-        book_obj = UserBookRating.objects.get(work_id=work_id, user=user)
-        other_book_obj = UserBookRating.objects.get(work_id=other_work_id, user=user)
+        book_obj = UserBook.objects.get(work_id=work_id, user=user)
+        other_book_obj = UserBook.objects.get(work_id=other_work_id, user=user)
         
         if not request.session.session_key:
             request.session.save()
@@ -535,7 +540,7 @@ class AddRecommendationView(APIView):
         added_recs = 0
         for book in recommendations:
             if (
-                not UserBookRating.objects.filter(work_id=book['id'], user=request.user).exists()
+                not UserBook.objects.filter(work_id=book['id'], user=request.user).exists()
                 and book['metadata']['author_name'] != seed_author
             ):
                 
@@ -564,37 +569,6 @@ class AddRecommendationView(APIView):
 
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
-class UserBooksView(APIView):
-    permission_classes = [IsAuthenticated]
-    
-    """
-    Gets all of user's finished books and sorts them by rating to display on the frontend.
-    """
-    def get(self, request):
-        if not request.user.is_authenticated:
-            return Response({
-                'success': False,
-                'error': 'Authentication required',
-                'message': 'Please log in'
-            }, status=status.HTTP_401_UNAUTHORIZED)
-            
-        user = request.user
-        books = UserBookRating.objects.filter(user=user)
-        ranked_books = list(books.filter(is_ranked=True))
-        unranked_books = list(books.filter(is_ranked=False))
-        sorted_ranked_books = sorted(ranked_books, key=lambda x: (x.normalized_rating if x.normalized_rating is not None else 0), reverse=True)
-        sorted_unranked_books = sorted(unranked_books, key=lambda x: (x.date_added), reverse=True)
-        sorted_books = sorted_ranked_books + sorted_unranked_books
-        serializer = UserBookSerializer(sorted_books, many=True)
-        
-        return Response({
-            'success': True,
-            'data': serializer.data,
-            'message': 'User books retrieved successfully'
-        })
-    
-
-
 class ToBeReadView(APIView):
     """
     This view contains the logic for managing and viewing a user's TBR list.
@@ -606,11 +580,11 @@ class ToBeReadView(APIView):
         """
         user = request.user
         books = (
-            UserToBeRead
+            TBRBook
             .objects
             .filter(user=user)
         )
-        serializer = UserToBeReadSerializer(books, many=True)
+        serializer = TBRBookSerializer(books, many=True)
         return Response({
             'success': True,
             'data': serializer.data,
@@ -635,7 +609,7 @@ class ToBeReadView(APIView):
                 'message': 'Failed to add book to TBR list'
             }, status=400)
         
-        var = UserToBeRead.objects.create(
+        var = TBRBook.objects.create(
             user=user,
             work_id=work_id,
             title=title,
@@ -652,7 +626,7 @@ class ToBeReadView(APIView):
         """
         Deletes a book from a user's TBR list.
         """
-        tbr_book = UserToBeRead.objects.get(
+        tbr_book = TBRBook.objects.get(
             user=request.user,
             work_id=request.query_params.get('work_id')
         )
@@ -676,7 +650,7 @@ class UnrankedBooksView(APIView):
         """
         user = request.user
         unranked_books = (
-            UserBookRating
+            UserBook
             .objects
             .filter(user=user, is_ranked=False)
             .order_by('-date_added')

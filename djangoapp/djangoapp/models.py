@@ -4,7 +4,41 @@ from django.contrib.auth.models import AbstractUser
 class UserAccount(AbstractUser):
     pass
 
-class UserBookRating(models.Model):
+class UserBookManager(models.Manager):
+    def get_user_books(self, user):
+        books = self.filter(user=user)
+        ranked_books = list(books.filter(is_ranked=True))
+        unranked_books = list(books.filter(is_ranked=False))
+        sorted_ranked_books = sorted(ranked_books, key=lambda x: (x.normalized_rating if x.normalized_rating is not None else 0), reverse=True)
+        sorted_unranked_books = sorted(unranked_books, key=lambda x: (x.date_added), reverse=True)
+        return sorted_ranked_books + sorted_unranked_books
+
+    def add_or_update_book(self, user, work_id, rating, pinecone_book):
+        return self.update_or_create(
+            user=user,
+            work_id=work_id,
+            defaults={
+                'title': pinecone_book['title'], 
+                'author': pinecone_book['author_name'], 
+                'description': pinecone_book['description'],
+                'image_url': pinecone_book['image_url'],
+                'rating': rating
+            }
+        )
+
+    def update_book_rating(self, user, work_id, rating):
+        book = self.get(user=user, work_id=work_id)
+        book.rating = rating
+        book.elo_rating = 1500
+        book.RD = 400
+        book.save()
+        return book
+
+    def delete_book(self, user, work_id):
+        book = self.get(user=user, work_id=work_id)
+        book.delete()
+
+class UserBook(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     work_id = models.CharField(max_length=50)
     title = models.CharField(max_length=200)
@@ -36,7 +70,7 @@ class UserBookRating(models.Model):
         unique_together = ('user', 'work_id')
 
 
-class UserToBeRead(models.Model):
+class TBRBook(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     work_id = models.CharField(max_length=50)
     title = models.CharField(max_length=200)
