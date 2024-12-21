@@ -2,10 +2,12 @@
 FROM node:14 AS react-build
 WORKDIR /app
 COPY ./react-app ./
+RUN ls -la
 RUN npm install
 RUN npm install typescript@5.6.3
 RUN npm install --save @fortawesome/fontawesome-free
 RUN npm run build
+RUN ls -la build/
 
 # Stage 2: Set up the Django app
 FROM python:3.10.12
@@ -23,6 +25,7 @@ COPY ./djangoapp ./djangoapp
 
 # Copy React build files to be served by Django
 COPY --from=react-build /app/build ./djangoapp/static/
+RUN ls -la ./djangoapp/static/
 RUN chown -R www-data:www-data /app/djangoapp/static
 RUN chmod -R 755 /app/djangoapp/static
 
@@ -38,6 +41,8 @@ RUN mkdir -p /var/log/gunicorn && chown -R www-data:www-data /var/log/gunicorn &
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./nginx/bookrank /etc/nginx/sites-available/bookrank
 RUN sed -i 's|/home/ryanbrown/projects/bookrank||g' /etc/nginx/sites-available/bookrank
+RUN sed -i 's/server_name localhost/server_name bookrank.ai www.bookrank.ai/g' /etc/nginx/sites-available/bookrank
+
 RUN mkdir -p /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/bookrank /etc/nginx/sites-enabled/bookrank
 COPY ./nginx/mime.types /etc/nginx/mime.types
 

@@ -119,7 +119,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-ALLOWED_HOSTS = ['138.197.107.114', 'genres.fyi', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['138.197.107.114', 'genres.fyi', 'localhost', '127.0.0.1', 'bookrank.ai', 'www.bookrank.ai']
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost', # before I added this, nginx wasn't working
