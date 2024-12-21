@@ -48536,3 +48536,498 @@ INFO 2024-12-21 03:45:12,747 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1
 INFO 2024-12-21 03:45:15,657 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
 INFO 2024-12-21 03:45:21,305 views Session post-logout dict_items([])
 INFO 2024-12-21 03:45:21,307 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-21 18:07:10,727 views After Signup _auth_user_id: 2
+INFO 2024-12-21 18:07:10,729 views After Signup user id: 2
+INFO 2024-12-21 18:07:10,734 views Session post-logout dict_items([])
+INFO 2024-12-21 18:07:10,991 views Session post-logout dict_items([])
+INFO 2024-12-21 18:07:11,499 views After Signup _auth_user_id: 2
+INFO 2024-12-21 18:07:11,500 views After Signup user id: 2
+INFO 2024-12-21 18:07:16,383 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:07:16,383 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:07:17,174 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-21 18:07:17,175 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:07:17,196 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977'])
+INFO 2024-12-21 18:07:17,196 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:07:17,535 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-21 18:07:17,536 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:07:17,552 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-21 18:07:17,553 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:07:17,573 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '26115977', '52472813'])
+INFO 2024-12-21 18:07:17,574 views nv0cxind9kryln0cw74b9s352z5cruef
+INFO 2024-12-21 18:11:04,526 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 18:12:10,931 views After Signup _auth_user_id: 68
+INFO 2024-12-21 18:12:10,931 views After Signup user id: 68
+INFO 2024-12-21 18:12:10,953 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 18:12:12,425 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 18:12:13,358 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:12:13,424 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 18:12:13,541 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:12:15,500 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 18:12:16,231 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:12:16,299 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:12:16,404 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:12:18,277 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:12:18,277 views z6b3xc5zo96wpart2eqo7urrw18ow98b
+INFO 2024-12-21 18:12:18,324 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:12:18,367 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 18:12:18,842 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 18:12:19,524 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:12:19,999 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 18:12:20,679 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:12:20,849 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 18:12:21,397 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:12:21,449 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:12:21,486 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 18:12:22,011 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-21 18:12:23,428 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-21 18:12:23,429 views z6b3xc5zo96wpart2eqo7urrw18ow98b
+INFO 2024-12-21 18:12:23,474 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:12:23,503 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-21 18:12:23,631 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-21 18:12:23,632 views z6b3xc5zo96wpart2eqo7urrw18ow98b
+INFO 2024-12-21 18:12:23,680 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:12:23,722 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-21 18:12:23,950 basehttp "DELETE /api/to-be-read/?work_id=52472813 HTTP/1.0" 200 55
+INFO 2024-12-21 18:12:24,002 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 18:12:24,211 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 18:12:24,393 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-21 18:12:24,419 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-21 18:12:24,477 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 18:12:24,767 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:12:24,802 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:24,833 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-21 18:12:25,226 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:25,264 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-21 18:12:25,647 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:25,678 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-21 18:12:26,079 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:12:26,115 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:26,212 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-21 18:12:26,506 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:26,542 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-21 18:12:26,936 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:12:26,970 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-21 18:12:29,672 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-21 18:12:31,966 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-21 18:22:12,016 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-21 18:22:25,635 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 18:24:00,219 views After Signup _auth_user_id: 2
+INFO 2024-12-21 18:24:00,220 views After Signup user id: 2
+INFO 2024-12-21 18:24:00,232 views Session post-logout dict_items([])
+INFO 2024-12-21 18:24:00,536 views Session post-logout dict_items([])
+INFO 2024-12-21 18:24:01,098 views After Signup _auth_user_id: 2
+INFO 2024-12-21 18:24:01,099 views After Signup user id: 2
+INFO 2024-12-21 18:26:36,294 views After Signup _auth_user_id: 69
+INFO 2024-12-21 18:26:36,294 views After Signup user id: 69
+INFO 2024-12-21 18:26:36,323 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 18:26:37,666 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 18:26:39,154 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:26:39,225 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 18:26:39,315 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:26:40,980 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 18:26:41,706 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:26:41,775 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:26:41,875 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:26:43,759 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:26:43,760 views 5cdj6zmm996vrl6l2e4b1nmhr449equ7
+INFO 2024-12-21 18:26:43,806 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:26:43,850 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 18:26:44,375 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 18:26:44,983 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:26:45,441 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 18:26:46,131 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:26:46,274 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 18:26:47,269 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:26:47,335 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:26:47,354 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 18:26:47,882 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-21 18:26:49,297 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:26:49,298 views 5cdj6zmm996vrl6l2e4b1nmhr449equ7
+INFO 2024-12-21 18:26:49,501 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:26:49,501 views 5cdj6zmm996vrl6l2e4b1nmhr449equ7
+ERROR 2024-12-21 18:26:49,781 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 431, in post
+    return Response({
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '2346070'
+ERROR 2024-12-21 18:26:49,818 basehttp "POST /api/compare-book/ HTTP/1.0" 500 101453
+ERROR 2024-12-21 18:26:49,790 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 431, in post
+    return Response({
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '2346070'
+ERROR 2024-12-21 18:26:49,850 basehttp "POST /api/compare-book/ HTTP/1.0" 500 101453
+INFO 2024-12-21 18:27:16,802 views After Signup _auth_user_id: 70
+INFO 2024-12-21 18:27:16,802 views After Signup user id: 70
+INFO 2024-12-21 18:27:16,823 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 18:27:17,749 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 18:27:18,518 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:27:18,631 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 18:27:18,719 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:27:20,938 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 18:27:21,694 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:27:21,753 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:27:21,856 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 63
+INFO 2024-12-21 18:27:23,740 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322'])
+INFO 2024-12-21 18:27:23,740 views leeyux3rlsqizs8zq54al55oyvacvpgz
+INFO 2024-12-21 18:27:23,783 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:27:23,822 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 18:27:24,301 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 18:27:24,943 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:27:25,535 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 18:27:26,202 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:27:26,373 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 18:27:27,425 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 18:27:27,486 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 18:27:27,519 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 18:27:28,050 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-21 18:27:29,488 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-21 18:27:29,489 views leeyux3rlsqizs8zq54al55oyvacvpgz
+INFO 2024-12-21 18:27:29,538 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:27:29,572 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-21 18:27:29,710 views dict_keys(['_auth_user_id', '_auth_user_backend', '_auth_user_hash', '2792775', '66322', '2346070'])
+INFO 2024-12-21 18:27:29,711 views leeyux3rlsqizs8zq54al55oyvacvpgz
+INFO 2024-12-21 18:27:29,767 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 18:27:29,817 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-21 18:27:30,070 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-21 18:27:30,111 basehttp "DELETE /api/to-be-read/?work_id=52472813 HTTP/1.0" 200 55
+INFO 2024-12-21 18:27:30,302 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 18:27:30,332 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-21 18:27:30,362 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-21 18:27:30,639 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 18:27:30,949 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:27:30,986 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:31,016 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-21 18:27:31,402 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:31,435 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-21 18:27:31,832 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:31,863 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-21 18:27:32,237 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 18:27:32,269 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:32,297 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-21 18:27:32,668 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:32,697 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-21 18:27:33,121 basehttp "POST /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 18:27:33,158 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-21 18:27:36,080 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-21 18:27:37,707 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-21 19:49:33,904 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-21 19:49:50,099 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 19:57:43,820 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-21 19:57:50,303 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 19:58:04,992 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-21 19:58:11,548 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 19:59:13,671 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-21 19:59:19,333 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 19:59:45,689 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-21 19:59:53,065 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 20:00:11,837 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-21 20:00:18,416 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 20:01:21,467 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-21 20:01:37,198 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 20:49:16,023 views After Signup _auth_user_id: 2
+INFO 2024-12-21 20:49:16,024 views After Signup user id: 2
+INFO 2024-12-21 20:49:16,032 views Session post-logout dict_items([])
+INFO 2024-12-21 20:49:16,307 views Session post-logout dict_items([])
+INFO 2024-12-21 20:49:16,839 views After Signup _auth_user_id: 2
+INFO 2024-12-21 20:49:16,839 views After Signup user id: 2
+INFO 2024-12-21 20:49:49,937 views After Signup _auth_user_id: 71
+INFO 2024-12-21 20:49:49,940 views After Signup user id: 71
+INFO 2024-12-21 20:49:49,979 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 20:49:51,782 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 20:49:52,824 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:49:52,913 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 20:49:53,215 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 20:49:55,766 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 20:49:56,246 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:49:56,317 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 20:49:56,412 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 20:49:58,345 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 20:49:58,388 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 20:49:58,836 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 20:49:59,530 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 20:50:00,020 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 20:50:00,684 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 20:50:00,834 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 20:50:01,827 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:50:01,891 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 20:50:01,913 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 20:50:02,446 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+ERROR 2024-12-21 20:50:04,597 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 393, in post
+    request.session[work_id]['compared_books'].append(other_book_obj.work_id)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '2346070'
+ERROR 2024-12-21 20:50:04,646 basehttp "POST /api/compare-book/ HTTP/1.0" 500 101715
+ERROR 2024-12-21 20:50:04,622 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 393, in post
+    request.session[work_id]['compared_books'].append(other_book_obj.work_id)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '2346070'
+ERROR 2024-12-21 20:50:04,670 basehttp "POST /api/compare-book/ HTTP/1.0" 500 101715
+INFO 2024-12-21 20:50:15,563 views After Signup _auth_user_id: 72
+INFO 2024-12-21 20:50:15,564 views After Signup user id: 72
+INFO 2024-12-21 20:50:15,586 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 20:50:16,761 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 20:50:17,256 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:50:17,358 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 20:50:17,431 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 20:50:20,348 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 20:50:20,920 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:50:20,976 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 20:50:21,086 basehttp "POST /api/add-recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 20:50:23,020 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 20:50:23,067 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 20:50:23,501 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 20:50:24,195 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 20:50:24,646 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 20:50:25,355 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 20:50:25,497 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 20:50:26,495 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 20:50:26,561 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 20:50:26,580 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 20:50:27,113 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+ERROR 2024-12-21 20:50:28,630 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 393, in post
+    request.session[work_id]['compared_books'].append(other_book_obj.work_id)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '2346070'
+ERROR 2024-12-21 20:50:28,647 basehttp "POST /api/compare-book/ HTTP/1.0" 500 101715
+INFO 2024-12-21 20:51:57,806 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-21 20:52:12,365 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 20:54:33,583 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-21 20:54:47,937 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 21:04:06,511 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-21 21:04:20,219 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 21:06:55,564 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-21 21:07:09,146 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 21:08:34,973 views Session post-logout dict_items([])
+INFO 2024-12-21 21:08:35,240 views Session post-logout dict_items([])
+ERROR 2024-12-21 21:08:46,276 log Internal Server Error: /api/search/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1303, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1159, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 199, in perform_request
+    response = self.session.send(prepared_request, **send_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 253, in get
+    searchbooklist = search(query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 143, in search
+    response = client.search(index=INDEX_NAME, body=search_query)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/utils.py", line 180, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/__init__.py", line 2359, in search
+    return self.transport.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 455, in perform_request
+    raise e
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 416, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 216, in perform_request
+    raise ConnectionTimeout("TIMEOUT", str(e), e)
+opensearchpy.exceptions.ConnectionTimeout: ConnectionTimeout caused by - ReadTimeout(HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10))
+INFO 2024-12-21 21:09:49,795 views Session post-logout dict_items([])
+INFO 2024-12-21 21:09:50,088 views Session post-logout dict_items([])
+INFO 2024-12-21 21:10:49,902 views Session post-logout dict_items([])
+INFO 2024-12-21 21:10:50,167 views Session post-logout dict_items([])
+INFO 2024-12-21 21:11:07,512 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-21 21:11:08,730 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-21 21:11:09,346 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 21:11:09,419 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-21 21:11:09,719 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 21:11:11,662 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-21 21:11:12,336 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 21:11:12,391 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-21 21:11:12,490 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-21 21:11:14,440 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 21:11:14,483 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-21 21:11:15,067 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-21 21:11:15,648 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 21:11:16,220 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-21 21:11:16,816 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 21:11:16,969 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-21 21:11:17,966 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-21 21:11:18,017 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-21 21:11:18,048 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-21 21:11:18,586 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-21 21:11:20,039 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 21:11:20,069 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-21 21:11:20,245 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-21 21:11:20,287 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-21 21:11:20,524 basehttp "DELETE /api/to-be-read/?work_id=52472813 HTTP/1.0" 200 55
+INFO 2024-12-21 21:11:20,566 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 21:11:20,771 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 21:11:20,795 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-21 21:11:20,827 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-21 21:11:21,057 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-21 21:11:21,349 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 21:11:21,384 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:21,416 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-21 21:11:21,801 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:21,840 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-21 21:11:22,231 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:22,262 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-21 21:11:22,652 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-21 21:11:22,691 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:22,788 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-21 21:11:23,088 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:23,125 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-21 21:11:23,517 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-21 21:11:23,551 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-21 21:11:24,864 basehttp "GET /api/userbooks/ HTTP/1.0" 200 3104
+INFO 2024-12-21 21:11:26,557 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 490
+INFO 2024-12-21 21:15:11,045 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-21 21:15:24,234 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 21:16:26,038 views Session post-logout dict_items([])
+INFO 2024-12-21 21:16:26,314 views Session post-logout dict_items([])

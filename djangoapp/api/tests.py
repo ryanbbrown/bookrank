@@ -114,7 +114,7 @@ class BookAPITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Add recommendations for Hunger Games
-        response = self.client.post('/api/add-recommendations/', {
+        response = self.client.post('/api/recommendations/', {
             'work_id': hunger_games['work_id']
         }, format='json')
         self.assertEqual(response.status_code, 200)
@@ -141,7 +141,7 @@ class BookAPITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Add recommendations for Mistborn
-        response = self.client.post('/api/add-recommendations/', {
+        response = self.client.post('/api/recommendations/', {
             'work_id': mistborn['work_id']
         }, format='json')
         self.assertEqual(response.status_code, 200)
@@ -204,7 +204,7 @@ class BookAPITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Add recommendations
-        response = self.client.post('/api/add-recommendations/', {
+        response = self.client.post('/api/recommendations/', {
             'work_id': broken_earth_1['work_id']
         }, format='json')
         self.assertEqual(response.status_code, 200)
@@ -254,7 +254,7 @@ class BookAPITestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         # Add recommendations
-        response = self.client.post('/api/add-recommendations/', {
+        response = self.client.post('/api/recommendations/', {
             'work_id': broken_earth_2['work_id']
         }, format='json')
         self.assertEqual(response.status_code, 200)
@@ -317,7 +317,7 @@ class BookAPITestCase(TestCase):
                 self.assertEqual(response.status_code, 200)
             
             # Mark recommendation as viewed
-            response = self.client.post('/api/recommendations/', {
+            response = self.client.patch('/api/recommendations/', {
                 'work_id': recommendation['work_id']
             }, format='json')
             self.assertEqual(response.status_code, 200)

@@ -7,7 +7,7 @@ export function Footer(): JSX.Element {
         <footer className="bg-black text-white py-12 w-full">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <div className="text-center md:text-left mb-2 md:mb-0">
-                    &copy; 2024 Genres.fyi
+                    &copy; 2024 BookRank.ai
                 </div>
                 <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
                     <a 

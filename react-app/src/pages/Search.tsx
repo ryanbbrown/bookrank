@@ -53,7 +53,7 @@ function Search() {
             setShowSearchedBook(false);
             
             if (rating === 'high') {
-                axiosInstance.post<ApiResponse<never>>('api/add-recommendations/', {
+                axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
                     work_id
                 });
             }

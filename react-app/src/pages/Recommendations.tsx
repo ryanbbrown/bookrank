@@ -29,7 +29,7 @@ function Recommendations() {
             image_url,
         })
         .then(() => {
-            axiosInstance.post<ApiResponse<never>>('api/recommendations/', { work_id })
+            axiosInstance.patch<ApiResponse<never>>('api/recommendations/', { work_id })
                 .then(() => {
                     fetchRecommendation();
                 });
@@ -39,7 +39,7 @@ function Recommendations() {
     const handleNoClick = () => {
         if (!recommendation) return;
 
-        axiosInstance.post<ApiResponse<never>>('api/recommendations/', { 
+        axiosInstance.patch<ApiResponse<never>>('api/recommendations/', { 
             work_id: recommendation.work_id 
         })
         .then(() => {
