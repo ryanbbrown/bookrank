@@ -39,6 +39,8 @@ class UserBookManager(models.Manager):
         book.delete()
 
 class UserBook(models.Model):
+    objects = UserBookManager()
+    
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     work_id = models.CharField(max_length=50)
     title = models.CharField(max_length=200)

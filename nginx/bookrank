@@ -3,34 +3,30 @@ server {
 
     server_name localhost;
 
-    # Enable CORS
-    add_header 'Access-Control-Allow-Origin' 'http://localhost:3000' always;
-    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, DELETE, PATCH' always;
-    add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,X-CSRFToken' always;
-    add_header 'Access-Control-Allow-Credentials' 'true' always;
-
-    # Handle preflight requests
-    if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' 'http://localhost:3000' always;
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, DELETE, PATCH' always;
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,X-CSRFToken' always;
-        add_header 'Access-Control-Allow-Credentials' 'true' always;
-        add_header 'Content-Type' 'text/plain charset=UTF-8';
-        add_header 'Content-Length' 0;
-        return 204;
-    }
-
     location / {
-        root /app/djangoapp/static/;
+        root /home/ryanbrown/projects/bookrank/app/djangoapp/static;
         try_files $uri /index.html;
     }
 
+    # location / {
+        # proxy_pass http://localhost:3000;
+        # proxy_set_header Host $host;
+        # proxy_set_header X-Real-IP $remote_addr;
+        # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # proxy_set_header X-Forwarded-Proto $scheme;
+    # }
+
     location /static/ {
-        alias /app/djangoapp/static/static/;
+        alias /home/ryanbrown/projects/bookrank/app/djangoapp/static/static/;
     }
 
     location /api/ {
-        proxy_pass http://localhost:8000;
+    	# this is for local testing setup OR local docker setup OR digitalocean docker setup
+        proxy_pass http://127.0.0.1:8000;
+
+        # this is for local gunicorn setup
+        # proxy_pass http://unix:/home/ryanbrown/projects/bookrank/app/djangoapp/gunicorn.sock;
+        
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

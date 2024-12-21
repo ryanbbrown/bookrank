@@ -48502,3 +48502,37 @@ INFO 2024-12-02 04:10:00,839 views dict_keys(['_auth_user_id', '_auth_user_backe
 INFO 2024-12-02 04:10:00,839 views o0vds44i3n3zibezv9k8tiexb3qnbanv
 INFO 2024-12-02 04:10:39,718 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
 INFO 2024-12-02 04:10:58,907 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 03:26:53,118 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 03:42:43,847 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-21 03:42:52,625 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 10865
+ERROR 2024-12-21 03:42:54,617 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 283, in get
+    sorted_books = UserBook.objects.get_user_books(user)
+AttributeError: 'Manager' object has no attribute 'get_user_books'
+ERROR 2024-12-21 03:42:54,644 basehttp "GET /api/userbooks/ HTTP/1.0" 500 97009
+INFO 2024-12-21 03:44:31,885 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-21 03:44:48,436 autoreload Watching for file changes with StatReloader
+INFO 2024-12-21 03:44:53,563 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-21 03:45:10,799 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-21 03:45:12,594 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-21 03:45:12,747 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1662
+INFO 2024-12-21 03:45:15,657 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-21 03:45:21,305 views Session post-logout dict_items([])
+INFO 2024-12-21 03:45:21,307 basehttp "POST /api/logout/ HTTP/1.0" 200 52

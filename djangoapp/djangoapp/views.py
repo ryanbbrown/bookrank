@@ -49,7 +49,7 @@ import logging
 
 import pandas as pd
 from pinecone import Pinecone
-from groq import Groq
+# from groq import Groq
 # from langchain_huggingface import HuggingFaceEmbeddings
 
 
@@ -108,7 +108,7 @@ client = OpenSearch(
 pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index(PINECONE_INDEX_NAME)
 
-groq_client = Groq(api_key=GROQ_API_KEY)
+# groq_client = Groq(api_key=GROQ_API_KEY)
 
 ## UNCOMMENT THIS IF I WANT CHAT TO WORK
 # import shutil
