@@ -46,6 +46,11 @@ RUN sed -i 's/server_name localhost/server_name bookrank.ai www.bookrank.ai/g' /
 RUN mkdir -p /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/bookrank /etc/nginx/sites-enabled/bookrank
 COPY ./nginx/mime.types /etc/nginx/mime.types
 
+# Copy SSL certificates
+COPY ./ssl/bookrank.ai.chained.crt /home/ryanbrown/bookrank.ai.chained.crt
+COPY ./ssl/bookrank.ai.key /home/ryanbrown/bookrank.ai.key
+
+
 # Collect static files
 RUN python ./djangoapp/manage.py collectstatic --noinput
 

@@ -458,6 +458,7 @@ class RecommendationView(APIView):
 
 
 
+# TODO: simple enough that no manager needed, ViewSet should help though
 class ToBeReadView(APIView):
     """
     This view contains the logic for managing and viewing a user's TBR list.
