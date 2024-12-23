@@ -5,20 +5,25 @@ from django.db.models.functions import Abs
 from .services import PineconeService
 import math
 
+
+pinecone_service = PineconeService()
+
 # Constants used in Glicko rating system
 q = 0.01
-
 def g(RD):
     return 1 / math.sqrt(1 + 3 * q**2 * RD**2 / math.pi**2)
 
 def E(rating, opponent_rating, opponent_RD):
     return 1 / (1 + math.exp(-g(opponent_RD) * (rating - opponent_rating) / 400))
 
+
+
 class UserAccount(AbstractUser):
     pass
 
 
 class UserBookManager(models.Manager):
+
     def get_user_books(self, user):
         books = self.filter(user=user)
         ranked_books = list(books.filter(is_ranked=True))
@@ -27,15 +32,16 @@ class UserBookManager(models.Manager):
         sorted_unranked_books = sorted(unranked_books, key=lambda x: (x.date_added), reverse=True)
         return sorted_ranked_books + sorted_unranked_books
 
-    def add_or_update_book(self, user, work_id, rating, pinecone_book):
+    def add_or_update_book(self, user, work_id, rating):
+        pinecone_book = pinecone_service.fetch_vector(work_id)
         return self.update_or_create(
             user=user,
             work_id=work_id,
             defaults={
-                'title': pinecone_book['title'], 
-                'author': pinecone_book['author_name'], 
-                'description': pinecone_book['description'],
-                'image_url': pinecone_book['image_url'],
+                'title': pinecone_book['metadata']['title'], 
+                'author': pinecone_book['metadata']['author_name'], 
+                'description': pinecone_book['metadata']['description'],
+                'image_url': pinecone_book['metadata']['image_url'],
                 'rating': rating
             }
         )
@@ -118,6 +124,12 @@ class UserBookManager(models.Manager):
         other_book_obj.RD = other_new_RD
         other_book_obj.save()
 
+    def get_unranked_books(self, user):
+        """
+        Fetches the highest-scoring unranked books for the user.
+        """
+        return self.filter(user=user, is_ranked=False).order_by('-date_added')
+
 
 
 class UserBook(models.Model):
@@ -168,19 +180,6 @@ class TBRBook(models.Model):
 
 
 class UserRecommendationManager(models.Manager):
-    def __init__(self):
-        super().__init__()
-        self.pinecone_service = PineconeService()
-
-    def get_books_from_pinecone(self, work_id, k=10):
-        """
-        Given a seed book, fetches the top k recommendations from the Pinecone index.
-        """
-        seed_vector = self.pinecone_service.fetch_vector(work_id)
-        return self.pinecone_service.query_similar(
-            vector=seed_vector['values'],
-            k=k
-        )
 
     def get_unviewed_recommendation(self, user):
         """
@@ -199,10 +198,10 @@ class UserRecommendationManager(models.Manager):
         Given a seed book, fetches recommendations and adds them to the database.
         Returns number of recommendations added.
         """
-        seed_vector = self.pinecone_service.fetch_vector(work_id)
+        seed_vector = pinecone_service.fetch_vector(work_id)
         seed_author = seed_vector['metadata']['author_name']
         
-        recommendations = self.get_books_from_pinecone(work_id)
+        recommendations = pinecone_service.get_books_from_pinecone(work_id)
         
         added_recs = 0
         for book in recommendations:

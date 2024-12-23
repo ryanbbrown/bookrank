@@ -33,6 +33,7 @@ from .serializers import (
     TBRBookSerializer,
     UserRecommendationSerializer
 )
+from .services import OpenSearchService
 
 
 print('partway through imports')
@@ -92,73 +93,30 @@ from pinecone import Pinecone
 # embedding_model = SentenceTransformer(EMBEDDING_MODEL)
 
 
-HOST = 'https://search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com'  # Replace with your domain endpoint
 
-MASTER_USER = os.getenv('MASTER_USER')
-MASTER_PASSWORD = os.getenv('MASTER_PASSWORD')
-INDEX_NAME = 'goodreads_books'
-PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
-PINECONE_INDEX_NAME = 'goodreads-top-50k'
+# TODO: delete all this stuff
+# HOST = 'https://search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com'  # Replace with your domain endpoint
 
-
-client = OpenSearch(
-    hosts=[HOST],
-    http_auth=(MASTER_USER, MASTER_PASSWORD),
-    use_ssl=True,
-    verify_certs=True,
-    connection_class=RequestsHttpConnection
-)
-
-pc = Pinecone(api_key=PINECONE_API_KEY)
-index = pc.Index(PINECONE_INDEX_NAME)
+# MASTER_USER = os.getenv('MASTER_USER')
+# MASTER_PASSWORD = os.getenv('MASTER_PASSWORD')
+# INDEX_NAME = 'goodreads_books'
+# PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+# PINECONE_INDEX_NAME = 'goodreads-top-50k'
 
 
+# client = OpenSearch(
+#     hosts=[HOST],
+#     http_auth=(MASTER_USER, MASTER_PASSWORD),
+#     use_ssl=True,
+#     verify_certs=True,
+#     connection_class=RequestsHttpConnection
+# )
 
-# some global variables referenced in here oh well
-# could maybe define this inside searchView later but chilling for now
-def search(query):
-    search_query = {
-    "query": {
-        "function_score": {
-        "query": {
-            "multi_match": {
-            "query": query,
-            "fields": ["title", "author_name", "genres"],
-            "fuzziness": "AUTO"
-            }
-        },
-        "functions": [
-            {
-            "field_value_factor": {
-                "field": "log_ratings",
-                "factor": 1
-            }
-            }
-        ],
-        "boost_mode": "sum"
-        }
-    }
-    }
+# pc = Pinecone(api_key=PINECONE_API_KEY)
+# index = pc.Index(PINECONE_INDEX_NAME)
 
-    response = client.search(index=INDEX_NAME, body=search_query)
-    
-    try:
-        hitlist = response['hits']['hits']
-        rowlist = [dict({'score': hit['_score']}, **hit['_source']) for hit in hitlist]
-        df = pd.DataFrame(rowlist).rename(columns={'author_name': 'author'})
 
-        return df[['work_id', 'title', 'author', 'image_url', 'description']].to_dict(orient='records')
-        # return [(book, author) for book, author in zip(df['title'], df['author_name'])]
-    except Exception as e:
-        raise e
-
-q = 0.01  # Constant used in Glicko rating system
-def g(RD):
-    return 1 / math.sqrt(1 + 3 * q**2 * RD**2 / math.pi**2)
-
-def E(rating, opponent_rating, opponent_RD):
-    return 1 / (1 + math.exp(-g(opponent_RD) * (rating - opponent_rating) / 400))
-
+open_search_service = OpenSearchService()
 
 
 logger = logging.getLogger('django.info')
@@ -250,7 +208,7 @@ class SearchView(APIView):
     """
     def get(self, request):
         query = request.query_params.get('query')
-        searchbooklist = search(query)
+        searchbooklist = open_search_service.search(query)
 
         return Response({
             'success': True,
@@ -295,8 +253,7 @@ class UserBooksView(APIView):
         
         # TODO: update_or_create here allows them to re-add existing book with new rating
         # not sure what it does to elo rating field
-        pinecone_book = index.fetch(ids=[work_id])['vectors'][work_id]['metadata']
-        UserBook.objects.add_or_update_book(user, work_id, rating, pinecone_book)
+        UserBook.objects.add_or_update_book(user, work_id, rating)
         
         return Response({
             'success': True,
@@ -539,12 +496,8 @@ class UnrankedBooksView(APIView):
         Fetches the highest-scoring unranked book for the current user.
         """
         user = request.user
-        unranked_books = (
-            UserBook
-            .objects
-            .filter(user=user, is_ranked=False)
-            .order_by('-date_added')
-        )
+        unranked_books = UserBook.objects.get_unranked_books(user)
+        
         if unranked_books.exists():
             serializer = UserBookSerializer(unranked_books.first())
             return Response({
@@ -561,7 +514,7 @@ class UnrankedBooksView(APIView):
 
 
 
-
+# TODO: some of this logic should be moved but not important right now
 from djangoapp.tasks import process_csv
 class GoodreadsImportView(APIView):
     """
@@ -584,12 +537,7 @@ class GoodreadsImportView(APIView):
             
             # Read the CSV file into a pandas DataFrame
             df = pd.read_csv(file_full_path)
-            print(request.user.id)
-            print(df.head())
             process_csv.delay(file_full_path, request.user.id)
-            
-            
-            # Perform further processing here (if needed)
             
             return Response({
                 'success': True,

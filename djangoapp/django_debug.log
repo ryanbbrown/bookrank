@@ -49032,3 +49032,150 @@ INFO 2024-12-21 21:15:24,234 autoreload Watching for file changes with StatReloa
 INFO 2024-12-21 21:16:26,038 views Session post-logout dict_items([])
 INFO 2024-12-21 21:16:26,314 views Session post-logout dict_items([])
 INFO 2024-12-22 04:00:18,889 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-22 04:00:47,633 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 02:45:13,482 views Session post-logout dict_items([])
+INFO 2024-12-23 02:45:13,742 views Session post-logout dict_items([])
+INFO 2024-12-23 02:46:50,562 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 02:47:05,633 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-23 02:47:06,951 basehttp "GET /api/search/?query=Hunger+Games HTTP/1.0" 200 10865
+INFO 2024-12-23 02:47:08,370 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-23 02:47:08,438 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-23 02:47:08,720 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-23 02:47:10,405 basehttp "GET /api/search/?query=Mistborn HTTP/1.0" 200 6984
+INFO 2024-12-23 02:47:10,975 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-23 02:47:11,045 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-23 02:47:11,156 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-23 02:47:13,070 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-23 02:47:13,114 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-23 02:47:13,526 basehttp "GET /api/search/?query=Mistbornbroken+earth HTTP/1.0" 200 12585
+INFO 2024-12-23 02:47:14,223 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-23 02:47:14,671 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 10972
+INFO 2024-12-23 02:47:15,378 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-23 02:47:15,526 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 486
+INFO 2024-12-23 02:47:16,524 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-23 02:47:16,582 basehttp "DELETE /api/to-be-read/?work_id=2346070 HTTP/1.0" 200 55
+INFO 2024-12-23 02:47:16,606 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 1490
+INFO 2024-12-23 02:47:17,113 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 280
+INFO 2024-12-23 02:47:18,609 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-23 02:47:18,639 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 765
+INFO 2024-12-23 02:47:18,815 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-23 02:47:18,859 basehttp "GET /api/compare-book/?work_id=2346070 HTTP/1.0" 200 65
+INFO 2024-12-23 02:47:19,089 basehttp "DELETE /api/to-be-read/?work_id=52472813 HTTP/1.0" 200 55
+INFO 2024-12-23 02:47:19,136 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-23 02:47:19,344 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-23 02:47:19,565 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-23 02:47:19,589 basehttp "GET /api/recommendations/ HTTP/1.0" 200 792
+INFO 2024-12-23 02:47:19,623 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-23 02:47:19,932 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-23 02:47:19,979 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:20,028 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1365
+INFO 2024-12-23 02:47:20,374 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:20,410 basehttp "GET /api/recommendations/ HTTP/1.0" 200 2163
+INFO 2024-12-23 02:47:20,822 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:20,861 basehttp "GET /api/recommendations/ HTTP/1.0" 200 975
+INFO 2024-12-23 02:47:21,254 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-23 02:47:21,292 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:21,328 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1110
+INFO 2024-12-23 02:47:21,690 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:21,722 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1235
+INFO 2024-12-23 02:47:22,122 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-23 02:47:22,156 basehttp "GET /api/recommendations/ HTTP/1.0" 200 69
+INFO 2024-12-23 03:28:05,149 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-23 03:28:20,204 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:28:48,478 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-23 03:29:04,304 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:30:01,566 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-23 03:30:15,166 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:31:18,034 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-23 03:31:32,196 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:33:11,777 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-23 03:33:29,752 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:34:12,480 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-23 03:34:26,088 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:34:54,051 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-23 03:35:07,642 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:42:17,781 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-23 03:42:32,741 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:42:43,217 views Session post-logout dict_items([])
+INFO 2024-12-23 03:42:43,549 views Session post-logout dict_items([])
+ERROR 2024-12-23 03:42:44,309 log Internal Server Error: /api/search/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 216, in get
+    searchbooklist = search(query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 123, in search
+    return open_search_service.search(query)
+NameError: name 'open_search_service' is not defined
+INFO 2024-12-23 03:51:13,750 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-23 03:51:28,602 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 03:51:38,032 views Session post-logout dict_items([])
+INFO 2024-12-23 03:51:38,336 views Session post-logout dict_items([])
+ERROR 2024-12-23 03:51:42,402 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 256, in post
+    pinecone_book = index.fetch(ids=[work_id])['vectors'][work_id]['metadata']
+NameError: name 'index' is not defined
+INFO 2024-12-23 04:06:40,022 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-23 04:06:56,025 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 04:07:01,212 views Session post-logout dict_items([])
+INFO 2024-12-23 04:07:01,503 views Session post-logout dict_items([])
+ERROR 2024-12-23 04:07:05,086 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 256, in post
+    UserBook.objects.add_or_update_book(user, work_id, rating)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 41, in add_or_update_book
+    'title': pinecone_book['title'],
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/pinecone/core/client/model_utils.py", line 496, in __getitem__
+    raise PineconeApiAttributeError(
+pinecone.core.client.exceptions.PineconeApiAttributeError: Vector has no attribute 'title' at ['['received_data', 'vectors', '2792775']']['title']
+INFO 2024-12-23 04:08:11,378 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-23 04:08:25,499 autoreload Watching for file changes with StatReloader
+INFO 2024-12-23 04:08:28,212 views Session post-logout dict_items([])
+INFO 2024-12-23 04:08:28,518 views Session post-logout dict_items([])
