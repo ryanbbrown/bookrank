@@ -21,7 +21,7 @@ interface BookRowModalProps<T extends TBRBook> {
                     className="bg-teal-800 hover:bg-teal-900 text-white px-4 py-2 rounded"
                     onClick={() => handleSpecificRankClick(book)}
                 >
-                    Rank
+                    Mark as Read
                 </button>
             )}
             {book.is_ranked && handleReRankClick && (

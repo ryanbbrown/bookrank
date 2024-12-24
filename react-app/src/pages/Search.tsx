@@ -105,7 +105,7 @@ function Search() {
 
     const handleComparisonClick = (o: number) => {
         if (!selectedBook || !comparedBook) return;
-
+        
         axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
             new_book_id: selectedBook.work_id,
             existing_book_id: comparedBook.work_id,
@@ -123,7 +123,7 @@ function Search() {
                     <input
                         ref={searchInputRef}
                         type="text"
-                        placeholder="Search for books"
+                        placeholder="Search for a book title or author"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         className="flex-grow p-2 pl-10 text-sm text-black rounded-l bg-gray-200 outline-none"

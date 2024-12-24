@@ -16,7 +16,6 @@ function ToBeRead() {
     const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
     const [activeRow, setActiveRow] = useState<string | null>(null);
-    const outcome = useRef<number>(0);
 
     useEffect(() => {
         axiosInstance.get<ApiResponse<Array<TBRBook>>>('api/to-be-read/')
@@ -100,15 +99,15 @@ function ToBeRead() {
 
     const handleComparisonClick = (o: number) => {
         if (!ratedBook || !comparedBook) return;
-
-        outcome.current = o === 1 ? 1 : 0;
         
         axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
             new_book_id: ratedBook.work_id,
             existing_book_id: comparedBook.work_id,
-            outcome: outcome.current,
+            outcome: o,
         }).then(() => {
-            refreshBooks();
+            if (o !== -1) { // we only refresh if the outcome actually resulted in rating update
+                refreshBooks();
+            }
             fetchComparison({ workId: ratedBook.work_id });
         });
     };

@@ -58,7 +58,7 @@ class UserBookManager(models.Manager):
         book = self.get(user=user, work_id=work_id)
         book.delete()
 
-    def get_comparison_book(self, user, work_id, excluded_work_ids=None):
+    def get_comparison_book(self, user, work_id, excluded_work_ids=None, valid_comparison_count=0):
         """
         Gets a book to compare with the given book, excluding certain work IDs.
         Returns (book, status_message) tuple where status_message is None for success
@@ -82,7 +82,7 @@ class UserBookManager(models.Manager):
             book_obj.save()
             return None, 'No more books to compare'
         
-        if len(excluded_work_ids) >= 3:
+        if valid_comparison_count >= 3:
             book_obj.is_ranked = True
             book_obj.save()
             return None, 'Book ranking complete'
@@ -109,20 +109,23 @@ class UserBookManager(models.Manager):
     def update_ratings(self, user, work_id, other_work_id, outcome):
         """
         Updates the elo ratings and RDs of two books after a comparison.
+        Skip rating updates if outcome is -1 (not comparable)
         """
         book_obj = self.get(work_id=work_id, user=user)
         other_book_obj = self.get(work_id=other_work_id, user=user)
         
-        new_rating, new_RD = self.calc_new_rating(book_obj, other_book_obj, outcome)
-        other_new_rating, other_new_RD = self.calc_new_rating(other_book_obj, book_obj, 1 - outcome)
+        # Only update ratings if the outcome is a valid comparison
+        if outcome != -1:
+            new_rating, new_RD = self.calc_new_rating(book_obj, other_book_obj, outcome)
+            other_new_rating, other_new_RD = self.calc_new_rating(other_book_obj, book_obj, 1 - outcome)
 
-        book_obj.elo_rating = new_rating
-        book_obj.RD = new_RD
-        book_obj.save()
+            book_obj.elo_rating = new_rating
+            book_obj.RD = new_RD
+            book_obj.save()
 
-        other_book_obj.elo_rating = other_new_rating
-        other_book_obj.RD = other_new_RD
-        other_book_obj.save()
+            other_book_obj.elo_rating = other_new_rating
+            other_book_obj.RD = other_new_RD
+            other_book_obj.save()
 
     def get_unranked_books(self, user):
         """

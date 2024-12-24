@@ -264,14 +264,18 @@ class CompareBookView(APIView):
 
         # Initialize session data if needed
         if work_id not in request.session:
-            request.session[work_id] = {'compared_books': []}
+            request.session[work_id] = {
+                'compared_books': [],
+                'valid_comparison_count': 0
+            }
             request.session.save()
 
         # Get comparison book using manager method
         comparison_book, status_message = UserBook.objects.get_comparison_book(
             user=user,
             work_id=work_id,
-            excluded_work_ids=request.session[work_id]['compared_books']
+            excluded_work_ids=request.session[work_id]['compared_books'],
+            valid_comparison_count=request.session[work_id]['valid_comparison_count']
         )
 
         if status_message:
@@ -303,17 +307,23 @@ class CompareBookView(APIView):
         if not request.session.session_key:
             request.session.save()
         
-        # add the compared book to the session memory
+        # Add to compared books regardless of outcome
         request.session[work_id]['compared_books'].append(other_work_id)
+        
+        # Only increment valid comparison count if outcome is not -1
+        if outcome != -1:
+            request.session[work_id]['valid_comparison_count'] = request.session[work_id].get('valid_comparison_count', 0) + 1
+        
         request.session.save()
 
-        # Use manager method to update ratings
-        UserBook.objects.update_ratings(
-            user=user,
-            work_id=work_id,
-            other_work_id=other_work_id,
-            outcome=outcome
-        )
+        # Only update ratings if outcome is not -1 (not comparable)
+        if outcome != -1:
+            UserBook.objects.update_ratings(
+                user=user,
+                work_id=work_id,
+                other_work_id=other_work_id,
+                outcome=outcome
+            )
 
         return Response({
             'success': True,

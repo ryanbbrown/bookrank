@@ -54,12 +54,18 @@ export function CompareModal({
                         <p className="text-center mt-2">{comparedBook.normalized_rating}</p>
                     </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center gap-4">
                     <button
                         className="bg-teal-800 hover:bg-teal-900 text-white px-4 py-2 rounded mt-5"
                         onClick={() => handleComparisonClick(0.5)}
                     >
-                        I can&apos;t decide
+                        I like both equally
+                    </button>
+                    <button
+                        className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded mt-5"
+                        onClick={() => handleComparisonClick(-1)}
+                    >
+                        Books aren't comparable
                     </button>
                 </div>
             </div>

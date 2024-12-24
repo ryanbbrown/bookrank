@@ -46,10 +46,12 @@ class SearchQuerySerializer(serializers.Serializer):
 
 class UserBookCreateSerializer(BookRatingSerializer):
     """For POST /api/userbooks/"""
-    title = serializers.CharField(required=True)
-    author = serializers.CharField(required=True)
-    image_url = serializers.URLField(required=False, allow_blank=True)
-    description = serializers.CharField(required=False, allow_blank=True)
+    pass
+    ## having these fields was causing errors since it only gets passed w work_id and rating
+    # title = serializers.CharField(required=True)
+    # author = serializers.CharField(required=True)
+    # image_url = serializers.URLField(required=False, allow_blank=True)
+    # description = serializers.CharField(required=False, allow_blank=True)
 
 class UserBookUpdateSerializer(BookRatingSerializer):
     """For PATCH /api/userbooks/"""
@@ -67,7 +69,7 @@ class CompareBookUpdateSerializer(serializers.Serializer):
     """For POST /api/compare-book/"""
     new_book_id = serializers.CharField(required=True)
     existing_book_id = serializers.CharField(required=True)
-    outcome = serializers.FloatField(required=True, min_value=0, max_value=1)
+    outcome = serializers.FloatField(required=True, min_value=-1, max_value=1)
 
 class RecommendationViewSerializer(BookIdentifierSerializer):
     """For PATCH /api/recommendations/"""

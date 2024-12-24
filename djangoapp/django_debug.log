@@ -49192,3 +49192,91 @@ INFO 2024-12-24 04:14:50,366 views Session post-logout dict_items([])
 INFO 2024-12-24 04:14:50,626 views Session post-logout dict_items([])
 INFO 2024-12-24 04:17:01,809 views Session post-logout dict_items([])
 INFO 2024-12-24 04:17:02,078 views Session post-logout dict_items([])
+INFO 2024-12-24 15:26:25,911 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 15:26:33,415 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-24 15:26:34,962 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:26:38,256 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 15:26:39,932 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:26:47,431 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 15:35:50,055 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:45:46,299 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-24 15:46:00,876 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 15:47:19,332 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-24 15:47:32,790 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 15:48:25,599 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:48:51,979 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:50:30,724 basehttp "GET /api/compare-book/?work_id=18453342 HTTP/1.0" 200 1131
+WARNING 2024-12-24 15:50:33,663 basehttp "POST /api/compare-book/ HTTP/1.0" 400 64
+WARNING 2024-12-24 15:50:48,589 basehttp "POST /api/compare-book/ HTTP/1.0" 400 64
+INFO 2024-12-24 15:52:40,676 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-24 15:52:53,559 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 15:53:02,687 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:53:02,895 basehttp "GET /api/compare-book/?work_id=18453342 HTTP/1.0" 200 363
+INFO 2024-12-24 15:53:06,928 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:53:07,273 basehttp "GET /api/compare-book/?work_id=18453342 HTTP/1.0" 200 1068
+INFO 2024-12-24 15:53:07,539 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43656
+INFO 2024-12-24 15:53:09,779 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:53:10,135 basehttp "GET /api/compare-book/?work_id=18453342 HTTP/1.0" 200 62
+INFO 2024-12-24 15:53:10,392 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43655
+INFO 2024-12-24 15:55:38,787 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-24 15:55:52,567 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 15:56:16,238 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 363
+INFO 2024-12-24 15:56:23,144 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:56:23,489 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 353
+INFO 2024-12-24 15:56:24,883 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:56:25,229 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 1068
+INFO 2024-12-24 15:56:27,996 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:56:28,344 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 355
+INFO 2024-12-24 15:56:28,596 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43655
+INFO 2024-12-24 15:56:30,442 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:56:30,776 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 1470
+INFO 2024-12-24 15:56:31,041 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43655
+INFO 2024-12-24 15:56:33,264 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 15:56:33,623 basehttp "GET /api/compare-book/?work_id=503752 HTTP/1.0" 200 62
+INFO 2024-12-24 15:56:33,864 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43654
+INFO 2024-12-24 15:57:16,882 basehttp "GET /api/compare-book/?work_id=2768848 HTTP/1.0" 200 355
+INFO 2024-12-24 15:59:09,038 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 15:59:11,568 basehttp "GET /api/recommendations HTTP/1.0" 301 0
+INFO 2024-12-24 15:59:11,604 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1662
+INFO 2024-12-24 15:59:13,036 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-24 15:59:13,275 basehttp "GET /api/recommendations/ HTTP/1.0" 200 1368
+INFO 2024-12-24 15:59:47,240 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-24 15:59:47,603 basehttp "PATCH /api/recommendations/ HTTP/1.0" 200 60
+INFO 2024-12-24 15:59:47,874 basehttp "GET /api/recommendations/ HTTP/1.0" 200 839
+INFO 2024-12-24 15:59:53,248 basehttp "GET /api/userbooks/ HTTP/1.0" 200 43654
+INFO 2024-12-24 15:59:56,286 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 743
+WARNING 2024-12-24 16:00:04,044 basehttp "POST /api/userbooks/ HTTP/1.0" 400 74
+INFO 2024-12-24 16:03:12,702 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-24 16:03:26,957 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 16:03:40,242 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-24 16:03:40,303 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 386
+INFO 2024-12-24 16:03:40,601 basehttp "DELETE /api/to-be-read/?work_id=21479270 HTTP/1.0" 200 55
+INFO 2024-12-24 16:03:41,462 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 16:03:45,624 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:03:45,971 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 969
+INFO 2024-12-24 16:03:48,008 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:03:48,367 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 355
+INFO 2024-12-24 16:03:48,615 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 16:03:49,279 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:03:49,626 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 1010
+INFO 2024-12-24 16:03:50,695 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:03:51,052 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 1272
+INFO 2024-12-24 16:03:51,307 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 16:03:52,974 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:03:53,332 basehttp "GET /api/compare-book/?work_id=21479270 HTTP/1.0" 200 62
+INFO 2024-12-24 16:03:53,568 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 513
+INFO 2024-12-24 16:03:55,497 basehttp "GET /api/userbooks/ HTTP/1.0" 200 44987
+INFO 2024-12-24 16:07:54,195 basehttp "GET /api/userbooks/ HTTP/1.0" 200 44987
+INFO 2024-12-24 16:08:24,274 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 10865
+INFO 2024-12-24 16:08:28,710 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-24 16:08:29,083 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 363
+INFO 2024-12-24 16:08:29,270 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-24 16:08:32,312 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:08:32,654 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 355
+INFO 2024-12-24 16:08:34,113 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:08:34,463 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 1470
+INFO 2024-12-24 16:08:35,937 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:08:36,298 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 344
+INFO 2024-12-24 16:08:38,459 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 16:08:38,826 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 62
+INFO 2024-12-24 16:08:41,154 basehttp "GET /api/userbooks/ HTTP/1.0" 200 46404

@@ -17,7 +17,6 @@ function MyBooks() {
     const [showComparison, setShowComparison] = useState(false);
     const [activeRow, setActiveRow] = useState<string | null>(null);
     const [getNextUnranked, setGetNextUnranked] = useState(true);
-    const outcome = useRef<number>(0);
 
     useEffect(() => {
         axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
@@ -96,15 +95,15 @@ function MyBooks() {
 
     const handleComparisonClick = (o: number) => {
         if (!unrankedBook || !comparedBook) return;
-
-        outcome.current = o === 1 ? 1 : 0;
         
         axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
             new_book_id: unrankedBook.work_id,
             existing_book_id: comparedBook.work_id,
-            outcome: outcome.current,
+            outcome: o,
         }).then(() => {
-            refreshBooks();
+            if (o !== -1) { // we only refresh if the outcome actually resulted in rating update
+                refreshBooks();
+            }
             if (unrankedBook) {
                 fetchComparison({ workId: unrankedBook.work_id, getNextUnranked });
             }
