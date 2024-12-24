@@ -12,6 +12,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.exceptions import ValidationError
 
 # Django imports
 from django.contrib.auth import authenticate, login, logout
@@ -31,12 +32,20 @@ from .serializers import (
     UserAccountSerializer,
     UserBookSerializer,
     TBRBookSerializer,
-    UserRecommendationSerializer
+    UserRecommendationSerializer,
+    SearchQuerySerializer,
+    UserBookCreateSerializer,
+    UserBookUpdateSerializer,
+    UserBookDeleteSerializer,
+    CompareBookRequestSerializer,
+    CompareBookUpdateSerializer,
+    RecommendationViewSerializer,
+    RecommendationCreateSerializer,
+    TBRBookCreateSerializer,
+    TBRBookDeleteSerializer,
 )
 from .services import OpenSearchService
 
-
-print('partway through imports')
 
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from dotenv import load_dotenv
@@ -49,71 +58,7 @@ import pandas as pd
 from pinecone import Pinecone
 
 
-# from groq import Groq
-# from langchain_huggingface import HuggingFaceEmbeddings
-# GROQ_API_KEY = os.getenv('GROQ_API_KEY')
-# groq_client = Groq(api_key=GROQ_API_KEY)
-# EMBEDDING_MODEL = 'thenlper/gte-small'
-# SUMMARY_PROMPT = """
-# You are a chatbot designed to give one-sentences responses that connect a user query
-# and a book description. You should only ever reply with one sentence.
 
-# You will be given a user query a single book's title and description. Your goal is to generate one sentence
-# explaining how the book is relevant to the user query.
-
-# Below are some examples of expected output:
-
-
-# USER INPUT: Any fantasy with magical trials?
-# OUTPUT 1: 'The Iron Trial' is a perfect pick for you, as it centers around magical trials that determine the fate of young wizards.
-# OUTPUT 2: Furyborn is a perfect match for your search, featuring Rielle who must endure seven elemental magic trials to prove herself as the prophesied Sun Queen.
-# OUTPUT 3: The Wonderland Trials is a perfect pick for you, featuring magical trials in a fantastical Wonderland setting where players must solve clues and survive dangerous challenges.
-# OUTPUT 4: Sufficiently Advanced Magic is a perfect fit for your search, featuring a protagonist who must survive magical trails in a colossal tower to gain powers and find his lost brother.
-# OUTPUT 5: The Princess Trials is a thrilling fantasy book featuring magical trials where contestants compete for a prince's hand in a deadly, televised pageant.
-# OUTPUT 6: 'An Unkindness of Magicians' is a thrilling fantasy set in New York City, featuring magical trials and a powerful magician named Sydney who aims to disrupt the magical system.
-
-# USER INPUT: What books have thrilling heists?
-# OUTPUT 1: The palace job is a thrilling high-fantasy heist caper with a team of magical misfits on a dating mission to steal a priceless elven manuscript.
-# OUTPUT 2: 'Heist Society' is a thrilling adventure filled with high-stakes heists, perfect for anyone looking for a book about daring thefts and clever cons
-# OUTPUT 3: An Illusion of Thieves is a perfect pick for thrilling heists, featuring a ragtag crew using forbidden magic to pull off an elaborate heist and stop a civil war.
-# OUTPUT 4: 'Thick as thieves' is a perfect pick for you, as it dives deep into the thrilling aftermath of a heist gone wrong, with secrets unraveling and suspense at every turn
-# OUTPUT 5: California Bones is a thrilling heist adventure where ap petty thief and his team must break into a storehouse of magical artifacts in a fantastical version of Los Angeles
-# OUTPUT 6: 'The monsters We Defy' is a thrilling heist novel set in 1925 Washington D.C., blending magic, history, and a daring mission to steal a magical ring.
-
-
-# Below is the actual user query and book description you will be working with:
-# USER QUERY: {user_query}
-# BOOK TITLE: {book_title}
-# BOOK DESCRIPTION: {book_description}
-
-# """
-# import shutil
-# shutil.rmtree('/home/ryanbrown/.cache/huggingface/hub/models--thenlper--gte-small', ignore_errors=True)
-# from sentence_transformers import SentenceTransformer
-# embedding_model = SentenceTransformer(EMBEDDING_MODEL)
-
-
-
-# TODO: delete all this stuff
-# HOST = 'https://search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com'  # Replace with your domain endpoint
-
-# MASTER_USER = os.getenv('MASTER_USER')
-# MASTER_PASSWORD = os.getenv('MASTER_PASSWORD')
-# INDEX_NAME = 'goodreads_books'
-# PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
-# PINECONE_INDEX_NAME = 'goodreads-top-50k'
-
-
-# client = OpenSearch(
-#     hosts=[HOST],
-#     http_auth=(MASTER_USER, MASTER_PASSWORD),
-#     use_ssl=True,
-#     verify_certs=True,
-#     connection_class=RequestsHttpConnection
-# )
-
-# pc = Pinecone(api_key=PINECONE_API_KEY)
-# index = pc.Index(PINECONE_INDEX_NAME)
 
 
 open_search_service = OpenSearchService()
@@ -207,7 +152,11 @@ class SearchView(APIView):
     This view searches for books in the AWS OpenSearch client based on a query string.
     """
     def get(self, request):
-        query = request.query_params.get('query')
+
+        serializer = SearchQuerySerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
+        
+        query = serializer.validated_data['query']
         searchbooklist = open_search_service.search(query)
 
         return Response({
@@ -247,13 +196,15 @@ class UserBooksView(APIView):
         Adds a UserBook object to the database, associated with the current user.
         It is the only way that users can add finished books to their account.
         """
-        work_id = request.data.get('work_id')
-        rating = request.data.get('rating')
-        user = request.user
+        serializer = UserBookCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
         
-        # TODO: update_or_create here allows them to re-add existing book with new rating
-        # not sure what it does to elo rating field
-        UserBook.objects.add_or_update_book(user, work_id, rating)
+        # need to think about add_or_update vs just add
+        UserBook.objects.add_or_update_book(
+            user=request.user,
+            work_id=serializer.validated_data['work_id'],
+            rating=serializer.validated_data['rating']
+        )
         
         return Response({
             'success': True,
@@ -264,11 +215,14 @@ class UserBooksView(APIView):
         """
         Updates the rating of a UserBook object.
         """
-        work_id = request.data.get('work_id')
-        rating = request.data.get('rating')
-        user = request.user
+        serializer = UserBookUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-        UserBook.objects.update_book_rating(user, work_id, rating)
+        UserBook.objects.update_book_rating(
+            user=request.user,
+            work_id=serializer.validated_data['work_id'],
+            rating=serializer.validated_data['rating']
+        )
 
         return Response({
             'success': True,
@@ -279,8 +233,13 @@ class UserBooksView(APIView):
         """
         Deletes a book from a user's finished books list.
         """
-        work_id = request.query_params.get('work_id')
-        UserBook.objects.delete_book(request.user, work_id)
+        serializer = UserBookDeleteSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
+
+        UserBook.objects.delete_book(
+            user=request.user,
+            work_id=serializer.validated_data['work_id']
+        )
 
         return Response({
             'success': True,
@@ -297,7 +256,10 @@ class CompareBookView(APIView):
         """
         Gets the book to compare with the current book.
         """
-        work_id = request.query_params.get('work_id')
+        serializer = CompareBookRequestSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
+        
+        work_id = serializer.validated_data['work_id']
         user = request.user
 
         # Initialize session data if needed
@@ -330,9 +292,12 @@ class CompareBookView(APIView):
         """
         Updates the ratings of two books after a comparison.
         """
-        work_id = request.data.get('new_book_id')
-        other_work_id = request.data.get('existing_book_id')
-        outcome = request.data.get('outcome')
+        serializer = CompareBookUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        work_id = serializer.validated_data['new_book_id']
+        other_work_id = serializer.validated_data['existing_book_id']
+        outcome = serializer.validated_data['outcome']
         user = request.user
         
         if not request.session.session_key:
@@ -386,9 +351,12 @@ class RecommendationView(APIView):
         """
         Updates a recommendation as viewed so that it won't be shown again.
         """
+        serializer = RecommendationViewSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
         UserRecommendation.objects.mark_recommendation_as_viewed(
             user=request.user,
-            work_id=request.data.get('work_id')
+            work_id=serializer.validated_data['work_id']
         )
 
         return Response({
@@ -401,11 +369,12 @@ class RecommendationView(APIView):
         Given a seed book, adds recommendations to the database.
         This function currently runs every time the user adds a "high" bucketed book to their account.
         """
-        work_id = request.data.get('work_id')
+        serializer = RecommendationCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
         
         added_count = UserRecommendation.objects.add_recommendations_from_seed(
             user=request.user,
-            work_id=work_id
+            work_id=serializer.validated_data['work_id']
         )
 
         return Response({
@@ -426,42 +395,27 @@ class ToBeReadView(APIView):
         Gets all of user's TBR books to display on the frontend.
         """
         user = request.user
-        books = (
-            TBRBook
-            .objects
-            .filter(user=user)
-        )
+        books = TBRBook.objects.filter(user=user)
         serializer = TBRBookSerializer(books, many=True)
         return Response({
             'success': True,
             'data': serializer.data,
             'message': 'TBR list retrieved successfully'
         })
-    
 
     def post(self, request):
         """
         Adds a book to a user's TBR list.
         """
-        work_id = request.data.get('work_id')
-        title = request.data.get('title')
-        author = request.data.get('author')
-        image_url = request.data.get('image_url')
-        user = request.user
+        serializer = TBRBookCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
         
-        if not all([work_id, title, author]):
-            return Response({
-                'success': False,
-                'error': 'All fields are required',
-                'message': 'Failed to add book to TBR list'
-            }, status=400)
-        
-        var = TBRBook.objects.create(
-            user=user,
-            work_id=work_id,
-            title=title,
-            author=author,
-            image_url=image_url,
+        TBRBook.objects.create(
+            user=request.user,
+            work_id=serializer.validated_data['work_id'],
+            title=serializer.validated_data['title'],
+            author=serializer.validated_data['author'],
+            image_url=serializer.validated_data['image_url']
         )
         
         return Response({
@@ -473,12 +427,15 @@ class ToBeReadView(APIView):
         """
         Deletes a book from a user's TBR list.
         """
+        serializer = TBRBookDeleteSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
+
         tbr_book = TBRBook.objects.get(
             user=request.user,
-            work_id=request.query_params.get('work_id')
+            work_id=serializer.validated_data['work_id']
         )
-
         tbr_book.delete()
+        
         return Response({
             'success': True,
             'message': 'Book removed from TBR list'

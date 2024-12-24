@@ -2,6 +2,8 @@
 from rest_framework import serializers
 from .models import UserAccount, UserBook, TBRBook, UserRecommendation
 
+
+## MODEL SERIALIZERS
 class UserAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserAccount
@@ -24,20 +26,63 @@ class UserRecommendationSerializer(serializers.ModelSerializer):
         fields = ['work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'reference_work_id', 'score']
 
 
-# class SignupSerializer(serializers.ModelSerializer):
-#     password = serializers.CharField(write_only=True)
+## API SERIALIZERS
+class BookIdentifierSerializer(serializers.Serializer):
+    """For multiple endpoints requiring work_id."""
+    work_id = serializers.CharField(required=True)
 
-#     class Meta:
-#         model = User
-#         fields = ['username', 'password'
-#         # , 'email'
-#         ]
+class BookRatingSerializer(BookIdentifierSerializer):
+    """For multiple endpoints requiring work_id and rating."""
+    RATING_CHOICES = (
+        ('high', 'high'),
+        ('medium', 'medium'),
+        ('low', 'low'),
+    )
+    rating = serializers.ChoiceField(choices=RATING_CHOICES, required=True)
 
-#     def create(self, validated_data):
-#         user = User(
-#             username=validated_data['username'],
-#             # email=validated_data['email']
-#         )
-#         user.set_password(validated_data['password'])
-#         user.save()
-#         return user
+class SearchQuerySerializer(serializers.Serializer):
+    """For GET /api/search/"""
+    query = serializers.CharField(required=True, min_length=1)
+
+class UserBookCreateSerializer(BookRatingSerializer):
+    """For POST /api/userbooks/"""
+    title = serializers.CharField(required=True)
+    author = serializers.CharField(required=True)
+    image_url = serializers.URLField(required=False, allow_blank=True)
+    description = serializers.CharField(required=False, allow_blank=True)
+
+class UserBookUpdateSerializer(BookRatingSerializer):
+    """For PATCH /api/userbooks/"""
+    pass
+
+class UserBookDeleteSerializer(BookIdentifierSerializer):
+    """For DELETE /api/userbooks/"""
+    pass
+
+class CompareBookRequestSerializer(BookIdentifierSerializer):
+    """For GET /api/compare-book/"""
+    pass
+
+class CompareBookUpdateSerializer(serializers.Serializer):
+    """For POST /api/compare-book/"""
+    new_book_id = serializers.CharField(required=True)
+    existing_book_id = serializers.CharField(required=True)
+    outcome = serializers.FloatField(required=True, min_value=0, max_value=1)
+
+class RecommendationViewSerializer(BookIdentifierSerializer):
+    """For PATCH /api/recommendations/"""
+    pass
+
+class RecommendationCreateSerializer(BookIdentifierSerializer):
+    """For POST /api/recommendations/"""
+    pass
+
+class TBRBookCreateSerializer(BookIdentifierSerializer):
+    """For POST /api/to-be-read/"""
+    title = serializers.CharField(required=True)
+    author = serializers.CharField(required=True)
+    image_url = serializers.URLField(required=False, allow_blank=True)
+
+class TBRBookDeleteSerializer(BookIdentifierSerializer):
+    """For DELETE /api/to-be-read/"""
+    pass

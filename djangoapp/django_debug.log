@@ -49179,3 +49179,16 @@ INFO 2024-12-23 04:08:11,378 autoreload /home/ryanbrown/projects/bookrank/app/dj
 INFO 2024-12-23 04:08:25,499 autoreload Watching for file changes with StatReloader
 INFO 2024-12-23 04:08:28,212 views Session post-logout dict_items([])
 INFO 2024-12-23 04:08:28,518 views Session post-logout dict_items([])
+INFO 2024-12-24 03:39:50,617 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-24 03:40:18,090 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 03:40:41,525 views Session post-logout dict_items([])
+INFO 2024-12-24 03:40:41,858 views Session post-logout dict_items([])
+INFO 2024-12-24 03:49:31,665 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-24 03:49:45,408 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 03:50:22,330 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-24 04:05:41,721 views Session post-logout dict_items([])
+INFO 2024-12-24 04:05:41,985 views Session post-logout dict_items([])
+INFO 2024-12-24 04:14:50,366 views Session post-logout dict_items([])
+INFO 2024-12-24 04:14:50,626 views Session post-logout dict_items([])
+INFO 2024-12-24 04:17:01,809 views Session post-logout dict_items([])
+INFO 2024-12-24 04:17:02,078 views Session post-logout dict_items([])
