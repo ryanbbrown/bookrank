@@ -49280,3 +49280,22 @@ INFO 2024-12-24 16:08:36,298 basehttp "GET /api/compare-book/?work_id=2792775 HT
 INFO 2024-12-24 16:08:38,459 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
 INFO 2024-12-24 16:08:38,826 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 62
 INFO 2024-12-24 16:08:41,154 basehttp "GET /api/userbooks/ HTTP/1.0" 200 46404
+INFO 2024-12-24 19:14:32,953 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2024-12-24 19:24:00,955 autoreload Watching for file changes with StatReloader
+WARNING 2024-12-24 19:24:46,046 basehttp "POST /api/signup/ HTTP/1.0" 401 27
+INFO 2024-12-24 19:24:58,783 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-24 19:25:07,089 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-24 19:25:16,156 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 10865
+INFO 2024-12-24 19:25:21,084 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-24 19:25:21,684 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-24 19:25:21,810 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-24 19:25:33,251 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 6984
+INFO 2024-12-24 19:25:36,528 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-24 19:25:37,159 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1490
+INFO 2024-12-24 19:25:37,466 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-24 19:25:40,817 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-24 19:25:41,412 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-24 19:25:43,706 basehttp "GET /api/userbooks/ HTTP/1.0" 200 2178
+INFO 2024-12-24 19:30:12,660 autoreload Watching for file changes with StatReloader
+INFO 2024-12-24 19:30:33,796 basehttp "POST /api/goodreads-import/ HTTP/1.0" 201 65
+INFO 2024-12-24 19:31:31,838 basehttp "GET /api/userbooks/ HTTP/1.0" 200 17380
