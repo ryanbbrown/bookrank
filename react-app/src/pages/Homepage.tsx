@@ -113,17 +113,17 @@ const Homepage = ({
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">The numbers speak for themselves</h2>
                 </div>
                 <div className="flex items-center justify-center">
-                    <div className="bg-teal-800 mb-20 w-2/3 md:h-60 p-8 rounded-[12px] flex md:flex-row flex-col justify-between items-center text-white shadow-lg">
+                    <div className="bg-homepage-blue mb-20 w-2/3 md:h-60 p-8 rounded-[12px] flex md:flex-row flex-col justify-between items-center text-white shadow-lg">
                         <div className="flex-1 text-center">
                             <p className="text-4xl font-bold">200x</p>
                             <p className="mt-2">more precision in<br /> book ratings</p>
                         </div>
-                        <div className="md:h-16 h-0 md:w-0 w-16 md:my-0 my-10 md:border-l border-t border-teal-700 mx-4"></div>
+                        <div className="md:h-16 h-0 md:w-0 w-16 md:my-0 my-10 md:border-l border-t border-indigo-600 mx-4"></div>
                         <div className="flex-1 text-center">
                             <p className="text-4xl font-bold">60%</p>
                             <p className="mt-2">less time spent finding<br /> your next read </p>
                         </div>
-                        <div className="md:h-16 h-0 md:w-0 w-16 md:my-0 my-10 md:border-l border-t border-teal-700 mx-4"></div>
+                        <div className="md:h-16 h-0 md:w-0 w-16 md:my-0 my-10 md:border-l border-t border-indigo-600 mx-4"></div>
                         <div className="flex-1 text-center">
                             <p className="text-4xl font-bold">9/10</p>
                             <p className="mt-2">users would recommend <br /> over Goodreads </p>
