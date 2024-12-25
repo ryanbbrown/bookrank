@@ -29,7 +29,10 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-      },
+        },
+        colors: {
+            'homepage-blue': '#6a85d4',
+          },
     },
   },
   plugins: [require("tailwindcss-animate")],

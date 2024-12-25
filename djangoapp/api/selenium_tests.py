@@ -182,7 +182,7 @@ if run_search_tests:
 
     # Search for "Hunger Games"
     search_input = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
+        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for a book title or author']"))
     )
     search_input.clear()
     time.sleep(0.1)
@@ -208,7 +208,7 @@ if run_search_tests:
 
     # Search for "Mistborn"
     search_input = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
+        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for a book title or author']"))
     )
     search_input.clear()
     time.sleep(0.1)
@@ -219,6 +219,11 @@ if run_search_tests:
         EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
     ).click()
 
+    # After adding a book and before clicking another search result
+    WebDriverWait(driver, 10).until(
+        EC.invisibility_of_element_located((By.XPATH, "//div[contains(@class, 'fixed inset-0 bg-black bg-opacity-50')]"))
+    )
+    
     # Click on the second row result (using table row)
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//tbody/tr[2]"))
@@ -240,7 +245,7 @@ if run_search_tests:
 
     # Search for "broken earth"
     search_input = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for books']"))
+        EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search for a book title or author']"))
     )
     search_input.clear()
     time.sleep(0.1)
@@ -285,13 +290,19 @@ if run_search_tests:
     ).click()
 
     # Click on the first TBR book row
+    # First wait for any modals to disappear
+    WebDriverWait(driver, 10).until(
+        EC.invisibility_of_element_located((By.XPATH, "//div[contains(@class, 'fixed inset-0 bg-black bg-opacity-50')]"))
+    )
+    
+    # Then wait for and click the row
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//tbody/tr[1]"))
     ).click()
 
     # Click on the "Rank" button that shows up
     WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[text()='Rank']"))
+        EC.element_to_be_clickable((By.XPATH, "//button[text()='Mark as Read']"))
     ).click()
 
     # Click the high rating ("I liked it")
@@ -300,7 +311,7 @@ if run_search_tests:
     ).click()
 
     # Sleep for 0.5 seconds
-    time.sleep(2)
+    time.sleep(1)
 
     # In the first comparison, choose the second book
     comparison_options = WebDriverWait(driver, 10).until(
@@ -309,7 +320,7 @@ if run_search_tests:
     comparison_options[1].click()
 
     # Sleep for 0.1 seconds
-    time.sleep(0.1)
+    time.sleep(1)
 
     # In the second comparison, choose the first book shown
     comparison_options = WebDriverWait(driver, 10).until(
@@ -317,6 +328,8 @@ if run_search_tests:
     )
     comparison_options[0].click()
 
+
+    time.sleep(1)
     # Click on the one remaining TBR book row shown
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//tbody/tr[1]"))

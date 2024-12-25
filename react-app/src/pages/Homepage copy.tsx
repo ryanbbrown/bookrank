@@ -16,61 +16,31 @@ const Homepage = ({
   toggleLoginModal 
 }: HomepageProps) => {
     return (
-        <>
+        <div className="min-h-screen flex flex-col">
             {/* Hero Section */}
-            <div className="flex flex-col items-center text-center px-6 py-20 relative">
-                {/* Left reader illustration */}
-                <img 
-                    src="reader_left.png" 
-                    alt="Person reading"
-                    className="
-                        absolute 
-                        hidden md:block
-                        w-auto h-[30vh]
-                        left-[2%] lg:left-[4%] xl:left-[6%]
-                        top-[65%] lg:top-[75%]
-                        transform -translate-y-1/2
-                        opacity-90
-                        pointer-events-none
-                        object-contain
-                        -z-10
-                    "
-                />
+            <main className="flex sm:flex-1 md:flex-row flex-col md:justify-center items-center px-4 py-8 md:min-h-[90vh] bg-white">
+                <div className="flex flex-col md:w-1/3 w-4/5 mr-5">
+                    <h1 className="sm:text-7xl text-4xl font-bold tracking-tighter">Discover new reads</h1>
+                    <p className="mt-4 sm:text-lg text-gray-600">
+                        Expand your library with diverse recommendations powered by AI.
+                    </p>
+                    <Button
+                        onClick={toggleLoginModal}
+                        className="md:mt-8 mt-4 md:mb-0 mb-5 self-start"
+                        variant="secondary"
+                    >
+                        Explore books
+                    </Button>
+                </div>
 
-                {/* Right reader illustration */}
-                <img 
-                    src="reader_right.png" 
-                    alt="Person reading"
-                    className="
-                        absolute 
-                        hidden md:block
-                        w-auto h-[45vh]
-                        right-[4%] lg:right-[6%] xl:right-[10%]
-                        top-[55%] lg:top-[60%]
-                        transform -translate-y-1/2
-                        opacity-90
-                        pointer-events-none
-                        object-contain
-                        -z-10
-                    "
-                />
-
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl">
-                    The smarter way to discover your next read
-                </h1>
-                <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-                    Rank books intuitively and receive recommendations tailored to <span className="font-bold">your</span> library, powered by AI.
-                </p>
-                <Button
-                    onClick={toggleLoginModal}
-                    className="mt-10 bg-homepage-blue hover:bg-indigo-500 text-white px-8 py-6 text-md rounded-lg"
-                >
-                    Join BookRank free
-                </Button>
-            </div>
+                <div className="relative md:w-2/5 w-4/5 md:mt-0 mt-10 md:ml-5 ml-0">
+                    <div className="absolute inset-0 bg-gray-300 transform translate-x-6 -translate-y-6 rounded-md w-full"></div>
+                    <img src="homepage2.jpg" alt="Mountain" className="relative rounded-md shadow-md" />
+                </div>
+            </main>
 
             {/* Why Choose Us Section */}
-            <div className="py-80 px-6"> {/* Increased top padding from 16 to 32 */}
+            <div className="bg-gray-100 py-16">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">Why choose us</h2>
                     <p className="mt-4 text-gray-600">Our platform offers unique features to help you discover your next favorite book</p>
@@ -108,7 +78,7 @@ const Homepage = ({
             </div>
 
             {/* Stats Section */}
-            <div className="py-16">
+            <div className="bg-white py-16">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">The numbers speak for themselves</h2>
                 </div>
@@ -133,7 +103,7 @@ const Homepage = ({
             </div>
 
             {/* Ranking System Section */}
-            <div className="py-16">
+            <div className="bg-gray-100 py-16">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">Easy, intuitive ranking system</h2>
                     <p className="mt-4 text-gray-600">Compare books side by side to create your personalized ranking</p>
@@ -142,7 +112,7 @@ const Homepage = ({
                     <img src="genres-demo.png" alt="Demo of genres.fyi" className="relative rounded-md md:w-2/5 w-5/6 mb-20" />
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

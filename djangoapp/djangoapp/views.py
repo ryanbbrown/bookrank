@@ -13,6 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
+from rest_framework.generics import RetrieveAPIView
 
 # Django imports
 from django.contrib.auth import authenticate, login, logout
@@ -27,7 +28,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 # Local imports
-from .models import UserAccount, UserBook, TBRBook, UserRecommendation
+from .models import UserAccount, UserBook, TBRBook, UserRecommendation, Book
 from .serializers import (
     UserAccountSerializer,
     UserBookSerializer,
@@ -43,6 +44,7 @@ from .serializers import (
     RecommendationCreateSerializer,
     TBRBookCreateSerializer,
     TBRBookDeleteSerializer,
+    BookSerializer,
 )
 from .services import OpenSearchService
 
@@ -61,7 +63,7 @@ from pinecone import Pinecone
 
 
 
-open_search_service = OpenSearchService()
+
 
 
 logger = logging.getLogger('django.info')
@@ -152,16 +154,16 @@ class SearchView(APIView):
     This view searches for books in the AWS OpenSearch client based on a query string.
     """
     def get(self, request):
-
         serializer = SearchQuerySerializer(data=request.query_params)
         serializer.is_valid(raise_exception=True)
         
         query = serializer.validated_data['query']
-        searchbooklist = open_search_service.search(query)
+        sorted_books = Book.objects.search_books(query)
+        serializer = BookSerializer(sorted_books, many=True)
 
         return Response({
             'success': True,
-            'data': searchbooklist,
+            'data': serializer.data,
             'message': 'Search results retrieved successfully'
         })
 
@@ -198,6 +200,7 @@ class UserBooksView(APIView):
         """
         serializer = UserBookCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        
         
         # need to think about add_or_update vs just add
         UserBook.objects.add_or_update_book(
@@ -420,12 +423,20 @@ class ToBeReadView(APIView):
         serializer = TBRBookCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
+        # Get the base Book object
+        book = Book.objects.get(work_id=serializer.validated_data['work_id'])
+        
         TBRBook.objects.create(
             user=request.user,
-            work_id=serializer.validated_data['work_id'],
-            title=serializer.validated_data['title'],
-            author=serializer.validated_data['author'],
-            image_url=serializer.validated_data['image_url']
+            work_id=book.work_id,
+            title=book.title,
+            author=book.author,
+            description=book.description,
+            image_url=book.image_url,
+            book_type=book.book_type,
+            genre=book.genre,
+            ratings_count=book.ratings_count,
+            average_rating=book.average_rating,
         )
         
         return Response({
@@ -523,3 +534,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 REACT_APP_DIR = os.path.join(BASE_DIR, '../../my-app/build')
 class ReactAppView(TemplateView):
     template_name = os.path.join(REACT_APP_DIR, 'index.html')
+
+class UserView(APIView):
+    """
+    This view returns the current user's data.
+    """
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        """
+        Gets the current user's data.
+        """
+        serializer = UserAccountSerializer(request.user)
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'message': 'User data retrieved successfully'
+        })

@@ -2,7 +2,7 @@
 from celery import shared_task
 import pandas as pd
 from django.core.files.storage import default_storage
-from djangoapp.models import UserBook, UserAccount
+from djangoapp.models import UserBook, UserAccount, Book
 from opensearchpy import OpenSearch, RequestsHttpConnection
 from dotenv import load_dotenv
 load_dotenv()
@@ -99,15 +99,25 @@ def process_csv(file_path, user_id):
             records = res_df_list[i].to_dict(orient='records')
             pct_diff = records[0]['score'] / records[1]['score'] - 1
             if pct_diff >= 0.2 and records[0]['work_id'] not in existing_work_ids:
-                print(f"Adding book: {records[0]['title']}")
-                logger.info(records[0])
-                UserBook.objects.create(
-                    user=user,
-                    work_id=records[0]['work_id'],
-                    title=records[0]['title'],
-                    author=records[0]['author'],
-                    image_url=records[0]['image_url'],
-                )
+                try:
+                    book = Book.objects.get(work_id=records[0]['work_id'])
+                    print(f"Adding book: {book.title}")
+                    logger.info(records[0])
+                    UserBook.objects.create(
+                        user=user,
+                        work_id=book.work_id,
+                        title=book.title,
+                        author=book.author,
+                        description=book.description,
+                        image_url=book.image_url,
+                        book_type=book.book_type,
+                        genre=book.genre,
+                        ratings_count=book.ratings_count,
+                        average_rating=book.average_rating
+                    )
+                except Book.DoesNotExist:
+                    print(f"Book not found with work_id: {records[0]['work_id']}")
+                    continue
 
         # Cleanup: delete the file after processing
         default_storage.delete(file_path)

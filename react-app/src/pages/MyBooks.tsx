@@ -3,7 +3,7 @@ import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { BookRowModal } from '../components/BookRowModal';
-import { UserBook, Rating, ApiResponse } from '../types/types';
+import { UserBook, Rating, ApiResponse, UserAccount } from '../types/types';
 
 interface ComparisonParams {
     workId: string;
@@ -17,11 +17,22 @@ function MyBooks() {
     const [showComparison, setShowComparison] = useState(false);
     const [activeRow, setActiveRow] = useState<string | null>(null);
     const [getNextUnranked, setGetNextUnranked] = useState(true);
+    const [userData, setUserData] = useState<UserAccount | null>(null);
 
     useEffect(() => {
         axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
             .then(response => {
                 setBooks(response.data.data || []);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
+    useEffect(() => {
+        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
+            .then(response => {
+                setUserData(response.data.data || null);
             })
             .catch(error => {
                 console.error(error);
@@ -103,6 +114,7 @@ function MyBooks() {
         }).then(() => {
             if (o !== -1) { // we only refresh if the outcome actually resulted in rating update
                 refreshBooks();
+                refreshUserData();
             }
             if (unrankedBook) {
                 fetchComparison({ workId: unrankedBook.work_id, getNextUnranked });
@@ -143,9 +155,29 @@ function MyBooks() {
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
+    const refreshUserData = () => {
+        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
+            .then(response => {
+                setUserData(response.data.data || null);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
     return (
         <div className="container mx-auto items-center flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">My Books</h1>
+            
+            {userData && (
+                <div className="mb-6 text-center">
+                    <p className="text-lg">
+                        <span className="font-semibold">Fiction Books Ranked:</span> {userData.fiction_ranked_books_count} | 
+                        <span className="font-semibold"> Nonfiction Books Ranked:</span> {userData.nonfiction_ranked_books_count}
+                    </p>
+                </div>
+            )}
+
             {Array.isArray(books) && books.some(book => book.is_ranked === false) && (
                 <button
                     className="mb-4 px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
@@ -161,6 +193,8 @@ function MyBooks() {
                         <th className="px-4 py-2 text-center text-lg rounded-l">Cover</th>
                         <th className="px-4 py-2 text-center text-lg">Title</th>
                         <th className="px-4 py-2 text-center text-lg">Author</th>
+                        <th className="px-4 py-2 text-center text-lg">Genre</th>
+                        <th className="px-4 py-2 text-center text-lg">Type</th>
                         <th className="px-4 py-2 text-center text-lg">Rating</th>
                         <th className="px-4 py-2 text-center text-lg rounded-r">Date Added</th>
                     </tr>
@@ -173,6 +207,8 @@ function MyBooks() {
                             </td>
                             <td className="px-4 py-2 text-center">{book.title}</td>
                             <td className="px-4 py-2 text-center">{book.author}</td>
+                            <td className="px-4 py-2 text-center">{book.genre}</td>
+                            <td className="px-4 py-2 text-center">{book.book_type}</td>
                             <td className="px-4 py-2 text-center">{book.normalized_rating}</td>
                             <td className="px-4 py-2 text-center relative">
                                 {new Date(book.date_added).toLocaleDateString()}

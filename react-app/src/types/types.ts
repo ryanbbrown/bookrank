@@ -24,12 +24,15 @@ export interface LoginResponseData {
 export type Rating = "high" | "medium" | "low";
 
 export interface Book {
-    id: number;
     work_id: string;
     title: string;
     author: string;
-    image_url: string;
     description?: string;
+    image_url: string;
+    book_type: string;
+    genre: string;
+    ratings_count: number;
+    average_rating: number | null;
 }
 
 export interface TBRBook extends Book {
@@ -40,4 +43,12 @@ export interface TBRBook extends Book {
 export interface UserBook extends TBRBook {
     rating: Rating | null;
     normalized_rating: number | null;
+}
+
+export interface UserAccount {
+    id: number;
+    username: string;
+    nonfiction_ranked_books_count: number;
+    fiction_ranked_books_count: number;
+    childrens_ranked_books_count: number;
 }

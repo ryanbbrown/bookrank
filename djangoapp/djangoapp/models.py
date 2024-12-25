@@ -2,11 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models import F
 from django.db.models.functions import Abs
-from .services import PineconeService
+from .services import PineconeService, OpenSearchService
 import math
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.exceptions import ObjectDoesNotExist
 
 
 pinecone_service = PineconeService()
+open_search_service = OpenSearchService()
 
 # Constants used in Glicko rating system
 q = 0.01
@@ -19,11 +22,75 @@ def E(rating, opponent_rating, opponent_RD):
 
 
 class UserAccount(AbstractUser):
-    pass
+    nonfiction_ranked_books_count = models.PositiveIntegerField(default=0)
+    fiction_ranked_books_count = models.PositiveIntegerField(default=0)
+    childrens_ranked_books_count = models.PositiveIntegerField(default=0)
+
+    def increment_nonfiction_count(self):
+        self.nonfiction_ranked_books_count += 1
+        self.save()
+
+    def increment_fiction_count(self):
+        self.fiction_ranked_books_count += 1
+        self.save()
+
+    def increment_childrens_count(self):
+        self.childrens_ranked_books_count += 1
+        self.save()
+
+
+class AbstractBook(models.Model):
+    work_id = models.CharField(max_length=50)
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    description = models.TextField()
+    image_url = models.URLField()
+    book_type = models.CharField(max_length=50)
+    genre = models.CharField(max_length=100)
+    ratings_count = models.PositiveIntegerField(default=0)
+    average_rating = models.FloatField(
+        validators=[MinValueValidator(0), MaxValueValidator(5)],
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+    class Meta:
+        abstract = True
+
+
+class BookManager(models.Manager):
+    def search_books(self, query):
+        search_results = open_search_service.search(query)
+        
+        # Get all books in a single query
+        work_ids = [result['work_id'] for result in search_results]
+        if not work_ids:
+            return []
+            
+        # Get books and maintain search result ordering
+        books = self.filter(work_id__in=work_ids)
+        books_dict = {book.work_id: book for book in books}
+        sorted_books = [books_dict[work_id] for work_id in work_ids if work_id in books_dict]
+        
+        return sorted_books
+
+
+class Book(AbstractBook):
+    objects = BookManager()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['work_id'],
+                name='unique_work_id'
+            )
+        ]
 
 
 class UserBookManager(models.Manager):
-
     def get_user_books(self, user):
         books = self.filter(user=user)
         ranked_books = list(books.filter(is_ranked=True))
@@ -33,18 +100,23 @@ class UserBookManager(models.Manager):
         return sorted_ranked_books + sorted_unranked_books
 
     def add_or_update_book(self, user, work_id, rating):
-        pinecone_book = pinecone_service.fetch_vector(work_id)
-        return self.update_or_create(
-            user=user,
-            work_id=work_id,
-            defaults={
-                'title': pinecone_book['metadata']['title'], 
-                'author': pinecone_book['metadata']['author_name'], 
-                'description': pinecone_book['metadata']['description'],
-                'image_url': pinecone_book['metadata']['image_url'],
-                'rating': rating
-            }
-        )
+        try:
+            book = Book.objects.get(work_id=work_id)
+            return self.create(
+                user=user,
+                work_id=book.work_id,
+                title=book.title,
+                author=book.author,
+                description=book.description,
+                image_url=book.image_url,
+                book_type=book.book_type,
+                genre=book.genre,
+                ratings_count=book.ratings_count,
+                average_rating=book.average_rating,
+                rating=rating
+            )
+        except Book.DoesNotExist:
+            raise ObjectDoesNotExist(f"No Book found with work_id: {work_id}")
 
     def update_book_rating(self, user, work_id, rating):
         book = self.get(user=user, work_id=work_id)
@@ -80,11 +152,25 @@ class UserBookManager(models.Manager):
         if queryset_results.count() == 0:
             book_obj.is_ranked = True
             book_obj.save()
+            # Increment the appropriate counter based on book type
+            if book_obj.book_type.lower() == 'non-fiction':
+                user.increment_nonfiction_count()
+            elif book_obj.book_type.lower() == 'fiction':
+                user.increment_fiction_count()
+            elif book_obj.book_type.lower() == 'children':
+                user.increment_childrens_count()
             return None, 'No more books to compare'
         
         if valid_comparison_count >= 3:
             book_obj.is_ranked = True
             book_obj.save()
+            # Increment the appropriate counter based on book type
+            if book_obj.book_type.lower() == 'non-fiction':
+                user.increment_nonfiction_count()
+            elif book_obj.book_type.lower() == 'fiction':
+                user.increment_fiction_count()
+            elif book_obj.book_type.lower() == 'children':
+                user.increment_childrens_count()
             return None, 'Book ranking complete'
         
         return queryset_results.first(), None
@@ -135,15 +221,10 @@ class UserBookManager(models.Manager):
 
 
 
-class UserBook(models.Model):
+class UserBook(AbstractBook):
     objects = UserBookManager()
     
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    work_id = models.CharField(max_length=50)
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
-    description = models.TextField()
-    image_url = models.URLField()
     rating = models.CharField(max_length=10, choices=[
         ('high', 'High'),
         ('medium', 'Medium'),
@@ -166,19 +247,25 @@ class UserBook(models.Model):
             return round((self.elo_rating - 1000) * 3.33 / 1000, 2)
 
     class Meta:
-        unique_together = ('user', 'work_id')
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'work_id'],
+                name='unique_user_book'
+            )
+        ]
 
 
-class TBRBook(models.Model):
+class TBRBook(AbstractBook):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    work_id = models.CharField(max_length=50)
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
-    image_url = models.URLField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'work_id')
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'work_id'],
+                name='unique_user_tbr_book'
+            )
+        ]
 
 
 
@@ -201,50 +288,59 @@ class UserRecommendationManager(models.Manager):
         Given a seed book, fetches recommendations and adds them to the database.
         Returns number of recommendations added.
         """
-        seed_vector = pinecone_service.fetch_vector(work_id)
-        seed_author = seed_vector['metadata']['author_name']
-        
+        seed_book = Book.objects.get(work_id=work_id)
         recommendations = pinecone_service.get_books_from_pinecone(work_id)
         
         added_recs = 0
-        for book in recommendations:
+        for pinecone_book in recommendations:
             if (
-                not UserBook.objects.filter(work_id=book['id'], user=user).exists()
-                and book['metadata']['author_name'] != seed_author
+                not UserBook.objects.filter(work_id=pinecone_book['id'], user=user).exists()
+                and pinecone_book['metadata']['author_name'] != seed_book.author
             ):
-                self.update_or_create(
-                    user=user,
-                    work_id=book['id'],
-                    defaults={
-                        'title': book['metadata']['title'],
-                        'author': book['metadata']['author_name'],
-                        'score': book['score'],
-                        'description': book['metadata']['description'],
-                        'image_url': book['metadata']['image_url'],
-                        'reference_work_id': work_id
-                    }
-                )
-                added_recs += 1
+                try:
+                    book = Book.objects.get(work_id=pinecone_book['id'])
+                    
+                    self.update_or_create(
+                        work_id=book.work_id,
+                        user=user,
+                        defaults={
+                            'title': book.title,
+                            'author': book.author,
+                            'description': book.description,
+                            'image_url': book.image_url,
+                            'book_type': book.book_type,
+                            'genre': book.genre,
+                            'ratings_count': book.ratings_count,
+                            'average_rating': book.average_rating,
+                            'score': pinecone_book['score'],
+                            'reference_book': seed_book
+                        }
+                    )
+                    added_recs += 1
 
-            if added_recs >= max_recommendations:
-                break
+                    if added_recs >= max_recommendations:
+                        break
+                        
+                except Book.DoesNotExist:
+                    continue
 
         return added_recs
 
 
-class UserRecommendation(models.Model):
+
+class UserRecommendation(AbstractBook):
     objects = UserRecommendationManager()
     
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    work_id = models.CharField(max_length=50)
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
-    description = models.TextField()
-    image_url = models.URLField()
     viewed = models.BooleanField(default=False)
-    reference_work_id = models.CharField(max_length=50)
+    reference_book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='recommendations')
     score = models.FloatField(default=0)
     outcome = models.BooleanField(null=True)
 
     class Meta:
-        unique_together = ('user', 'work_id')
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'work_id'],
+                name='unique_user_recommendation'
+            )
+        ]

@@ -33,5 +33,6 @@ urlpatterns = [
     path('api/unranked-books/', views.UnrankedBooksView.as_view()),
     path('api/logout/', views.LogoutView.as_view()),
     path('api/signup/', views.SignupView.as_view()),
+    path('api/user/', views.UserView.as_view(), name='user'),
     path('', views.ReactAppView.as_view(), name='react-app'),
 ]
