@@ -14,7 +14,7 @@ export function Footer(): JSX.Element {
                     </div>
                     <div className="flex items-center space-x-6">
                         <a 
-                            href="mailto:contact@genres.fyi" 
+                            href="mailto:ryan@bookrank.ai" 
                             className="text-gray-600 text-sm hover:text-gray-900 transition-colors"
                         >
                             Contact

@@ -31,7 +31,7 @@ export function Header({ isLoggedIn, handleLogout, toggleLoginModal }: HeaderPro
                     <Button
                         onClick={toggleLoginModal}
                         variant="outline"
-                        className="px-6 rounded-lg"
+                        className="px-6 rounded-lg hidden sm:block"
                     >
                         Login
                     </Button>
