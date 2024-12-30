@@ -93,8 +93,7 @@ function MyBooks() {
     const handleRatingClick = (rating: Rating) => {
         if (!unrankedBook) return;
 
-        axiosInstance.patch<ApiResponse<never>>('api/userbooks/', {
-            work_id: unrankedBook.work_id,
+        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${unrankedBook.work_id}/`, {
             rating: rating,
         }).then(() => {
             setUnrankedBook(prevState => prevState ? {
@@ -147,11 +146,10 @@ function MyBooks() {
     };
 
     const handleRemoveClick = (book: UserBook) => {
-        axiosInstance.delete<ApiResponse<never>>('api/userbooks/', {
-            params: { work_id: book.work_id }
-        }).then(() => {
-            refreshBooks();
-        });
+        axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${book.work_id}/`)
+            .then(() => {
+                refreshBooks();
+            });
     };
 
     const handleRowClick = (bookId: string) => {
@@ -234,6 +232,7 @@ function MyBooks() {
                     onClickFunction={handleRatingClick}
                     exitFunction={() => setShowComparison(false)}
                     book={unrankedBook}
+                    status="SHOW_RATE_BUTTONS"
                 />
             )}
 

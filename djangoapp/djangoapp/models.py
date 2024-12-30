@@ -62,7 +62,7 @@ class AbstractBook(models.Model):
 
 
 class BookManager(models.Manager):
-    def search_books(self, query):
+    def search_books(self, user, query):
         search_results = open_search_service.search(query)
         
         # Get all books in a single query
@@ -75,7 +75,19 @@ class BookManager(models.Manager):
         books_dict = {book.work_id: book for book in books}
         sorted_books = [books_dict[work_id] for work_id in work_ids if work_id in books_dict]
         
-        return sorted_books
+        # if user:
+        # Get user's books and TBR books in bulk
+        user_book_ids = set(UserBook.objects.filter(user=user, work_id__in=work_ids).values_list('work_id', flat=True))
+        tbr_book_ids = set(TBRBook.objects.filter(user=user, work_id__in=work_ids).values_list('work_id', flat=True))
+        
+        # Add status information to each book
+        return [{
+            'book': book,
+            'in_library': book.work_id in user_book_ids,
+            'in_tbr': book.work_id in tbr_book_ids
+        } for book in sorted_books]
+        
+        # return sorted_books
 
 
 class Book(AbstractBook):
@@ -209,7 +221,7 @@ class UserBookManager(models.Manager):
 
     def get_unranked_books(self, user):
         """
-        Fetches the highest-scoring unranked books for the user.
+        Fetches unranked books for the user.
         """
         return self.filter(user=user, is_ranked=False).order_by('-date_added')
 

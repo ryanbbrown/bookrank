@@ -4,12 +4,18 @@ import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { ApiResponse, UserBook, Rating, Book } from '../types/types';
 
+interface SearchResult {
+    book: Book;
+    in_library: boolean;
+    in_tbr: boolean;
+}
+
 function Search() {
-    const [books, setBooks] = useState<Array<Book>>([]);
+    const [books, setBooks] = useState<Array<SearchResult>>([]);
     const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+    const [showSearchedBook, setShowSearchedBook] = useState(false);
     const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
-    const [showSearchedBook, setShowSearchedBook] = useState(false);
     const [query, setQuery] = useState('');
 
     const searchInputRef = useRef<HTMLInputElement>(null);
@@ -19,7 +25,7 @@ function Search() {
         if (!searchInputRef.current?.value) return;
 
         try {
-            const response = await axiosInstance.get<ApiResponse<Array<Book>>>('api/search/', { 
+            const response = await axiosInstance.get<ApiResponse<Array<SearchResult>>>('api/search/', { 
                 params: { query: searchInputRef.current.value } 
             });
             
@@ -31,8 +37,8 @@ function Search() {
         }
     };
 
-    const handleRowClick = (book: Book) => {
-        setSelectedBook(book);
+    const handleRowClick = (searchResult: SearchResult) => {
+        setSelectedBook(searchResult.book);
         setShowSearchedBook(true);
     };
 
@@ -147,13 +153,17 @@ function Search() {
                             </tr>
                         </thead>
                         <tbody>
-                            {books.map((book) => (
-                                <tr key={book.work_id} onClick={() => handleRowClick(book)} className="hover:bg-gray-100">
+                            {books.map((searchResult) => (
+                                <tr 
+                                    key={searchResult.book.work_id} 
+                                    onClick={() => handleRowClick(searchResult)} 
+                                    className="hover:bg-gray-100"
+                                >
                                     <td className="px-4 py-2 text-center rounded-l">
-                                        <img src={book.image_url} alt={book.title} className="inline-block rounded" />
+                                        <img src={searchResult.book.image_url} alt={searchResult.book.title} className="inline-block rounded" />
                                     </td>
-                                    <td className="text-center">{book.title}</td>
-                                    <td className="text-center rounded-r">{book.author}</td>
+                                    <td className="text-center">{searchResult.book.title}</td>
+                                    <td className="text-center rounded-r">{searchResult.book.author}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -166,13 +176,26 @@ function Search() {
                         exitFunction={() => setShowSearchedBook(false)}
                         addTBRFunction={handleAddTBR}
                         book={selectedBook}
+                        status={(() => {
+                            const searchResult = books.find(b => b.book.work_id === selectedBook.work_id);
+                            if (!searchResult) return "SHOW_RATE_BUTTONS";
+                            
+                            if (searchResult.in_library && searchResult.in_tbr) {
+                                console.error("Book cannot be in both library and TBR");
+                                return "SHOW_RATE_BUTTONS";
+                            }
+                            
+                            if (searchResult.in_library) return "SHOW_IN_LIBRARY";
+                            if (searchResult.in_tbr) return "SHOW_IN_TBR";
+                            return "SHOW_RATE_BUTTONS";
+                        })()}
                     />
                 )}
                 
                 {showComparison && selectedBook && comparedBook && (
                     <CompareModal
                         handleComparisonClick={handleComparisonClick}
-                        selectedBook={selectedBook!} // the ! is to tell typescript that selectedBook is not null
+                        selectedBook={selectedBook}
                         comparedBook={comparedBook}
                         exitFunction={() => setShowComparison(false)}
                     />

@@ -14,6 +14,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import RetrieveAPIView
+from rest_framework import viewsets
+from rest_framework.decorators import action
 
 # Django imports
 from django.contrib.auth import authenticate, login, logout
@@ -37,7 +39,6 @@ from .serializers import (
     SearchQuerySerializer,
     UserBookCreateSerializer,
     UserBookUpdateSerializer,
-    UserBookDeleteSerializer,
     CompareBookRequestSerializer,
     CompareBookUpdateSerializer,
     RecommendationViewSerializer,
@@ -45,6 +46,7 @@ from .serializers import (
     TBRBookCreateSerializer,
     TBRBookDeleteSerializer,
     BookSerializer,
+    BookSearchResultSerializer,
 )
 from .services import OpenSearchService
 
@@ -158,8 +160,8 @@ class SearchView(APIView):
         serializer.is_valid(raise_exception=True)
         
         query = serializer.validated_data['query']
-        sorted_books = Book.objects.search_books(query)
-        serializer = BookSerializer(sorted_books, many=True)
+        sorted_books = Book.objects.search_books(request.user, query)
+        serializer = BookSearchResultSerializer(sorted_books, many=True)
 
         return Response({
             'success': True,
@@ -169,20 +171,13 @@ class SearchView(APIView):
 
 
 
-class UserBooksView(APIView):
+class UserBooksViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
+    def list(self, request):
         """
         Gets all of user's finished books and sorts them by rating to display on the frontend.
-        """
-        if not request.user.is_authenticated:
-            return Response({
-                'success': False,
-                'error': 'Authentication required',
-                'message': 'Please log in'
-            }, status=status.HTTP_401_UNAUTHORIZED)
-            
+        """            
         user = request.user
         sorted_books = UserBook.objects.get_user_books(user)
         serializer = UserBookSerializer(sorted_books, many=True)
@@ -193,7 +188,28 @@ class UserBooksView(APIView):
             'message': 'User books retrieved successfully'
         })
 
-    def post(self, request):
+    # # TODO: currently unused
+    # def retrieve(self, request, pk=None):
+    #     """
+    #     Gets a single book by its work_id.
+    #     """
+    #     try:
+    #         book = UserBook.objects.get(user=request.user, work_id=pk)
+    #         serializer = UserBookSerializer(book)
+    #         return Response({
+    #             'success': True,
+    #             'data': serializer.data,
+    #             'message': 'Book retrieved successfully'
+    #         })
+    #     except UserBook.DoesNotExist:
+    #         return Response({
+    #             'success': False,
+    #             'error': 'Book not found',
+    #             'message': 'No book found with that work_id'
+    #         }, status=status.HTTP_404_NOT_FOUND)
+
+
+    def create(self, request):
         """
         Adds a UserBook object to the database, associated with the current user.
         It is the only way that users can add finished books to their account.
@@ -201,8 +217,6 @@ class UserBooksView(APIView):
         serializer = UserBookCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
-        
-        # need to think about add_or_update vs just add
         UserBook.objects.add_or_update_book(
             user=request.user,
             work_id=serializer.validated_data['work_id'],
@@ -214,7 +228,7 @@ class UserBooksView(APIView):
             'message': 'Book added to account'
         })
 
-    def patch(self, request):
+    def partial_update(self, request, pk=None):
         """
         Updates the rating of a UserBook object.
         """
@@ -223,7 +237,7 @@ class UserBooksView(APIView):
 
         UserBook.objects.update_book_rating(
             user=request.user,
-            work_id=serializer.validated_data['work_id'],
+            work_id=pk,
             rating=serializer.validated_data['rating']
         )
 
@@ -232,16 +246,13 @@ class UserBooksView(APIView):
             'message': 'Rating updated successfully'
         })
 
-    def delete(self, request):
+    def destroy(self, request, pk=None):
         """
         Deletes a book from a user's finished books list.
         """
-        serializer = UserBookDeleteSerializer(data=request.query_params)
-        serializer.is_valid(raise_exception=True)
-
         UserBook.objects.delete_book(
             user=request.user,
-            work_id=serializer.validated_data['work_id']
+            work_id=pk
         )
 
         return Response({
@@ -397,13 +408,13 @@ class RecommendationView(APIView):
 
 
 
-# TODO: simple enough that no manager needed, ViewSet should help though
-class ToBeReadView(APIView):
+class ToBeReadViewSet(viewsets.ViewSet):
     """
-    This view contains the logic for managing and viewing a user's TBR list.
-    TODO: add delete functionality to remove books from list
+    ViewSet for managing a user's TBR list.
     """
-    def get(self, request):
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request):
         """
         Gets all of user's TBR books to display on the frontend.
         """
@@ -416,7 +427,27 @@ class ToBeReadView(APIView):
             'message': 'TBR list retrieved successfully'
         })
 
-    def post(self, request):
+    # # TODO: currently unused
+    # def retrieve(self, request, pk=None):
+    #     """
+    #     Gets a single TBR book by its work_id.
+    #     """
+    #     try:
+    #         book = TBRBook.objects.get(user=request.user, work_id=pk)
+    #         serializer = TBRBookSerializer(book)
+    #         return Response({
+    #             'success': True,
+    #             'data': serializer.data,
+    #             'message': 'TBR book retrieved successfully'
+    #         })
+    #     except TBRBook.DoesNotExist:
+    #         return Response({
+    #             'success': False,
+    #             'error': 'Book not found',
+    #             'message': 'No book found with that work_id in your TBR list'
+    #         }, status=status.HTTP_404_NOT_FOUND)
+
+    def create(self, request):
         """
         Adds a book to a user's TBR list.
         """
@@ -444,16 +475,13 @@ class ToBeReadView(APIView):
             'message': 'Book added to TBR list'
         })
 
-    def delete(self, request):
+    def destroy(self, request, pk=None):
         """
         Deletes a book from a user's TBR list.
         """
-        serializer = TBRBookDeleteSerializer(data=request.query_params)
-        serializer.is_valid(raise_exception=True)
-
         tbr_book = TBRBook.objects.get(
             user=request.user,
-            work_id=serializer.validated_data['work_id']
+            work_id=pk
         )
         tbr_book.delete()
         

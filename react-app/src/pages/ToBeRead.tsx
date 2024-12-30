@@ -49,11 +49,10 @@ function ToBeRead() {
     };
 
     const handleRemoveClick = (book: TBRBook) => {
-        axiosInstance.delete<ApiResponse<never>>('api/to-be-read/', {
-            params: { work_id: book.work_id }
-        }).then(() => {
-            refreshBooks();
-        });
+        axiosInstance.delete<ApiResponse<never>>(`api/to-be-read/${book.work_id}/`)
+            .then(() => {
+                refreshBooks();
+            });
     };
 
     const fetchComparison = ({ workId }: ComparisonParams) => {
@@ -152,6 +151,7 @@ function ToBeRead() {
                     onClickFunction={handleRatingClick}
                     exitFunction={() => setShowComparison(false)}
                     book={unratedBook}
+                    status="SHOW_RATE_BUTTONS"
                 />
             )}
             {/* .rating !== null */}

@@ -23,6 +23,8 @@ export interface LoginResponseData {
 // Book types
 export type Rating = "high" | "medium" | "low";
 
+export type RateModalStatus = "SHOW_RATE_BUTTONS" | "SHOW_IN_LIBRARY" | "SHOW_IN_TBR";
+
 export interface Book {
     work_id: string;
     title: string;

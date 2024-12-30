@@ -30,6 +30,10 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = ['work_id', 'title', 'author', 'description', 'image_url', 'book_type', 'genre', 'ratings_count', 'average_rating']
 
+class BookSearchResultSerializer(serializers.Serializer):
+    book = BookSerializer()
+    in_library = serializers.BooleanField()
+    in_tbr = serializers.BooleanField()
 
 ## API SERIALIZERS
 class BookIdentifierSerializer(serializers.Serializer):
@@ -58,13 +62,10 @@ class UserBookCreateSerializer(BookRatingSerializer):
     # image_url = serializers.URLField(required=False, allow_blank=True)
     # description = serializers.CharField(required=False, allow_blank=True)
 
-class UserBookUpdateSerializer(BookRatingSerializer):
+class UserBookUpdateSerializer(serializers.Serializer):
     """For PATCH /api/userbooks/"""
-    pass
-
-class UserBookDeleteSerializer(BookIdentifierSerializer):
-    """For DELETE /api/userbooks/"""
-    pass
+    # doesn't inherit from BookRatingSerializer bc viewset, so work_id is passed in the URL
+    rating = serializers.ChoiceField(choices=['high', 'medium', 'low'])
 
 class CompareBookRequestSerializer(BookIdentifierSerializer):
     """For GET /api/compare-book/"""

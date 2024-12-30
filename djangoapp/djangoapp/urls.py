@@ -15,16 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 # from django.contrib.auth.views import LogoutView
 from . import views
+
+router = DefaultRouter()
+router.register(r'api/userbooks', views.UserBooksViewSet, basename='userbooks')
+router.register(r'api/to-be-read', views.ToBeReadViewSet, basename='to-be-read')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/login/', views.LoginView.as_view()),
     path('api/search/', views.SearchView.as_view()),
-    path('api/userbooks/', views.UserBooksView.as_view()),
-    path('api/to-be-read/', views.ToBeReadView.as_view()),
     path('api/compare-book/', views.CompareBookView.as_view()),
     path('api/recommendations/', views.RecommendationView.as_view()),
     # path('api/add-recommendations/', views.AddRecommendationView.as_view()),
@@ -35,4 +38,5 @@ urlpatterns = [
     path('api/signup/', views.SignupView.as_view()),
     path('api/user/', views.UserView.as_view(), name='user'),
     path('', views.ReactAppView.as_view(), name='react-app'),
+    path('', include(router.urls)),
 ]
