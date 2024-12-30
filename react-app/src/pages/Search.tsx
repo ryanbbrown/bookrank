@@ -11,8 +11,8 @@ interface SearchResult {
 }
 
 function Search() {
-    const [books, setBooks] = useState<Array<SearchResult>>([]);
-    const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+    const [searchResults, setSearchResults] = useState<Array<SearchResult>>([]);
+    const [selectedSearchResult, setSelectedSearchResult] = useState<SearchResult | null>(null);
     const [showSearchedBook, setShowSearchedBook] = useState(false);
     const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
@@ -30,7 +30,7 @@ function Search() {
             });
             
             if (response.data.success && response.data.data) {
-                setBooks(response.data.data);
+                setSearchResults(response.data.data);
             }
         } catch (error) {
             console.error('Search failed:', error);
@@ -38,48 +38,67 @@ function Search() {
     };
 
     const handleRowClick = (searchResult: SearchResult) => {
-        setSelectedBook(searchResult.book);
+        setSelectedSearchResult(searchResult);
         setShowSearchedBook(true);
     };
 
     const handleAddFinishedBook = (rating: Rating) => {
-        if (!selectedBook) return;
+        if (!selectedSearchResult) return;
 
-        const { work_id, title, author } = selectedBook;
+        const { work_id, title, author } = selectedSearchResult.book;
         
-        axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
-            work_id,
-            title,
-            author,
-            rating,
-        })
-        .then(() => {
-            if (searchInputRef.current) searchInputRef.current.value = '';
-            setBooks([]);
-            setShowSearchedBook(false);
-            
-            if (rating === 'high') {
-                axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
-                    work_id
-                });
-            }
-            
-            axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-                params: { work_id }
-            }).then(response => {
-                const tempComparedBook = response.data.data || null;
-                if (tempComparedBook) {
-                    setComparedBook(tempComparedBook);
-                    setShowComparison(true);
+        // Create a chain of promises
+        const promises = [];
+        
+        // If book is in TBR, remove it first
+        if (selectedSearchResult.in_tbr) {
+            promises.push(
+                axiosInstance.delete<ApiResponse<never>>(`api/to-be-read/${work_id}/`)
+            );
+        }
+
+        // Add the book to user's library
+        promises.push(
+            axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
+                work_id,
+                title,
+                author,
+                rating,
+            })
+        );
+
+        // Execute all promises in sequence
+        Promise.all(promises)
+            .then(() => {
+                if (searchInputRef.current) searchInputRef.current.value = '';
+                setSearchResults([]);
+                setShowSearchedBook(false);
+                
+                if (rating === 'high') {
+                    axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
+                        work_id
+                    });
                 }
+                
+                axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
+                    params: { work_id }
+                }).then(response => {
+                    const tempComparedBook = response.data.data || null;
+                    if (tempComparedBook) {
+                        setComparedBook(tempComparedBook);
+                        setShowComparison(true);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error adding book:', error);
             });
-        });
     };
 
     const handleAddTBR = () => {
-        if (!selectedBook) return;
+        if (!selectedSearchResult) return;
 
-        const { work_id, title, author, image_url } = selectedBook;
+        const { work_id, title, author, image_url } = selectedSearchResult.book;
         
         axiosInstance.post<ApiResponse<never>>('api/to-be-read/', {
             work_id,
@@ -89,7 +108,7 @@ function Search() {
         })
         .then(() => {
             if (searchInputRef.current) searchInputRef.current.value = '';
-            setBooks([]);
+            setSearchResults([]);
             setShowSearchedBook(false);
         });
     };
@@ -110,14 +129,14 @@ function Search() {
     };
 
     const handleComparisonClick = (o: number) => {
-        if (!selectedBook || !comparedBook) return;
+        if (!selectedSearchResult || !comparedBook) return;
         
         axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
-            new_book_id: selectedBook.work_id,
+            new_book_id: selectedSearchResult.book.work_id,
             existing_book_id: comparedBook.work_id,
             outcome: o,
         }).then(() => {
-            fetchComparison(selectedBook.work_id);
+            fetchComparison(selectedSearchResult.book.work_id);
         });
     };
 
@@ -143,17 +162,19 @@ function Search() {
                 </form>
             </div>
             <div className="search-results">
-                {books.length > 0 && (
+                {searchResults.length > 0 && (
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="bg-gray-200">
                                 <th className="px-4 py-2 text-center text-lg rounded-l">Cover</th>
                                 <th className="px-4 py-2 text-center text-lg">Title</th>
-                                <th className="px-4 py-2 text-center text-lg rounded-r">Author</th>
+                                <th className="px-4 py-2 text-center text-lg">Author</th>
+                                <th className="px-4 py-2 text-center text-lg">Avg Rating</th>
+                                <th className="px-4 py-2 text-center text-lg rounded-r"># Ratings</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {books.map((searchResult) => (
+                            {searchResults.map((searchResult) => (
                                 <tr 
                                     key={searchResult.book.work_id} 
                                     onClick={() => handleRowClick(searchResult)} 
@@ -163,39 +184,42 @@ function Search() {
                                         <img src={searchResult.book.image_url} alt={searchResult.book.title} className="inline-block rounded" />
                                     </td>
                                     <td className="text-center">{searchResult.book.title}</td>
-                                    <td className="text-center rounded-r">{searchResult.book.author}</td>
+                                    <td className="text-center">{searchResult.book.author}</td>
+                                    <td className="text-center">
+                                        {searchResult.book.average_rating ? searchResult.book.average_rating.toFixed(2) : '—'}
+                                    </td>
+                                    <td className="text-center rounded-r">
+                                        {searchResult.book.ratings_count.toLocaleString()}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 )}
 
-                {selectedBook && showSearchedBook && (
+                {selectedSearchResult && showSearchedBook && (
                     <RateModal
                         onClickFunction={handleAddFinishedBook}
                         exitFunction={() => setShowSearchedBook(false)}
                         addTBRFunction={handleAddTBR}
-                        book={selectedBook}
+                        book={selectedSearchResult.book}
                         status={(() => {
-                            const searchResult = books.find(b => b.book.work_id === selectedBook.work_id);
-                            if (!searchResult) return "SHOW_RATE_BUTTONS";
-                            
-                            if (searchResult.in_library && searchResult.in_tbr) {
+                            if (selectedSearchResult.in_library && selectedSearchResult.in_tbr) {
                                 console.error("Book cannot be in both library and TBR");
                                 return "SHOW_RATE_BUTTONS";
                             }
                             
-                            if (searchResult.in_library) return "SHOW_IN_LIBRARY";
-                            if (searchResult.in_tbr) return "SHOW_IN_TBR";
+                            if (selectedSearchResult.in_library) return "SHOW_IN_LIBRARY";
+                            if (selectedSearchResult.in_tbr) return "SHOW_IN_TBR";
                             return "SHOW_RATE_BUTTONS";
                         })()}
                     />
                 )}
                 
-                {showComparison && selectedBook && comparedBook && (
+                {showComparison && selectedSearchResult && comparedBook && (
                     <CompareModal
                         handleComparisonClick={handleComparisonClick}
-                        selectedBook={selectedBook}
+                        selectedBook={selectedSearchResult.book}
                         comparedBook={comparedBook}
                         exitFunction={() => setShowComparison(false)}
                     />

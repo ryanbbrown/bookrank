@@ -48,7 +48,7 @@ class OpenSearchService:
         )
         self.index_name = os.getenv('INDEX_NAME')
 
-    def search(self, query):
+    def search(self, query, filters=None):
         """Search for books in the OpenSearch index based on a query string"""
         search_query = {
             "query": {
@@ -73,9 +73,37 @@ class OpenSearchService:
             }
         }
 
+        # skeleton to add filters if provided
+        # TODO: currently no way to pass from frontend
+        if filters:
+            for field, conditions in filters.items():
+                for operator, value in conditions.items():
+                    if operator == 'gt':
+                        search_query["query"]["function_score"]["query"]["bool"]["filter"].append(
+                            {"range": {field: {"gt": value}}}
+                        )
+                    elif operator == 'gte':
+                        search_query["query"]["function_score"]["query"]["bool"]["filter"].append(
+                            {"range": {field: {"gte": value}}}
+                        )
+                    elif operator == 'lt':
+                        search_query["query"]["function_score"]["query"]["bool"]["filter"].append(
+                            {"range": {field: {"lt": value}}}
+                        )
+                    elif operator == 'lte':
+                        search_query["query"]["function_score"]["query"]["bool"]["filter"].append(
+                            {"range": {field: {"lte": value}}}
+                        )
+                    elif operator == 'eq':
+                        search_query["query"]["function_score"]["query"]["bool"]["filter"].append(
+                            {"term": {field: value}}
+                        )
+
         response = self.client.search(index=self.index_name, body=search_query)
         try:
             hitlist = response['hits']['hits']
+            print(hitlist[0])
+            # 'ratings_count', 
             rowlist = [dict({'score': hit['_score']}, **hit['_source']) for hit in hitlist]
             df = pd.DataFrame(rowlist).rename(columns={'author_name': 'author'})
 

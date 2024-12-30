@@ -52707,3 +52707,31 @@ INFO 2024-12-30 18:29:58,971 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 292
 INFO 2024-12-30 18:30:03,365 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13323
 INFO 2024-12-30 18:30:46,967 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
 INFO 2024-12-30 18:31:02,606 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 19:05:45,235 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 292
+INFO 2024-12-30 19:05:52,071 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13323
+INFO 2024-12-30 19:07:54,243 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12327
+INFO 2024-12-30 19:07:59,838 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8410
+INFO 2024-12-30 19:11:50,195 basehttp "GET /api/user/ HTTP/1.0" 200 227
+INFO 2024-12-30 19:11:50,648 basehttp "GET /api/userbooks/ HTTP/1.0" 200 62757
+INFO 2024-12-30 19:19:01,301 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 292
+INFO 2024-12-30 19:19:06,840 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13323
+INFO 2024-12-30 19:19:09,416 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-30 19:19:09,683 basehttp "DELETE /api/to-be-read/4640799/ HTTP/1.0" 200 55
+INFO 2024-12-30 19:19:10,308 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 1511
+INFO 2024-12-30 19:19:12,928 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 19:19:13,513 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 1778
+INFO 2024-12-30 19:19:15,176 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 19:19:15,742 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 1207
+INFO 2024-12-30 19:19:18,130 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 19:19:18,689 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 1041
+INFO 2024-12-30 19:19:21,215 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 19:19:21,799 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 62
+INFO 2024-12-30 19:19:23,498 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-30 19:19:25,045 basehttp "GET /api/user/ HTTP/1.0" 200 227
+INFO 2024-12-30 19:19:25,489 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64429
+INFO 2024-12-30 19:27:13,126 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-30 19:27:28,202 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 19:27:49,046 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13323
+INFO 2024-12-30 19:31:57,801 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-30 19:32:13,063 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 20:06:42,647 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.

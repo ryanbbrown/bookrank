@@ -19,7 +19,7 @@ export function RateModal({
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="relative bg-white rounded-lg p-6 w-1/2 text-center">
-                {status === "SHOW_RATE_BUTTONS" && (
+                {(status === "SHOW_RATE_BUTTONS" || status === "SHOW_IN_TBR") && (
                     <h2 className="text-center font-bold text-3xl mb-5">
                         How was it?
                     </h2>
@@ -27,11 +27,6 @@ export function RateModal({
                 {status === "SHOW_IN_LIBRARY" && (
                     <h2 className="text-center font-bold text-3xl mb-5">
                         You've read this book!
-                    </h2>
-                )}
-                {status === "SHOW_IN_TBR" && (
-                    <h2 className="text-center font-bold text-3xl mb-5">
-                        This book is in your TBR list
                     </h2>
                 )}
                 <button
@@ -55,10 +50,6 @@ export function RateModal({
                 {status === "SHOW_IN_LIBRARY" ? (
                     <div className="mt-4">
                         <p>This book is in your library</p>
-                    </div>
-                ) : status === "SHOW_IN_TBR" ? (
-                    <div className="mt-4">
-                        <p>This book is in your TBR list</p>
                     </div>
                 ) : (
                     <>
@@ -84,7 +75,11 @@ export function RateModal({
                                 </button>
                             </div>
                         )}
-                        {addTBRFunction && (
+                        {status === "SHOW_IN_TBR" ? (
+                            <div className="mt-4">
+                                <p>This book is in your TBR list</p>
+                            </div>
+                        ) : addTBRFunction && (
                             <div className="flex flex-row justify-center mt-10 items-center">
                                 <p>Haven't read yet?</p>
                                 <button
