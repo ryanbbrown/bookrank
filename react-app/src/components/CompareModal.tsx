@@ -39,6 +39,7 @@ export function CompareModal({
                         />
                         <h2 className="text-lg text-center font-bold">{selectedBook.title}</h2>
                         <p className="text-center">{selectedBook.author}</p>
+                        <p className="text-center">{selectedBook.book_type}, {selectedBook.genre}</p>
                     </div>
                     <div 
                       className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
@@ -52,6 +53,7 @@ export function CompareModal({
                         <h2 className="text-lg text-center font-bold">{comparedBook.title}</h2>
                         <p className="text-center">{comparedBook.author}</p>
                         <p className="text-center mt-2">{comparedBook.normalized_rating}</p>
+                        <p className="text-center">{comparedBook.book_type}, {comparedBook.genre}</p>
                     </div>
                 </div>
                 <div className="flex justify-center gap-4">

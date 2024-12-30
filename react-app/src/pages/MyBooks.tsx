@@ -18,6 +18,7 @@ function MyBooks() {
     const [activeRow, setActiveRow] = useState<string | null>(null);
     const [getNextUnranked, setGetNextUnranked] = useState(true);
     const [userData, setUserData] = useState<UserAccount | null>(null);
+    const [totalBooksRanked, setTotalBooksRanked] = useState<number>(0);
 
     useEffect(() => {
         axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
@@ -33,6 +34,7 @@ function MyBooks() {
         axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
             .then(response => {
                 setUserData(response.data.data || null);
+                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
             })
             .catch(error => {
                 console.error(error);
@@ -44,6 +46,7 @@ function MyBooks() {
             axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
                 .then(response => {
                     setBooks(response.data.data || []);
+                    refreshUserData();
                 })
                 .catch(error => {
                     console.error(error);
@@ -159,6 +162,7 @@ function MyBooks() {
         axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
             .then(response => {
                 setUserData(response.data.data || null);
+                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
             })
             .catch(error => {
                 console.error(error);
@@ -169,12 +173,9 @@ function MyBooks() {
         <div className="container mx-auto items-center flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">My Books</h1>
             
-            {userData && (
-                <div className="mb-6 text-center">
-                    <p className="text-lg">
-                        <span className="font-semibold">Fiction Books Ranked:</span> {userData.fiction_ranked_books_count} | 
-                        <span className="font-semibold"> Nonfiction Books Ranked:</span> {userData.nonfiction_ranked_books_count}
-                    </p>
+            {totalBooksRanked < 15 && (
+                <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 rounded">
+                    <p>Rank {15 - totalBooksRanked} more books to see ratings!</p>
                 </div>
             )}
 
@@ -209,7 +210,9 @@ function MyBooks() {
                             <td className="px-4 py-2 text-center">{book.author}</td>
                             <td className="px-4 py-2 text-center">{book.genre}</td>
                             <td className="px-4 py-2 text-center">{book.book_type}</td>
-                            <td className="px-4 py-2 text-center">{book.normalized_rating}</td>
+                            <td className="px-4 py-2 text-center">
+                                {book.normalized_rating}
+                            </td>
                             <td className="px-4 py-2 text-center relative">
                                 {new Date(book.date_added).toLocaleDateString()}
                                 {activeRow === book.work_id && (

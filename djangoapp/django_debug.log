@@ -51096,3 +51096,1471 @@ INFO 2024-12-25 03:33:17,999 basehttp "GET /api/user/ HTTP/1.0" 200 195
 INFO 2024-12-25 03:33:18,017 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64322
 INFO 2024-12-25 03:33:23,439 views Session post-logout dict_items([])
 INFO 2024-12-25 03:33:23,442 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-30 15:25:36,588 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:27:39,955 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-30 15:27:46,623 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64322
+INFO 2024-12-30 15:27:46,648 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:34:52,198 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 15:35:09,674 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:35:40,930 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 15:35:56,525 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:37:06,604 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 15:37:20,721 autoreload Watching for file changes with StatReloader
+ERROR 2024-12-30 15:46:23,416 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:46:23,487 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:46:23,431 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:46:23,542 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:46:35,921 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:46:35,962 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:46:35,938 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:46:36,016 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:47:15,544 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:15,574 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:47:15,644 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:15,681 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:47:17,637 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:17,686 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:47:17,659 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:17,746 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:47:58,907 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:58,932 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:47:59,159 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:47:59,191 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:48:01,402 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:01,454 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:48:01,432 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:01,511 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:48:10,365 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:10,418 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+ERROR 2024-12-30 15:48:10,401 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:10,483 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:48:55,526 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:55,556 basehttp "GET /api/userbooks/ HTTP/1.0" 500 186962
+ERROR 2024-12-30 15:48:55,661 log Internal Server Error: /api/user/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column djangoapp_useraccount.total_ranked_books_count does not exist
+LINE 1: ...oapp_useraccount"."childrens_ranked_books_count", "djangoapp...
+                                                             ^
+
+ERROR 2024-12-30 15:48:55,694 basehttp "GET /api/user/ HTTP/1.0" 500 186812
+INFO 2024-12-30 15:50:42,671 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:52:31,679 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:52:31,739 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64322
+INFO 2024-12-30 15:52:50,176 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64322
+INFO 2024-12-30 15:52:50,337 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:54:21,526 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1198
+INFO 2024-12-30 15:54:21,876 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 825
+INFO 2024-12-30 15:55:07,043 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 15:55:21,454 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:55:28,686 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1198
+INFO 2024-12-30 15:55:28,963 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 65
+INFO 2024-12-30 15:55:29,492 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1279
+INFO 2024-12-30 15:55:29,810 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 1199
+INFO 2024-12-30 15:55:33,585 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:55:34,164 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 1006
+INFO 2024-12-30 15:55:38,015 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:55:38,539 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:38,585 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 1167
+INFO 2024-12-30 15:55:38,912 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64323
+INFO 2024-12-30 15:55:39,124 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:40,797 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:55:41,003 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:41,381 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 946
+INFO 2024-12-30 15:55:41,866 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64323
+INFO 2024-12-30 15:55:42,399 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:51,819 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:55:52,359 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:52,425 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 62
+INFO 2024-12-30 15:55:52,667 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64321
+INFO 2024-12-30 15:55:52,938 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1738
+INFO 2024-12-30 15:55:52,973 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:55:53,306 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1199
+INFO 2024-12-30 15:55:57,569 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:55:58,136 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1207
+INFO 2024-12-30 15:56:00,342 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:56:00,863 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:00,919 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1486
+INFO 2024-12-30 15:56:01,149 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64325
+INFO 2024-12-30 15:56:01,355 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:02,923 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:56:03,104 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:03,503 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1559
+INFO 2024-12-30 15:56:04,032 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64324
+INFO 2024-12-30 15:56:04,546 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:28,270 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 15:56:28,840 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:28,879 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 62
+INFO 2024-12-30 15:56:29,117 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64323
+INFO 2024-12-30 15:56:29,338 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1047
+INFO 2024-12-30 15:56:29,409 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:56:29,756 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1199
+INFO 2024-12-30 15:57:51,279 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64323
+INFO 2024-12-30 15:57:51,329 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:58:01,932 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 15:58:16,404 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 15:58:21,390 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:58:21,620 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64336
+INFO 2024-12-30 15:58:36,211 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:58:36,533 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64336
+INFO 2024-12-30 15:59:05,246 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:59:05,489 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64336
+INFO 2024-12-30 15:59:10,536 basehttp "GET /api/user/ HTTP/1.0" 200 195
+INFO 2024-12-30 15:59:10,796 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64336
+INFO 2024-12-30 16:01:48,096 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-30 16:02:03,205 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 16:02:12,480 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:12,793 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64336
+INFO 2024-12-30 16:02:33,578 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1047
+INFO 2024-12-30 16:02:33,850 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:02:36,457 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:36,738 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1007
+INFO 2024-12-30 16:02:40,666 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:40,897 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:41,285 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1168
+INFO 2024-12-30 16:02:41,929 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64338
+INFO 2024-12-30 16:02:42,450 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:42,671 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:42,938 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:43,250 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1283
+INFO 2024-12-30 16:02:43,931 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64338
+INFO 2024-12-30 16:02:44,475 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:45,725 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:46,240 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:46,284 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 62
+INFO 2024-12-30 16:02:46,763 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1080
+INFO 2024-12-30 16:02:46,784 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64338
+INFO 2024-12-30 16:02:47,106 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:02:47,312 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:48,981 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:49,278 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1487
+INFO 2024-12-30 16:02:51,032 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:51,526 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:51,602 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1560
+INFO 2024-12-30 16:02:52,111 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64342
+INFO 2024-12-30 16:02:52,329 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:54,000 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:54,268 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:54,599 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1744
+INFO 2024-12-30 16:02:55,296 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64342
+INFO 2024-12-30 16:02:55,820 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:57,079 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:02:57,610 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:02:57,710 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 62
+INFO 2024-12-30 16:02:58,135 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1773
+INFO 2024-12-30 16:02:58,171 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64342
+INFO 2024-12-30 16:02:58,441 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:02:58,712 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:00,911 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:01,223 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1487
+INFO 2024-12-30 16:03:05,013 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:05,594 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1086
+INFO 2024-12-30 16:03:07,230 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:07,756 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:07,811 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1208
+INFO 2024-12-30 16:03:08,303 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64346
+INFO 2024-12-30 16:03:08,501 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:10,522 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:10,819 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1560
+INFO 2024-12-30 16:03:14,297 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:14,505 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:14,908 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 2405
+INFO 2024-12-30 16:03:15,571 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64346
+INFO 2024-12-30 16:03:16,096 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:16,883 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:17,462 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1744
+INFO 2024-12-30 16:03:23,757 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:24,293 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:24,362 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 65
+INFO 2024-12-30 16:03:24,821 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64346
+INFO 2024-12-30 16:03:24,845 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1209
+INFO 2024-12-30 16:03:25,067 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:25,450 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:03:29,205 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:29,528 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1487
+INFO 2024-12-30 16:03:39,810 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:40,011 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:40,425 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1086
+INFO 2024-12-30 16:03:41,160 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64350
+INFO 2024-12-30 16:03:41,599 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:41,686 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:42,217 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1560
+INFO 2024-12-30 16:03:42,250 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:42,900 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64350
+INFO 2024-12-30 16:03:43,442 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:43,560 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:43,781 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:44,175 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 62
+INFO 2024-12-30 16:03:44,720 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1107
+INFO 2024-12-30 16:03:44,890 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64350
+INFO 2024-12-30 16:03:45,332 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:03:45,391 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:46,691 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:46,972 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1007
+INFO 2024-12-30 16:03:48,383 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:48,594 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:49,095 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1051
+INFO 2024-12-30 16:03:49,719 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64352
+INFO 2024-12-30 16:03:50,600 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:50,913 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1168
+INFO 2024-12-30 16:03:51,337 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:51,919 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:51,987 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64352
+INFO 2024-12-30 16:03:52,416 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:52,536 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:53,013 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 62
+INFO 2024-12-30 16:03:53,069 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:53,565 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1969
+INFO 2024-12-30 16:03:53,751 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64352
+INFO 2024-12-30 16:03:54,260 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:03:54,290 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:03:58,963 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:03:59,250 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 947
+INFO 2024-12-30 16:04:01,079 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:01,381 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1283
+INFO 2024-12-30 16:04:02,561 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:03,132 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1168
+INFO 2024-12-30 16:04:04,144 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:04,727 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1007
+INFO 2024-12-30 16:04:07,118 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:07,656 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:07,711 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1051
+INFO 2024-12-30 16:04:08,210 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64354
+INFO 2024-12-30 16:04:08,432 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:09,178 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:09,415 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:09,773 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1376
+INFO 2024-12-30 16:04:10,504 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64354
+INFO 2024-12-30 16:04:11,028 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:11,597 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:12,126 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:12,207 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 62
+INFO 2024-12-30 16:04:12,632 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1167
+INFO 2024-12-30 16:04:12,671 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64354
+INFO 2024-12-30 16:04:12,969 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:04:13,195 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:18,220 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:18,537 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 1973
+INFO 2024-12-30 16:04:20,555 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:21,154 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 947
+INFO 2024-12-30 16:04:22,414 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:22,924 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:23,033 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 1007
+INFO 2024-12-30 16:04:23,512 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64356
+INFO 2024-12-30 16:04:23,720 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:25,231 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:25,437 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:25,800 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 1376
+INFO 2024-12-30 16:04:26,576 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64356
+INFO 2024-12-30 16:04:27,096 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:27,120 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:27,645 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 16:04:27,716 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 62
+INFO 2024-12-30 16:04:28,196 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 814
+INFO 2024-12-30 16:04:28,293 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64356
+INFO 2024-12-30 16:04:28,531 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:04:28,794 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:32,121 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:32,397 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1171
+INFO 2024-12-30 16:04:33,553 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:33,769 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:34,162 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1007
+INFO 2024-12-30 16:04:34,938 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64358
+INFO 2024-12-30 16:04:35,367 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:35,493 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:35,952 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1376
+INFO 2024-12-30 16:04:36,011 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:36,767 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64358
+INFO 2024-12-30 16:04:36,938 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:04:37,281 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:37,513 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 62
+INFO 2024-12-30 16:04:37,786 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:04:38,084 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 823
+INFO 2024-12-30 16:04:38,330 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64358
+INFO 2024-12-30 16:04:38,733 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:04:38,878 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:06:41,952 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:06:42,141 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64358
+INFO 2024-12-30 16:09:12,931 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 16:09:30,042 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 16:10:19,315 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 823
+ERROR 2024-12-30 16:10:20,166 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 277, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 145, in get_comparison_book
+    self
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1630, in annotate
+    return self._annotate(args, kwargs, select=True)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1640, in _annotate
+    self._validate_values_are_expressions(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1997, in _validate_values_are_expressions
+    raise TypeError(
+TypeError: QuerySet.annotate() received non-expression(s): False.
+ERROR 2024-12-30 16:10:20,203 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 500 116789
+INFO 2024-12-30 16:12:13,580 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 16:12:30,227 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 16:13:00,894 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 16:13:16,212 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 16:13:36,724 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 823
+ERROR 2024-12-30 16:13:37,306 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 277, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 170, in get_comparison_book
+    return queryset_results.first(), None
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1097, in first
+    for obj in queryset[:1]:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 400, in __iter__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1549, in execute_sql
+    sql, params = self.as_sql()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 736, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 84, in pre_sql_setup
+    self.setup_query(with_col_aliases=with_col_aliases)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 73, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 296, in get_select
+    sql, params = self.compile(col)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 546, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/expressions.py", line 1326, in as_sql
+    return compiler.compile(self.expression)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 546, in compile
+    sql, params = node.as_sql(self, self.connection)
+AttributeError: 'NoneType' object has no attribute 'as_sql'
+ERROR 2024-12-30 16:13:37,362 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 500 161729
+INFO 2024-12-30 16:18:01,290 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-30 16:18:16,313 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 16:18:21,196 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 823
+INFO 2024-12-30 16:18:21,494 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:18:24,477 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:18:24,780 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 947
+INFO 2024-12-30 16:18:43,941 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:18:44,476 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:18:44,541 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1171
+INFO 2024-12-30 16:18:45,065 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64360
+INFO 2024-12-30 16:18:45,257 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:18:46,522 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:18:46,749 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:18:47,097 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1283
+INFO 2024-12-30 16:18:47,949 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64360
+INFO 2024-12-30 16:18:48,453 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:18:49,824 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:18:50,369 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-30 16:18:50,428 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 62
+INFO 2024-12-30 16:18:50,887 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 586
+INFO 2024-12-30 16:18:51,049 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64360
+INFO 2024-12-30 16:18:51,230 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:18:51,561 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:18:53,407 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:18:53,695 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 1111
+INFO 2024-12-30 16:19:04,191 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:19:04,395 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:04,829 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 827
+INFO 2024-12-30 16:19:05,579 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64362
+INFO 2024-12-30 16:19:06,118 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:07,010 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:19:07,555 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:07,620 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 1283
+INFO 2024-12-30 16:19:08,174 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64362
+INFO 2024-12-30 16:19:08,381 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:10,432 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:19:10,640 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:11,012 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 62
+INFO 2024-12-30 16:19:11,552 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1571
+INFO 2024-12-30 16:19:11,864 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64362
+INFO 2024-12-30 16:19:12,182 basehttp "GET /api/compare-book/?work_id=26984941 HTTP/1.0" 200 65
+INFO 2024-12-30 16:19:12,389 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:12,745 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1506
+INFO 2024-12-30 16:19:13,386 basehttp "GET /api/compare-book/?work_id=26984955 HTTP/1.0" 200 1200
+INFO 2024-12-30 16:19:46,726 basehttp "PATCH /api/userbooks/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:19:47,305 basehttp "GET /api/compare-book/?work_id=26984955 HTTP/1.0" 200 1779
+INFO 2024-12-30 16:19:50,118 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:19:50,637 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:19:50,743 basehttp "GET /api/compare-book/?work_id=26984955 HTTP/1.0" 200 1560
+INFO 2024-12-30 16:19:51,277 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64366
+INFO 2024-12-30 16:19:51,474 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:20:00,193 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:20:00,430 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:20:00,818 basehttp "GET /api/compare-book/?work_id=26984955 HTTP/1.0" 200 1744
+INFO 2024-12-30 16:20:01,595 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64366
+INFO 2024-12-30 16:20:02,113 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:20:03,329 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 16:20:03,912 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2024-12-30 16:20:03,978 basehttp "GET /api/compare-book/?work_id=26984955 HTTP/1.0" 200 62
+INFO 2024-12-30 16:20:04,392 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2379
+INFO 2024-12-30 16:20:04,568 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64342
+INFO 2024-12-30 16:20:04,755 basehttp "GET /api/compare-book/?work_id=23840254 HTTP/1.0" 200 1572
+INFO 2024-12-30 16:20:05,087 basehttp "GET /api/user/ HTTP/1.0" 200 226

@@ -37,8 +37,8 @@ class Command(BaseCommand):
             description,
             image_url,
             CASE 
-                WHEN RANDOM() < 0.4 THEN 'Fiction'
-                WHEN RANDOM() < 0.8 THEN 'Non-Fiction' 
+                WHEN RANDOM() < 0.5 THEN 'Fiction'
+                WHEN RANDOM() < 0.95 THEN 'Non-Fiction' 
                 ELSE 'Children'
             END as book_type,
             CASE 

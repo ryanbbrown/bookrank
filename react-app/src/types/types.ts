@@ -51,4 +51,5 @@ export interface UserAccount {
     nonfiction_ranked_books_count: number;
     fiction_ranked_books_count: number;
     childrens_ranked_books_count: number;
+    total_ranked_books_count: number;
 }

@@ -7,7 +7,7 @@ from .models import UserAccount, UserBook, TBRBook, UserRecommendation, Book
 class UserAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserAccount
-        fields = ['id', 'username', 'nonfiction_ranked_books_count', 'fiction_ranked_books_count', 'childrens_ranked_books_count']
+        fields = ['id', 'username', 'nonfiction_ranked_books_count', 'fiction_ranked_books_count', 'childrens_ranked_books_count', 'total_ranked_books_count']
 
 class UserBookSerializer(serializers.ModelSerializer):
     class Meta:

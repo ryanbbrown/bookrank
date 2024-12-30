@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.db.models import F
+from django.db.models import F, Q, ExpressionWrapper, BooleanField
 from django.db.models.functions import Abs
 from .services import PineconeService, OpenSearchService
 import math
@@ -25,17 +25,17 @@ class UserAccount(AbstractUser):
     nonfiction_ranked_books_count = models.PositiveIntegerField(default=0)
     fiction_ranked_books_count = models.PositiveIntegerField(default=0)
     childrens_ranked_books_count = models.PositiveIntegerField(default=0)
+    total_ranked_books_count = models.PositiveIntegerField(default=0)
 
-    def increment_nonfiction_count(self):
-        self.nonfiction_ranked_books_count += 1
-        self.save()
+    def increment_book_count(self, book_type):
+        if book_type == 'non-fiction':
+            self.nonfiction_ranked_books_count += 1
+        elif book_type == 'fiction':
+            self.fiction_ranked_books_count += 1
+        elif book_type == 'children':
+            self.childrens_ranked_books_count += 1
 
-    def increment_fiction_count(self):
-        self.fiction_ranked_books_count += 1
-        self.save()
-
-    def increment_childrens_count(self):
-        self.childrens_ranked_books_count += 1
+        self.total_ranked_books_count += 1
         self.save()
 
 
@@ -142,35 +142,29 @@ class UserBookManager(models.Manager):
         book_obj = self.get(work_id=work_id, user=user)
         
         queryset_results = (
-            self.exclude(work_id=work_id)
+            self
+            .exclude(work_id=work_id)
             .exclude(work_id__in=excluded_work_ids)
-            .filter(user=user, rating=book_obj.rating)
-            .annotate(rating_diff=Abs(F('elo_rating') - book_obj.elo_rating))
-            .order_by('rating_diff')
+            .filter(user=user, rating=book_obj.rating, is_ranked=True, book_type=book_obj.book_type)
+            .annotate(
+                rating_diff=Abs(F('elo_rating') - book_obj.elo_rating),
+                same_genre=Q(genre=book_obj.genre)
+            )
+            .order_by('-same_genre', 'rating_diff')
         )
 
         if queryset_results.count() == 0:
             book_obj.is_ranked = True
             book_obj.save()
-            # Increment the appropriate counter based on book type
-            if book_obj.book_type.lower() == 'non-fiction':
-                user.increment_nonfiction_count()
-            elif book_obj.book_type.lower() == 'fiction':
-                user.increment_fiction_count()
-            elif book_obj.book_type.lower() == 'children':
-                user.increment_childrens_count()
+            
+            user.increment_book_count(book_obj.book_type.lower())
             return None, 'No more books to compare'
         
         if valid_comparison_count >= 3:
             book_obj.is_ranked = True
             book_obj.save()
-            # Increment the appropriate counter based on book type
-            if book_obj.book_type.lower() == 'non-fiction':
-                user.increment_nonfiction_count()
-            elif book_obj.book_type.lower() == 'fiction':
-                user.increment_fiction_count()
-            elif book_obj.book_type.lower() == 'children':
-                user.increment_childrens_count()
+            
+            user.increment_book_count(book_obj.book_type.lower())
             return None, 'Book ranking complete'
         
         return queryset_results.first(), None
@@ -239,7 +233,9 @@ class UserBook(AbstractBook):
     def normalized_rating(self):
         if self.is_ranked == False:
             return None
-        if self.rating == "high":
+        elif self.user.total_ranked_books_count < 15:
+            return '—'
+        elif self.rating == "high":
             return round(6.66 + (self.elo_rating - 1000) * (10 - 6.66) / 1000, 2)
         elif self.rating == "medium":
             return round(3.33 + (self.elo_rating - 1000) * (6.66 - 3.33) / 1000, 2)
