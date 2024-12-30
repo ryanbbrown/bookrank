@@ -52735,3 +52735,53 @@ INFO 2024-12-30 19:27:49,046 basehttp "GET /api/search/?query=harry+potter HTTP/
 INFO 2024-12-30 19:31:57,801 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
 INFO 2024-12-30 19:32:13,063 autoreload Watching for file changes with StatReloader
 INFO 2024-12-30 20:06:42,647 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2024-12-30 20:06:57,276 autoreload Watching for file changes with StatReloader
+INFO 2024-12-30 20:08:46,592 basehttp "GET /api/user/ HTTP/1.0" 200 227
+INFO 2024-12-30 20:08:47,063 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64429
+INFO 2024-12-30 20:20:50,317 views Session post-logout dict_items([])
+INFO 2024-12-30 20:20:50,328 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2024-12-30 20:21:03,714 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-30 20:21:07,222 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 20:21:07,247 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-30 20:21:19,721 basehttp "POST /api/goodreads-import/ HTTP/1.0" 201 65
+INFO 2024-12-30 20:21:52,542 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-30 20:21:52,759 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 20:21:56,409 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 20:21:56,454 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-30 20:22:32,082 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 20:22:32,112 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-30 23:18:12,266 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 23:18:12,289 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-30 23:21:19,146 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64306
+INFO 2024-12-30 23:21:19,303 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 23:21:42,881 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2399
+INFO 2024-12-30 23:21:43,151 basehttp "GET /api/compare-book/?work_id=48297245 HTTP/1.0" 200 65
+INFO 2024-12-30 23:21:43,629 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1481
+INFO 2024-12-30 23:21:44,004 basehttp "GET /api/compare-book/?work_id=18183653 HTTP/1.0" 200 65
+INFO 2024-12-30 23:21:44,225 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1202
+INFO 2024-12-30 23:21:44,814 basehttp "GET /api/compare-book/?work_id=64339 HTTP/1.0" 200 65
+INFO 2024-12-30 23:21:45,005 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1164
+INFO 2024-12-30 23:21:45,566 basehttp "GET /api/compare-book/?work_id=52472813 HTTP/1.0" 200 1483
+INFO 2024-12-30 23:21:48,805 basehttp "PATCH /api/userbooks/52472813/ HTTP/1.0" 200 56
+INFO 2024-12-30 23:21:49,373 basehttp "GET /api/compare-book/?work_id=52472813 HTTP/1.0" 200 65
+INFO 2024-12-30 23:21:49,620 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1003
+INFO 2024-12-30 23:21:50,188 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 2401
+INFO 2024-12-30 23:22:02,535 basehttp "PATCH /api/userbooks/46213537/ HTTP/1.0" 200 56
+INFO 2024-12-30 23:22:03,024 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 65
+INFO 2024-12-30 23:22:03,303 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1372
+INFO 2024-12-30 23:22:03,594 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 2401
+INFO 2024-12-30 23:22:09,417 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 56
+INFO 2024-12-30 23:22:09,984 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1007
+INFO 2024-12-30 23:22:15,312 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-30 23:22:15,813 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 23:22:15,873 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 65
+INFO 2024-12-30 23:22:16,140 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64312
+INFO 2024-12-30 23:22:16,341 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 943
+INFO 2024-12-30 23:22:16,387 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 23:22:16,723 basehttp "GET /api/compare-book/?work_id=1494157 HTTP/1.0" 200 1204
+INFO 2024-12-30 23:37:54,095 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-30 23:38:00,315 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13324
+INFO 2024-12-30 23:38:04,925 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-30 23:38:06,848 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2024-12-30 23:38:06,987 basehttp "GET /api/userbooks/ HTTP/1.0" 200 64312
+INFO 2024-12-30 23:38:08,982 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 292

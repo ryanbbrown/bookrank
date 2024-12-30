@@ -81,7 +81,8 @@ function ToBeRead() {
             setRatedBook({
                 ...unratedBook,
                 rating: rating,
-                normalized_rating: null
+                normalized_rating: null,
+                is_ranked: false
             });
             
             if (unratedBook) {

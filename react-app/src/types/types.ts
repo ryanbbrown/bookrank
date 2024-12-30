@@ -39,12 +39,12 @@ export interface Book {
 
 export interface TBRBook extends Book {
     date_added: string;
-    is_ranked: boolean;
 }
 
 export interface UserBook extends TBRBook {
     rating: Rating | null;
     normalized_rating: number | null;
+    is_ranked: boolean;
 }
 
 export interface UserAccount {

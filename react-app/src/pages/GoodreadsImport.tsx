@@ -6,7 +6,7 @@ import { ApiResponse } from '../types/types';
 
 function GoodreadsImport() {
     const [file, setFile] = useState<File | null>(null);
-    const [message, setMessage] = useState<string>('');
+    const [message, setMessage] = useState<string | JSX.Element>('');
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -27,7 +27,15 @@ function GoodreadsImport() {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            setMessage('File uploaded successfully!');
+            setMessage(
+                <>
+                    File uploaded successfully! Books will be added to{' '}
+                    <Link to="/mybooks" className="text-blue-500 hover:text-blue-700 underline">
+                        your library
+                    </Link>
+                    {' '}in the background over the next 10-15 minutes.
+                </>
+            );
             console.log('File uploaded successfully:', response.data);
         } catch (error) {
             setMessage('Error uploading file. Please try again.');
