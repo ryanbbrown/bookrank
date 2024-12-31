@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
-import { ApiResponse, UserBook, Rating, Book } from '../types/types';
+import { ApiResponse, UserBook, Bucket, Book, BookStatus } from '../types/types';
 
 interface SearchResult {
     book: Book;
@@ -42,56 +42,43 @@ function Search() {
         setShowSearchedBook(true);
     };
 
-    const handleAddFinishedBook = (rating: Rating) => {
+    const handleAddFinishedBook = (bucket: Bucket) => {
         if (!selectedSearchResult) return;
 
         const { work_id, title, author } = selectedSearchResult.book;
         
-        // Create a chain of promises
-        const promises = [];
-        
-        // If book is in TBR, remove it first
-        if (selectedSearchResult.in_tbr) {
-            promises.push(
-                axiosInstance.delete<ApiResponse<never>>(`api/to-be-read/${work_id}/`)
-            );
-        }
-
-        // Add the book to user's library
-        promises.push(
-            axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
+        // Create the initial promise based on whether the book is in TBR or not
+        const bookOperation = selectedSearchResult.in_tbr
+            ? axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${work_id}/`, {
+                status: BookStatus.READ,
+                bucket,
+            })
+            : axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
                 work_id,
                 title,
                 author,
-                rating,
-            })
-        );
+                status: BookStatus.READ,
+                bucket,
+            });
 
-        // Execute all promises in sequence
-        Promise.all(promises)
+        // Execute the promise chain
+        bookOperation
             .then(() => {
                 if (searchInputRef.current) searchInputRef.current.value = '';
                 setSearchResults([]);
                 setShowSearchedBook(false);
                 
-                if (rating === 'high') {
-                    axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
+                if (bucket === 'high') {
+                    return axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
                         work_id
                     });
                 }
-                
-                axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-                    params: { work_id }
-                }).then(response => {
-                    const tempComparedBook = response.data.data || null;
-                    if (tempComparedBook) {
-                        setComparedBook(tempComparedBook);
-                        setShowComparison(true);
-                    }
-                });
+            })
+            .then(() => {
+                fetchComparison(work_id);
             })
             .catch(error => {
-                console.error('Error adding book:', error);
+                console.error('Error managing book:', error);
             });
     };
 
@@ -100,11 +87,12 @@ function Search() {
 
         const { work_id, title, author, image_url } = selectedSearchResult.book;
         
-        axiosInstance.post<ApiResponse<never>>('api/to-be-read/', {
+        axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
             work_id,
             title,
             author,
             image_url,
+            status: BookStatus.TO_BE_READ
         })
         .then(() => {
             if (searchInputRef.current) searchInputRef.current.value = '';

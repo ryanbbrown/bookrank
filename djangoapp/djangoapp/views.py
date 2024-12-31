@@ -30,11 +30,10 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 # Local imports
-from .models import UserAccount, UserBook, TBRBook, UserRecommendation, Book
+from .models import UserAccount, UserBook, UserRecommendation, Book
 from .serializers import (
     UserAccountSerializer,
     UserBookSerializer,
-    TBRBookSerializer,
     UserRecommendationSerializer,
     SearchQuerySerializer,
     UserBookCreateSerializer,
@@ -43,10 +42,9 @@ from .serializers import (
     CompareBookUpdateSerializer,
     RecommendationViewSerializer,
     RecommendationCreateSerializer,
-    TBRBookCreateSerializer,
-    TBRBookDeleteSerializer,
     BookSerializer,
     BookSearchResultSerializer,
+    UserBookListSerializer,
 )
 from .services import OpenSearchService
 
@@ -176,16 +174,32 @@ class UserBooksViewSet(viewsets.ViewSet):
 
     def list(self, request):
         """
-        Gets all of user's finished books and sorts them by rating to display on the frontend.
-        """            
-        user = request.user
-        sorted_books = UserBook.objects.get_user_books(user)
-        serializer = UserBookSerializer(sorted_books, many=True)
+        Gets user's books filtered by status if specified.
+        """
+        serializer = UserBookListSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
         
+        user = request.user
+        status = serializer.validated_data.get('status')
+        
+        queryset = UserBook.objects.filter(user=user)
+        if status:
+            queryset = queryset.filter(status=status)
+            
+        if status == UserBook.BookStatus.READ:
+            # For read books, sort by rating
+            books = UserBook.objects.get_user_books(user)
+        elif status == UserBook.BookStatus.TO_BE_READ:
+            # For TBR books, sort by date added
+            books = queryset.order_by('-date_added')
+        else:
+            books = queryset
+
+        serializer = UserBookSerializer(books, many=True)
         return Response({
             'success': True,
             'data': serializer.data,
-            'message': 'User books retrieved successfully'
+            'message': 'Books retrieved successfully'
         })
 
     # # TODO: currently unused
@@ -211,53 +225,65 @@ class UserBooksViewSet(viewsets.ViewSet):
 
     def create(self, request):
         """
-        Adds a UserBook object to the database, associated with the current user.
-        It is the only way that users can add finished books to their account.
+        Creates a new UserBook. Can be either read (with bucket) or TBR.
         """
         serializer = UserBookCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
-        UserBook.objects.add_or_update_book(
+        try:
+            book = Book.objects.get(work_id=serializer.validated_data['work_id'])
+        except Book.DoesNotExist:
+            raise ValidationError("No book found with that work_id")
+        
+        UserBook.objects.create(
             user=request.user,
-            work_id=serializer.validated_data['work_id'],
-            rating=serializer.validated_data['rating']
+            work_id=book.work_id,
+            title=book.title,
+            author=book.author,
+            description=book.description,
+            image_url=book.image_url,
+            book_type=book.book_type,
+            genre=book.genre,
+            ratings_count=book.ratings_count,
+            average_rating=book.average_rating,
+            status=serializer.validated_data['status'],
+            bucket=serializer.validated_data.get('bucket')
         )
         
         return Response({
             'success': True,
-            'message': 'Book added to account'
-        })
-
-    def partial_update(self, request, pk=None):
-        """
-        Updates the rating of a UserBook object.
-        """
-        serializer = UserBookUpdateSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        UserBook.objects.update_book_rating(
-            user=request.user,
-            work_id=pk,
-            rating=serializer.validated_data['rating']
-        )
-
-        return Response({
-            'success': True,
-            'message': 'Rating updated successfully'
+            'message': 'Book added successfully'
         })
 
     def destroy(self, request, pk=None):
         """
-        Deletes a book from a user's finished books list.
+        Deletes a book from user's library.
         """
-        UserBook.objects.delete_book(
-            user=request.user,
-            work_id=pk
-        )
-
+        book = UserBook.objects.get(user=request.user, work_id=pk)
+        book.delete()
+        
         return Response({
             'success': True,
-            'message': 'Book removed from finished books list'
+            'message': 'Book removed successfully'
+        })
+
+    def partial_update(self, request, pk=None):
+        """
+        Updates a book's status and/or bucket.
+        """
+        serializer = UserBookUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        UserBook.objects.update_book_status(
+            user=request.user,
+            work_id=pk,
+            status=serializer.validated_data['status'],
+            bucket=serializer.validated_data.get('bucket')
+        )
+        
+        return Response({
+            'success': True,
+            'message': 'Book updated successfully'
         })
 
 
@@ -405,91 +431,6 @@ class RecommendationView(APIView):
             'success': True,
             'message': f'Added {added_count} recommendations successfully'
         })
-
-
-
-class ToBeReadViewSet(viewsets.ViewSet):
-    """
-    ViewSet for managing a user's TBR list.
-    """
-    permission_classes = [IsAuthenticated]
-
-    def list(self, request):
-        """
-        Gets all of user's TBR books to display on the frontend.
-        """
-        user = request.user
-        books = TBRBook.objects.filter(user=user)
-        serializer = TBRBookSerializer(books, many=True)
-        return Response({
-            'success': True,
-            'data': serializer.data,
-            'message': 'TBR list retrieved successfully'
-        })
-
-    # # TODO: currently unused
-    # def retrieve(self, request, pk=None):
-    #     """
-    #     Gets a single TBR book by its work_id.
-    #     """
-    #     try:
-    #         book = TBRBook.objects.get(user=request.user, work_id=pk)
-    #         serializer = TBRBookSerializer(book)
-    #         return Response({
-    #             'success': True,
-    #             'data': serializer.data,
-    #             'message': 'TBR book retrieved successfully'
-    #         })
-    #     except TBRBook.DoesNotExist:
-    #         return Response({
-    #             'success': False,
-    #             'error': 'Book not found',
-    #             'message': 'No book found with that work_id in your TBR list'
-    #         }, status=status.HTTP_404_NOT_FOUND)
-
-    def create(self, request):
-        """
-        Adds a book to a user's TBR list.
-        """
-        serializer = TBRBookCreateSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        
-        # Get the base Book object
-        book = Book.objects.get(work_id=serializer.validated_data['work_id'])
-        
-        TBRBook.objects.create(
-            user=request.user,
-            work_id=book.work_id,
-            title=book.title,
-            author=book.author,
-            description=book.description,
-            image_url=book.image_url,
-            book_type=book.book_type,
-            genre=book.genre,
-            ratings_count=book.ratings_count,
-            average_rating=book.average_rating,
-        )
-        
-        return Response({
-            'success': True,
-            'message': 'Book added to TBR list'
-        })
-
-    def destroy(self, request, pk=None):
-        """
-        Deletes a book from a user's TBR list.
-        """
-        tbr_book = TBRBook.objects.get(
-            user=request.user,
-            work_id=pk
-        )
-        tbr_book.delete()
-        
-        return Response({
-            'success': True,
-            'message': 'Book removed from TBR list'
-        })
-
 
 
 

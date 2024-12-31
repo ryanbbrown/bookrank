@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "./ui/button";
 
 interface HeaderProps {
@@ -10,7 +10,6 @@ interface HeaderProps {
 
 export function Header({ isLoggedIn, handleLogout, toggleLoginModal }: HeaderProps) {
     const navigate = useNavigate();
-    const location = useLocation();
 
     const handleLogoutClick = () => {
         handleLogout();
@@ -21,7 +20,7 @@ export function Header({ isLoggedIn, handleLogout, toggleLoginModal }: HeaderPro
         <header className="flex justify-between items-center p-6">
             <Link to="/">
                 <div className="flex items-center space-x-1">
-                    <img src="books.png" alt="Logo" className="w-8 m-1 mr-2" />
+                    <img src="/books.png" alt="Logo" className="w-8 m-1 mr-2" />
                     <div className="text-2xl font-bold">BookRank</div>
                 </div>
             </Link>
@@ -47,8 +46,9 @@ export function Header({ isLoggedIn, handleLogout, toggleLoginModal }: HeaderPro
                 <div className="flex items-center">
                     <nav className="hidden md:flex justify-center flex-grow mr-8">
                         <Link to="/search" className="mx-4 hover:text-gray-400">Search</Link>
-                        <Link to="/mybooks" className="mx-4 hover:text-gray-400">My Books</Link>
-                        <Link to="/toberead" className="mx-4 hover:text-gray-400">TBR</Link>
+                        <Link to="/mybooks/read" className="mx-4 hover:text-gray-400">My Books</Link>
+                        <Link to="/mybooks/to_be_read" className="mx-4 hover:text-gray-400">TBR</Link>
+                        <Link to="/mybooks/currently_reading" className="mx-4 hover:text-gray-400">Currently Reading</Link>
                         <Link to="/myrecs" className="mx-4 hover:text-gray-400">Recommendations</Link>
                         <Link to="/goodreadsimport" className="mx-4 hover:text-gray-400">Import</Link>
                     </nav>

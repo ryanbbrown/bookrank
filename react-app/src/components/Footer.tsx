@@ -7,7 +7,7 @@ export function Footer(): JSX.Element {
             <div className="container mx-auto py-8 px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="flex items-center space-x-2">
-                        <img src="books.png" alt="Logo" className="w-5 opacity-50" />
+                        <img src="/books.png" alt="Logo" className="w-5 opacity-50" />
                         <span className="text-gray-600 text-sm">
                             © 2024 BookRank.ai
                         </span>

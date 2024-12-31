@@ -21,9 +21,13 @@ export interface LoginResponseData {
 // export interface SearchBookList extends Array<SearchResponseData> {}
 
 // Book types
-export type Rating = "high" | "medium" | "low";
+export type Bucket = "high" | "medium" | "low";
 
-export type RateModalStatus = "SHOW_RATE_BUTTONS" | "SHOW_IN_LIBRARY" | "SHOW_IN_TBR";
+export enum BookStatus {
+  READ = "read",
+  CURRENTLY_READING = "currently_reading",
+  TO_BE_READ = "to_be_read"
+}
 
 export interface Book {
     work_id: string;
@@ -37,14 +41,15 @@ export interface Book {
     average_rating: number | null;
 }
 
-export interface TBRBook extends Book {
+export interface UserBook extends Book {
     date_added: string;
-}
-
-export interface UserBook extends TBRBook {
-    rating: Rating | null;
+    status: BookStatus;
+    date_finished: string | null;
+    bucket: Bucket | null;
     normalized_rating: number | null;
-    is_ranked: boolean;
+    elo_rating: number | null;
+    RD: number | null;
+    is_ranked: boolean | null;
 }
 
 export interface UserAccount {

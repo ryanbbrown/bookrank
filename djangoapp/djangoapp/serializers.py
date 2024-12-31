@@ -1,6 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import UserAccount, UserBook, TBRBook, UserRecommendation, Book
+from .models import UserAccount, UserBook, UserRecommendation, Book
 
 
 ## MODEL SERIALIZERS
@@ -12,13 +12,11 @@ class UserAccountSerializer(serializers.ModelSerializer):
 class UserBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserBook
-        fields = ['work_id', 'title', 'author', 'image_url', 'description', 'rating', 'normalized_rating', 'date_added', 'is_ranked', 'genre', 'book_type']
-        # fields = ['id', 'work_id', 'title', 'author', 'image_url','description', 'rating', 'elo_rating', 'RD', 'normalized_rating', 'date_added', 'is_ranked']
-
-class TBRBookSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TBRBook
-        fields = ['work_id', 'title', 'author', 'image_url', 'date_added']
+        fields = [
+            'work_id', 'title', 'author', 'image_url', 'description', 
+            'bucket', 'normalized_rating', 'date_added', 'is_ranked', 
+            'genre', 'book_type', 'status', 'date_finished',
+        ]
 
 class UserRecommendationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,32 +38,43 @@ class BookIdentifierSerializer(serializers.Serializer):
     """For multiple endpoints requiring work_id."""
     work_id = serializers.CharField(required=True)
 
-class BookRatingSerializer(BookIdentifierSerializer):
-    """For multiple endpoints requiring work_id and rating."""
-    RATING_CHOICES = (
+class BookBucketSerializer(BookIdentifierSerializer):
+    """For multiple endpoints requiring work_id and bucket."""
+    BUCKET_CHOICES = (
         ('high', 'high'),
         ('medium', 'medium'),
         ('low', 'low'),
     )
-    rating = serializers.ChoiceField(choices=RATING_CHOICES, required=True)
+    bucket = serializers.ChoiceField(choices=BUCKET_CHOICES, required=True)
 
 class SearchQuerySerializer(serializers.Serializer):
     """For GET /api/search/"""
     query = serializers.CharField(required=True, min_length=1)
 
-class UserBookCreateSerializer(BookRatingSerializer):
+class UserBookListSerializer(serializers.Serializer):
+    """For GET /api/userbooks/"""
+    status = serializers.ChoiceField(choices=UserBook.BookStatus.choices, required=False)
+
+class UserBookCreateSerializer(serializers.Serializer):
     """For POST /api/userbooks/"""
-    pass
-    ## having these fields was causing errors since it only gets passed w work_id and rating
-    # title = serializers.CharField(required=True)
-    # author = serializers.CharField(required=True)
-    # image_url = serializers.URLField(required=False, allow_blank=True)
-    # description = serializers.CharField(required=False, allow_blank=True)
+    work_id = serializers.CharField(required=True)
+    title = serializers.CharField(required=True)
+    author = serializers.CharField(required=True)
+    status = serializers.ChoiceField(choices=UserBook.BookStatus.choices, required=True)
+    bucket = serializers.ChoiceField(choices=UserBook.BookBucket.choices, required=False)
 
 class UserBookUpdateSerializer(serializers.Serializer):
-    """For PATCH /api/userbooks/"""
-    # doesn't inherit from BookRatingSerializer bc viewset, so work_id is passed in the URL
-    rating = serializers.ChoiceField(choices=['high', 'medium', 'low'])
+    """For PATCH /api/userbooks/{id}/"""
+    status = serializers.ChoiceField(choices=UserBook.BookStatus.choices, required=True)
+    bucket = serializers.ChoiceField(choices=UserBook.BookBucket.choices, required=False)
+
+    def validate(self, data):
+        """
+        Check that bucket is provided if status is READ
+        """
+        if data['status'] == UserBook.BookStatus.READ and 'bucket' not in data:
+            raise serializers.ValidationError("Bucket is required when status is 'read'")
+        return data
 
 class CompareBookRequestSerializer(BookIdentifierSerializer):
     """For GET /api/compare-book/"""
@@ -83,14 +92,4 @@ class RecommendationViewSerializer(BookIdentifierSerializer):
 
 class RecommendationCreateSerializer(BookIdentifierSerializer):
     """For POST /api/recommendations/"""
-    pass
-
-class TBRBookCreateSerializer(BookIdentifierSerializer):
-    """For POST /api/to-be-read/"""
-    title = serializers.CharField(required=True)
-    author = serializers.CharField(required=True)
-    image_url = serializers.URLField(required=False, allow_blank=True)
-
-class TBRBookDeleteSerializer(BookIdentifierSerializer):
-    """For DELETE /api/to-be-read/"""
     pass

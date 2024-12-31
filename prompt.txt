@@ -1,0 +1,16 @@
+I've changed the UserBook model in @models.py so it now encompasses both read (finished) books and TBR (to be read) books. The TBRBook model and TBR-related views, serializers, model managers, etc. are now not as relevant and must be changed. Some of the existing UserBooks code must also change. Please make the following updates:
+
+-Update Types to get rid of the TBRBook type, just have UserBook type and update it to match @models (with a "bookStatus" interface defined that is used inside of it)
+-Add a method to the UserBook model manager, called "get tbr books" (or similar), that returns all of a user's books with the to be read status, ordered by the date added field.
+-Update the TBR view to use this model manager method
+-Update the TBR page to use the correct types
+-Update the "Delete" api call on the TBR page to use the delete call from the UserBook model manager
+-On the TBR page, when clicking "Mark as read", it should still pull up the rating/bucket modal, and then after clicking that, instead of running create, it should run an update method where it updates the UserBook object to have status = read and bucket = whatever bucket was clicked
+-Update the api call on @search so it's creating an instance of UserBook instead of TBR book, with the status = to be read
+
+
+
+
+The issue is that in @Search.tsx , handleAddTBR calls /api/userbooks, which corresponds with the @UserBooksViewSet in @views.py . The serializer for that create method in @serializers.py requires "bucket", since it's assuming you're adding a "read" status book.
+
+However, there are two issues: one is that the current create method on UserBooksViewSet doesn't take / use a status parameter, but we're trying to pass it there. Second is that it's designed for read books, not to be read books. 

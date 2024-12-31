@@ -22,7 +22,6 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'api/userbooks', views.UserBooksViewSet, basename='userbooks')
-router.register(r'api/to-be-read', views.ToBeReadViewSet, basename='to-be-read')
 
 urlpatterns = [
     path("admin/", admin.site.urls),

@@ -5,7 +5,6 @@ import Login from './pages/Login';
 import Search from './pages/Search';
 import MyBooks from './pages/MyBooks';
 import { Header } from './components/Header';
-import ToBeRead from './pages/ToBeRead';
 import Recommendations from './pages/Recommendations';
 import GoodreadsImport from './pages/GoodreadsImport';
 import { Footer } from './components/Footer';
@@ -76,8 +75,8 @@ function App(): JSX.Element {
                                 } 
                             />
                             <Route path="/search" element={<Search />} />
-                            <Route path="/mybooks" element={<MyBooks />} />
-                            <Route path="/toberead" element={<ToBeRead />} />
+                            <Route path="/mybooks/:status" element={<MyBooks />} />
+                            {/* <Route path="/mybooks/" element={<MyBooks />} /> */}
                             <Route path="/myrecs" element={<Recommendations />} />
                             <Route path="/goodreadsimport" element={<GoodreadsImport />} />
                             <Route path="/termsofservice" element={<TermsOfService />} />

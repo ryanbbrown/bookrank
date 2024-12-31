@@ -6,6 +6,8 @@ from .services import PineconeService, OpenSearchService
 import math
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 
 pinecone_service = PineconeService()
@@ -75,19 +77,26 @@ class BookManager(models.Manager):
         books_dict = {book.work_id: book for book in books}
         sorted_books = [books_dict[work_id] for work_id in work_ids if work_id in books_dict]
         
-        # if user:
-        # Get user's books and TBR books in bulk
-        user_book_ids = set(UserBook.objects.filter(user=user, work_id__in=work_ids).values_list('work_id', flat=True))
-        tbr_book_ids = set(TBRBook.objects.filter(user=user, work_id__in=work_ids).values_list('work_id', flat=True))
+        if user.is_authenticated:
+            # Get user's books in bulk with their statuses
+            user_books = UserBook.objects.filter(
+                user=user,
+                work_id__in=work_ids
+            ).values_list('work_id', 'status')
+            
+            # Create lookup dictionaries for status checks
+            user_book_statuses = {work_id: status for work_id, status in user_books}
+            
+            # Add status information to each book
+            return [{
+                'book': book,
+                'in_library': book.work_id in user_book_statuses and 
+                             user_book_statuses[book.work_id] == UserBook.BookStatus.READ,
+                'in_tbr': book.work_id in user_book_statuses and 
+                         user_book_statuses[book.work_id] == UserBook.BookStatus.TO_BE_READ
+            } for book in sorted_books]
         
-        # Add status information to each book
-        return [{
-            'book': book,
-            'in_library': book.work_id in user_book_ids,
-            'in_tbr': book.work_id in tbr_book_ids
-        } for book in sorted_books]
-        
-        # return sorted_books
+        return [{'book': book, 'in_library': False, 'in_tbr': False} for book in sorted_books]
 
 
 class Book(AbstractBook):
@@ -111,7 +120,7 @@ class UserBookManager(models.Manager):
         sorted_unranked_books = sorted(unranked_books, key=lambda x: (x.date_added), reverse=True)
         return sorted_ranked_books + sorted_unranked_books
 
-    def add_or_update_book(self, user, work_id, rating):
+    def add_or_update_book(self, user, work_id, bucket):
         try:
             book = Book.objects.get(work_id=work_id)
             return self.create(
@@ -125,14 +134,14 @@ class UserBookManager(models.Manager):
                 genre=book.genre,
                 ratings_count=book.ratings_count,
                 average_rating=book.average_rating,
-                rating=rating
+                bucket=bucket
             )
         except Book.DoesNotExist:
             raise ObjectDoesNotExist(f"No Book found with work_id: {work_id}")
 
-    def update_book_rating(self, user, work_id, rating):
+    def update_book_bucket(self, user, work_id, bucket):
         book = self.get(user=user, work_id=work_id)
-        book.rating = rating
+        book.bucket = bucket
         book.elo_rating = 1500
         book.RD = 400
         book.save()
@@ -157,7 +166,7 @@ class UserBookManager(models.Manager):
             self
             .exclude(work_id=work_id)
             .exclude(work_id__in=excluded_work_ids)
-            .filter(user=user, rating=book_obj.rating, is_ranked=True, book_type=book_obj.book_type)
+            .filter(user=user, bucket=book_obj.bucket, is_ranked=True, book_type=book_obj.book_type)
             .annotate(
                 rating_diff=Abs(F('elo_rating') - book_obj.elo_rating),
                 same_genre=Q(genre=book_obj.genre)
@@ -225,34 +234,40 @@ class UserBookManager(models.Manager):
         """
         return self.filter(user=user, is_ranked=False).order_by('-date_added')
 
+    def get_tbr_books(self, user):
+        """
+        Fetches all books with 'to_be_read' status for the user, ordered by date added.
+        """
+        return self.filter(
+            user=user, 
+            status=UserBook.BookStatus.TO_BE_READ
+        ).order_by('-date_added')
+
+    def update_book_status(self, user, work_id, status, bucket=None):
+        """
+        Updates a book's status and optionally its bucket.
+        """
+        book = self.get(user=user, work_id=work_id)
+        book.status = status
+        if bucket:
+            book.bucket = bucket
+        book.save()
+        return book
+
 
 
 class UserBook(AbstractBook):
     objects = UserBookManager()
-    
-    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
-    rating = models.CharField(max_length=10, choices=[
-        ('high', 'High'),
-        ('medium', 'Medium'),
-        ('low', 'Low'),
-    ], null=True)
-    elo_rating = models.FloatField(default=1500)
-    RD = models.FloatField(default=400)
-    date_added = models.DateTimeField(auto_now_add=True)
-    is_ranked = models.BooleanField(default=False)
 
-    @property
-    def normalized_rating(self):
-        if self.is_ranked == False:
-            return None
-        elif self.user.total_ranked_books_count < 15:
-            return '—'
-        elif self.rating == "high":
-            return round(6.66 + (self.elo_rating - 1000) * (10 - 6.66) / 1000, 2)
-        elif self.rating == "medium":
-            return round(3.33 + (self.elo_rating - 1000) * (6.66 - 3.33) / 1000, 2)
-        elif self.rating == "low":
-            return round((self.elo_rating - 1000) * 3.33 / 1000, 2)
+    class BookStatus(models.TextChoices):
+        READ = 'read', _('Read')
+        CURRENTLY_READING = 'currently_reading', _('Currently Reading')
+        TO_BE_READ = 'to_be_read', _('To Be Read')
+
+    class BookBucket(models.TextChoices):
+        HIGH = 'high', _('High')
+        MEDIUM = 'medium', _('Medium')
+        LOW = 'low', _('Low')
 
     class Meta:
         constraints = [
@@ -261,6 +276,50 @@ class UserBook(AbstractBook):
                 name='unique_user_book'
             )
         ]
+    
+    # fields for all statuses
+    user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=BookStatus.choices, default=BookStatus.READ)
+
+    # fields for read books
+    bucket = models.CharField(null=True, blank=True)
+    date_finished = models.DateTimeField(null=True, blank=True)
+    elo_rating = models.FloatField(null=True, blank=True)
+    RD = models.FloatField(null=True, blank=True)
+    is_ranked = models.BooleanField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.status == self.BookStatus.READ:
+            # Set default values for read books if they're null
+            self.elo_rating = self.elo_rating or 1500
+            self.RD = self.RD or 400
+            self.is_ranked = False if self.is_ranked is None else self.is_ranked
+            self.date_finished = timezone.now().date()
+        else:
+            # Clear read-specific fields for non-read books
+            self.bucket = None
+            self.date_finished = None
+            self.elo_rating = None
+            self.RD = None
+            self.is_ranked = None
+        
+        super().save(*args, **kwargs)
+
+    @property
+    def normalized_rating(self):
+        if self.is_ranked != True:
+            return None
+        elif self.user.total_ranked_books_count < 15:
+            return '—'
+        elif self.bucket == "high":
+            return round(6.66 + (self.elo_rating - 1000) * (10 - 6.66) / 1000, 2)
+        elif self.bucket == "medium":
+            return round(3.33 + (self.elo_rating - 1000) * (6.66 - 3.33) / 1000, 2)
+        elif self.bucket == "low":
+            return round((self.elo_rating - 1000) * 3.33 / 1000, 2)
+
+    
 
 
 class TBRBook(AbstractBook):

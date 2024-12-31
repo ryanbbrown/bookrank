@@ -1,12 +1,12 @@
 import React from "react";
-import { Book, Rating, UserBook, RateModalStatus } from "../types/types";
+import { Book, Bucket, UserBook } from "../types/types";
 
 interface RateModalProps {
-    onClickFunction?: (rating: Rating) => void;
+    onClickFunction?: (bucket: Bucket) => void;
     exitFunction: () => void;
     addTBRFunction?: () => void;
-    book: Book;
-    status: RateModalStatus;
+    book: Book | UserBook;
+    status: "SHOW_RATE_BUTTONS" | "SHOW_IN_LIBRARY" | "SHOW_IN_TBR";
 }
 
 export function RateModal({
@@ -16,6 +16,7 @@ export function RateModal({
     book,
     status,
 }: RateModalProps): JSX.Element {
+
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="relative bg-white rounded-lg p-6 w-1/2 text-center">

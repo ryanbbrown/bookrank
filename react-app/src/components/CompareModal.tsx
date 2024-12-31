@@ -1,18 +1,18 @@
 import React from 'react';
-import { Book, TBRBook, UserBook } from '../types/types'
+import { Book, UserBook } from '../types/types'
 
 interface CompareModalProps {
-  handleComparisonClick: (value: number) => void
-  exitFunction?: () => void
-  selectedBook: Book
-  comparedBook: UserBook
+    handleComparisonClick: (value: number) => void
+    exitFunction?: () => void
+    selectedBook: Book | UserBook
+    comparedBook: UserBook
 }
 
 export function CompareModal({ 
-  handleComparisonClick, 
-  exitFunction, 
-  selectedBook, 
-  comparedBook 
+    handleComparisonClick, 
+    exitFunction, 
+    selectedBook, 
+    comparedBook 
 }: CompareModalProps): JSX.Element {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
@@ -29,26 +29,26 @@ export function CompareModal({
                 )}
                 <div className="flex justify-around w-full mb-4">
                     <div 
-                      className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
-                      onClick={() => handleComparisonClick(1)}
+                        className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
+                        onClick={() => handleComparisonClick(1)}
                     >
                         <img 
-                          src={selectedBook.image_url} 
-                          alt={selectedBook.title}
-                          className="mx-auto mb-4 rounded" 
+                            src={selectedBook.image_url} 
+                            alt={selectedBook.title}
+                            className="mx-auto mb-4 rounded" 
                         />
                         <h2 className="text-lg text-center font-bold">{selectedBook.title}</h2>
                         <p className="text-center">{selectedBook.author}</p>
                         <p className="text-center">{selectedBook.book_type}, {selectedBook.genre}</p>
                     </div>
                     <div 
-                      className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
-                      onClick={() => handleComparisonClick(0)}
+                        className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
+                        onClick={() => handleComparisonClick(0)}
                     >
                         <img 
-                          src={comparedBook.image_url} 
-                          alt={comparedBook.title}
-                          className="mx-auto mb-4 rounded" 
+                            src={comparedBook.image_url} 
+                            alt={comparedBook.title}
+                            className="mx-auto mb-4 rounded" 
                         />
                         <h2 className="text-lg text-center font-bold">{comparedBook.title}</h2>
                         <p className="text-center">{comparedBook.author}</p>
@@ -72,5 +72,5 @@ export function CompareModal({
                 </div>
             </div>
         </div>
-    )
+    );
 } 

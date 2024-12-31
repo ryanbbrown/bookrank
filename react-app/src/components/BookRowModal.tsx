@@ -1,22 +1,21 @@
-import { TBRBook, UserBook } from '../types/types'
+import { UserBook } from '../types/types'
 import React from 'react';
 
-interface BookRowModalProps<T extends TBRBook> {
-    handleSpecificRankClick: (book: T) => void
-    handleReRankClick?: (book: T) => void
-    handleRemoveClick: (book: T) => void
-    book: T
+interface BookRowModalProps {
+    handleSpecificRankClick: (book: UserBook) => void
+    handleReRankClick?: (book: UserBook) => void
+    handleRemoveClick: (book: UserBook) => void
+    book: UserBook
 }
 
-export function BookRowModal<T extends TBRBook>({ 
+export function BookRowModal({ 
     handleSpecificRankClick, 
     handleReRankClick, 
     handleRemoveClick, 
     book
-}: BookRowModalProps<T>): JSX.Element {
+}: BookRowModalProps): JSX.Element {
     const getButtonText = () => {
-        // Check if book is UserBook by checking if it has is_ranked property
-        if ('is_ranked' in book) {
+        if (book.status === 'read') {
             return book.is_ranked ? "Re-Rank" : "Rank";
         }
         return "Mark as Read";
@@ -24,8 +23,8 @@ export function BookRowModal<T extends TBRBook>({
 
     return (
         <div className="flex flex-col absolute top-0 right-0 transform translate-x-full p-2 bg-white rounded shadow-lg z-10">
-            {/* If it's a UserBook and ranked, show Re-Rank button only if handleReRankClick exists */}
-            {('is_ranked' in book && book.is_ranked && handleReRankClick) ? (
+            {/* If it's a read book and ranked, show Re-Rank button only if handleReRankClick exists */}
+            {(book.status === 'read' && book.is_ranked && handleReRankClick) ? (
                 <button
                     className="bg-teal-800 hover:bg-teal-900 text-white px-4 py-2 rounded"
                     onClick={() => handleReRankClick(book)}

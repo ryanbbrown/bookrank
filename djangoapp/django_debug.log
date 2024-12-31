@@ -52994,3 +52994,320 @@ INFO 2024-12-31 03:34:09,090 basehttp "GET /api/user/ HTTP/1.0" 200 225
 INFO 2024-12-31 03:34:09,106 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65988
 INFO 2024-12-31 03:35:21,062 basehttp "GET /api/user/ HTTP/1.0" 200 225
 INFO 2024-12-31 03:35:21,290 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65988
+INFO 2024-12-31 04:41:26,038 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 04:41:26,326 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65988
+INFO 2024-12-31 15:06:35,979 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12327
+INFO 2024-12-31 15:08:59,703 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:09:00,027 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65988
+INFO 2024-12-31 15:45:58,161 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 15:46:18,242 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-31 15:46:26,684 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:46:26,855 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65988
+INFO 2024-12-31 15:46:34,959 basehttp "PATCH /api/userbooks/14863741/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:46:35,616 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1084
+INFO 2024-12-31 15:46:37,580 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:46:38,085 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:46:38,140 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 65
+INFO 2024-12-31 15:46:38,649 basehttp "GET /api/userbooks/ HTTP/1.0" 200 65991
+INFO 2024-12-31 15:46:38,830 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:47:06,858 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12327
+INFO 2024-12-31 15:47:20,068 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-31 15:47:20,728 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 1741
+INFO 2024-12-31 15:47:22,104 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 15:47:23,748 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:47:24,301 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 1282
+INFO 2024-12-31 15:47:27,135 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:47:27,708 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-31 15:47:31,182 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:47:31,198 basehttp "GET /api/userbooks/ HTTP/1.0" 200 67446
+INFO 2024-12-31 15:47:39,957 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 70
+INFO 2024-12-31 15:47:42,154 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2024-12-31 15:47:42,305 basehttp "GET /api/userbooks/ HTTP/1.0" 200 67446
+INFO 2024-12-31 15:47:51,579 basehttp "GET /api/search/?query=secret+benedict HTTP/1.0" 200 10680
+INFO 2024-12-31 15:48:02,309 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-31 15:48:02,944 basehttp "GET /api/compare-book/?work_id=80497 HTTP/1.0" 200 1374
+INFO 2024-12-31 15:48:03,247 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 15:48:05,776 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:48:06,367 basehttp "GET /api/compare-book/?work_id=80497 HTTP/1.0" 200 1006
+INFO 2024-12-31 15:48:10,428 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 15:48:11,008 basehttp "GET /api/compare-book/?work_id=80497 HTTP/1.0" 200 65
+INFO 2024-12-31 15:48:14,758 basehttp "GET /api/search/?query=secret+benedict HTTP/1.0" 200 10679
+INFO 2024-12-31 15:48:20,150 basehttp "POST /api/to-be-read/ HTTP/1.0" 200 51
+INFO 2024-12-31 15:48:21,506 basehttp "GET /api/to-be-read/ HTTP/1.0" 200 373
+INFO 2024-12-31 15:48:26,965 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-31 15:48:27,277 basehttp "GET /api/compare-book/?work_id=2927650 HTTP/1.0" 200 65
+WARNING 2024-12-31 15:48:27,479 basehttp "DELETE /api/to-be-read/?work_id=2927650 HTTP/1.0" 405 43
+INFO 2024-12-31 15:54:48,427 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 15:55:01,963 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:01:14,603 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 16:04:46,725 autoreload Watching for file changes with StatReloader
+WARNING 2024-12-31 16:05:01,572 basehttp "POST /api/signup/ HTTP/1.0" 401 27
+INFO 2024-12-31 16:05:06,456 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2024-12-31 16:05:08,431 basehttp "GET /api/userbooks/ HTTP/1.0" 200 72
+INFO 2024-12-31 16:05:08,710 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 16:05:16,576 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 76
+INFO 2024-12-31 16:05:43,042 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 76
+INFO 2024-12-31 16:14:23,395 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:14:32,067 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2024-12-31 16:17:34,996 basehttp "POST /api/userbooks/ HTTP/1.0" 200 50
+INFO 2024-12-31 16:17:35,617 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2024-12-31 16:17:36,152 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 16:17:38,209 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 16:17:38,252 basehttp "GET /api/userbooks/ HTTP/1.0" 200 1536
+INFO 2024-12-31 16:20:56,709 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 16:21:10,411 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:26:38,207 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 16:26:52,214 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:27:29,612 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 16:27:45,362 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:29:19,838 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-31 16:29:32,605 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:31:37,842 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 16:31:37,904 basehttp "GET /api/userbooks/ HTTP/1.0" 200 1552
+INFO 2024-12-31 16:31:45,294 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8413
+WARNING 2024-12-31 16:31:48,124 basehttp "POST /api/userbooks/ HTTP/1.0" 400 38
+WARNING 2024-12-31 16:34:01,045 basehttp "POST /api/userbooks/ HTTP/1.0" 400 38
+INFO 2024-12-31 16:48:24,623 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-31 16:48:39,689 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:53:20,486 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 16:53:36,800 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:54:05,137 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-31 16:54:20,915 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 16:59:23,292 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1547
+INFO 2024-12-31 16:59:23,332 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 16:59:30,292 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13294
+ERROR 2024-12-31 16:59:39,427 log Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "elo_rating" of relation "djangoapp_userbook" violates not-null constraint
+DETAIL:  Failing row contains (2, 4640799, Harry Potter and the Sorcerer's Stone (Harry Potter, #1), J.K. Rowling, Harry Potter's life is miserable. His parents are dead and he's ..., https://images.gr-assets.com/books/1474154022m/3.jpg, Non-Fiction, Fantasy, 4972886, 4.446229457855225, 2024-12-31 16:59:38.811731+00, to_be_read, null, null, null, null, null, 1).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 241, in create
+    UserBook.objects.create(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 300, in save
+    super().save(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1071, in _save_table
+    results = self._do_insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/base.py", line 1112, in _do_insert
+    return manager._insert(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "elo_rating" of relation "djangoapp_userbook" violates not-null constraint
+DETAIL:  Failing row contains (2, 4640799, Harry Potter and the Sorcerer's Stone (Harry Potter, #1), J.K. Rowling, Harry Potter's life is miserable. His parents are dead and he's ..., https://images.gr-assets.com/books/1474154022m/3.jpg, Non-Fiction, Fantasy, 4972886, 4.446229457855225, 2024-12-31 16:59:38.811731+00, to_be_read, null, null, null, null, null, 1).
+
+ERROR 2024-12-31 16:59:39,517 basehttp "POST /api/userbooks/ HTTP/1.0" 500 215627
+INFO 2024-12-31 17:01:17,493 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:04:09,175 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:04:12,733 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1762
+INFO 2024-12-31 17:04:14,244 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:04:14,270 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1547
+INFO 2024-12-31 17:04:16,291 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1762
+INFO 2024-12-31 17:04:23,458 basehttp "PATCH /api/userbooks/4640799/ HTTP/1.0" 200 54
+INFO 2024-12-31 17:04:23,775 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 65
+INFO 2024-12-31 17:04:24,511 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 17:04:27,192 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3241
+INFO 2024-12-31 17:04:27,414 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:04:39,082 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8413
+INFO 2024-12-31 17:04:42,274 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:04:44,203 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 830
+INFO 2024-12-31 17:04:47,040 basehttp "DELETE /api/userbooks/66322/ HTTP/1.0" 200 54
+INFO 2024-12-31 17:04:48,098 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 17:08:13,625 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/urls.py changed, reloading.
+INFO 2024-12-31 17:08:29,016 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:09:00,175 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 17:09:12,262 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:10:08,728 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 17:10:25,263 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:11:19,533 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 17:11:34,597 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:13:38,240 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2024-12-31 17:13:53,488 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:15:24,598 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 17:15:40,826 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:20:54,688 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2024-12-31 17:35:01,844 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:35:01,934 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3241
+INFO 2024-12-31 17:35:11,449 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8413
+INFO 2024-12-31 17:35:14,176 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:35:16,207 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8412
+INFO 2024-12-31 17:35:21,887 basehttp "PATCH /api/userbooks/66322/ HTTP/1.0" 200 54
+INFO 2024-12-31 17:35:22,194 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 1768
+INFO 2024-12-31 17:35:24,639 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2024-12-31 17:35:24,932 basehttp "GET /api/compare-book/?work_id=66322 HTTP/1.0" 200 65
+INFO 2024-12-31 17:35:26,832 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:35:26,912 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4003
+INFO 2024-12-31 17:35:32,910 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8412
+INFO 2024-12-31 17:36:41,084 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:36:41,172 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4003
+INFO 2024-12-31 17:36:44,625 basehttp "DELETE /api/userbooks/2792775/ HTTP/1.0" 200 54
+INFO 2024-12-31 17:36:45,703 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 2522
+INFO 2024-12-31 17:36:45,910 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:39:36,194 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11794
+INFO 2024-12-31 17:39:39,844 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:39:41,582 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 17:39:41,894 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 65
+INFO 2024-12-31 17:39:44,552 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:39:44,606 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3848
+INFO 2024-12-31 17:47:03,733 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3848
+INFO 2024-12-31 17:47:03,793 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:47:18,635 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11793
+INFO 2024-12-31 17:47:20,934 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:47:22,437 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 17:47:22,890 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 65
+INFO 2024-12-31 17:47:25,102 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2024-12-31 17:47:27,934 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2024-12-31 17:47:29,053 basehttp "POST /api/recommendations/ HTTP/1.0" 200 65
+INFO 2024-12-31 17:47:29,366 basehttp "GET /api/compare-book/?work_id=52472813 HTTP/1.0" 200 1019
+INFO 2024-12-31 17:47:33,141 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:47:33,217 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 5903
+INFO 2024-12-31 17:51:58,930 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:51:58,953 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 5903
+INFO 2024-12-31 17:52:21,622 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:52:21,705 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 5903
+INFO 2024-12-31 17:53:47,297 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2024-12-31 17:54:13,444 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 17:54:19,639 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 17:54:19,733 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6098
+INFO 2024-12-31 18:53:15,343 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 18:53:20,156 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-31 18:53:21,579 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 18:53:21,658 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6098
+INFO 2024-12-31 18:56:03,746 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6098
+INFO 2024-12-31 18:56:03,882 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 18:56:07,366 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 18:56:07,455 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6098
+INFO 2024-12-31 18:56:11,453 basehttp "PATCH /api/userbooks/4640799/ HTTP/1.0" 200 54
+INFO 2024-12-31 18:56:12,561 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4365
+INFO 2024-12-31 18:56:12,767 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 18:56:15,307 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1783
+INFO 2024-12-31 18:56:17,052 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4365
+INFO 2024-12-31 18:56:17,269 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 18:56:19,057 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1783
+INFO 2024-12-31 18:56:20,297 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4365
+INFO 2024-12-31 18:56:20,554 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:00:03,381 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1783
+INFO 2024-12-31 19:00:29,261 basehttp "PATCH /api/userbooks/4640799/ HTTP/1.0" 200 54
+INFO 2024-12-31 19:00:29,473 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 19:00:31,988 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:00:32,094 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6096
+INFO 2024-12-31 19:05:13,269 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:05:13,380 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6096
+INFO 2024-12-31 19:05:47,022 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 19:05:49,280 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 6096
+INFO 2024-12-31 19:05:49,492 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:05:53,096 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2024-12-31 19:05:53,862 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:05:54,371 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:05:55,374 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1417
+INFO 2024-12-31 19:06:50,462 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:06:50,558 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:26:50,729 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:26:50,764 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:37:21,352 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2024-12-31 19:44:23,201 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:44:23,417 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:50:16,822 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:50:17,049 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:51:09,329 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1417
+INFO 2024-12-31 19:51:10,967 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 67
+INFO 2024-12-31 19:51:13,638 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1417
+INFO 2024-12-31 19:51:14,982 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:51:15,479 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:51:19,344 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1417
+INFO 2024-12-31 19:51:22,786 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 67
+INFO 2024-12-31 19:51:25,049 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1417
+INFO 2024-12-31 19:51:27,752 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2024-12-31 19:51:28,482 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 19:51:29,878 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1424
+INFO 2024-12-31 19:51:33,718 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 19:51:35,871 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:51:36,103 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:51:41,102 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1424
+INFO 2024-12-31 19:52:07,986 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1424
+INFO 2024-12-31 19:54:54,603 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2024-12-31 19:55:09,208 autoreload Watching for file changes with StatReloader
+INFO 2024-12-31 19:59:33,003 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 19:59:51,828 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:59:52,372 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 19:59:55,003 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2024-12-31 19:59:56,767 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 19:59:58,289 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 4731
+INFO 2024-12-31 19:59:58,778 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:00:02,397 basehttp "PATCH /api/userbooks/52472813/ HTTP/1.0" 200 54
+INFO 2024-12-31 20:00:03,527 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3582
+INFO 2024-12-31 20:00:03,858 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:00:06,017 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1200
+INFO 2024-12-31 20:00:08,163 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:00:09,987 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3582
+INFO 2024-12-31 20:00:10,214 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:00:16,043 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 1200
+INFO 2024-12-31 20:00:17,376 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:00:19,972 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 3582
+INFO 2024-12-31 20:00:20,194 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:00:23,772 basehttp "PATCH /api/userbooks/4640799/ HTTP/1.0" 200 54
+INFO 2024-12-31 20:00:24,553 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1851
+INFO 2024-12-31 20:00:25,062 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:03:44,725 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2024-12-31 20:04:37,829 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1851
+INFO 2024-12-31 20:04:38,346 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:04:39,259 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2024-12-31 20:04:40,759 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:06:43,813 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:06:46,157 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1851
+INFO 2024-12-31 20:06:46,797 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:06:47,997 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:06:49,822 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2024-12-31 20:07:49,295 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1851
+INFO 2024-12-31 20:07:49,793 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2024-12-31 20:07:51,018 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2024-12-31 20:07:52,949 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:08:27,755 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:11:11,668 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2024-12-31 20:14:21,129 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2024-12-31 20:14:22,485 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 1851
+INFO 2024-12-31 20:14:22,698 basehttp "GET /api/user/ HTTP/1.0" 200 223

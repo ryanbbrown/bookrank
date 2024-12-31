@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BiLoaderAlt } from 'react-icons/bi';
 import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
-import { BookRowModal } from '../components/BookRowModal';
-import { UserBook, Rating, ApiResponse, UserAccount } from '../types/types';
+import { UserBook, Bucket, ApiResponse, UserAccount, BookStatus } from '../types/types';
 import { BookRow } from '../components/BookRow';
 import { Button } from "../components/ui/button";
 import { MultiSelect } from '../components/ui/MultiSelect';
+import { useParams } from 'react-router-dom';
 
 interface ComparisonParams {
     workId: string;
@@ -39,6 +38,7 @@ const defaultSortDirections: Record<SortField, SortDirection> = {
 };
 
 function MyBooks() {
+    const { status } = useParams<{ status: BookStatus }>();
     const [books, setBooks] = useState<UserBook[]>([]);
     const [displayedBooks, setDisplayedBooks] = useState<UserBook[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -152,14 +152,18 @@ function MyBooks() {
 
     const refreshBooks = () => {
         setTimeout(() => {
-            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
+            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
+                params: { status }
+            })
                 .then(response => {
                     const allBooks = response.data.data || [];
                     setBooks(allBooks);
                     setDisplayedBooks(allBooks.slice(0, INITIAL_LOAD));
                     setHasMore(allBooks.length > INITIAL_LOAD);
                     currentPage.current = 0;
-                    refreshUserData();
+                    if (status === BookStatus.READ) {
+                        refreshUserData();
+                    }
                 })
                 .catch(error => {
                     console.error(error);
@@ -219,15 +223,15 @@ function MyBooks() {
             });
     };
 
-    const handleRatingClick = (rating: Rating) => {
+    const handleBucketClick = (bucket: Bucket) => {
         if (!unrankedBook) return;
 
         axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${unrankedBook.work_id}/`, {
-            rating: rating,
+            bucket: bucket,
         }).then(() => {
             setUnrankedBook(prevState => prevState ? {
                 ...prevState,
-                rating: rating
+                bucket: bucket
             } : null);
             if (unrankedBook) {
                 fetchComparison({ workId: unrankedBook.work_id, getNextUnranked });
@@ -243,7 +247,7 @@ function MyBooks() {
             existing_book_id: comparedBook.work_id,
             outcome: o,
         }).then(() => {
-            if (o !== -1) { // we only refresh if the outcome actually resulted in rating update
+            if (o !== -1) { // we only refresh if the outcome actually resulted in bucket update
                 refreshBooks();
                 refreshUserData();
             }
@@ -256,7 +260,7 @@ function MyBooks() {
     const handleSpecificRankClick = (book: UserBook) => {
         setUnrankedBook(book);
         setGetNextUnranked(false);
-        if (book.rating !== null) {
+        if (book.bucket !== null) {
             fetchComparison({ workId: book.work_id, getNextUnranked: false });
         }
         setShowComparison(true);
@@ -268,7 +272,7 @@ function MyBooks() {
     };
 
     const handleReRankClick = (book: UserBook) => {
-        const updatedBook = { ...book, rating: null };
+        const updatedBook = { ...book, bucket: null };
         setGetNextUnranked(false);
         setUnrankedBook(updatedBook);
         setShowComparison(true);
@@ -290,35 +294,52 @@ function MyBooks() {
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
+    const handleMarkAsTBR = (book: UserBook) => {
+        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${book.work_id}/`, {
+            status: BookStatus.TO_BE_READ
+        })
+        .then(() => {
+            refreshBooks();
+        });
+    };
+
+    const handleMarkAsCurrentlyReading = (book: UserBook) => {
+        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${book.work_id}/`, {
+            status: BookStatus.CURRENTLY_READING
+        })
+        .then(() => {
+            refreshBooks();
+        });
+    };
+
+    const handleMarkAsRead = (book: UserBook) => {
+        setUnrankedBook(book);
+        setShowComparison(true);
+    };
+
 
 
 
     // Effects
     useEffect(() => {
-        // Initial data loading, happens only one time when page initially loaded
-        Promise.all([
-            // Load books
-            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/'),
-            // Load user data
-            axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
-        ])
-            .then(([booksResponse, userResponse]) => {
-                // Handle books data
-                const allBooks = booksResponse.data.data || [];
+        axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
+            params: { status }
+        })
+            .then(response => {
+                const allBooks = response.data.data || [];
                 const sortedBooks = sortBooks(allBooks, "normalized_rating", "desc");
                 setBooks(sortedBooks);
                 setDisplayedBooks(sortedBooks.slice(0, INITIAL_LOAD));
                 setHasMore(sortedBooks.length > INITIAL_LOAD);
                 currentPage.current = 0;
-
-                // Handle user data
-                setUserData(userResponse.data.data || null);
-                setTotalBooksRanked(userResponse.data.data?.total_ranked_books_count || 0);
+                if (status === BookStatus.READ) {
+                    refreshUserData();
+                }
             })
             .catch(error => {
                 console.error('Error loading initial data:', error);
             });
-    }, []);
+    }, [status]);
 
 
     useEffect(() => {
@@ -349,9 +370,23 @@ function MyBooks() {
 
     
 
+    // Determine the header text based on the status
+    const getHeaderText = (status: BookStatus | undefined): string => {
+        switch (status) {
+            case BookStatus.READ:
+                return "My Library";
+            case BookStatus.TO_BE_READ:
+                return "To Be Read";
+            case BookStatus.CURRENTLY_READING:
+                return "Currently Reading";
+            default:
+                return "My Books";
+        }
+    };
+
     return (
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
-            <h1 className="text-4xl font-bold mb-6 text-center">My Books</h1>
+            <h1 className="text-4xl font-bold mb-6 text-center">{getHeaderText(status)}</h1>
             
             <div className="flex flex-wrap gap-4 mb-4 items-center">
                 <div className="flex items-center gap-2">
@@ -402,20 +437,20 @@ function MyBooks() {
                 )}
             </div>
 
-            {totalBooksRanked < 15 && (
+            {status === BookStatus.READ && totalBooksRanked < 15 && (
                 <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 rounded">
                     <p>Rank {15 - totalBooksRanked} more books to see ratings!</p>
                 </div>
             )}
 
-            {/* {Array.isArray(books) && books.some(book => book.is_ranked === false) && (
+            {status === BookStatus.READ && Array.isArray(books) && books.some(book => book.is_ranked === false) && (
                 <button
                     className="mb-4 px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
                     onClick={handleGeneralRankClick}
                 >
                     Rank unranked books
                 </button>
-            )} */}
+            )}
 
             <div className="space-y-4">
                 {displayedBooks.map(book => (
@@ -424,14 +459,12 @@ function MyBooks() {
                         book={book}
                         isActive={activeRow === book.work_id}
                         onRowClick={handleRowClick}
-                        renderActions={(book) => (
-                            <BookRowModal
-                                handleSpecificRankClick={handleSpecificRankClick}
-                                handleReRankClick={handleReRankClick}
-                                handleRemoveClick={handleRemoveClick}
-                                book={book}
-                            />
-                        )}
+                        onRank={status === BookStatus.READ ? handleSpecificRankClick : undefined}
+                        onReRank={status === BookStatus.READ ? handleReRankClick : undefined}
+                        onMarkAsTBR={status !== BookStatus.TO_BE_READ ? handleMarkAsTBR : undefined}
+                        onMarkAsCurrentlyReading={handleMarkAsCurrentlyReading}
+                        onRemove={handleRemoveClick}
+                        onMarkAsRead={status === BookStatus.TO_BE_READ ? handleMarkAsRead : undefined}
                     />
                 ))}
             </div>
@@ -445,16 +478,16 @@ function MyBooks() {
                 )}
             </div>
 
-            {unrankedBook && showComparison && unrankedBook.rating === null && (
+            {unrankedBook && showComparison && unrankedBook.bucket === null && (
                 <RateModal
-                    onClickFunction={handleRatingClick}
+                    onClickFunction={handleBucketClick}
                     exitFunction={() => setShowComparison(false)}
                     book={unrankedBook}
                     status="SHOW_RATE_BUTTONS"
                 />
             )}
 
-            {unrankedBook && showComparison && comparedBook && unrankedBook.rating !== null && (
+            {unrankedBook && showComparison && comparedBook && unrankedBook.bucket !== null && (
                 <CompareModal
                     handleComparisonClick={handleComparisonClick}
                     exitFunction={() => setShowComparison(false)}
