@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BiLoaderAlt } from 'react-icons/bi';
 import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { BookRowModal } from '../components/BookRowModal';
 import { UserBook, Rating, ApiResponse, UserAccount } from '../types/types';
+import { BookRow } from '../components/BookRow';
 
 interface ComparisonParams {
     workId: string;
@@ -12,6 +14,13 @@ interface ComparisonParams {
 
 function MyBooks() {
     const [books, setBooks] = useState<UserBook[]>([]);
+    const [displayedBooks, setDisplayedBooks] = useState<UserBook[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+    const loadingRef = useRef<HTMLDivElement>(null);
+    const currentPage = useRef(0);
+    const INITIAL_LOAD = 20;
+    const PER_PAGE = 10;
     const [unrankedBook, setUnrankedBook] = useState<UserBook | null>(null);
     const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
     const [showComparison, setShowComparison] = useState(false);
@@ -23,12 +32,57 @@ function MyBooks() {
     useEffect(() => {
         axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
             .then(response => {
-                setBooks(response.data.data || []);
+                const allBooks = response.data.data || [];
+                setBooks(allBooks);
+                setDisplayedBooks(allBooks.slice(0, INITIAL_LOAD));
+                setHasMore(allBooks.length > INITIAL_LOAD);
+                currentPage.current = 0;
             })
             .catch(error => {
                 console.error(error);
             });
     }, []);
+
+    useEffect(() => {
+        if (books.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting && hasMore && !isLoading) {
+                    loadMoreBooks();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        const currentLoader = loadingRef.current;
+        if (currentLoader) {
+            observer.observe(currentLoader);
+        }
+
+        return () => {
+            if (currentLoader) {
+                observer.unobserve(currentLoader);
+            }
+        };
+    }, [hasMore, isLoading, books]);
+
+    const loadMoreBooks = () => {
+        if (books.length === 0) return;
+        
+        setIsLoading(true);
+        const start = currentPage.current * PER_PAGE + INITIAL_LOAD;
+        const end = start + PER_PAGE;
+        
+        setTimeout(() => {
+            const newBooks = books.slice(start, end);
+            setDisplayedBooks(prev => [...prev, ...newBooks]);
+            setHasMore(end < books.length);
+            currentPage.current += 1;
+            setIsLoading(false);
+        }, 500);
+    };
 
     useEffect(() => {
         axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
@@ -45,7 +99,11 @@ function MyBooks() {
         setTimeout(() => {
             axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
                 .then(response => {
-                    setBooks(response.data.data || []);
+                    const allBooks = response.data.data || [];
+                    setBooks(allBooks);
+                    setDisplayedBooks(allBooks.slice(0, INITIAL_LOAD));
+                    setHasMore(allBooks.length > INITIAL_LOAD);
+                    currentPage.current = 0;
                     refreshUserData();
                 })
                 .catch(error => {
@@ -168,7 +226,7 @@ function MyBooks() {
     };
 
     return (
-        <div className="container mx-auto items-center flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
+        <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">My Books</h1>
             
             {totalBooksRanked < 15 && (
@@ -186,46 +244,33 @@ function MyBooks() {
                 </button>
             )}
 
-            <table className="table-fixed w-full rounded">
-                <thead>
-                    <tr className="bg-gray-200">
-                        <th className="px-4 py-2 text-center text-lg rounded-l">Cover</th>
-                        <th className="px-4 py-2 text-center text-lg">Title</th>
-                        <th className="px-4 py-2 text-center text-lg">Author</th>
-                        <th className="px-4 py-2 text-center text-lg">Genre</th>
-                        <th className="px-4 py-2 text-center text-lg">Type</th>
-                        <th className="px-4 py-2 text-center text-lg">Rating</th>
-                        <th className="px-4 py-2 text-center text-lg rounded-r">Date Added</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {books.map(book => (
-                        <tr key={book.work_id} className="hover:bg-gray-100" onClick={() => handleRowClick(book.work_id)}>
-                            <td className="px-4 py-2 text-center">
-                                <img src={book.image_url} alt={book.title} className="inline-block rounded" />
-                            </td>
-                            <td className="px-4 py-2 text-center">{book.title}</td>
-                            <td className="px-4 py-2 text-center">{book.author}</td>
-                            <td className="px-4 py-2 text-center">{book.genre}</td>
-                            <td className="px-4 py-2 text-center">{book.book_type}</td>
-                            <td className="px-4 py-2 text-center">
-                                {book.normalized_rating}
-                            </td>
-                            <td className="px-4 py-2 text-center relative">
-                                {new Date(book.date_added).toLocaleDateString()}
-                                {activeRow === book.work_id && (
-                                    <BookRowModal
-                                        handleSpecificRankClick={handleSpecificRankClick}
-                                        handleReRankClick={handleReRankClick}
-                                        handleRemoveClick={handleRemoveClick}
-                                        book={book}
-                                    />
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="space-y-4">
+                {displayedBooks.map(book => (
+                    <BookRow
+                        key={book.work_id}
+                        book={book}
+                        isActive={activeRow === book.work_id}
+                        onRowClick={handleRowClick}
+                        renderActions={(book) => (
+                            <BookRowModal
+                                handleSpecificRankClick={handleSpecificRankClick}
+                                handleReRankClick={handleReRankClick}
+                                handleRemoveClick={handleRemoveClick}
+                                book={book}
+                            />
+                        )}
+                    />
+                ))}
+            </div>
+
+            <div 
+                ref={loadingRef} 
+                className="w-full flex justify-center py-4"
+            >
+                {isLoading && (
+                    <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
+                )}
+            </div>
 
             {unrankedBook && showComparison && unrankedBook.rating === null && (
                 <RateModal
