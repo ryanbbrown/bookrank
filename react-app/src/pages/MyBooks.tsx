@@ -6,11 +6,37 @@ import { CompareModal } from '../components/CompareModal';
 import { BookRowModal } from '../components/BookRowModal';
 import { UserBook, Rating, ApiResponse, UserAccount } from '../types/types';
 import { BookRow } from '../components/BookRow';
+import { Button } from "../components/ui/button";
+import { MultiSelect } from '../components/ui/MultiSelect';
 
 interface ComparisonParams {
     workId: string;
     getNextUnranked: boolean;
 }
+
+type SortField = "title" | "author" | "genre" | "book_type" | "normalized_rating";
+type SortDirection = "asc" | "desc";
+
+interface SortOption {
+    field: SortField;
+    label: string;
+}
+
+const sortOptions: SortOption[] = [
+    { field: "normalized_rating", label: "Rating" },
+    { field: "title", label: "Title" },
+    { field: "author", label: "Author" },
+    { field: "genre", label: "Genre" },
+    { field: "book_type", label: "Book Type" },
+];
+
+const defaultSortDirections: Record<SortField, SortDirection> = {
+    normalized_rating: "desc",
+    title: "asc",
+    author: "asc",
+    genre: "asc",
+    book_type: "asc"
+};
 
 function MyBooks() {
     const [books, setBooks] = useState<UserBook[]>([]);
@@ -28,46 +54,85 @@ function MyBooks() {
     const [getNextUnranked, setGetNextUnranked] = useState(true);
     const [userData, setUserData] = useState<UserAccount | null>(null);
     const [totalBooksRanked, setTotalBooksRanked] = useState<number>(0);
+    const [sortField, setSortField] = useState<SortField>("normalized_rating");
+    const [sortDirection, setSortDirection] = useState<SortDirection>(defaultSortDirections["normalized_rating"]);
+    const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+    const [selectedBookTypes, setSelectedBookTypes] = useState<string[]>([]);
 
-    useEffect(() => {
-        axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/')
-            .then(response => {
-                const allBooks = response.data.data || [];
-                setBooks(allBooks);
-                setDisplayedBooks(allBooks.slice(0, INITIAL_LOAD));
-                setHasMore(allBooks.length > INITIAL_LOAD);
-                currentPage.current = 0;
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+    // Filtering and Sorting Functions
+    const getUniqueGenres = (books: UserBook[]): string[] => {
+        return Array.from(new Set(books.map(book => book.genre))).sort();
+    };
 
+    const getUniqueBookTypes = (books: UserBook[]): string[] => {
+        return Array.from(new Set(books.map(book => book.book_type))).sort();
+    };
+    
+    const sortBooks = (books: UserBook[], field: SortField, direction: SortDirection): UserBook[] => {
+        return [...books].sort((a, b) => {
+            const aValue = a[field];
+            const bValue = b[field];
+
+            if (aValue === null) return direction === "asc" ? -1 : 1;
+            if (bValue === null) return direction === "asc" ? 1 : -1;
+
+            const comparison = aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+            return direction === "asc" ? comparison : -comparison;
+        });
+    };
+
+    
+
+    
+
+    const getFilteredAndSortedBooks = (books: UserBook[]): UserBook[] => {
+        let filtered = books;
+        if (selectedGenres.length > 0) {
+            filtered = filtered.filter(book => selectedGenres.includes(book.genre));
+        }
+        if (selectedBookTypes.length > 0) {
+            filtered = filtered.filter(book => selectedBookTypes.includes(book.book_type));
+        }
+        return sortBooks(filtered, sortField, sortDirection);
+    };
+
+    const handleSortChange = (field: SortField) => {
+        if (field !== sortField) {  // Only act if changing to a new field
+            setSortField(field);
+            const defaultDirection = defaultSortDirections[field];
+            setSortDirection(defaultDirection);
+        }
+    };
+
+    const handleGenreChange = (selected: string[]) => {
+        setSelectedGenres(selected);
+    };
+
+    const handleBookTypeChange = (selected: string[]) => {
+        setSelectedBookTypes(selected);
+    };
+
+    const handleClearFilters = () => {
+        setSelectedGenres([]);
+        setSelectedBookTypes([]);
+    };
+
+    // Add new effect to handle filtering and sorting
     useEffect(() => {
+        // Skip if no books loaded yet
         if (books.length === 0) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const first = entries[0];
-                if (first.isIntersecting && hasMore && !isLoading) {
-                    loadMoreBooks();
-                }
-            },
-            { threshold: 0.1 }
-        );
+        const filteredAndSortedBooks = getFilteredAndSortedBooks(books);
+        setDisplayedBooks(filteredAndSortedBooks.slice(0, INITIAL_LOAD));
+        setHasMore(filteredAndSortedBooks.length > INITIAL_LOAD);
+        currentPage.current = 0;
+    }, [selectedGenres, selectedBookTypes, sortField, sortDirection, books]);
 
-        const currentLoader = loadingRef.current;
-        if (currentLoader) {
-            observer.observe(currentLoader);
-        }
 
-        return () => {
-            if (currentLoader) {
-                observer.unobserve(currentLoader);
-            }
-        };
-    }, [hasMore, isLoading, books]);
 
+
+    
+    // Data Loading and Pagination Functions
     const loadMoreBooks = () => {
         if (books.length === 0) return;
         
@@ -76,24 +141,14 @@ function MyBooks() {
         const end = start + PER_PAGE;
         
         setTimeout(() => {
-            const newBooks = books.slice(start, end);
+            const filteredAndSortedBooks = getFilteredAndSortedBooks(books);
+            const newBooks = filteredAndSortedBooks.slice(start, end);
             setDisplayedBooks(prev => [...prev, ...newBooks]);
-            setHasMore(end < books.length);
+            setHasMore(end < filteredAndSortedBooks.length);
             currentPage.current += 1;
             setIsLoading(false);
         }, 500);
     };
-
-    useEffect(() => {
-        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
-            .then(response => {
-                setUserData(response.data.data || null);
-                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
 
     const refreshBooks = () => {
         setTimeout(() => {
@@ -112,6 +167,22 @@ function MyBooks() {
         }, 500);
     };
 
+    const refreshUserData = () => {
+        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
+            .then(response => {
+                setUserData(response.data.data || null);
+                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
+
+
+
+
+
+    // Book Ranking Functions
     const fetchUnrankedBook = () => {
         axiosInstance.get<ApiResponse<UserBook>>('api/unranked-books/')
             .then(response => {
@@ -203,6 +274,11 @@ function MyBooks() {
         setShowComparison(true);
     };
 
+
+
+
+
+    // Book Management Functions
     const handleRemoveClick = (book: UserBook) => {
         axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${book.work_id}/`)
             .then(() => {
@@ -214,35 +290,132 @@ function MyBooks() {
         setActiveRow(bookId === activeRow ? null : bookId);
     };
 
-    const refreshUserData = () => {
-        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
-            .then(response => {
-                setUserData(response.data.data || null);
-                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
+
+
+
+    // Effects
+    useEffect(() => {
+        // Initial data loading, happens only one time when page initially loaded
+        Promise.all([
+            // Load books
+            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/'),
+            // Load user data
+            axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
+        ])
+            .then(([booksResponse, userResponse]) => {
+                // Handle books data
+                const allBooks = booksResponse.data.data || [];
+                const sortedBooks = sortBooks(allBooks, "normalized_rating", "desc");
+                setBooks(sortedBooks);
+                setDisplayedBooks(sortedBooks.slice(0, INITIAL_LOAD));
+                setHasMore(sortedBooks.length > INITIAL_LOAD);
+                currentPage.current = 0;
+
+                // Handle user data
+                setUserData(userResponse.data.data || null);
+                setTotalBooksRanked(userResponse.data.data?.total_ranked_books_count || 0);
             })
             .catch(error => {
-                console.error(error);
+                console.error('Error loading initial data:', error);
             });
-    };
+    }, []);
+
+
+    useEffect(() => {
+        // Infinite scroll observer
+        if (books.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const first = entries[0];
+                if (first.isIntersecting && hasMore && !isLoading) {
+                    loadMoreBooks();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        const currentLoader = loadingRef.current;
+        if (currentLoader) {
+            observer.observe(currentLoader);
+        }
+
+        return () => {
+            if (currentLoader) {
+                observer.unobserve(currentLoader);
+            }
+        };
+    }, [hasMore, isLoading, displayedBooks]);
+
+    
 
     return (
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">My Books</h1>
             
+            <div className="flex flex-wrap gap-4 mb-4 items-center">
+                <div className="flex items-center gap-2">
+                    <label className="text-sm font-medium">Sort by:</label>
+                    <select
+                        value={sortField}
+                        onChange={(e) => handleSortChange(e.target.value as SortField)}
+                        className="border rounded px-2 py-1"
+                    >
+                        {sortOptions.map(option => (
+                            <option key={option.field} value={option.field}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                            setSortDirection(prev => prev === "asc" ? "desc" : "asc");
+                        }}
+                        className="ml-2"
+                    >
+                        {sortDirection === "asc" ? "↑" : "↓"}
+                    </Button>
+                </div>
+                <MultiSelect
+                    options={getUniqueGenres(books)}
+                    selectedOptions={selectedGenres}
+                    onChange={handleGenreChange}
+                    label="Filter Genres"
+                />
+                <MultiSelect
+                    options={getUniqueBookTypes(books)}
+                    selectedOptions={selectedBookTypes}
+                    onChange={handleBookTypeChange}
+                    label="Filter Book Types"
+                />
+                {(selectedGenres.length > 0 || selectedBookTypes.length > 0) && (
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleClearFilters}
+                        className="whitespace-nowrap"
+                    >
+                        Clear Filters
+                    </Button>
+                )}
+            </div>
+
             {totalBooksRanked < 15 && (
                 <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 rounded">
                     <p>Rank {15 - totalBooksRanked} more books to see ratings!</p>
                 </div>
             )}
 
-            {Array.isArray(books) && books.some(book => book.is_ranked === false) && (
+            {/* {Array.isArray(books) && books.some(book => book.is_ranked === false) && (
                 <button
                     className="mb-4 px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
                     onClick={handleGeneralRankClick}
                 >
                     Rank unranked books
                 </button>
-            )}
+            )} */}
 
             <div className="space-y-4">
                 {displayedBooks.map(book => (
