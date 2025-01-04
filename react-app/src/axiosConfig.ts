@@ -25,7 +25,7 @@ function getCookie(name: string): string | null {
 const csrftoken = getCookie('csrftoken');
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3000', // used to be process.env.NEXT_PUBLIC_API_URL but that wasn't even assigned
+  baseURL: '/', // used to be process.env.NEXT_PUBLIC_API_URL but that wasn't even assigned
   headers: {
     'X-CSRFToken': csrftoken,
     'Content-Type': 'application/json',

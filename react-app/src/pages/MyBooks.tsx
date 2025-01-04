@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
@@ -7,6 +7,7 @@ import { BookRow } from '../components/BookRow';
 import { Button } from "../components/ui/button";
 import { MultiSelect } from '../components/ui/MultiSelect';
 import { useParams } from 'react-router-dom';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 interface ComparisonParams {
     workId: string;
@@ -39,35 +40,99 @@ const defaultSortDirections: Record<SortField, SortDirection> = {
 
 function MyBooks() {
     const { status } = useParams<{ status: BookStatus }>();
-    const [books, setBooks] = useState<UserBook[]>([]);
-    const [displayedBooks, setDisplayedBooks] = useState<UserBook[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
-    const loadingRef = useRef<HTMLDivElement>(null);
-    const currentPage = useRef(0);
-    const INITIAL_LOAD = 20;
-    const PER_PAGE = 10;
-    const [unrankedBook, setUnrankedBook] = useState<UserBook | null>(null);
-    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
-    const [showComparison, setShowComparison] = useState(false);
-    const [activeRow, setActiveRow] = useState<string | null>(null);
-    const [getNextUnranked, setGetNextUnranked] = useState(true);
-    const [userData, setUserData] = useState<UserAccount | null>(null);
-    const [totalBooksRanked, setTotalBooksRanked] = useState<number>(0);
+    const queryClient = useQueryClient();
+    
+    // State declarations
     const [sortField, setSortField] = useState<SortField>("normalized_rating");
     const [sortDirection, setSortDirection] = useState<SortDirection>(defaultSortDirections["normalized_rating"]);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
     const [selectedBookTypes, setSelectedBookTypes] = useState<string[]>([]);
-
-    // Filtering and Sorting Functions
-    const getUniqueGenres = (books: UserBook[]): string[] => {
-        return Array.from(new Set(books.map(book => book.genre))).sort();
-    };
-
-    const getUniqueBookTypes = (books: UserBook[]): string[] => {
-        return Array.from(new Set(books.map(book => book.book_type))).sort();
-    };
+    const [currentPage, setCurrentPage] = useState(0);
     
+    // Other state for modals, etc.
+    const [unrankedBook, setUnrankedBook] = useState<UserBook | null>(null);
+    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
+    const [showComparison, setShowComparison] = useState(false);
+    const [getNextUnranked, setGetNextUnranked] = useState(true);
+
+    // useRef declarations
+    const loadingRef = useRef<HTMLDivElement>(null);
+    const INITIAL_LOAD = 20;
+    const PER_PAGE = 10;
+
+    // React Query hooks
+    const { data: booksData, isLoading: isBooksLoading } = useQuery({
+        queryKey: ['books', status],
+        queryFn: async () => {
+            const response = await axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
+                params: { status }
+            });
+            return response.data.data || [];
+        },
+        refetchOnWindowFocus: false,
+        staleTime: 1000 * 60 * 5, // 5 minutes
+    });
+
+    const { data: userData, isLoading: isUserDataLoading } = useQuery({
+        queryKey: ['userData'],
+        queryFn: async () => {
+            const response = await axiosInstance.get<ApiResponse<UserAccount>>('api/user/');
+            return response.data.data || null;
+        },
+        enabled: status === BookStatus.READ
+    });
+
+    // Mutations
+    const removeMutation = useMutation({
+        mutationFn: (workId: string) => 
+            axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${workId}/`),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+        }
+    });
+
+    const updateBookStatusMutation = useMutation({
+        mutationFn: ({ workId, newStatus }: { workId: string, newStatus: BookStatus }) =>
+            axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${workId}/`, {
+                status: newStatus
+            }),
+        onSuccess: (_, { newStatus }) => {
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+        }
+    });
+
+    const updateBucketMutation = useMutation({
+        mutationFn: ({ workId, bucket }: { workId: string, bucket: Bucket }) =>
+            axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${workId}/`, {
+                bucket: bucket,
+            }),
+        onSuccess: (_, variables) => {
+            if (unrankedBook) {
+                setUnrankedBook(prev => prev ? { ...prev, bucket: variables.bucket } : null);
+                fetchComparison({ workId: variables.workId, getNextUnranked });
+            }
+        }
+    });
+
+    const compareBookMutation = useMutation({
+        mutationFn: ({ newBookId, existingBookId, outcome }: { newBookId: string, existingBookId: string, outcome: number }) =>
+            axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
+                new_book_id: newBookId,
+                existing_book_id: existingBookId,
+                outcome: outcome,
+            }),
+        onSuccess: (_, { outcome, newBookId }) => {
+            if (outcome !== -1) {
+                // only invalidate if the books were NOT marked as "not comparable"
+                queryClient.invalidateQueries({ queryKey: ['books'] });
+                queryClient.invalidateQueries({ queryKey: ['userData'] });
+            }
+            if (unrankedBook) {
+                fetchComparison({ workId: newBookId, getNextUnranked });
+            }
+        }
+    });
+
     const sortBooks = (books: UserBook[], field: SortField, direction: SortDirection): UserBook[] => {
         return [...books].sort((a, b) => {
             const aValue = a[field];
@@ -81,12 +146,8 @@ function MyBooks() {
         });
     };
 
-    
-
-    
-
     const getFilteredAndSortedBooks = (books: UserBook[]): UserBook[] => {
-        let filtered = books;
+        let filtered = [...books];
         if (selectedGenres.length > 0) {
             filtered = filtered.filter(book => selectedGenres.includes(book.genre));
         }
@@ -95,6 +156,109 @@ function MyBooks() {
         }
         return sortBooks(filtered, sortField, sortDirection);
     };
+
+    // Derived state
+    const filteredAndSortedBooks = useMemo(() => {
+        if (!booksData) return [];
+        return getFilteredAndSortedBooks(booksData);
+    }, [booksData, selectedGenres, selectedBookTypes, sortField, sortDirection]);
+
+    const displayedBooks = useMemo(() => {
+        const start = 0;
+        const end = INITIAL_LOAD + (currentPage * PER_PAGE);
+        return filteredAndSortedBooks.slice(start, end);
+    }, [filteredAndSortedBooks, currentPage]);
+
+    const hasMore = filteredAndSortedBooks.length > displayedBooks.length;
+
+    // useEffect to handle infinite scrolling
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && hasMore) {
+                    loadMoreBooks();
+                }
+            },
+            { threshold: 1.0 }
+        );
+
+        if (loadingRef.current) {
+            observer.observe(loadingRef.current);
+        }
+
+        return () => {
+            if (loadingRef.current) {
+                observer.unobserve(loadingRef.current);
+            }
+        };
+    }, [hasMore]);
+    
+
+    // Loading check
+    if (isBooksLoading || (status === BookStatus.READ && isUserDataLoading)) {
+        return (
+            <div className="container mx-auto flex justify-center items-center h-96">
+                <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
+            </div>
+        );
+    }
+
+    // Handlers
+    const loadMoreBooks = () => {
+        if (hasMore) {
+            setCurrentPage(prev => prev + 1);
+        }
+    };
+
+    // Update handlers to use mutations
+    const handleRemoveClick = (book: UserBook) => {
+        removeMutation.mutate(book.work_id);
+    };
+
+    const handleMarkAsTBR = (book: UserBook) => {
+        updateBookStatusMutation.mutate({ 
+            workId: book.work_id, 
+            newStatus: BookStatus.TO_BE_READ 
+        });
+    };
+
+    const handleMarkAsCurrentlyReading = (book: UserBook) => {
+        updateBookStatusMutation.mutate({ 
+            workId: book.work_id, 
+            newStatus: BookStatus.CURRENTLY_READING 
+        });
+    };
+
+    const handleBucketClick = (bucket: Bucket) => {
+        if (!unrankedBook) return;
+        updateBucketMutation.mutate({ workId: unrankedBook.work_id, bucket });
+    };
+
+    const handleComparisonClick = (o: number) => {
+        if (!unrankedBook || !comparedBook) return;
+        compareBookMutation.mutate({
+            newBookId: unrankedBook.work_id,
+            existingBookId: comparedBook.work_id,
+            outcome: o,
+        });
+    };
+
+    // Filtering and Sorting Functions
+    const getUniqueGenres = (books: UserBook[]): string[] => {
+        return Array.from(new Set(books.map(book => book.genre))).sort();
+    };
+
+    const getUniqueBookTypes = (books: UserBook[]): string[] => {
+        return Array.from(new Set(books.map(book => book.book_type))).sort();
+    };
+    
+    
+
+    
+
+    
+
+    
 
     const handleSortChange = (field: SortField) => {
         if (field !== sortField) {  // Only act if changing to a new field
@@ -116,75 +280,6 @@ function MyBooks() {
         setSelectedGenres([]);
         setSelectedBookTypes([]);
     };
-
-    // Add new effect to handle filtering and sorting
-    useEffect(() => {
-        // Skip if no books loaded yet
-        if (books.length === 0) return;
-
-        const filteredAndSortedBooks = getFilteredAndSortedBooks(books);
-        setDisplayedBooks(filteredAndSortedBooks.slice(0, INITIAL_LOAD));
-        setHasMore(filteredAndSortedBooks.length > INITIAL_LOAD);
-        currentPage.current = 0;
-    }, [selectedGenres, selectedBookTypes, sortField, sortDirection, books]);
-
-
-
-
-    
-    // Data Loading and Pagination Functions
-    const loadMoreBooks = () => {
-        if (books.length === 0) return;
-        
-        setIsLoading(true);
-        const start = currentPage.current * PER_PAGE + INITIAL_LOAD;
-        const end = start + PER_PAGE;
-        
-        setTimeout(() => {
-            const filteredAndSortedBooks = getFilteredAndSortedBooks(books);
-            const newBooks = filteredAndSortedBooks.slice(start, end);
-            setDisplayedBooks(prev => [...prev, ...newBooks]);
-            setHasMore(end < filteredAndSortedBooks.length);
-            currentPage.current += 1;
-            setIsLoading(false);
-        }, 500);
-    };
-
-    const refreshBooks = () => {
-        setTimeout(() => {
-            axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
-                params: { status }
-            })
-                .then(response => {
-                    const allBooks = response.data.data || [];
-                    setBooks(allBooks);
-                    setDisplayedBooks(allBooks.slice(0, INITIAL_LOAD));
-                    setHasMore(allBooks.length > INITIAL_LOAD);
-                    currentPage.current = 0;
-                    if (status === BookStatus.READ) {
-                        refreshUserData();
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }, 500);
-    };
-
-    const refreshUserData = () => {
-        axiosInstance.get<ApiResponse<UserAccount>>('api/user/')
-            .then(response => {
-                setUserData(response.data.data || null);
-                setTotalBooksRanked(response.data.data?.total_ranked_books_count || 0);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    };
-
-
-
-
 
     // Book Ranking Functions
     const fetchUnrankedBook = () => {
@@ -223,40 +318,6 @@ function MyBooks() {
             });
     };
 
-    const handleBucketClick = (bucket: Bucket) => {
-        if (!unrankedBook) return;
-
-        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${unrankedBook.work_id}/`, {
-            bucket: bucket,
-        }).then(() => {
-            setUnrankedBook(prevState => prevState ? {
-                ...prevState,
-                bucket: bucket
-            } : null);
-            if (unrankedBook) {
-                fetchComparison({ workId: unrankedBook.work_id, getNextUnranked });
-            }
-        });
-    };
-
-    const handleComparisonClick = (o: number) => {
-        if (!unrankedBook || !comparedBook) return;
-        
-        axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
-            new_book_id: unrankedBook.work_id,
-            existing_book_id: comparedBook.work_id,
-            outcome: o,
-        }).then(() => {
-            if (o !== -1) { // we only refresh if the outcome actually resulted in bucket update
-                refreshBooks();
-                refreshUserData();
-            }
-            if (unrankedBook) {
-                fetchComparison({ workId: unrankedBook.work_id, getNextUnranked });
-            }
-        });
-    };
-
     const handleSpecificRankClick = (book: UserBook) => {
         setUnrankedBook(book);
         setGetNextUnranked(false);
@@ -283,35 +344,6 @@ function MyBooks() {
 
 
     // Book Management Functions
-    const handleRemoveClick = (book: UserBook) => {
-        axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${book.work_id}/`)
-            .then(() => {
-                refreshBooks();
-            });
-    };
-
-    const handleRowClick = (bookId: string) => {
-        setActiveRow(bookId === activeRow ? null : bookId);
-    };
-
-    const handleMarkAsTBR = (book: UserBook) => {
-        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${book.work_id}/`, {
-            status: BookStatus.TO_BE_READ
-        })
-        .then(() => {
-            refreshBooks();
-        });
-    };
-
-    const handleMarkAsCurrentlyReading = (book: UserBook) => {
-        axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${book.work_id}/`, {
-            status: BookStatus.CURRENTLY_READING
-        })
-        .then(() => {
-            refreshBooks();
-        });
-    };
-
     const handleMarkAsRead = (book: UserBook) => {
         setUnrankedBook(book);
         setShowComparison(true);
@@ -319,56 +351,6 @@ function MyBooks() {
 
 
 
-
-    // Effects
-    useEffect(() => {
-        axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
-            params: { status }
-        })
-            .then(response => {
-                const allBooks = response.data.data || [];
-                const sortedBooks = sortBooks(allBooks, "normalized_rating", "desc");
-                setBooks(sortedBooks);
-                setDisplayedBooks(sortedBooks.slice(0, INITIAL_LOAD));
-                setHasMore(sortedBooks.length > INITIAL_LOAD);
-                currentPage.current = 0;
-                if (status === BookStatus.READ) {
-                    refreshUserData();
-                }
-            })
-            .catch(error => {
-                console.error('Error loading initial data:', error);
-            });
-    }, [status]);
-
-
-    useEffect(() => {
-        // Infinite scroll observer
-        if (books.length === 0) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const first = entries[0];
-                if (first.isIntersecting && hasMore && !isLoading) {
-                    loadMoreBooks();
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        const currentLoader = loadingRef.current;
-        if (currentLoader) {
-            observer.observe(currentLoader);
-        }
-
-        return () => {
-            if (currentLoader) {
-                observer.unobserve(currentLoader);
-            }
-        };
-    }, [hasMore, isLoading, displayedBooks]);
-
-    
 
     // Determine the header text based on the status
     const getHeaderText = (status: BookStatus | undefined): string => {
@@ -383,6 +365,8 @@ function MyBooks() {
                 return "My Books";
         }
     };
+
+    
 
     return (
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
@@ -414,13 +398,13 @@ function MyBooks() {
                     </Button>
                 </div>
                 <MultiSelect
-                    options={getUniqueGenres(books)}
+                    options={getUniqueGenres(booksData || [])}
                     selectedOptions={selectedGenres}
                     onChange={handleGenreChange}
                     label="Filter Genres"
                 />
                 <MultiSelect
-                    options={getUniqueBookTypes(books)}
+                    options={getUniqueBookTypes(booksData || [])}
                     selectedOptions={selectedBookTypes}
                     onChange={handleBookTypeChange}
                     label="Filter Book Types"
@@ -437,13 +421,13 @@ function MyBooks() {
                 )}
             </div>
 
-            {status === BookStatus.READ && totalBooksRanked < 15 && (
+            {status === BookStatus.READ && (userData?.total_ranked_books_count ?? 15) < 15 && (
                 <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4 rounded">
-                    <p>Rank {15 - totalBooksRanked} more books to see ratings!</p>
+                    <p>Rank {15 - (userData?.total_ranked_books_count ?? 15)} more books to see ratings!</p>
                 </div>
             )}
 
-            {status === BookStatus.READ && Array.isArray(books) && books.some(book => book.is_ranked === false) && (
+            {status === BookStatus.READ && Array.isArray(booksData) && booksData.some(book => book.is_ranked === false) && (
                 <button
                     className="mb-4 px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
                     onClick={handleGeneralRankClick}
@@ -457,8 +441,6 @@ function MyBooks() {
                     <BookRow
                         key={book.work_id}
                         book={book}
-                        isActive={activeRow === book.work_id}
-                        onRowClick={handleRowClick}
                         onRank={status === BookStatus.READ ? handleSpecificRankClick : undefined}
                         onReRank={status === BookStatus.READ ? handleReRankClick : undefined}
                         onMarkAsTBR={status !== BookStatus.TO_BE_READ ? handleMarkAsTBR : undefined}
@@ -469,14 +451,11 @@ function MyBooks() {
                 ))}
             </div>
 
-            <div 
-                ref={loadingRef} 
-                className="w-full flex justify-center py-4"
-            >
-                {isLoading && (
+            {hasMore && (
+                <div ref={loadingRef} className="w-full flex justify-center py-4">
                     <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
-                )}
-            </div>
+                </div>
+            )}
 
             {unrankedBook && showComparison && unrankedBook.bucket === null && (
                 <RateModal

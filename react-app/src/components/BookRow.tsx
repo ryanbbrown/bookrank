@@ -13,8 +13,6 @@ import {
 
 interface BookRowProps {
     book: UserBook;
-    isActive: boolean;
-    onRowClick: (workId: string) => void;
     onMarkAsRead?: (book: UserBook) => void;
     onMarkAsTBR?: (book: UserBook) => void;
     onMarkAsCurrentlyReading?: (book: UserBook) => void;
@@ -25,8 +23,6 @@ interface BookRowProps {
 
 export function BookRow({ 
     book, 
-    isActive, 
-    onRowClick,
     onMarkAsRead,
     onMarkAsTBR,
     onMarkAsCurrentlyReading,
@@ -127,8 +123,7 @@ export function BookRow({
 
     return (
         <Card 
-            className={`mb-4 cursor-pointer transition-none ${isActive ? 'ring-0' : ''}`}
-            onClick={() => onRowClick(book.work_id)}
+            className="mb-4 cursor-pointer transition-none"
         >
             <div className="flex p-4">
                 <div className="flex-shrink-0">

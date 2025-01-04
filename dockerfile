@@ -1,17 +1,17 @@
 # Stage 1: Build the React app
-FROM node:14 AS react-build
+FROM node:20 AS react-build
 WORKDIR /app
 COPY ./react-app ./
 RUN ls -la
 RUN npm install
-RUN npm install typescript@5.6.3
+RUN npm install typescript@4.9.5
 RUN npm install --save @fortawesome/fontawesome-free
 RUN npm run build
 RUN ls -la build/
 
 # Stage 2: Set up the Django app
 FROM python:3.10.12
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app/djangoapp
 
 # Install Nginx

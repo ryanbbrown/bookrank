@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@tanstack/react-query": "^5.62.11",
+    "@tanstack/react-query-devtools": "^5.62.11",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
