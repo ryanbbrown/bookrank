@@ -53442,3 +53442,1592 @@ INFO 2025-01-04 01:30:22,429 basehttp "GET /api/userbooks/?status=read HTTP/1.0"
 INFO 2025-01-04 01:30:22,464 basehttp "GET /api/user/ HTTP/1.0" 200 223
 INFO 2025-01-04 01:30:24,712 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
 INFO 2025-01-04 01:30:40,774 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2025-01-04 01:52:24,998 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 02:23:48,669 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 02:23:48,760 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 02:24:08,193 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 15:35:52,418 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 15:40:56,092 basehttp "GET /api/search/?query=hung HTTP/1.0" 200 11423
+INFO 2025-01-04 15:51:28,309 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 15:51:28,354 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 15:51:46,357 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 15:52:59,180 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 15:55:10,908 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 15:55:26,728 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 15:55:51,707 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 15:55:56,077 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 15:56:01,142 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 15:56:01,828 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 15:57:02,626 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2025-01-04 15:57:13,366 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 15:57:13,447 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 15:57:43,405 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+WARNING 2025-01-04 16:05:49,122 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:05:50,326 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:06:07,090 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:06:08,299 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:06:51,292 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:06:52,517 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+INFO 2025-01-04 16:07:06,608 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 16:13:04,997 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 16:13:05,053 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 16:13:12,446 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 16:14:56,957 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2025-01-04 16:15:05,153 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 16:17:12,096 basehttp "GET /api/search/?query=goldilocks HTTP/1.0" 200 7097
+INFO 2025-01-04 16:18:39,900 basehttp "GET /api/search/?query=goldilocks HTTP/1.0" 200 7097
+INFO 2025-01-04 16:19:32,987 basehttp "GET /api/search/?query=locke+lamora HTTP/1.0" 200 13861
+INFO 2025-01-04 16:20:53,215 basehttp "GET /api/search/?query=hello+beautiful HTTP/1.0" 200 11284
+INFO 2025-01-04 16:26:43,796 basehttp "GET /api/search/?query=fifty+shades+of+gray HTTP/1.0" 200 10312
+INFO 2025-01-04 16:26:44,457 basehttp "GET /api/search/?query=fifty+shades+of+gray HTTP/1.0" 200 10312
+INFO 2025-01-04 16:27:13,412 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 16:33:06,222 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 16:38:08,869 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 16:38:09,110 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 16:38:09,695 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 16:38:12,835 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2025-01-04 16:38:15,642 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+INFO 2025-01-04 16:46:48,047 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 1423
+WARNING 2025-01-04 16:48:57,804 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:48:59,023 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:49:55,733 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:49:56,999 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:49:59,735 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:50:00,950 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:50:58,765 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+INFO 2025-01-04 16:51:02,867 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 16:51:14,466 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 16:54:03,427 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 16:54:20,029 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+WARNING 2025-01-04 16:54:27,735 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:54:29,278 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:55:36,498 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+WARNING 2025-01-04 16:55:37,697 basehttp "GET /api/search/?query= HTTP/1.0" 400 42
+INFO 2025-01-04 16:55:39,132 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 16:55:39,189 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 16:55:59,800 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 16:56:17,297 basehttp "GET /api/search/?query=oryx+and+crake HTTP/1.0" 200 13727
+INFO 2025-01-04 16:58:25,402 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 16:58:25,492 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 16:58:37,239 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 16:59:45,351 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 17:00:06,576 basehttp "GET /api/search/?query=wild+king HTTP/1.0" 200 10583
+INFO 2025-01-04 17:01:01,070 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 17:04:17,328 basehttp "GET /api/search/?query=way+of+kings HTTP/1.0" 200 15714
+INFO 2025-01-04 17:06:21,127 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 17:06:21,163 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 17:06:24,882 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 17:18:02,670 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 17:18:02,680 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 17:18:02,896 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 17:18:11,369 basehttp "GET /api/search/?query=three+body HTTP/1.0" 200 11281
+INFO 2025-01-04 17:18:26,474 basehttp "GET /api/search/?query=the+giving+tree HTTP/1.0" 200 11394
+INFO 2025-01-04 17:27:45,938 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 17:29:41,238 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 17:29:41,340 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 17:33:11,128 basehttp "GET /api/search/?query=will+wight HTTP/1.0" 200 10617
+INFO 2025-01-04 17:36:52,326 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 17:44:56,057 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 17:46:59,886 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 17:57:16,694 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 18:04:03,353 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 18:04:12,618 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 18:10:13,695 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 18:10:20,588 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 18:12:51,965 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 18:17:40,473 basehttp "GET /api/search/?query=broken+earth HTTP/1.0" 200 11792
+INFO 2025-01-04 18:17:45,434 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-04 18:19:15,772 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:19:15,863 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64617
+INFO 2025-01-04 18:19:24,280 basehttp "GET /api/search/?query=the+art+of+thinking+clearly HTTP/1.0" 200 13922
+INFO 2025-01-04 18:21:08,558 basehttp "GET /api/search/?query=the+art+of+thinking+clearly HTTP/1.0" 200 13922
+INFO 2025-01-04 18:21:17,489 basehttp "GET /api/search/?query=the+shining HTTP/1.0" 200 11310
+INFO 2025-01-04 18:22:04,684 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:22:05,320 basehttp "GET /api/compare-book/?work_id=849585 HTTP/1.0" 200 65
+INFO 2025-01-04 18:22:44,279 basehttp "GET /api/search/?query=warrior+cats HTTP/1.0" 200 11712
+INFO 2025-01-04 18:22:53,936 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:22:54,647 basehttp "GET /api/compare-book/?work_id=7386622 HTTP/1.0" 200 958
+INFO 2025-01-04 18:23:11,990 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 18:23:12,605 basehttp "GET /api/compare-book/?work_id=7386622 HTTP/1.0" 200 65
+INFO 2025-01-04 18:23:17,842 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66416
+INFO 2025-01-04 18:23:18,014 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:25:21,334 basehttp "GET /api/search/?query=eragon HTTP/1.0" 200 13351
+INFO 2025-01-04 18:27:13,103 basehttp "GET /api/search/?query=deacon+king+kong HTTP/1.0" 200 4104
+INFO 2025-01-04 18:27:19,876 basehttp "GET /api/search/?query=mistborn HTTP/1.0" 200 8406
+INFO 2025-01-04 18:27:27,058 basehttp "GET /api/search/?query=cute+mister HTTP/1.0" 200 10894
+INFO 2025-01-04 18:28:03,539 basehttp "GET /api/search/?query=junie+b+jones HTTP/1.0" 200 11378
+INFO 2025-01-04 18:31:21,184 basehttp "GET /api/search/?query=data+mining HTTP/1.0" 200 10878
+INFO 2025-01-04 18:32:57,491 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:32:57,606 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66416
+INFO 2025-01-04 18:43:09,885 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:43:59,362 basehttp "GET /api/search/?query=little+woman HTTP/1.0" 200 9262
+ERROR 2025-01-04 18:44:05,038 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:44:05,078 basehttp "GET /api/compare-book/?work_id=3244642 HTTP/1.0" 500 114312
+ERROR 2025-01-04 18:44:06,531 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:44:06,555 basehttp "GET /api/compare-book/?work_id=3244642 HTTP/1.0" 500 114312
+INFO 2025-01-04 18:44:12,284 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:44:17,425 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67015
+INFO 2025-01-04 18:44:25,999 basehttp "GET /api/search/?query=little+women HTTP/1.0" 200 9255
+ERROR 2025-01-04 18:44:28,665 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:44:28,684 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 500 114312
+ERROR 2025-01-04 18:44:30,347 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:44:30,365 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 500 114312
+INFO 2025-01-04 18:44:33,181 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:44:43,873 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:44:43,991 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67741
+INFO 2025-01-04 18:45:03,815 basehttp "DELETE /api/userbooks/2180439/ HTTP/1.0" 200 54
+INFO 2025-01-04 18:45:04,464 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67015
+INFO 2025-01-04 18:45:08,768 basehttp "GET /api/search/?query=little+women HTTP/1.0" 200 9255
+ERROR 2025-01-04 18:45:11,305 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:45:11,325 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 500 114312
+INFO 2025-01-04 18:45:11,873 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:45:13,673 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 200 958
+INFO 2025-01-04 18:47:41,382 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:47:41,488 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67741
+INFO 2025-01-04 18:47:48,499 basehttp "DELETE /api/userbooks/2180439/ HTTP/1.0" 200 54
+INFO 2025-01-04 18:47:48,802 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67015
+INFO 2025-01-04 18:48:08,583 basehttp "GET /api/search/?query=little+women HTTP/1.0" 200 9255
+ERROR 2025-01-04 18:48:10,083 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:48:10,105 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 500 114312
+ERROR 2025-01-04 18:48:11,464 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:48:11,481 basehttp "GET /api/compare-book/?work_id=2180439 HTTP/1.0" 500 114312
+INFO 2025-01-04 18:48:12,025 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:49:12,310 basehttp "DELETE /api/userbooks/3244642/ HTTP/1.0" 200 54
+INFO 2025-01-04 18:49:12,638 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67142
+INFO 2025-01-04 18:49:15,339 basehttp "DELETE /api/userbooks/2180439/ HTTP/1.0" 200 54
+INFO 2025-01-04 18:49:15,990 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66416
+INFO 2025-01-04 18:49:26,574 basehttp "GET /api/search/?query=twilight HTTP/1.0" 200 9115
+ERROR 2025-01-04 18:49:29,802 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:49:29,818 basehttp "GET /api/compare-book/?work_id=3212258 HTTP/1.0" 500 114306
+ERROR 2025-01-04 18:49:31,174 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:49:31,195 basehttp "GET /api/compare-book/?work_id=3212258 HTTP/1.0" 500 114306
+INFO 2025-01-04 18:49:47,963 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 18:50:35,609 basehttp "GET /api/compare-book/?work_id=3212258 HTTP/1.0" 200 65
+INFO 2025-01-04 18:50:41,842 basehttp "GET /api/search/?query=twilight HTTP/1.0" 200 9114
+INFO 2025-01-04 18:50:43,133 basehttp "GET /api/compare-book/?work_id=3212258 HTTP/1.0" 200 65
+INFO 2025-01-04 18:50:54,301 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 18:50:54,412 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67356
+INFO 2025-01-04 18:53:18,777 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-04 18:53:46,982 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 18:53:54,085 basehttp "GET /api/search/?query=twilight HTTP/1.0" 200 9114
+ERROR 2025-01-04 18:53:58,343 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:53:58,384 basehttp "GET /api/compare-book/?work_id=2675454 HTTP/1.0" 500 114306
+ERROR 2025-01-04 18:54:00,117 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 18:54:00,136 basehttp "GET /api/compare-book/?work_id=2675454 HTTP/1.0" 500 114306
+ERROR 2025-01-04 19:00:18,659 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 19:00:18,674 basehttp "GET /api/compare-book/?work_id=2675454 HTTP/1.0" 500 114306
+INFO 2025-01-04 19:00:18,830 basehttp "GET /api/search/?query=twilight HTTP/1.0" 200 9114
+ERROR 2025-01-04 19:00:20,166 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 314, in get
+    comparison_book, status_message = UserBook.objects.get_comparison_book(
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 163, in get_comparison_book
+    book_obj = self.get(work_id=work_id, user=user)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+djangoapp.models.UserBook.DoesNotExist: UserBook matching query does not exist.
+ERROR 2025-01-04 19:00:20,183 basehttp "GET /api/compare-book/?work_id=2675454 HTTP/1.0" 500 114306
+INFO 2025-01-04 19:00:37,770 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 19:00:38,112 basehttp "GET /api/compare-book/?work_id=3203964 HTTP/1.0" 200 958
+INFO 2025-01-04 19:01:23,850 basehttp "GET /api/search/?query=twilight HTTP/1.0" 200 9113
+INFO 2025-01-04 19:01:35,675 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 19:01:36,023 basehttp "GET /api/compare-book/?work_id=2960529 HTTP/1.0" 200 1014
+INFO 2025-01-04 19:01:49,092 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:03:43,680 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69864
+INFO 2025-01-04 19:03:43,693 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:03:48,793 basehttp "DELETE /api/userbooks/2960529/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:03:49,086 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68579
+INFO 2025-01-04 19:03:51,787 basehttp "DELETE /api/userbooks/3203964/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:03:52,104 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67363
+INFO 2025-01-04 19:04:13,173 basehttp "GET /api/search/?query=a+court+of+thorns HTTP/1.0" 200 11005
+INFO 2025-01-04 19:04:44,516 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 19:04:45,116 basehttp "GET /api/compare-book/?work_id=21905102 HTTP/1.0" 200 1021
+INFO 2025-01-04 19:04:46,910 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:04:47,495 basehttp "GET /api/compare-book/?work_id=21905102 HTTP/1.0" 200 65
+INFO 2025-01-04 19:05:29,489 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:05:29,628 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68580
+INFO 2025-01-04 19:05:39,985 basehttp "GET /api/search/?query=a+court+of+thorns HTTP/1.0" 200 11004
+INFO 2025-01-04 19:05:44,241 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 19:05:44,578 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 958
+INFO 2025-01-04 19:05:47,982 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:05:48,566 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 989
+INFO 2025-01-04 19:06:03,651 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:06:04,251 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 65
+INFO 2025-01-04 19:06:06,821 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69825
+WARNING 2025-01-04 19:08:39,890 basehttp "PATCH /api/userbooks/25126749/ HTTP/1.0" 400 38
+INFO 2025-01-04 19:13:22,223 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 2916
+INFO 2025-01-04 19:13:25,196 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69825
+INFO 2025-01-04 19:13:25,338 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:14:57,969 basehttp "PATCH /api/userbooks/25126749/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:14:58,620 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 65
+INFO 2025-01-04 19:20:55,221 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2025-01-04 19:21:08,677 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 19:22:06,476 basehttp "PATCH /api/userbooks/25126749/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:22:06,823 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 965
+INFO 2025-01-04 19:22:10,458 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:22:10,800 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69825
+INFO 2025-01-04 19:22:10,991 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:22:11,057 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 996
+INFO 2025-01-04 19:22:12,684 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:22:12,997 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69825
+INFO 2025-01-04 19:22:13,244 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:22:13,310 basehttp "GET /api/compare-book/?work_id=25126749 HTTP/1.0" 200 65
+INFO 2025-01-04 19:22:58,379 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:22:58,540 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69825
+INFO 2025-01-04 19:23:12,742 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2449
+ERROR 2025-01-04 19:23:13,424 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 331, in get
+    excluded_work_ids=request.session[work_id]['compared_books'],
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '48297245'
+ERROR 2025-01-04 19:23:13,457 basehttp "GET /api/compare-book/?work_id=48297245 HTTP/1.0" 500 103014
+INFO 2025-01-04 19:23:50,331 views Session post-logout dict_items([])
+INFO 2025-01-04 19:23:50,333 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2025-01-04 19:24:03,728 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2025-01-04 19:24:17,201 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:24:17,216 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67
+INFO 2025-01-04 19:24:39,795 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2025-01-04 19:24:41,912 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 67
+INFO 2025-01-04 19:24:55,575 basehttp "POST /api/goodreads-import/ HTTP/1.0" 201 65
+INFO 2025-01-04 19:26:12,351 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:26:12,411 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67127
+INFO 2025-01-04 19:26:14,915 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2449
+ERROR 2025-01-04 19:26:15,239 log Internal Server Error: /api/compare-book/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 331, in get
+    excluded_work_ids=request.session[work_id]['compared_books'],
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+KeyError: '48297245'
+ERROR 2025-01-04 19:26:15,254 basehttp "GET /api/compare-book/?work_id=48297245 HTTP/1.0" 500 103014
+INFO 2025-01-04 19:26:49,773 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2025-01-04 19:27:03,801 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 19:27:16,858 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2449
+INFO 2025-01-04 19:27:17,174 basehttp "GET /api/compare-book/?work_id=48297245 HTTP/1.0" 200 65
+INFO 2025-01-04 19:27:17,735 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1540
+INFO 2025-01-04 19:27:18,063 basehttp "GET /api/compare-book/?work_id=18183653 HTTP/1.0" 200 65
+INFO 2025-01-04 19:27:18,613 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1257
+INFO 2025-01-04 19:27:18,934 basehttp "GET /api/compare-book/?work_id=64339 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:27:27,297 basehttp "PATCH /api/userbooks/64339/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:27:27,871 basehttp "GET /api/compare-book/?work_id=64339 HTTP/1.0" 200 65
+INFO 2025-01-04 19:27:27,896 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67152
+INFO 2025-01-04 19:27:28,102 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1219
+INFO 2025-01-04 19:27:28,744 basehttp "GET /api/compare-book/?work_id=52472813 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:27:31,323 basehttp "PATCH /api/userbooks/52472813/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:27:32,005 basehttp "GET /api/compare-book/?work_id=52472813 HTTP/1.0" 200 65
+INFO 2025-01-04 19:27:32,049 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67161
+INFO 2025-01-04 19:27:32,231 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1054
+INFO 2025-01-04 19:27:32,885 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:27:51,710 basehttp "PATCH /api/userbooks/46213537/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:27:52,320 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 1230
+INFO 2025-01-04 19:27:52,361 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67170
+INFO 2025-01-04 19:28:00,530 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:01,146 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:01,197 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:01,251 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67170
+INFO 2025-01-04 19:28:01,433 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1435
+INFO 2025-01-04 19:28:02,063 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1549
+INFO 2025-01-04 19:28:04,744 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:05,376 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:05,460 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67179
+INFO 2025-01-04 19:28:05,591 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 991
+INFO 2025-01-04 19:28:06,205 basehttp "GET /api/compare-book/?work_id=1494157 HTTP/1.0" 200 1549
+INFO 2025-01-04 19:28:08,201 basehttp "PATCH /api/userbooks/1494157/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:08,801 basehttp "GET /api/compare-book/?work_id=1494157 HTTP/1.0" 200 1446
+INFO 2025-01-04 19:28:08,866 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67188
+INFO 2025-01-04 19:28:10,882 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:11,489 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:11,534 basehttp "GET /api/compare-book/?work_id=1494157 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:11,619 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67188
+INFO 2025-01-04 19:28:11,760 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1614
+INFO 2025-01-04 19:28:12,375 basehttp "GET /api/compare-book/?work_id=979095 HTTP/1.0" 200 1549
+INFO 2025-01-04 19:28:13,518 basehttp "PATCH /api/userbooks/979095/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:14,088 basehttp "GET /api/compare-book/?work_id=979095 HTTP/1.0" 200 1002
+INFO 2025-01-04 19:28:14,195 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67197
+INFO 2025-01-04 19:28:17,421 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:17,963 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:18,014 basehttp "GET /api/compare-book/?work_id=979095 HTTP/1.0" 200 1446
+INFO 2025-01-04 19:28:18,106 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67197
+INFO 2025-01-04 19:28:19,960 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:20,482 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:20,571 basehttp "GET /api/compare-book/?work_id=979095 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:20,645 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67197
+INFO 2025-01-04 19:28:20,828 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1256
+INFO 2025-01-04 19:28:21,482 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 1549
+INFO 2025-01-04 19:28:22,283 basehttp "PATCH /api/userbooks/12873035/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:22,940 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 1002
+INFO 2025-01-04 19:28:23,040 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67206
+INFO 2025-01-04 19:28:26,472 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:27,011 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:27,068 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 1446
+INFO 2025-01-04 19:28:27,167 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67206
+INFO 2025-01-04 19:28:28,626 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:29,153 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:29,265 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 1625
+INFO 2025-01-04 19:28:29,364 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67206
+INFO 2025-01-04 19:28:30,861 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:31,423 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:31,479 basehttp "GET /api/compare-book/?work_id=12873035 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:31,613 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67206
+INFO 2025-01-04 19:28:31,744 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1327
+INFO 2025-01-04 19:28:32,358 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:28:35,163 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1327
+INFO 2025-01-04 19:28:35,730 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:28:38,693 basehttp "PATCH /api/userbooks/25339401/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:39,258 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 1065
+INFO 2025-01-04 19:28:39,380 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67215
+INFO 2025-01-04 19:28:40,796 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:41,398 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:41,448 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 1230
+INFO 2025-01-04 19:28:41,571 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67215
+INFO 2025-01-04 19:28:42,449 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:42,975 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-04 19:28:43,048 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 65
+INFO 2025-01-04 19:28:43,215 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67215
+INFO 2025-01-04 19:28:43,306 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1797
+INFO 2025-01-04 19:28:43,940 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1549
+INFO 2025-01-04 19:28:44,601 basehttp "PATCH /api/userbooks/21856092/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:28:45,175 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1267
+INFO 2025-01-04 19:28:45,331 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67224
+INFO 2025-01-04 19:28:46,334 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:46,890 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:28:46,955 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1002
+INFO 2025-01-04 19:28:47,082 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67224
+INFO 2025-01-04 19:28:49,424 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:28:49,954 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:28:50,031 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 1625
+INFO 2025-01-04 19:28:50,166 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67224
+INFO 2025-01-04 19:29:02,544 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:03,098 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:03,159 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 62
+INFO 2025-01-04 19:29:03,326 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67224
+INFO 2025-01-04 19:29:03,416 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1098
+INFO 2025-01-04 19:29:04,061 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:29:08,153 basehttp "PATCH /api/userbooks/14863741/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:29:08,765 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1230
+INFO 2025-01-04 19:29:08,930 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67233
+INFO 2025-01-04 19:29:10,044 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:10,562 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:10,646 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1338
+INFO 2025-01-04 19:29:10,810 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67233
+INFO 2025-01-04 19:29:12,338 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:12,887 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:12,956 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 1065
+INFO 2025-01-04 19:29:13,114 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67233
+INFO 2025-01-04 19:29:15,180 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:15,722 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:15,800 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 65
+INFO 2025-01-04 19:29:15,962 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67233
+INFO 2025-01-04 19:29:16,028 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1131
+INFO 2025-01-04 19:29:16,630 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:29:18,017 basehttp "PATCH /api/userbooks/3143431/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:29:18,617 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1109
+INFO 2025-01-04 19:29:18,797 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67242
+INFO 2025-01-04 19:29:19,604 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:20,164 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:20,214 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1338
+INFO 2025-01-04 19:29:20,380 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67242
+INFO 2025-01-04 19:29:21,040 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:21,583 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:21,618 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1230
+INFO 2025-01-04 19:29:21,812 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67242
+INFO 2025-01-04 19:29:22,405 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:22,934 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:22,986 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 62
+INFO 2025-01-04 19:29:23,208 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67242
+INFO 2025-01-04 19:29:23,248 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1820
+INFO 2025-01-04 19:29:23,857 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:29:24,826 basehttp "PATCH /api/userbooks/6257025/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:29:25,406 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1109
+INFO 2025-01-04 19:29:25,617 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:29:26,922 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:27,432 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:27,545 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1338
+INFO 2025-01-04 19:29:27,724 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:29:28,536 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:29,084 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:29,150 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 1142
+INFO 2025-01-04 19:29:29,347 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:29:30,768 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:31,298 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:31,347 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 62
+INFO 2025-01-04 19:29:31,594 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1259
+INFO 2025-01-04 19:29:31,626 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:29:32,284 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:29:34,553 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1259
+INFO 2025-01-04 19:29:34,870 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 2458
+INFO 2025-01-04 19:29:36,458 basehttp "PATCH /api/userbooks/17613051/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:29:36,732 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1831
+INFO 2025-01-04 19:29:37,270 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67260
+INFO 2025-01-04 19:29:38,814 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:39,340 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:39,369 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67260
+INFO 2025-01-04 19:29:39,441 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1065
+INFO 2025-01-04 19:29:41,116 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:41,609 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67260
+INFO 2025-01-04 19:29:41,634 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:41,709 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1230
+INFO 2025-01-04 19:29:43,216 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:43,700 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67260
+INFO 2025-01-04 19:29:43,726 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:43,807 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 62
+INFO 2025-01-04 19:29:44,436 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1161
+INFO 2025-01-04 19:29:44,739 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 2457
+INFO 2025-01-04 19:29:46,649 basehttp "PATCH /api/userbooks/16037981/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:29:46,942 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1269
+INFO 2025-01-04 19:29:47,462 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67252
+INFO 2025-01-04 19:29:53,544 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:54,122 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67252
+INFO 2025-01-04 19:29:54,141 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:54,219 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1830
+INFO 2025-01-04 19:29:56,301 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:56,850 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:56,865 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67252
+INFO 2025-01-04 19:29:56,906 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1064
+INFO 2025-01-04 19:29:59,003 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:29:59,562 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-04 19:29:59,655 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 62
+INFO 2025-01-04 19:29:59,698 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67252
+INFO 2025-01-04 19:30:00,212 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2021
+INFO 2025-01-04 19:30:00,913 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 2457
+INFO 2025-01-04 19:30:10,954 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:30:11,562 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1807
+INFO 2025-01-04 19:30:11,805 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:30:13,694 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:30:14,250 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:30:14,345 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1000
+INFO 2025-01-04 19:30:14,536 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:30:15,796 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:30:16,385 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:30:16,461 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1624
+INFO 2025-01-04 19:30:16,668 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:30:21,778 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:30:22,321 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:30:22,379 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 62
+INFO 2025-01-04 19:30:22,630 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:32:37,087 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-04 19:32:51,654 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 19:32:55,439 basehttp "PATCH /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2025-01-04 19:32:56,075 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1624
+INFO 2025-01-04 19:32:56,352 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:32:59,366 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:32:59,920 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:33:00,097 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1266
+INFO 2025-01-04 19:33:00,432 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67250
+INFO 2025-01-04 19:33:01,528 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:33:02,056 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:33:02,146 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 1000
+INFO 2025-01-04 19:33:02,370 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67250
+INFO 2025-01-04 19:33:04,290 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-04 19:33:04,814 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 19:33:04,885 basehttp "GET /api/compare-book/?work_id=26115977 HTTP/1.0" 200 62
+INFO 2025-01-04 19:33:05,163 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 19:33:28,950 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-04 19:33:41,787 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 23:07:42,127 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 23:07:42,458 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 23:08:45,086 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-04 23:11:36,842 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2025-01-04 23:11:52,930 autoreload Watching for file changes with StatReloader
+INFO 2025-01-04 23:18:22,901 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 23:18:31,907 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12299
+INFO 2025-01-04 23:18:35,299 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13294
+INFO 2025-01-04 23:18:44,094 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-04 23:27:45,368 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 23:27:45,671 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 23:51:05,081 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 23:51:05,442 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-04 23:59:32,349 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-04 23:59:32,665 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-05 00:09:58,291 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-05 00:18:43,778 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-05 00:18:52,251 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 00:18:56,318 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 00:18:56,680 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68234
+INFO 2025-01-05 00:19:38,347 basehttp "DELETE /api/userbooks/3046572/ HTTP/1.0" 200 54
+INFO 2025-01-05 00:19:38,868 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-05 00:19:48,653 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 00:19:55,836 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68234
+INFO 2025-01-05 00:20:14,499 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 00:38:10,818 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13291
+INFO 2025-01-05 00:38:19,687 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13291
+INFO 2025-01-05 00:38:24,405 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 00:38:24,681 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 69608
+INFO 2025-01-05 00:38:29,137 basehttp "DELETE /api/userbooks/6231171/ HTTP/1.0" 200 54
+INFO 2025-01-05 00:38:29,697 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68234
+INFO 2025-01-05 00:38:31,985 basehttp "DELETE /api/userbooks/3046572/ HTTP/1.0" 200 54
+INFO 2025-01-05 00:38:32,503 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67251
+INFO 2025-01-05 00:38:52,061 basehttp "GET /api/search/?query=the+hung+games HTTP/1.0" 200 12053
+INFO 2025-01-05 00:39:25,241 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 00:39:25,874 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 1229
+INFO 2025-01-05 00:39:36,961 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:39:37,534 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 1269
+INFO 2025-01-05 00:39:39,270 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:39:39,881 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 1108
+INFO 2025-01-05 00:39:42,238 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:39:42,828 basehttp "GET /api/compare-book/?work_id=8812783 HTTP/1.0" 200 62
+INFO 2025-01-05 00:40:51,696 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 00:40:52,265 basehttp "GET /api/search/?query=the+hung+games HTTP/1.0" 200 12051
+INFO 2025-01-05 00:40:52,290 basehttp "GET /api/compare-book/?work_id=6171458 HTTP/1.0" 200 1266
+INFO 2025-01-05 00:40:54,926 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:40:55,229 basehttp "GET /api/compare-book/?work_id=6171458 HTTP/1.0" 200 1445
+INFO 2025-01-05 00:40:56,945 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:40:57,195 basehttp "GET /api/compare-book/?work_id=6171458 HTTP/1.0" 200 1623
+INFO 2025-01-05 00:41:00,152 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 00:41:00,502 basehttp "GET /api/compare-book/?work_id=6171458 HTTP/1.0" 200 62
+INFO 2025-01-05 00:47:18,195 basehttp "GET /api/search/?query=the+hung+games HTTP/1.0" 200 12051
+INFO 2025-01-05 00:52:28,586 basehttp "GET /api/search/?query=the+hung+games HTTP/1.0" 200 12051
+INFO 2025-01-05 01:00:31,444 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:00:31,732 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70221
+INFO 2025-01-05 01:00:59,906 basehttp "PATCH /api/userbooks/2908871/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:01:00,555 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70230
+INFO 2025-01-05 01:01:00,621 basehttp "GET /api/compare-book/?work_id=2908871 HTTP/1.0" 200 1108
+INFO 2025-01-05 01:01:03,534 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:01:04,046 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:01:04,089 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70230
+INFO 2025-01-05 01:01:07,874 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:01:08,389 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:01:08,413 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70230
+INFO 2025-01-05 01:01:09,896 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:01:10,449 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:01:10,479 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70230
+INFO 2025-01-05 01:01:15,957 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:01:16,453 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:01:16,563 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 70230
+INFO 2025-01-05 01:02:52,329 basehttp "DELETE /api/userbooks/2908871/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:02:52,888 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68183
+INFO 2025-01-05 01:03:02,839 basehttp "PATCH /api/userbooks/21366540/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:03:03,395 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68192
+INFO 2025-01-05 01:03:03,463 basehttp "GET /api/compare-book/?work_id=21366540 HTTP/1.0" 200 1266
+INFO 2025-01-05 01:03:08,347 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:03:08,644 basehttp "GET /api/compare-book/?work_id=21366540 HTTP/1.0" 200 1807
+INFO 2025-01-05 01:03:08,923 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:03:09,240 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68192
+INFO 2025-01-05 01:03:16,931 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:03:17,228 basehttp "GET /api/compare-book/?work_id=21366540 HTTP/1.0" 200 1001
+INFO 2025-01-05 01:03:17,494 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 01:03:17,812 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68192
+INFO 2025-01-05 01:03:19,631 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:03:19,914 basehttp "GET /api/compare-book/?work_id=21366540 HTTP/1.0" 200 62
+INFO 2025-01-05 01:03:20,153 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:03:20,580 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68191
+INFO 2025-01-05 01:03:33,121 basehttp "PATCH /api/userbooks/21366540/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:03:33,683 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 68192
+INFO 2025-01-05 01:05:24,382 basehttp "PATCH /api/userbooks/18183653/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:05:24,980 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66718
+INFO 2025-01-05 01:05:29,671 basehttp "PATCH /api/userbooks/66322/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:05:30,487 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65921
+INFO 2025-01-05 01:05:33,416 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 4223
+INFO 2025-01-05 01:05:36,153 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 857
+INFO 2025-01-05 01:11:11,519 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:11:11,769 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65921
+INFO 2025-01-05 01:15:42,841 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 2021
+INFO 2025-01-05 01:16:06,257 basehttp "PATCH /api/userbooks/14423132/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:16:06,847 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65932
+INFO 2025-01-05 01:16:06,902 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 1268
+INFO 2025-01-05 01:16:09,487 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:16:09,745 basehttp "GET /api/compare-book/?work_id=14423132 HTTP/1.0" 200 65
+INFO 2025-01-05 01:16:10,062 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:16:10,395 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65932
+INFO 2025-01-05 01:19:54,693 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1237
+INFO 2025-01-05 01:20:03,121 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1237
+INFO 2025-01-05 01:20:05,661 basehttp "PATCH /api/userbooks/46870277/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:20:06,271 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 1229
+INFO 2025-01-05 01:20:06,286 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65943
+INFO 2025-01-05 01:20:08,669 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:20:08,962 basehttp "GET /api/compare-book/?work_id=46870277 HTTP/1.0" 200 65
+INFO 2025-01-05 01:20:09,228 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:20:09,572 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65943
+INFO 2025-01-05 01:20:21,773 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 879
+INFO 2025-01-05 01:23:40,444 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 879
+INFO 2025-01-05 01:23:43,391 basehttp "PATCH /api/userbooks/2120474/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:23:44,097 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1337
+INFO 2025-01-05 01:23:44,323 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65952
+INFO 2025-01-05 01:23:45,523 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:23:46,108 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:23:46,163 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1064
+INFO 2025-01-05 01:23:46,475 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65952
+INFO 2025-01-05 01:23:48,921 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:23:49,512 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:23:49,571 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 1108
+INFO 2025-01-05 01:23:49,933 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65952
+INFO 2025-01-05 01:23:51,466 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:23:52,029 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:23:52,066 basehttp "GET /api/compare-book/?work_id=2120474 HTTP/1.0" 200 62
+INFO 2025-01-05 01:23:52,378 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65952
+INFO 2025-01-05 01:31:22,145 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:31:22,230 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 640
+INFO 2025-01-05 01:31:22,551 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65951
+INFO 2025-01-05 01:31:35,469 basehttp "PATCH /api/userbooks/2793516/ HTTP/1.0" 200 54
+INFO 2025-01-05 01:31:36,140 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 2033
+INFO 2025-01-05 01:31:36,407 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65962
+INFO 2025-01-05 01:31:37,724 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:31:38,329 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:31:38,396 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 1269
+INFO 2025-01-05 01:31:38,705 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65962
+INFO 2025-01-05 01:31:39,592 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 01:31:40,137 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:31:40,168 basehttp "GET /api/compare-book/?work_id=2793516 HTTP/1.0" 200 65
+INFO 2025-01-05 01:31:40,843 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65383
+INFO 2025-01-05 01:58:05,986 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 01:58:06,027 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1618
+INFO 2025-01-05 02:00:06,394 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65961
+INFO 2025-01-05 02:23:56,051 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1618
+INFO 2025-01-05 02:23:56,064 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:32:55,109 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:32:55,326 basehttp "GET /api/unranked-books/ HTTP/1.0" 200 1618
+INFO 2025-01-05 02:32:55,601 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65961
+INFO 2025-01-05 02:37:53,010 basehttp "PATCH /api/userbooks/2116675/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:37:53,698 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 1249
+INFO 2025-01-05 02:37:54,004 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65972
+INFO 2025-01-05 02:37:55,704 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:37:56,241 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:37:56,287 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 1230
+INFO 2025-01-05 02:37:56,619 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65972
+INFO 2025-01-05 02:37:57,529 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:37:58,080 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:37:58,114 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 65
+INFO 2025-01-05 02:37:58,507 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 63815
+INFO 2025-01-05 02:46:04,960 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:46:05,342 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65971
+INFO 2025-01-05 02:46:13,063 basehttp "PATCH /api/userbooks/856785/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:46:13,669 basehttp "GET /api/compare-book/?work_id=856785 HTTP/1.0" 200 65
+INFO 2025-01-05 02:46:14,011 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65979
+INFO 2025-01-05 02:47:06,826 basehttp "PATCH /api/userbooks/856785/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:47:07,765 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65980
+INFO 2025-01-05 02:49:09,627 basehttp "PATCH /api/userbooks/2916344/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:49:10,207 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 1269
+INFO 2025-01-05 02:49:10,247 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65989
+INFO 2025-01-05 02:49:15,569 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:49:15,873 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 1171
+INFO 2025-01-05 02:49:16,130 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:49:16,540 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65989
+INFO 2025-01-05 02:49:17,581 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:49:17,868 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 1830
+INFO 2025-01-05 02:49:18,102 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:49:18,513 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65988
+INFO 2025-01-05 02:49:27,888 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:49:28,165 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 62
+INFO 2025-01-05 02:49:28,448 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:49:28,902 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65987
+INFO 2025-01-05 02:50:28,277 basehttp "PATCH /api/userbooks/1708725/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:50:28,919 basehttp "GET /api/compare-book/?work_id=1708725 HTTP/1.0" 200 2033
+INFO 2025-01-05 02:50:29,242 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65998
+INFO 2025-01-05 02:50:39,572 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:50:40,129 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:50:40,147 basehttp "GET /api/compare-book/?work_id=1708725 HTTP/1.0" 200 652
+INFO 2025-01-05 02:50:40,576 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65998
+INFO 2025-01-05 02:50:42,080 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:50:42,614 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:50:42,674 basehttp "GET /api/compare-book/?work_id=1708725 HTTP/1.0" 200 1886
+INFO 2025-01-05 02:50:43,045 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65998
+INFO 2025-01-05 02:50:45,833 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:50:46,358 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:50:46,423 basehttp "GET /api/compare-book/?work_id=1708725 HTTP/1.0" 200 62
+INFO 2025-01-05 02:50:46,802 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65999
+INFO 2025-01-05 02:51:47,045 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 4223
+INFO 2025-01-05 02:58:02,167 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:58:02,324 basehttp "GET /api/compare-book/?work_id=1708725 HTTP/1.0" 200 62
+INFO 2025-01-05 02:58:02,671 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65998
+INFO 2025-01-05 02:58:12,096 basehttp "PATCH /api/userbooks/51106215/ HTTP/1.0" 200 54
+INFO 2025-01-05 02:58:12,708 basehttp "GET /api/compare-book/?work_id=51106215 HTTP/1.0" 200 652
+INFO 2025-01-05 02:58:13,068 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66009
+INFO 2025-01-05 02:58:16,729 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:58:17,261 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:58:17,322 basehttp "GET /api/compare-book/?work_id=51106215 HTTP/1.0" 200 2033
+INFO 2025-01-05 02:58:17,771 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66009
+INFO 2025-01-05 02:58:27,953 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:58:28,530 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:58:28,545 basehttp "GET /api/compare-book/?work_id=51106215 HTTP/1.0" 200 1856
+INFO 2025-01-05 02:58:28,950 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66009
+INFO 2025-01-05 02:58:41,877 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 02:58:42,418 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 02:58:42,477 basehttp "GET /api/compare-book/?work_id=51106215 HTTP/1.0" 200 62
+INFO 2025-01-05 02:58:42,884 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66009
+INFO 2025-01-05 03:04:53,370 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:04:53,849 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:12:05,745 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:12:11,787 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:12:12,304 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:17:10,725 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:17:11,254 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:18:16,730 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:18:17,259 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:18:24,199 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-05 03:20:13,317 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:20:13,841 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:21:24,997 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:21:25,493 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:22:19,799 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:22:20,245 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:23:33,824 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-05 03:23:35,324 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:23:35,745 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:28:20,964 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:28:21,392 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:29:31,889 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:29:32,342 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:30:13,121 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:30:13,704 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:30:50,263 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:30:50,723 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:31:17,663 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:31:18,197 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:31:54,285 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:31:54,763 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66008
+INFO 2025-01-05 03:44:15,119 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:48:08,812 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 200 54
+INFO 2025-01-05 03:48:09,490 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 1170
+INFO 2025-01-05 03:48:09,524 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 03:50:44,875 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:50:45,316 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 03:51:33,590 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 4223
+INFO 2025-01-05 03:51:34,967 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 857
+INFO 2025-01-05 03:53:10,041 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:53:10,574 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 03:53:23,061 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 03:53:23,636 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 03:57:29,494 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 200 54
+INFO 2025-01-05 03:57:30,201 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 03:57:30,241 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 1170
+INFO 2025-01-05 04:10:02,186 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:10:02,668 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 04:10:18,145 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:10:18,799 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 1170
+INFO 2025-01-05 04:10:18,868 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 04:10:26,542 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:10:26,841 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 1269
+INFO 2025-01-05 04:10:27,114 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:10:27,583 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66018
+INFO 2025-01-05 04:11:28,677 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:11:28,970 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 1830
+INFO 2025-01-05 04:11:29,237 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:11:29,725 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66018
+INFO 2025-01-05 04:11:38,983 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:11:39,265 basehttp "GET /api/compare-book/?work_id=52911130 HTTP/1.0" 200 62
+INFO 2025-01-05 04:11:39,544 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:11:40,008 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 04:22:19,958 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:22:20,454 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 04:34:09,354 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:34:09,798 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66017
+INFO 2025-01-05 04:34:40,139 basehttp "PATCH /api/userbooks/58010031/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:34:40,836 basehttp "GET /api/compare-book/?work_id=58010031 HTTP/1.0" 200 889
+INFO 2025-01-05 04:34:41,035 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66026
+INFO 2025-01-05 04:34:46,256 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:34:46,701 basehttp "GET /api/compare-book/?work_id=58010031 HTTP/1.0" 200 1337
+INFO 2025-01-05 04:34:46,813 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:34:47,307 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66026
+INFO 2025-01-05 04:34:48,678 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:34:48,974 basehttp "GET /api/compare-book/?work_id=58010031 HTTP/1.0" 200 1064
+INFO 2025-01-05 04:34:49,322 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:34:49,781 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66026
+INFO 2025-01-05 04:34:51,452 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:34:51,759 basehttp "GET /api/compare-book/?work_id=58010031 HTTP/1.0" 200 62
+INFO 2025-01-05 04:34:52,016 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:34:52,513 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66025
+INFO 2025-01-05 04:39:53,385 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:39:53,824 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66025
+INFO 2025-01-05 04:40:35,915 basehttp "PATCH /api/userbooks/15035863/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:40:36,548 basehttp "GET /api/compare-book/?work_id=15035863 HTTP/1.0" 200 65
+INFO 2025-01-05 04:40:36,588 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66033
+INFO 2025-01-05 04:43:57,052 basehttp "PATCH /api/userbooks/15035863/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:43:58,026 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66033
+INFO 2025-01-05 04:44:04,108 basehttp "PATCH /api/userbooks/15035863/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:44:04,990 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66032
+INFO 2025-01-05 04:44:13,226 basehttp "PATCH /api/userbooks/21855448/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:44:13,927 basehttp "GET /api/compare-book/?work_id=21855448 HTTP/1.0" 200 1856
+INFO 2025-01-05 04:44:14,059 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66043
+INFO 2025-01-05 04:44:18,875 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:44:19,173 basehttp "GET /api/compare-book/?work_id=21855448 HTTP/1.0" 200 1887
+INFO 2025-01-05 04:44:19,440 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:44:19,975 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66043
+INFO 2025-01-05 04:44:21,436 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:44:21,723 basehttp "GET /api/compare-book/?work_id=21855448 HTTP/1.0" 200 763
+INFO 2025-01-05 04:44:21,996 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:44:22,562 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66043
+INFO 2025-01-05 04:44:24,480 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:44:24,733 basehttp "GET /api/compare-book/?work_id=21855448 HTTP/1.0" 200 62
+INFO 2025-01-05 04:44:25,009 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:44:25,523 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66042
+INFO 2025-01-05 04:52:37,466 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:52:38,025 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66042
+INFO 2025-01-05 04:52:49,546 basehttp "PATCH /api/userbooks/26616838/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:52:50,221 basehttp "GET /api/compare-book/?work_id=26616838 HTTP/1.0" 200 763
+INFO 2025-01-05 04:52:50,594 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66053
+INFO 2025-01-05 04:52:52,055 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:52:52,620 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:52:52,656 basehttp "GET /api/compare-book/?work_id=26616838 HTTP/1.0" 200 652
+INFO 2025-01-05 04:52:53,139 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66053
+INFO 2025-01-05 04:52:54,319 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:52:54,896 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:52:54,951 basehttp "GET /api/compare-book/?work_id=26616838 HTTP/1.0" 200 1887
+INFO 2025-01-05 04:52:55,433 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66053
+INFO 2025-01-05 04:52:58,879 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:52:59,613 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:52:59,693 basehttp "GET /api/compare-book/?work_id=26616838 HTTP/1.0" 200 62
+INFO 2025-01-05 04:53:00,195 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66053
+INFO 2025-01-05 04:55:02,635 basehttp "PATCH /api/userbooks/26616838/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:55:03,770 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66051
+INFO 2025-01-05 04:55:08,961 basehttp "PATCH /api/userbooks/26616838/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:55:10,043 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66051
+INFO 2025-01-05 04:59:46,858 basehttp "PATCH /api/userbooks/43551632/ HTTP/1.0" 200 54
+INFO 2025-01-05 04:59:47,604 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 945
+INFO 2025-01-05 04:59:47,660 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66060
+INFO 2025-01-05 04:59:56,102 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:59:56,376 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 889
+INFO 2025-01-05 04:59:56,631 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:59:57,155 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66060
+INFO 2025-01-05 04:59:58,099 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 04:59:58,375 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 1786
+INFO 2025-01-05 04:59:58,669 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 04:59:59,216 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66060
+INFO 2025-01-05 04:59:59,988 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:00:00,372 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 62
+INFO 2025-01-05 05:00:00,604 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:00:01,228 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66059
+INFO 2025-01-05 05:02:12,597 basehttp "PATCH /api/userbooks/25696480/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:02:13,323 basehttp "GET /api/compare-book/?work_id=25696480 HTTP/1.0" 200 1249
+INFO 2025-01-05 05:02:13,717 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66070
+INFO 2025-01-05 05:02:14,921 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:02:15,483 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:02:15,531 basehttp "GET /api/compare-book/?work_id=25696480 HTTP/1.0" 200 2230
+INFO 2025-01-05 05:02:16,029 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66070
+INFO 2025-01-05 05:02:16,498 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:02:17,033 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:02:17,088 basehttp "GET /api/compare-book/?work_id=25696480 HTTP/1.0" 200 1230
+INFO 2025-01-05 05:02:17,646 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66069
+INFO 2025-01-05 05:02:26,452 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:02:26,998 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:02:27,065 basehttp "GET /api/compare-book/?work_id=25696480 HTTP/1.0" 200 65
+INFO 2025-01-05 05:02:27,566 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66069
+INFO 2025-01-05 05:06:57,484 basehttp "PATCH /api/userbooks/25696480/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:06:58,572 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66067
+INFO 2025-01-05 05:07:55,957 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:07:56,601 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66067
+INFO 2025-01-05 05:08:24,342 basehttp "PATCH /api/userbooks/42713958/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:08:25,955 basehttp "GET /api/compare-book/?work_id=42713958 HTTP/1.0" 200 1329
+INFO 2025-01-05 05:08:25,971 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66078
+INFO 2025-01-05 05:08:29,191 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:08:29,463 basehttp "GET /api/compare-book/?work_id=42713958 HTTP/1.0" 200 1887
+INFO 2025-01-05 05:08:29,761 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:08:30,342 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66079
+INFO 2025-01-05 05:08:31,212 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:08:31,499 basehttp "GET /api/compare-book/?work_id=42713958 HTTP/1.0" 200 763
+INFO 2025-01-05 05:08:31,762 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:08:32,316 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66079
+INFO 2025-01-05 05:08:33,480 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:08:33,762 basehttp "GET /api/compare-book/?work_id=42713958 HTTP/1.0" 200 62
+INFO 2025-01-05 05:08:34,026 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:08:34,595 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66078
+INFO 2025-01-05 05:08:43,152 basehttp "PATCH /api/userbooks/18520265/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:08:43,910 basehttp "GET /api/compare-book/?work_id=18520265 HTTP/1.0" 200 65
+INFO 2025-01-05 05:08:43,963 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66086
+INFO 2025-01-05 05:09:46,272 basehttp "PATCH /api/userbooks/18520265/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:09:47,090 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66085
+INFO 2025-01-05 05:10:35,189 basehttp "PATCH /api/userbooks/14757893/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:10:35,883 basehttp "GET /api/compare-book/?work_id=14757893 HTTP/1.0" 200 848
+INFO 2025-01-05 05:10:36,070 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66093
+INFO 2025-01-05 05:10:42,072 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:10:42,345 basehttp "GET /api/compare-book/?work_id=14757893 HTTP/1.0" 200 65
+INFO 2025-01-05 05:10:42,676 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:10:43,284 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66092
+INFO 2025-01-05 05:11:51,011 basehttp "DELETE /api/userbooks/18520265/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:11:52,145 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64240
+INFO 2025-01-05 05:11:54,745 basehttp "DELETE /api/userbooks/14757893/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:11:55,839 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 63537
+INFO 2025-01-05 05:12:12,002 basehttp "DELETE /api/userbooks/15035863/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:12:13,113 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62763
+INFO 2025-01-05 05:12:25,495 basehttp "PATCH /api/userbooks/14757897/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:12:26,301 basehttp "GET /api/compare-book/?work_id=14757897 HTTP/1.0" 200 65
+INFO 2025-01-05 05:12:26,638 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62771
+INFO 2025-01-05 05:15:44,745 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:16:02,560 basehttp "PATCH /api/userbooks/14757897/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:16:03,750 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62770
+INFO 2025-01-05 05:16:16,733 basehttp "DELETE /api/userbooks/14757897/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:16:17,943 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62070
+INFO 2025-01-05 05:16:37,458 basehttp "PATCH /api/userbooks/2502879/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:16:38,245 basehttp "GET /api/compare-book/?work_id=2502879 HTTP/1.0" 200 65
+INFO 2025-01-05 05:16:38,567 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62078
+INFO 2025-01-05 05:18:26,597 basehttp "PATCH /api/userbooks/2502879/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:18:27,719 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62077
+INFO 2025-01-05 05:18:58,559 basehttp "DELETE /api/userbooks/2502879/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:18:59,654 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61042
+INFO 2025-01-05 05:19:06,876 basehttp "PATCH /api/userbooks/2502882/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:19:07,617 basehttp "GET /api/compare-book/?work_id=2502882 HTTP/1.0" 200 65
+INFO 2025-01-05 05:19:08,055 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61050
+INFO 2025-01-05 05:20:21,887 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:20:22,477 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61049
+INFO 2025-01-05 05:21:42,494 basehttp "DELETE /api/userbooks/2502882/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:21:43,316 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58826
+INFO 2025-01-05 05:22:09,440 basehttp "PATCH /api/userbooks/48896020/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:22:10,165 basehttp "GET /api/compare-book/?work_id=48896020 HTTP/1.0" 200 65
+INFO 2025-01-05 05:22:10,282 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58834
+INFO 2025-01-05 05:23:48,389 basehttp "PATCH /api/userbooks/48896020/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:23:49,165 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58833
+INFO 2025-01-05 05:24:14,190 basehttp "DELETE /api/userbooks/48896020/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:24:14,989 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 57573
+INFO 2025-01-05 05:24:45,948 basehttp "PATCH /api/userbooks/49451841/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:24:46,694 basehttp "GET /api/compare-book/?work_id=49451841 HTTP/1.0" 200 65
+INFO 2025-01-05 05:24:47,061 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 57581
+INFO 2025-01-05 05:26:05,815 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:26:06,402 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 57580
+INFO 2025-01-05 05:33:16,923 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:33:33,587 basehttp "DELETE /api/userbooks/49451841/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:33:34,670 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 55861
+INFO 2025-01-05 05:33:40,784 basehttp "PATCH /api/userbooks/16176791/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:33:41,510 basehttp "GET /api/compare-book/?work_id=16176791 HTTP/1.0" 200 65
+INFO 2025-01-05 05:33:41,909 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 55869
+INFO 2025-01-05 05:36:09,875 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:36:10,479 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 55868
+INFO 2025-01-05 05:36:18,638 basehttp "DELETE /api/userbooks/16176791/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:36:19,451 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 54828
+INFO 2025-01-05 05:36:27,756 basehttp "PATCH /api/userbooks/21366542/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:36:28,502 basehttp "GET /api/compare-book/?work_id=21366542 HTTP/1.0" 200 65
+INFO 2025-01-05 05:36:28,613 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 54836
+INFO 2025-01-05 05:38:13,663 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:38:14,238 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 54835
+INFO 2025-01-05 05:38:22,533 basehttp "DELETE /api/userbooks/21366542/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:38:23,370 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 53612
+INFO 2025-01-05 05:38:45,819 basehttp "PATCH /api/userbooks/21979689/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:38:46,500 basehttp "GET /api/compare-book/?work_id=21979689 HTTP/1.0" 200 65
+INFO 2025-01-05 05:38:46,677 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 53620
+INFO 2025-01-05 05:39:58,284 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:39:58,916 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 53619
+INFO 2025-01-05 05:40:06,558 basehttp "DELETE /api/userbooks/21979689/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:40:07,399 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 52649
+INFO 2025-01-05 05:40:12,498 basehttp "PATCH /api/userbooks/26653661/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:40:14,219 basehttp "GET /api/compare-book/?work_id=26653661 HTTP/1.0" 200 65
+INFO 2025-01-05 05:40:14,384 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 52657
+INFO 2025-01-05 05:42:44,868 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:42:45,470 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 52656
+INFO 2025-01-05 05:43:06,153 basehttp "DELETE /api/userbooks/26653661/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:43:06,970 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 51005
+INFO 2025-01-05 05:43:12,917 basehttp "PATCH /api/userbooks/42090179/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:43:14,620 basehttp "GET /api/compare-book/?work_id=42090179 HTTP/1.0" 200 65
+INFO 2025-01-05 05:43:14,703 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 51013
+INFO 2025-01-05 05:44:49,612 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:44:50,211 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 51012
+INFO 2025-01-05 05:45:03,207 basehttp "DELETE /api/userbooks/42090179/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:45:04,148 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 50267
+INFO 2025-01-05 05:45:10,221 basehttp "PATCH /api/userbooks/42077459/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:45:15,940 basehttp "GET /api/compare-book/?work_id=42077459 HTTP/1.0" 200 65
+INFO 2025-01-05 05:45:16,102 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 50275
+INFO 2025-01-05 05:46:17,384 basehttp "DELETE /api/userbooks/26984955/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:46:18,221 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 48789
+INFO 2025-01-05 05:49:41,003 basehttp "DELETE /api/userbooks/42077459/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:49:41,804 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 47771
+INFO 2025-01-05 05:49:48,740 basehttp "PATCH /api/userbooks/26984941/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:49:54,446 basehttp "GET /api/compare-book/?work_id=26984941 HTTP/1.0" 200 65
+INFO 2025-01-05 05:49:54,747 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 47779
+INFO 2025-01-05 05:51:31,498 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:51:32,082 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 47778
+INFO 2025-01-05 05:51:41,969 basehttp "DELETE /api/userbooks/26984941/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:51:42,808 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 46225
+INFO 2025-01-05 05:52:33,999 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:52:34,593 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 46225
+INFO 2025-01-05 05:52:48,730 basehttp "PATCH /api/userbooks/23840254/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:52:54,552 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 46233
+INFO 2025-01-05 05:55:02,191 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-05 05:55:09,641 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 05:55:10,251 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 65
+INFO 2025-01-05 05:55:10,402 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13292
+INFO 2025-01-05 05:55:12,559 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 47969
+INFO 2025-01-05 05:55:22,004 basehttp "GET /api/compare-book/?work_id=23840254 HTTP/1.0" 200 1810
+INFO 2025-01-05 05:55:33,893 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 05:55:34,468 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 05:55:34,539 basehttp "GET /api/compare-book/?work_id=23840254 HTTP/1.0" 200 65
+INFO 2025-01-05 05:55:35,062 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 47969
+INFO 2025-01-05 05:57:15,910 basehttp "PATCH /api/userbooks/23840254/ HTTP/1.0" 200 54
+INFO 2025-01-05 05:57:16,764 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 45599
+INFO 2025-01-05 06:00:27,388 basehttp "PATCH /api/userbooks/48297245/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:00:28,559 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 45600
+INFO 2025-01-05 06:00:54,145 basehttp "GET /api/user/ HTTP/1.0" 200 226
+INFO 2025-01-05 06:01:00,181 views Session post-logout dict_items([])
+INFO 2025-01-05 06:01:00,182 basehttp "POST /api/logout/ HTTP/1.0" 200 52
+INFO 2025-01-05 06:01:14,033 basehttp "POST /api/signup/ HTTP/1.0" 201 111
+INFO 2025-01-05 06:01:18,952 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:01:18,967 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67
+INFO 2025-01-05 06:01:29,325 basehttp "POST /api/goodreads-import/ HTTP/1.0" 201 65
+INFO 2025-01-05 06:02:29,044 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:02:29,094 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67127
+INFO 2025-01-05 06:02:35,838 basehttp "PATCH /api/userbooks/48297245/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:02:36,413 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67135
+INFO 2025-01-05 06:03:03,260 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:03:03,347 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67135
+INFO 2025-01-05 06:03:10,030 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:03:10,072 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67135
+INFO 2025-01-05 06:03:15,514 basehttp "GET /api/compare-book/?work_id=48297245 HTTP/1.0" 200 65
+INFO 2025-01-05 06:03:22,073 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:03:22,146 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67135
+INFO 2025-01-05 06:03:28,154 basehttp "DELETE /api/userbooks/18183653/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:03:28,462 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65667
+INFO 2025-01-05 06:03:39,595 basehttp "PATCH /api/userbooks/64339/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:03:39,905 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65678
+INFO 2025-01-05 06:03:53,952 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:03:54,005 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65678
+INFO 2025-01-05 06:03:58,324 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:03:58,405 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65678
+INFO 2025-01-05 06:04:04,357 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2025-01-05 06:04:16,090 basehttp "PATCH /api/userbooks/52472813/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:04:16,357 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65686
+INFO 2025-01-05 06:04:22,048 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:04:22,098 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65686
+INFO 2025-01-05 06:04:26,705 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:04:26,825 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65686
+INFO 2025-01-05 06:04:49,461 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:04:49,547 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65686
+INFO 2025-01-05 06:04:56,416 basehttp "GET /api/compare-book/?work_id=64339 HTTP/1.0" 200 65
+INFO 2025-01-05 06:05:01,895 basehttp "PATCH /api/userbooks/46213537/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:05:02,519 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65695
+INFO 2025-01-05 06:05:02,631 basehttp "GET /api/compare-book/?work_id=46213537 HTTP/1.0" 200 65
+INFO 2025-01-05 06:05:19,706 basehttp "DELETE /api/userbooks/26115977/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:05:20,351 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64332
+INFO 2025-01-05 06:06:42,546 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13294
+INFO 2025-01-05 06:06:46,208 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 06:06:46,768 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-05 06:06:46,798 basehttp "GET /api/compare-book/?work_id=4640799 HTTP/1.0" 200 65
+INFO 2025-01-05 06:06:54,324 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66070
+INFO 2025-01-05 06:07:57,500 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12300
+INFO 2025-01-05 06:08:01,881 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 06:08:02,506 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 1270
+INFO 2025-01-05 06:08:02,831 basehttp "GET /api/search/?query=hunger+games HTTP/1.0" 200 12299
+INFO 2025-01-05 06:08:04,502 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:08:05,106 basehttp "GET /api/compare-book/?work_id=2792775 HTTP/1.0" 200 65
+INFO 2025-01-05 06:08:09,133 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67599
+INFO 2025-01-05 06:08:09,259 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:08:19,460 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2025-01-05 06:08:57,906 basehttp "PATCH /api/userbooks/25339401/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:08:58,582 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67607
+INFO 2025-01-05 06:08:58,697 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 2459
+INFO 2025-01-05 06:09:08,529 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:09:09,202 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:09:09,242 basehttp "GET /api/compare-book/?work_id=25339401 HTTP/1.0" 200 65
+INFO 2025-01-05 06:09:09,347 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67607
+INFO 2025-01-05 06:09:35,054 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:09:35,208 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67607
+INFO 2025-01-05 06:12:49,138 autoreload Watching for file changes with StatReloader
+INFO 2025-01-05 06:13:04,506 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-05 06:13:06,372 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:13:06,538 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67607
+INFO 2025-01-05 06:13:15,060 basehttp "PATCH /api/userbooks/1494157/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:13:15,677 basehttp "GET /api/compare-book/?work_id=1494157 HTTP/1.0" 200 65
+INFO 2025-01-05 06:13:15,731 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67618
+INFO 2025-01-05 06:14:35,068 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67618
+INFO 2025-01-05 06:14:35,127 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:16:02,154 basehttp "PATCH /api/userbooks/21856092/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:16:02,602 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 67626
+INFO 2025-01-05 06:16:02,794 basehttp "GET /api/compare-book/?work_id=21856092 HTTP/1.0" 200 65
+INFO 2025-01-05 06:19:15,626 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2025-01-05 06:19:23,177 basehttp "DELETE /api/userbooks/2120474/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:19:23,611 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66819
+INFO 2025-01-05 06:19:45,786 basehttp "PATCH /api/userbooks/17613051/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:19:46,433 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 1337
+INFO 2025-01-05 06:19:46,517 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66827
+INFO 2025-01-05 06:19:51,935 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:19:52,493 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:19:52,548 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 2459
+INFO 2025-01-05 06:19:52,697 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66827
+INFO 2025-01-05 06:19:55,429 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:19:56,000 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:19:56,019 basehttp "GET /api/compare-book/?work_id=17613051 HTTP/1.0" 200 65
+INFO 2025-01-05 06:19:56,154 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 65632
+INFO 2025-01-05 06:19:56,291 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:19:56,865 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 66827
+INFO 2025-01-05 06:21:13,257 basehttp "DELETE /api/userbooks/48297245/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:21:13,636 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 64442
+INFO 2025-01-05 06:21:16,216 basehttp "DELETE /api/userbooks/2792775/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:21:16,589 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 62913
+INFO 2025-01-05 06:21:18,902 basehttp "DELETE /api/userbooks/46213537/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:21:19,552 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61922
+INFO 2025-01-05 06:21:25,751 basehttp "PATCH /api/userbooks/3143431/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:21:26,387 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1337
+INFO 2025-01-05 06:21:26,432 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61930
+INFO 2025-01-05 06:21:57,055 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:21:57,580 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:21:57,656 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 1269
+INFO 2025-01-05 06:21:57,755 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61930
+INFO 2025-01-05 06:22:00,795 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:22:01,360 basehttp "GET /api/user/ HTTP/1.0" 200 223
+INFO 2025-01-05 06:22:01,423 basehttp "GET /api/compare-book/?work_id=3143431 HTTP/1.0" 200 65
+INFO 2025-01-05 06:22:01,506 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61930
+INFO 2025-01-05 06:22:01,733 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:22:02,207 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61930
+INFO 2025-01-05 06:22:40,884 basehttp "PATCH /api/userbooks/16037981/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:22:41,257 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61941
+INFO 2025-01-05 06:22:41,549 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 1270
+INFO 2025-01-05 06:22:43,066 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:22:43,385 basehttp "GET /api/compare-book/?work_id=16037981 HTTP/1.0" 200 65
+INFO 2025-01-05 06:22:43,597 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:22:43,782 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61941
+INFO 2025-01-05 06:22:44,089 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:22:44,477 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61941
+INFO 2025-01-05 06:22:51,276 basehttp "PATCH /api/userbooks/6257025/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:22:51,664 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61950
+INFO 2025-01-05 06:22:51,931 basehttp "GET /api/compare-book/?work_id=6257025 HTTP/1.0" 200 65
+INFO 2025-01-05 06:22:52,498 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:22:52,678 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61950
+INFO 2025-01-05 06:22:58,746 basehttp "PATCH /api/userbooks/2908871/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:22:59,395 basehttp "GET /api/compare-book/?work_id=2908871 HTTP/1.0" 200 1141
+INFO 2025-01-05 06:22:59,512 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61958
+INFO 2025-01-05 06:23:00,531 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:01,095 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:23:01,196 basehttp "GET /api/compare-book/?work_id=2908871 HTTP/1.0" 200 1269
+INFO 2025-01-05 06:23:01,334 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61958
+INFO 2025-01-05 06:23:01,907 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:02,480 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:23:02,543 basehttp "GET /api/compare-book/?work_id=2908871 HTTP/1.0" 200 1337
+INFO 2025-01-05 06:23:02,672 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61958
+INFO 2025-01-05 06:23:03,701 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:04,275 basehttp "GET /api/user/ HTTP/1.0" 200 224
+INFO 2025-01-05 06:23:04,317 basehttp "GET /api/compare-book/?work_id=2908871 HTTP/1.0" 200 65
+INFO 2025-01-05 06:23:04,456 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61958
+INFO 2025-01-05 06:23:04,578 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:05,273 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61958
+INFO 2025-01-05 06:23:11,204 basehttp "PATCH /api/userbooks/48896020/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:23:11,649 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61969
+INFO 2025-01-05 06:23:11,819 basehttp "GET /api/compare-book/?work_id=48896020 HTTP/1.0" 200 1004
+INFO 2025-01-05 06:23:13,690 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:13,921 basehttp "GET /api/compare-book/?work_id=48896020 HTTP/1.0" 200 65
+INFO 2025-01-05 06:23:14,240 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:14,491 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61969
+INFO 2025-01-05 06:23:14,733 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:15,253 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61969
+INFO 2025-01-05 06:23:23,165 basehttp "PATCH /api/userbooks/43551632/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:23:23,599 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61980
+INFO 2025-01-05 06:23:23,815 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 1174
+INFO 2025-01-05 06:23:25,549 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:25,861 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 1270
+INFO 2025-01-05 06:23:26,111 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:26,325 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61980
+INFO 2025-01-05 06:23:27,393 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:23:27,666 basehttp "GET /api/compare-book/?work_id=43551632 HTTP/1.0" 200 65
+INFO 2025-01-05 06:23:27,915 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:28,171 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61968
+INFO 2025-01-05 06:23:28,427 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:28,961 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 61968
+INFO 2025-01-05 06:23:35,750 basehttp "DELETE /api/userbooks/4640799/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:23:36,163 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 60231
+INFO 2025-01-05 06:23:39,061 basehttp "DELETE /api/userbooks/6257025/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:23:39,586 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58475
+INFO 2025-01-05 06:23:50,477 basehttp "PATCH /api/userbooks/14863741/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:23:51,113 basehttp "GET /api/compare-book/?work_id=14863741 HTTP/1.0" 200 65
+INFO 2025-01-05 06:23:51,209 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58484
+INFO 2025-01-05 06:23:51,354 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:23:51,923 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 58483
+INFO 2025-01-05 06:24:18,974 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13294
+INFO 2025-01-05 06:24:26,806 basehttp "POST /api/userbooks/ HTTP/1.0" 200 52
+INFO 2025-01-05 06:24:27,380 basehttp "GET /api/compare-book/?work_id=3046572 HTTP/1.0" 200 65
+INFO 2025-01-05 06:24:27,718 basehttp "GET /api/search/?query=harry+potter HTTP/1.0" 200 13293
+INFO 2025-01-05 06:24:31,121 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59463
+INFO 2025-01-05 06:26:02,784 basehttp "PATCH /api/userbooks/2116675/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:26:03,283 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59474
+INFO 2025-01-05 06:26:03,404 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 1337
+INFO 2025-01-05 06:26:05,001 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:26:05,243 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 1003
+INFO 2025-01-05 06:26:05,557 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:26:05,788 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59474
+INFO 2025-01-05 06:26:06,448 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:26:06,720 basehttp "GET /api/compare-book/?work_id=2116675 HTTP/1.0" 200 65
+INFO 2025-01-05 06:26:06,989 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:26:07,270 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59473
+INFO 2025-01-05 06:26:07,543 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:26:08,066 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59473
+INFO 2025-01-05 06:27:06,380 basehttp "PATCH /api/userbooks/856785/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:27:06,979 basehttp "GET /api/compare-book/?work_id=856785 HTTP/1.0" 200 1269
+INFO 2025-01-05 06:27:07,156 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59484
+INFO 2025-01-05 06:27:08,834 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:09,388 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:09,449 basehttp "GET /api/compare-book/?work_id=856785 HTTP/1.0" 200 1173
+INFO 2025-01-05 06:27:09,646 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59484
+INFO 2025-01-05 06:27:18,501 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:19,032 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:19,107 basehttp "GET /api/compare-book/?work_id=856785 HTTP/1.0" 200 592
+INFO 2025-01-05 06:27:19,303 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59484
+INFO 2025-01-05 06:27:22,644 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:23,191 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:23,233 basehttp "GET /api/compare-book/?work_id=856785 HTTP/1.0" 200 65
+INFO 2025-01-05 06:27:23,456 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:23,471 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59484
+INFO 2025-01-05 06:27:24,294 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59483
+INFO 2025-01-05 06:27:32,517 basehttp "PATCH /api/userbooks/2916344/ HTTP/1.0" 200 54
+INFO 2025-01-05 06:27:33,067 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59491
+INFO 2025-01-05 06:27:33,083 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 1268
+INFO 2025-01-05 06:27:35,466 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:35,753 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 1140
+INFO 2025-01-05 06:27:36,010 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:36,313 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59491
+INFO 2025-01-05 06:27:37,125 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:37,417 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 2119
+INFO 2025-01-05 06:27:37,643 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:37,946 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59491
+INFO 2025-01-05 06:27:39,881 basehttp "POST /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-05 06:27:40,148 basehttp "GET /api/compare-book/?work_id=2916344 HTTP/1.0" 200 62
+INFO 2025-01-05 06:27:40,436 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:40,743 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59489
+INFO 2025-01-05 06:27:40,965 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-05 06:27:41,564 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59489

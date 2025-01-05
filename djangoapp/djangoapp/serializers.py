@@ -58,8 +58,8 @@ class UserBookListSerializer(serializers.Serializer):
 class UserBookCreateSerializer(serializers.Serializer):
     """For POST /api/userbooks/"""
     work_id = serializers.CharField(required=True)
-    title = serializers.CharField(required=True)
-    author = serializers.CharField(required=True)
+    # title = serializers.CharField(required=True)
+    # author = serializers.CharField(required=True)
     status = serializers.ChoiceField(choices=UserBook.BookStatus.choices, required=True)
     bucket = serializers.ChoiceField(choices=UserBook.BookBucket.choices, required=False)
 

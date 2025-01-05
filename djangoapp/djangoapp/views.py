@@ -249,6 +249,13 @@ class UserBooksViewSet(viewsets.ViewSet):
             status=serializer.validated_data['status'],
             bucket=serializer.validated_data.get('bucket')
         )
+
+        if serializer.validated_data['status'] == UserBook.BookStatus.READ:
+            request.session[book.work_id] = {
+                'compared_books': [],
+                'valid_comparison_count': 0
+            }
+            request.session.save()
         
         return Response({
             'success': True,
@@ -280,6 +287,13 @@ class UserBooksViewSet(viewsets.ViewSet):
             status=serializer.validated_data['status'],
             bucket=serializer.validated_data.get('bucket')
         )
+
+        if serializer.validated_data['status'] == UserBook.BookStatus.READ:
+            request.session[pk] = {
+                'compared_books': [],
+                'valid_comparison_count': 0
+            }
+            request.session.save()
         
         return Response({
             'success': True,

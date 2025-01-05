@@ -251,6 +251,10 @@ class UserBookManager(models.Manager):
         book.status = status
         if bucket:
             book.bucket = bucket
+            # reset elo rating and RD to None, which sets to default on save
+            book.elo_rating = None
+            book.RD = None
+
         book.save()
         return book
 
@@ -295,7 +299,7 @@ class UserBook(AbstractBook):
             self.elo_rating = self.elo_rating or 1500
             self.RD = self.RD or 400
             self.is_ranked = False if self.is_ranked is None else self.is_ranked
-            self.date_finished = timezone.now().date()
+            self.date_finished = timezone.now()
         else:
             # Clear read-specific fields for non-read books
             self.bucket = None

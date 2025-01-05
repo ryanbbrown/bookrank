@@ -15,6 +15,7 @@ import Homepage from './pages/Homepage';
 import axiosInstance from './axiosConfig';
 import { ApiResponse } from './types/types';
 import React from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 
 // Move QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -35,7 +36,15 @@ function QueryProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+// this makes it so that the search page re-mounts when the query param (in url) changes
+// which is necessary for the search box input to update
+function SearchWrapper() {
+    const [searchParams] = useSearchParams();
+    return <Search key={searchParams.get('q')} />;
+}
+
 function App(): JSX.Element {
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -97,7 +106,7 @@ function App(): JSX.Element {
                                             />
                                         } 
                                     />
-                                    <Route path="/search" element={<Search />} />
+                                    <Route path="/search" element={<SearchWrapper />} />
                                     <Route path="/mybooks/:status" element={<MyBooks />} />
                                     <Route path="/myrecs" element={<Recommendations />} />
                                     <Route path="/goodreadsimport" element={<GoodreadsImport />} />

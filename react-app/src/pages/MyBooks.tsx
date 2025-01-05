@@ -9,6 +9,7 @@ import { MultiSelect } from '../components/ui/MultiSelect';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
+
 interface ComparisonParams {
     workId: string;
     getNextUnranked: boolean;
@@ -38,6 +39,11 @@ const defaultSortDirections: Record<SortField, SortDirection> = {
     book_type: "asc"
 };
 
+type RankingState = 
+  | { type: 'idle' }
+  | { type: 'rating'; book: UserBook }
+  | { type: 'comparing'; book: UserBook };
+
 function MyBooks() {
     const { status } = useParams<{ status: BookStatus }>();
     const queryClient = useQueryClient();
@@ -47,20 +53,20 @@ function MyBooks() {
     const [sortDirection, setSortDirection] = useState<SortDirection>(defaultSortDirections["normalized_rating"]);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
     const [selectedBookTypes, setSelectedBookTypes] = useState<string[]>([]);
+
+
     const [currentPage, setCurrentPage] = useState(0);
     
     // Other state for modals, etc.
-    const [unrankedBook, setUnrankedBook] = useState<UserBook | null>(null);
-    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
-    const [showComparison, setShowComparison] = useState(false);
-    const [getNextUnranked, setGetNextUnranked] = useState(true);
+    const [rankingState, setRankingState] = useState<RankingState>({ type: 'idle' });
+    const [getNextUnranked, setGetNextUnranked] = useState(false);
 
     // useRef declarations
     const loadingRef = useRef<HTMLDivElement>(null);
     const INITIAL_LOAD = 20;
     const PER_PAGE = 10;
 
-    // React Query hooks
+    // BOOK AND USER DATA useQuery HOOKS
     const { data: booksData, isLoading: isBooksLoading } = useQuery({
         queryKey: ['books', status],
         queryFn: async () => {
@@ -69,8 +75,6 @@ function MyBooks() {
             });
             return response.data.data || [];
         },
-        refetchOnWindowFocus: false,
-        staleTime: 1000 * 60 * 5, // 5 minutes
     });
 
     const { data: userData, isLoading: isUserDataLoading } = useQuery({
@@ -82,7 +86,9 @@ function MyBooks() {
         enabled: status === BookStatus.READ
     });
 
-    // Mutations
+
+
+    // REMOVE BOOK
     const removeMutation = useMutation({
         mutationFn: (workId: string) => 
             axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${workId}/`),
@@ -91,6 +97,13 @@ function MyBooks() {
         }
     });
 
+    const handleRemoveClick = (book: UserBook) => {
+        removeMutation.mutate(book.work_id);
+    };
+
+
+
+    // UPDATE BOOK STATUS
     const updateBookStatusMutation = useMutation({
         mutationFn: ({ workId, newStatus }: { workId: string, newStatus: BookStatus }) =>
             axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${workId}/`, {
@@ -101,19 +114,169 @@ function MyBooks() {
         }
     });
 
+    const handleMarkAsTBR = (book: UserBook) => {
+        updateBookStatusMutation.mutate({ 
+            workId: book.work_id, 
+            newStatus: BookStatus.TO_BE_READ 
+        });
+    };
+
+    const handleMarkAsCurrentlyReading = (book: UserBook) => {
+        updateBookStatusMutation.mutate({ 
+            workId: book.work_id, 
+            newStatus: BookStatus.CURRENTLY_READING 
+        });
+    };
+
+    const handleMarkAsRead = (book: UserBook) => {
+        setRankingState({ type: 'rating', book });
+    };
+
+
+    
+    // OTHER DROPDOWN CLICK HANDLERS
+    const handleRankClick = (book: UserBook) => {
+        if (book.bucket === null) {
+            setRankingState({ type: 'rating', book });
+        } else {
+            setRankingState({ type: 'comparing', book });
+        }
+    };
+
+    const handleReRankClick = (book: UserBook) => {
+        setRankingState({ type: 'rating', book: { ...book, bucket: null } });
+    };
+
+
+
+    // UPDATE BOOK BUCKET
     const updateBucketMutation = useMutation({
-        mutationFn: ({ workId, bucket }: { workId: string, bucket: Bucket }) =>
+        mutationFn: ({ workId, status, bucket }: { workId: string, status: BookStatus, bucket: Bucket }) =>
             axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${workId}/`, {
+                status: status,
                 bucket: bucket,
-            }),
+            })
+        ,
         onSuccess: (_, variables) => {
-            if (unrankedBook) {
-                setUnrankedBook(prev => prev ? { ...prev, bucket: variables.bucket } : null);
-                fetchComparison({ workId: variables.workId, getNextUnranked });
+            if (rankingState.type === 'rating') {
+                setRankingState({ 
+                    type: 'comparing', 
+                    book: { ...rankingState.book, bucket: variables.bucket } 
+                });
             }
+            queryClient.invalidateQueries({ queryKey: ['books'] });
         }
     });
 
+    const handleBucketClick = (bucket: Bucket) => {
+        console.log('in handleBucketClick');
+        if (rankingState.type !== 'rating') return; // maybe get rid of this
+        updateBucketMutation.mutate({ 
+            workId: rankingState.book.work_id, 
+            status: BookStatus.READ, 
+            bucket: bucket 
+        });
+    };
+
+
+
+    // GET NEXT UNRANKED BOOK
+    // const { data: unrankedBook, refetch: refetchUnrankedBook } = useQuery({
+    //     queryKey: ['unrankedBook'],
+    //     queryFn: async () => {
+    //         const response = await axiosInstance.get<ApiResponse<UserBook>>('api/unranked-books/');
+    //         return response.data.data || null;
+    //     },
+    //     enabled: false, // Don't fetch automatically
+    // });
+
+    // const handleRankUnrankedClick = () => {
+    //     setGetNextUnranked(true);
+    //     refetchUnrankedBook().then(({ data: book }) => {
+    //         if (!book) {
+    //             setRankingState({ type: 'idle' });
+    //             return;
+    //         }
+    //         if (book.bucket === null) {
+    //             setRankingState({ type: 'rating', book });
+    //         } else {
+    //             setRankingState({ type: 'comparing', book });
+    //         }
+    //     });
+    // };
+
+    // const unrankedBooks = useMemo(() => {
+    //     if (!booksData) return [];
+    //     // Filter for Skysworn book
+    //     return [...booksData]
+    //         .filter(book => !book.is_ranked)
+    //         .sort((a, b) => new Date(a.date_added).getTime() - new Date(b.date_added).getTime());
+    // }, [booksData]);
+
+    const firstUnrankedBook = useMemo(() => {
+        if (!booksData) return null;
+        const unrankedBooks = [...booksData]
+            .filter(book => !book.is_ranked)
+            .sort((a, b) => new Date(a.date_added).getTime() - new Date(b.date_added).getTime());
+        console.log('unrankedBooks:', unrankedBooks[0]);
+        return unrankedBooks[0] || null;
+    }, [booksData]);
+
+    // Update the handler to use the derived state
+    const handleRankUnrankedClick = () => {
+        if (firstUnrankedBook) {
+            setRankingState({ type: 'rating', book: firstUnrankedBook });
+            setGetNextUnranked(true);
+        }
+    };
+
+    useEffect(() => {
+        console.log('firstUnrankedBook:', firstUnrankedBook);
+        console.log('getNextUnranked:', getNextUnranked);
+        console.log('rankingState.type:', rankingState.type);
+        if (getNextUnranked && rankingState.type === 'idle' && firstUnrankedBook) {
+            // const firstUnrankedBook = unrankedBooks[0];
+            setRankingState({ type: 'rating', book: firstUnrankedBook })
+        }
+    }, [firstUnrankedBook?.work_id]);
+
+
+    // if (getNextUnranked && rankingState.type === 'idle' && unrankedBooks.length > 0) {
+    //     const firstUnrankedBook = unrankedBooks[0];
+    //     setRankingState({ type: 'rating', book: firstUnrankedBook })
+        // if (firstUnrankedBook.bucket === null) {
+        //     setRankingState({ type: 'rating', book: firstUnrankedBook });
+        // } else {
+        //     setRankingState({ type: 'comparing', book: firstUnrankedBook });
+        // }
+    // }
+
+
+
+    // GET COMPARISON
+    const { data: comparisonData } = useQuery({
+        queryKey: ['comparison', rankingState.type === 'comparing' ? rankingState.book.work_id : null],
+        queryFn: async () => {
+            const response = await axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
+                params: { work_id: (rankingState as { type: 'comparing', book: UserBook }).book.work_id }
+            });
+            return response.data.data || null;
+        },
+        enabled: rankingState.type === 'comparing',
+    });
+
+    // if you're done comparing the book, set the ranking state to idle
+    useEffect(() => {
+        if (comparisonData === null && rankingState.type === 'comparing') {
+            setRankingState({ type: 'idle' });
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+            queryClient.invalidateQueries({ queryKey: ['userData'] });
+        }
+    }, [comparisonData]);
+
+
+
+    // COMPLETE COMPARISON
     const compareBookMutation = useMutation({
         mutationFn: ({ newBookId, existingBookId, outcome }: { newBookId: string, existingBookId: string, outcome: number }) =>
             axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
@@ -122,17 +285,29 @@ function MyBooks() {
                 outcome: outcome,
             }),
         onSuccess: (_, { outcome, newBookId }) => {
+            if (rankingState.type === 'comparing') {
+                queryClient.invalidateQueries({ queryKey: ['comparison', rankingState.book.work_id] });
+            }
             if (outcome !== -1) {
                 // only invalidate if the books were NOT marked as "not comparable"
                 queryClient.invalidateQueries({ queryKey: ['books'] });
                 queryClient.invalidateQueries({ queryKey: ['userData'] });
             }
-            if (unrankedBook) {
-                fetchComparison({ workId: newBookId, getNextUnranked });
-            }
         }
     });
 
+    const handleComparisonClick = (o: number) => {
+        if (rankingState.type !== 'comparing' || !comparisonData) return;
+        compareBookMutation.mutate({
+            newBookId: rankingState.book.work_id,
+            existingBookId: comparisonData.work_id,
+            outcome: o,
+        });
+    };
+
+    
+
+    // SORTING + FILTERING
     const sortBooks = (books: UserBook[], field: SortField, direction: SortDirection): UserBook[] => {
         return [...books].sort((a, b) => {
             const aValue = a[field];
@@ -163,87 +338,7 @@ function MyBooks() {
         return getFilteredAndSortedBooks(booksData);
     }, [booksData, selectedGenres, selectedBookTypes, sortField, sortDirection]);
 
-    const displayedBooks = useMemo(() => {
-        const start = 0;
-        const end = INITIAL_LOAD + (currentPage * PER_PAGE);
-        return filteredAndSortedBooks.slice(start, end);
-    }, [filteredAndSortedBooks, currentPage]);
 
-    const hasMore = filteredAndSortedBooks.length > displayedBooks.length;
-
-    // useEffect to handle infinite scrolling
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting && hasMore) {
-                    loadMoreBooks();
-                }
-            },
-            { threshold: 1.0 }
-        );
-
-        if (loadingRef.current) {
-            observer.observe(loadingRef.current);
-        }
-
-        return () => {
-            if (loadingRef.current) {
-                observer.unobserve(loadingRef.current);
-            }
-        };
-    }, [hasMore]);
-    
-
-    // Loading check
-    if (isBooksLoading || (status === BookStatus.READ && isUserDataLoading)) {
-        return (
-            <div className="container mx-auto flex justify-center items-center h-96">
-                <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
-            </div>
-        );
-    }
-
-    // Handlers
-    const loadMoreBooks = () => {
-        if (hasMore) {
-            setCurrentPage(prev => prev + 1);
-        }
-    };
-
-    // Update handlers to use mutations
-    const handleRemoveClick = (book: UserBook) => {
-        removeMutation.mutate(book.work_id);
-    };
-
-    const handleMarkAsTBR = (book: UserBook) => {
-        updateBookStatusMutation.mutate({ 
-            workId: book.work_id, 
-            newStatus: BookStatus.TO_BE_READ 
-        });
-    };
-
-    const handleMarkAsCurrentlyReading = (book: UserBook) => {
-        updateBookStatusMutation.mutate({ 
-            workId: book.work_id, 
-            newStatus: BookStatus.CURRENTLY_READING 
-        });
-    };
-
-    const handleBucketClick = (bucket: Bucket) => {
-        if (!unrankedBook) return;
-        updateBucketMutation.mutate({ workId: unrankedBook.work_id, bucket });
-    };
-
-    const handleComparisonClick = (o: number) => {
-        if (!unrankedBook || !comparedBook) return;
-        compareBookMutation.mutate({
-            newBookId: unrankedBook.work_id,
-            existingBookId: comparedBook.work_id,
-            outcome: o,
-        });
-    };
-
-    // Filtering and Sorting Functions
     const getUniqueGenres = (books: UserBook[]): string[] => {
         return Array.from(new Set(books.map(book => book.genre))).sort();
     };
@@ -252,14 +347,6 @@ function MyBooks() {
         return Array.from(new Set(books.map(book => book.book_type))).sort();
     };
     
-    
-
-    
-
-    
-
-    
-
     const handleSortChange = (field: SortField) => {
         if (field !== sortField) {  // Only act if changing to a new field
             setSortField(field);
@@ -281,77 +368,46 @@ function MyBooks() {
         setSelectedBookTypes([]);
     };
 
-    // Book Ranking Functions
-    const fetchUnrankedBook = () => {
-        axiosInstance.get<ApiResponse<UserBook>>('api/unranked-books/')
-            .then(response => {
-                const tempUnrankedBook = response.data.data || null;
-                setUnrankedBook(tempUnrankedBook);
-                return tempUnrankedBook;
-            })
-            .catch(error => {
-                console.error(error);
-            })
-            .then(tempUnrankedBook => {
-                if (!tempUnrankedBook) {
-                    setShowComparison(false);
-                    return;
-                }
-                fetchComparison({ workId: tempUnrankedBook.work_id, getNextUnranked });
-            });
-    };
 
-    const fetchComparison = ({ workId, getNextUnranked }: ComparisonParams) => {
-        axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-            params: { work_id: workId }
-        })
-            .then(response => {
-                const comparedBook = response.data.data || null;
-                if (comparedBook) {
-                    setComparedBook(comparedBook);
-                    setShowComparison(true);
-                } else if (getNextUnranked) {
-                    fetchUnrankedBook();
-                } else {
-                    setShowComparison(false);
-                }
-            });
-    };
 
-    const handleSpecificRankClick = (book: UserBook) => {
-        setUnrankedBook(book);
-        setGetNextUnranked(false);
-        if (book.bucket !== null) {
-            fetchComparison({ workId: book.work_id, getNextUnranked: false });
+    // INFINITE SCROLLING
+    const displayedBooks = useMemo(() => {
+        const start = 0;
+        const end = INITIAL_LOAD + (currentPage * PER_PAGE);
+        return filteredAndSortedBooks.slice(start, end);
+    }, [filteredAndSortedBooks, currentPage]);
+
+    const hasMore = filteredAndSortedBooks.length > displayedBooks.length;
+
+    const loadMoreBooks = () => {
+        if (hasMore) {
+            setCurrentPage(prev => prev + 1);
         }
-        setShowComparison(true);
     };
 
-    const handleGeneralRankClick = () => {
-        setGetNextUnranked(true);
-        fetchUnrankedBook();
-    };
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && hasMore) {
+                    loadMoreBooks();
+                }
+            },
+            { threshold: 1.0 }
+        );
 
-    const handleReRankClick = (book: UserBook) => {
-        const updatedBook = { ...book, bucket: null };
-        setGetNextUnranked(false);
-        setUnrankedBook(updatedBook);
-        setShowComparison(true);
-    };
+        if (loadingRef.current) {
+            observer.observe(loadingRef.current);
+        }
 
-
-
-
-
-    // Book Management Functions
-    const handleMarkAsRead = (book: UserBook) => {
-        setUnrankedBook(book);
-        setShowComparison(true);
-    };
-
+        return () => {
+            if (loadingRef.current) {
+                observer.unobserve(loadingRef.current);
+            }
+        };
+    }, [hasMore]);
 
 
-
+    
     // Determine the header text based on the status
     const getHeaderText = (status: BookStatus | undefined): string => {
         switch (status) {
@@ -365,9 +421,18 @@ function MyBooks() {
                 return "My Books";
         }
     };
-
     
+    // early return if loading
+    if (isBooksLoading || (status === BookStatus.READ && isUserDataLoading)) {
+        return (
+            <div className="container mx-auto flex justify-center items-center h-96">
+                <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
+            </div>
+        );
+    }
 
+
+    // console.log('render end');
     return (
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">{getHeaderText(status)}</h1>
@@ -430,7 +495,7 @@ function MyBooks() {
             {status === BookStatus.READ && Array.isArray(booksData) && booksData.some(book => book.is_ranked === false) && (
                 <button
                     className="mb-4 px-4 py-2 bg-teal-800 text-white rounded hover:bg-teal-900"
-                    onClick={handleGeneralRankClick}
+                    onClick={handleRankUnrankedClick}
                 >
                     Rank unranked books
                 </button>
@@ -441,7 +506,7 @@ function MyBooks() {
                     <BookRow
                         key={book.work_id}
                         book={book}
-                        onRank={status === BookStatus.READ ? handleSpecificRankClick : undefined}
+                        onRank={status === BookStatus.READ ? handleRankClick : undefined}
                         onReRank={status === BookStatus.READ ? handleReRankClick : undefined}
                         onMarkAsTBR={status !== BookStatus.TO_BE_READ ? handleMarkAsTBR : undefined}
                         onMarkAsCurrentlyReading={handleMarkAsCurrentlyReading}
@@ -457,21 +522,27 @@ function MyBooks() {
                 </div>
             )}
 
-            {unrankedBook && showComparison && unrankedBook.bucket === null && (
+            {rankingState.type === 'rating' && (
                 <RateModal
                     onClickFunction={handleBucketClick}
-                    exitFunction={() => setShowComparison(false)}
-                    book={unrankedBook}
+                    exitFunction={() => {
+                        setGetNextUnranked(false);
+                        setRankingState({ type: 'idle' });
+                    }}
+                    book={rankingState.book}
                     status="SHOW_RATE_BUTTONS"
                 />
             )}
 
-            {unrankedBook && showComparison && comparedBook && unrankedBook.bucket !== null && (
+            {rankingState.type === 'comparing' && comparisonData && (
                 <CompareModal
                     handleComparisonClick={handleComparisonClick}
-                    exitFunction={() => setShowComparison(false)}
-                    selectedBook={unrankedBook}
-                    comparedBook={comparedBook}
+                    exitFunction={() => {
+                        setGetNextUnranked(false);
+                        setRankingState({ type: 'idle' });
+                    }}
+                    selectedBook={rankingState.book}
+                    comparedBook={comparisonData}
                 />
             )}
         </div>

@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axiosInstance from '../axiosConfig';
 import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { ApiResponse, UserBook, Bucket, Book, BookStatus } from '../types/types';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 
 interface SearchResult {
     book: Book;
@@ -10,123 +12,173 @@ interface SearchResult {
     in_tbr: boolean;
 }
 
+type RankingState = 
+  | { type: 'idle' }
+  | { type: 'rating'; search_result: SearchResult }
+  | { type: 'comparing'; book: Book };
+
 function Search() {
-    const [searchResults, setSearchResults] = useState<Array<SearchResult>>([]);
-    const [selectedSearchResult, setSelectedSearchResult] = useState<SearchResult | null>(null);
-    const [showSearchedBook, setShowSearchedBook] = useState(false);
-    const [comparedBook, setComparedBook] = useState<UserBook | null>(null);
-    const [showComparison, setShowComparison] = useState(false);
-    const [query, setQuery] = useState('');
+    const queryClient = useQueryClient();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('q') || '';
+    const [searchInput, setSearchInput] = useState(query);
 
-    const searchInputRef = useRef<HTMLInputElement>(null);
+    const [rankingState, setRankingState] = useState<RankingState>({ type: 'idle' });
 
-    const handleSearch = async (event: React.FormEvent) => {
-        event.preventDefault();
-        if (!searchInputRef.current?.value) return;
 
-        try {
+    // SEARCH
+    const { data: searchResults = [], isLoading } = useQuery({
+        queryKey: ['searchBooks', query],
+        queryFn: async () => {
             const response = await axiosInstance.get<ApiResponse<Array<SearchResult>>>('api/search/', { 
-                params: { query: searchInputRef.current.value } 
+                params: { query } 
             });
-            
-            if (response.data.success && response.data.data) {
-                setSearchResults(response.data.data);
-            }
-        } catch (error) {
-            console.error('Search failed:', error);
-        }
+            return response.data.data || [];
+        },
+        enabled: query.length > 0,
+    });
+
+    const handleSearch = (event: React.FormEvent) => {
+        event.preventDefault();
+        if (!searchInput) return;
+        setSearchParams({ q: searchInput });
     };
 
-    const handleRowClick = (searchResult: SearchResult) => {
-        setSelectedSearchResult(searchResult);
-        setShowSearchedBook(true);
-    };
+    
+
+    // ADD FINISHED BOOK
+    const addFinishedBookMutation = useMutation({
+        mutationFn: async ({ work_id, bucket }: { work_id: string, bucket: Bucket }) => {
+            if (rankingState.type !== 'rating') return;
+            const { search_result } = rankingState;
+            
+            if (search_result.in_tbr) {
+                return axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${work_id}/`, {
+                    status: BookStatus.READ,
+                    bucket,
+                });
+            } else {
+                return axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
+                    work_id,
+                    status: BookStatus.READ,
+                    bucket,
+                });
+            }
+        },
+        onSuccess: (_, { work_id, bucket }) => {
+            if (rankingState.type !== 'rating') return;
+            setRankingState({ type: 'comparing', book: rankingState.search_result.book });
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+            queryClient.invalidateQueries({ queryKey: ['searchBooks', query] });
+            // uncomment later when we have recommendations
+            // if (bucket === 'high') {
+            //     queryClient.invalidateQueries('recommendations');
+            // }
+        },
+    });
 
     const handleAddFinishedBook = (bucket: Bucket) => {
-        if (!selectedSearchResult) return;
-
-        const { work_id, title, author } = selectedSearchResult.book;
-        
-        // Create the initial promise based on whether the book is in TBR or not
-        const bookOperation = selectedSearchResult.in_tbr
-            ? axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${work_id}/`, {
-                status: BookStatus.READ,
-                bucket,
-            })
-            : axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
-                work_id,
-                title,
-                author,
-                status: BookStatus.READ,
-                bucket,
-            });
-
-        // Execute the promise chain
-        bookOperation
-            .then(() => {
-                if (searchInputRef.current) searchInputRef.current.value = '';
-                setSearchResults([]);
-                setShowSearchedBook(false);
-                
-                if (bucket === 'high') {
-                    return axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
-                        work_id
-                    });
-                }
-            })
-            .then(() => {
-                fetchComparison(work_id);
-            })
-            .catch(error => {
-                console.error('Error managing book:', error);
-            });
+        if (rankingState.type !== 'rating') return;
+        const { work_id } = rankingState.search_result.book;
+        addFinishedBookMutation.mutate({ work_id, bucket });
     };
+
+
+
+    // ADD TO BE READ
+    const addTBRMutation = useMutation({
+        mutationFn: async ({ work_id }: { work_id: string }) => {
+            return axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
+                work_id,
+                status: BookStatus.TO_BE_READ
+            });
+        },
+        onSuccess: () => {
+            setRankingState({ type: 'idle' });
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+            queryClient.invalidateQueries({ queryKey: ['searchBooks', query] });
+        }
+    });
 
     const handleAddTBR = () => {
-        if (!selectedSearchResult) return;
-
-        const { work_id, title, author, image_url } = selectedSearchResult.book;
-        
-        axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
-            work_id,
-            title,
-            author,
-            image_url,
-            status: BookStatus.TO_BE_READ
-        })
-        .then(() => {
-            if (searchInputRef.current) searchInputRef.current.value = '';
-            setSearchResults([]);
-            setShowSearchedBook(false);
-        });
+        if (rankingState.type !== 'rating') return;
+        const { work_id } = rankingState.search_result.book;
+        addTBRMutation.mutate({ work_id });
     };
 
-    const fetchComparison = (workId: string) => {
-        axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-            params: { work_id: workId }
-        })
-        .then(response => {
-            const tempComparedBook = response.data.data || null;
-            if (tempComparedBook) {
-                setComparedBook(tempComparedBook);
-                setShowComparison(true);
-            } else {
-                setShowComparison(false);
+
+
+    // GET COMPARISON
+    const { data: comparisonData } = useQuery({
+        queryKey: ['comparison', rankingState.type === 'comparing' ? rankingState.book.work_id : null],
+        queryFn: async () => {
+            const response = await axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
+                params: { work_id: (rankingState as { type: 'comparing', book: Book }).book.work_id }
+            });
+            return response.data.data || null;
+        },
+        enabled: rankingState.type === 'comparing',
+    });
+    // not sure if I can avoid this, for now seems fine
+    useEffect(() => {
+        if (comparisonData === null && rankingState.type === 'comparing') {
+            setRankingState({ type: 'idle' });
+        }
+    }, [comparisonData]);
+
+
+
+    // COMPLETE COMPARISON
+    const comparisonClickMutation = useMutation({
+        mutationFn: async ({ newBookId, existingBookId, outcome }: { newBookId: string, existingBookId: string, outcome: number }) => {
+            return axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
+                new_book_id: newBookId,
+                existing_book_id: existingBookId,
+                outcome,
+            });
+        },
+        onSuccess: (_, { outcome }) => {
+            if (rankingState.type === 'comparing') {
+                queryClient.invalidateQueries({ queryKey: ['comparison', rankingState.book.work_id] });
             }
-        });
-    };
+            if (outcome !== -1) {
+                // only invalidate if the books were NOT marked as "not comparable"
+                queryClient.invalidateQueries({ queryKey: ['books'] });
+                queryClient.invalidateQueries({ queryKey: ['userData'] });
+            }
+        }
+    });
 
     const handleComparisonClick = (o: number) => {
-        if (!selectedSearchResult || !comparedBook) return;
+        if (rankingState.type !== 'comparing' || !comparisonData) return;
         
-        axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
-            new_book_id: selectedSearchResult.book.work_id,
-            existing_book_id: comparedBook.work_id,
+        comparisonClickMutation.mutate({
+            newBookId: rankingState.book.work_id,
+            existingBookId: comparisonData.work_id,
             outcome: o,
-        }).then(() => {
-            fetchComparison(selectedSearchResult.book.work_id);
         });
     };
+
+
+
+    // MISC
+    const handleRowClick = (searchResult: SearchResult) => {
+        setRankingState({ type: 'rating', search_result: searchResult });
+    };
+
+    const handleExit = () => {
+        setRankingState({ type: 'idle' });
+    };
+
+
+    // Early return if loading
+    if (isLoading) {
+        return (
+            <div className="container mx-auto flex justify-center items-center h-96">
+                <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="search-page container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2 gap-4">
@@ -134,11 +186,10 @@ function Search() {
             <div className="w-full flex flex-col items-center justify-center">
                 <form onSubmit={handleSearch} className="flex w-2/3">
                     <input
-                        ref={searchInputRef}
                         type="text"
                         placeholder="Search for a book title or author"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
                         className="flex-grow p-2 pl-10 text-sm text-black rounded-l bg-gray-200 outline-none"
                     />
                     <button
@@ -185,31 +236,31 @@ function Search() {
                     </table>
                 )}
 
-                {selectedSearchResult && showSearchedBook && (
+                {rankingState.type === 'rating' && (
                     <RateModal
                         onClickFunction={handleAddFinishedBook}
-                        exitFunction={() => setShowSearchedBook(false)}
+                        exitFunction={handleExit}
                         addTBRFunction={handleAddTBR}
-                        book={selectedSearchResult.book}
+                        book={rankingState.search_result.book}
                         status={(() => {
-                            if (selectedSearchResult.in_library && selectedSearchResult.in_tbr) {
+                            if (rankingState.search_result.in_library && rankingState.search_result.in_tbr) {
                                 console.error("Book cannot be in both library and TBR");
                                 return "SHOW_RATE_BUTTONS";
                             }
                             
-                            if (selectedSearchResult.in_library) return "SHOW_IN_LIBRARY";
-                            if (selectedSearchResult.in_tbr) return "SHOW_IN_TBR";
+                            if (rankingState.search_result.in_library) return "SHOW_IN_LIBRARY";
+                            if (rankingState.search_result.in_tbr) return "SHOW_IN_TBR";
                             return "SHOW_RATE_BUTTONS";
                         })()}
                     />
                 )}
                 
-                {showComparison && selectedSearchResult && comparedBook && (
+                {rankingState.type === 'comparing' && comparisonData && (
                     <CompareModal
                         handleComparisonClick={handleComparisonClick}
-                        selectedBook={selectedSearchResult.book}
-                        comparedBook={comparedBook}
-                        exitFunction={() => setShowComparison(false)}
+                        selectedBook={rankingState.book}
+                        comparedBook={comparisonData}
+                        exitFunction={handleExit}
                     />
                 )}
             </div>
