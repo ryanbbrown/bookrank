@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { Button } from "./ui/button";
+import { Search as SearchIcon } from "lucide-react";
 
 interface HeaderProps {
     isLoggedIn: boolean;
@@ -60,23 +61,25 @@ export function Header({ isLoggedIn, handleLogout, toggleLoginModal }: HeaderPro
             ) : (
                 <div className="flex items-center gap-4">
                     <form onSubmit={handleSearch} className="flex">
-                        <input
-                            type="text"
-                            placeholder="Search for a book title or author"
-                            value={searchInput}
-                            onChange={(e) => setSearchInput(e.target.value)}
-                            className="p-2 pl-4 text-sm text-black rounded-l bg-gray-200 outline-none w-64"
-                        />
-                        <button
-                            type="submit"
-                            className="p-2 text-sm bg-gray-200 rounded-r flex items-center justify-center"
-                        >
-                            <i className="fas fa-search"></i>
-                        </button>
+                        <div className="relative">
+                            <input
+                                type="text"
+                                placeholder="Search for a book title or author"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
+                                className="w-72 px-4 py-2 pr-10 rounded-lg border shadow-md outline-none text-sm"
+                            />
+                            <button
+                                type="submit"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:opacity-70"
+                            >
+                                <SearchIcon className="h-5 w-5 text-slate-500" />
+                            </button>
+                        </div>
                     </form>
 
                     <nav className="hidden md:flex justify-center flex-grow">
-                        <Link to="/search" className="mx-4 hover:text-gray-400">Search</Link>
+                        {/* <Link to="/search" className="mx-4 hover:text-gray-400">Search</Link> */}
                         <Link to="/mybooks/read" className="mx-4 hover:text-gray-400">My Books</Link>
                         <Link to="/mybooks/to_be_read" className="mx-4 hover:text-gray-400">TBR</Link>
                         <Link to="/mybooks/currently_reading" className="mx-4 hover:text-gray-400">Currently Reading</Link>

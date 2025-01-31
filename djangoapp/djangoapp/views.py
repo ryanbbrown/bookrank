@@ -168,7 +168,7 @@ class SearchView(APIView):
         })
 
 
-
+# test
 class UserBooksViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
@@ -306,11 +306,11 @@ class CompareBookView(APIView):
     """
     This view contains the logic for fetching comparison books and updating the elo ratings post-comparison.
     """
-    def get(self, request):
+    def post(self, request):
         """
         Gets the book to compare with the current book.
         """
-        serializer = CompareBookRequestSerializer(data=request.query_params)
+        serializer = CompareBookRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         
         work_id = serializer.validated_data['work_id']
@@ -346,7 +346,7 @@ class CompareBookView(APIView):
             'message': 'Comparison book retrieved successfully'
         })
 
-    def post(self, request):
+    def patch(self, request):
         """
         Updates the ratings of two books after a comparison.
         """

@@ -1,76 +1,105 @@
 import React from 'react';
-import { Book, UserBook } from '../types/types'
+import { Book, UserBook } from '../types/types';
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Button } from "./ui/button";
+import { X } from "lucide-react";
 
 interface CompareModalProps {
     handleComparisonClick: (value: number) => void
     exitFunction?: () => void
     selectedBook: Book | UserBook
-    comparedBook: UserBook
+    comparedBook: UserBook | null | undefined
+    isLoading?: boolean
 }
 
 export function CompareModal({ 
     handleComparisonClick, 
     exitFunction, 
     selectedBook, 
-    comparedBook 
+    comparedBook,
+    isLoading = false
 }: CompareModalProps): JSX.Element {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="relative bg-white rounded-lg p-6 opacity w-1/2">
-                <h2 className="text-center font-bold text-3xl mb-5">Which book was better?</h2>
+            <Card className="relative w-1/2">
                 {exitFunction && (
-                    <button
-                        className="absolute top-2 right-2 w-8 h-8 text-black rounded flex items-center justify-center"
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="absolute right-2 top-2 z-10"
                         onClick={exitFunction}
-                        aria-label="Close comparison"
                     >
-                        <i className="fas fa-times" />
-                    </button>
+                        <X className="h-4 w-4" />
+                    </Button>
                 )}
-                <div className="flex justify-around w-full mb-4">
-                    <div 
-                        className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
-                        onClick={() => handleComparisonClick(1)}
-                    >
-                        <img 
-                            src={selectedBook.image_url} 
-                            alt={selectedBook.title}
-                            className="mx-auto mb-4 rounded" 
-                        />
-                        <h2 className="text-lg text-center font-bold">{selectedBook.title}</h2>
-                        <p className="text-center">{selectedBook.author}</p>
-                        <p className="text-center">{selectedBook.book_type}, {selectedBook.genre}</p>
-                    </div>
-                    <div 
-                        className="w-2/5 p-4 bg-gray-200 hover:bg-gray-300 rounded cursor-pointer" 
-                        onClick={() => handleComparisonClick(0)}
-                    >
-                        <img 
-                            src={comparedBook.image_url} 
-                            alt={comparedBook.title}
-                            className="mx-auto mb-4 rounded" 
-                        />
-                        <h2 className="text-lg text-center font-bold">{comparedBook.title}</h2>
-                        <p className="text-center">{comparedBook.author}</p>
-                        <p className="text-center mt-2">{comparedBook.normalized_rating}</p>
-                        <p className="text-center">{comparedBook.book_type}, {comparedBook.genre}</p>
-                    </div>
-                </div>
-                <div className="flex justify-center gap-4">
-                    <button
-                        className="bg-teal-800 hover:bg-teal-900 text-white px-4 py-2 rounded mt-5"
-                        onClick={() => handleComparisonClick(0.5)}
-                    >
-                        I like both equally
-                    </button>
-                    <button
-                        className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded mt-5"
-                        onClick={() => handleComparisonClick(-1)}
-                    >
-                        Books aren't comparable
-                    </button>
-                </div>
-            </div>
+                
+                {isLoading || !comparedBook ? (
+                    <CardContent className="flex justify-center items-center h-64">
+                        <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
+                    </CardContent>
+                ) : (
+                    <>
+                        <CardHeader>
+                            <CardTitle className="text-center">
+                                Which book was better?
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex justify-around w-full mb-4">
+                                <Card 
+                                    className="w-2/5 cursor-pointer" 
+                                    onClick={() => handleComparisonClick(1)}
+                                >
+                                    <CardContent className="p-4 text-center">
+                                        <img 
+                                            src={selectedBook.image_url} 
+                                            alt={selectedBook.title}
+                                            className="mx-auto mb-4 rounded shadow-sm" 
+                                        />
+                                        <h2 className="text-lg font-semibold">{selectedBook.title}</h2>
+                                        <p className="text-gray-600">{selectedBook.author}</p>
+                                        <p className="text-sm text-gray-500">{selectedBook.book_type}, {selectedBook.genre}</p>
+                                    </CardContent>
+                                </Card>
+
+                                {comparedBook && (
+                                    <Card 
+                                        className="w-2/5 cursor-pointer" 
+                                        onClick={() => handleComparisonClick(0)}
+                                    >
+                                        <CardContent className="p-4 text-center">
+                                            <img 
+                                                src={comparedBook.image_url} 
+                                                alt={comparedBook.title}
+                                                className="mx-auto mb-4 rounded shadow-sm" 
+                                            />
+                                            <h2 className="text-lg font-semibold">{comparedBook.title}</h2>
+                                            <p className="text-gray-600">{comparedBook.author}</p>
+                                            <p className="text-sm text-gray-500 mt-2">{comparedBook.normalized_rating}</p>
+                                            <p className="text-sm text-gray-500">{comparedBook.book_type}, {comparedBook.genre}</p>
+                                        </CardContent>
+                                    </Card>
+                                )}
+                            </div>
+                            <div className="flex justify-center gap-4">
+                                <Button
+                                    variant="default"
+                                    className="bg-teal-800 hover:bg-teal-900"
+                                    onClick={() => handleComparisonClick(0.5)}
+                                >
+                                    I like both equally
+                                </Button>
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => handleComparisonClick(-1)}
+                                >
+                                    Books aren't comparable
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </>
+                )}
+            </Card>
         </div>
     );
 } 

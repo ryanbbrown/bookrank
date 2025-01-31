@@ -5345,3 +5345,498 @@ Traceback (most recent call last):
   File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
     return self._session[key]
 KeyError: '48297245'
+ERROR 2025-01-18 19:13:34,540 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/middleware.py", line 19, in __call__
+    if request.method in ['POST', 'PATCH'] and hasattr(request, 'body'):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/http/request.py", line 328, in body
+    raise RawPostDataException(
+django.http.request.RawPostDataException: You cannot access body after reading from request's data stream
+ERROR 2025-01-18 19:16:21,012 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 281, in partial_update
+    serializer = UserBookUpdateSerializer(data=request.data)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 220, in data
+    self._load_data_and_files()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 283, in _load_data_and_files
+    self._data, self._files = self._parse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 333, in _parse
+    stream = self.stream
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 207, in stream
+    self._load_stream()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 313, in _load_stream
+    self._stream = io.BytesIO(self.body)
+TypeError: a bytes-like object is required, not 'str'
+ERROR 2025-01-18 19:16:50,543 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 281, in partial_update
+    serializer = UserBookUpdateSerializer(data=request.data)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 220, in data
+    self._load_data_and_files()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 283, in _load_data_and_files
+    self._data, self._files = self._parse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 333, in _parse
+    stream = self.stream
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 207, in stream
+    self._load_stream()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 313, in _load_stream
+    self._stream = io.BytesIO(self.body)
+TypeError: a bytes-like object is required, not 'str'
+ERROR 2025-01-18 19:27:23,147 log 19403 139796613686848 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:27:24,581 log 19403 139796613686848 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:33:31,112 log 3739 139886099682880 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:33:32,751 log 3739 139886099682880 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 22:59:33,602 log 99012 140459837462080 Internal Server Error: /api/search/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1303, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1159, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 199, in perform_request
+    response = self.session.send(prepared_request, **send_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 161, in get
+    sorted_books = Book.objects.search_books(request.user, query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 68, in search_books
+    search_results = open_search_service.search(query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py", line 102, in search
+    response = self.client.search(index=self.index_name, body=search_query)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/utils.py", line 180, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/__init__.py", line 2359, in search
+    return self.transport.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 455, in perform_request
+    raise e
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 416, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 216, in perform_request
+    raise ConnectionTimeout("TIMEOUT", str(e), e)
+opensearchpy.exceptions.ConnectionTimeout: ConnectionTimeout caused by - ReadTimeout(HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10))
+ERROR 2025-01-18 22:59:45,375 log 99012 140459837462080 Internal Server Error: /api/search/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1303, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1159, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 199, in perform_request
+    response = self.session.send(prepared_request, **send_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 161, in get
+    sorted_books = Book.objects.search_books(request.user, query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py", line 68, in search_books
+    search_results = open_search_service.search(query)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py", line 102, in search
+    response = self.client.search(index=self.index_name, body=search_query)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/utils.py", line 180, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/client/__init__.py", line 2359, in search
+    return self.transport.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 455, in perform_request
+    raise e
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/transport.py", line 416, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/opensearchpy/connection/http_requests.py", line 216, in perform_request
+    raise ConnectionTimeout("TIMEOUT", str(e), e)
+opensearchpy.exceptions.ConnectionTimeout: ConnectionTimeout caused by - ReadTimeout(HTTPSConnectionPool(host='search-bookrank-testing-6jgeuos7njdnqf5yzhbutmoea4.us-east-2.es.amazonaws.com', port=443): Read timed out. (read timeout=10))
+ERROR 2025-01-19 02:44:40,676 log 99012 140459828020800 Internal Server Error: /api/search/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 275, in ensure_connection
+    self.connect()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 277, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "bookrank-postgres-db-do-user-17087350-0.m.db.ondigitalocean.com" (104.131.174.240), port 25060 failed: could not receive data from server: Connection timed out
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 316, in cursor
+    return self._cursor()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 292, in _cursor
+    self.ensure_connection()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 274, in ensure_connection
+    with self.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 275, in ensure_connection
+    self.connect()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 277, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "bookrank-postgres-db-do-user-17087350-0.m.db.ondigitalocean.com" (104.131.174.240), port 25060 failed: could not receive data from server: Connection timed out
+
+ERROR 2025-01-19 02:44:40,689 log 99012 140459837462080 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 275, in ensure_connection
+    self.connect()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 277, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "bookrank-postgres-db-do-user-17087350-0.m.db.ondigitalocean.com" (104.131.174.240), port 25060 failed: could not receive data from server: Connection timed out
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 196, in authenticate
+    return self.authenticate_credentials(token)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/authentication.py", line 201, in authenticate_credentials
+    token = model.objects.select_related('user').get(key=key)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 316, in cursor
+    return self._cursor()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 292, in _cursor
+    self.ensure_connection()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 274, in ensure_connection
+    with self.wrap_database_errors:
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 275, in ensure_connection
+    self.connect()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 277, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "bookrank-postgres-db-do-user-17087350-0.m.db.ondigitalocean.com" (104.131.174.240), port 25060 failed: could not receive data from server: Connection timed out
+

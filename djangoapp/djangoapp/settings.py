@@ -24,12 +24,17 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
             'style': '{',
         },
         'simple': {
             'format': '{levelname} {message}',
             'style': '{',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
         },
     },
     'handlers': {
@@ -59,34 +64,44 @@ LOGGING = {
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'formatter': 'simple'
+            'formatter': 'verbose'
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['debug_file', 'console'],
+            'handlers': ['debug_file'],
             'level': 'INFO',
-            'propagate': True,
+            'propagate': False,
         },
         'django.debug': {
             'handlers': ['debug_file'],
             'level': 'DEBUG',
-            'propagate': True,
+            'propagate': False,
         },
         'django.info': {
-            'handlers': ['info_file', 'console'],
+            'handlers': ['info_file'],
             'level': 'INFO',
-            'propagate': True,
+            'propagate': False,
         },
         'django.request': {
-            'handlers': ['error_file', 'console'],
+            'handlers': ['error_file'],
             'level': 'ERROR',
-            'propagate': True,
+            'propagate': False,
         },
         'celery': {
             'handlers': ['celery_file'],
             'level': 'DEBUG',
             'propagate': True,
+        },
+        'djangoapp.middleware': {
+            'handlers': ['info_file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
         },
     },
 }
@@ -178,6 +193,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "djangoapp.middleware.TimingMiddleware",
 ]
 
 ROOT_URLCONF = "djangoapp.urls"

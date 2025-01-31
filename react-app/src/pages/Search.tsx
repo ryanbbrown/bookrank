@@ -5,6 +5,9 @@ import { RateModal } from '../components/RateModal';
 import { CompareModal } from '../components/CompareModal';
 import { ApiResponse, UserBook, Bucket, Book, BookStatus } from '../types/types';
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import { BookRow } from '../components/BookRow';
+import { Search as SearchIcon } from "lucide-react";
+import { useBookComparison } from '../hooks/useBookComparison';
 
 interface SearchResult {
     book: Book;
@@ -19,12 +22,8 @@ type RankingState =
 
 function Search() {
     const queryClient = useQueryClient();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const query = searchParams.get('q') || '';
-    const [searchInput, setSearchInput] = useState(query);
-
-    const [rankingState, setRankingState] = useState<RankingState>({ type: 'idle' });
-
 
     // SEARCH
     const { data: searchResults = [], isLoading } = useQuery({
@@ -38,13 +37,27 @@ function Search() {
         enabled: query.length > 0,
     });
 
-    const handleSearch = (event: React.FormEvent) => {
-        event.preventDefault();
-        if (!searchInput) return;
-        setSearchParams({ q: searchInput });
-    };
+    const [rankingState, setRankingState] = useState<RankingState>({ type: 'idle' });
 
-    
+    const { getComparisonMutation, handleComparisonClick: handleComparisonClickBase } = useBookComparison({
+        onNoMoreComparisons: () => setRankingState({ type: 'idle' })
+    });
+
+    // Use an effect to trigger the mutation when entering comparing state
+    useEffect(() => {
+        if (rankingState.type === 'comparing') {
+            getComparisonMutation.mutate(rankingState.book.work_id);
+        }
+    }, [rankingState.type]);
+
+    const handleComparisonClick = (o: number) => {
+        if (rankingState.type !== 'comparing' || !getComparisonMutation.data) return;
+        handleComparisonClickBase(
+            rankingState.book.work_id,
+            getComparisonMutation.data.work_id,
+            o
+        );
+    };
 
     // ADD FINISHED BOOK
     const addFinishedBookMutation = useMutation({
@@ -108,59 +121,6 @@ function Search() {
 
 
 
-    // GET COMPARISON
-    const { data: comparisonData } = useQuery({
-        queryKey: ['comparison', rankingState.type === 'comparing' ? rankingState.book.work_id : null],
-        queryFn: async () => {
-            const response = await axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-                params: { work_id: (rankingState as { type: 'comparing', book: Book }).book.work_id }
-            });
-            return response.data.data || null;
-        },
-        enabled: rankingState.type === 'comparing',
-    });
-    // not sure if I can avoid this, for now seems fine
-    useEffect(() => {
-        if (comparisonData === null && rankingState.type === 'comparing') {
-            setRankingState({ type: 'idle' });
-        }
-    }, [comparisonData]);
-
-
-
-    // COMPLETE COMPARISON
-    const comparisonClickMutation = useMutation({
-        mutationFn: async ({ newBookId, existingBookId, outcome }: { newBookId: string, existingBookId: string, outcome: number }) => {
-            return axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
-                new_book_id: newBookId,
-                existing_book_id: existingBookId,
-                outcome,
-            });
-        },
-        onSuccess: (_, { outcome }) => {
-            if (rankingState.type === 'comparing') {
-                queryClient.invalidateQueries({ queryKey: ['comparison', rankingState.book.work_id] });
-            }
-            if (outcome !== -1) {
-                // only invalidate if the books were NOT marked as "not comparable"
-                queryClient.invalidateQueries({ queryKey: ['books'] });
-                queryClient.invalidateQueries({ queryKey: ['userData'] });
-            }
-        }
-    });
-
-    const handleComparisonClick = (o: number) => {
-        if (rankingState.type !== 'comparing' || !comparisonData) return;
-        
-        comparisonClickMutation.mutate({
-            newBookId: rankingState.book.work_id,
-            existingBookId: comparisonData.work_id,
-            outcome: o,
-        });
-    };
-
-
-
     // MISC
     const handleRowClick = (searchResult: SearchResult) => {
         setRankingState({ type: 'rating', search_result: searchResult });
@@ -182,88 +142,46 @@ function Search() {
 
     return (
         <div className="search-page container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2 gap-4">
-            <h1 className="text-4xl font-bold mb-4 text-center">Search</h1>
-            <div className="w-full flex flex-col items-center justify-center">
-                <form onSubmit={handleSearch} className="flex w-2/3">
-                    <input
-                        type="text"
-                        placeholder="Search for a book title or author"
-                        value={searchInput}
-                        onChange={(e) => setSearchInput(e.target.value)}
-                        className="flex-grow p-2 pl-10 text-sm text-black rounded-l bg-gray-200 outline-none"
+            <h1 className="text-4xl font-bold mb-4 text-center">Search Results</h1>
+            <div className="search-results space-y-4">
+                {searchResults?.map((searchResult) => (
+                    <BookRow
+                        key={searchResult.book.work_id}
+                        book={searchResult.book}
+                        is_search_result={true}
+                        onClick={() => handleRowClick(searchResult)}
                     />
-                    <button
-                        type="submit"
-                        className="p-2 text-sm bg-gray-200 rounded-r flex items-center justify-center"
-                    >
-                        <i className="fas fa-search"></i>
-                    </button>
-                </form>
+                ))}
             </div>
-            <div className="search-results">
-                {searchResults.length > 0 && (
-                    <table className="w-full text-sm">
-                        <thead>
-                            <tr className="bg-gray-200">
-                                <th className="px-4 py-2 text-center text-lg rounded-l">Cover</th>
-                                <th className="px-4 py-2 text-center text-lg">Title</th>
-                                <th className="px-4 py-2 text-center text-lg">Author</th>
-                                <th className="px-4 py-2 text-center text-lg">Avg Rating</th>
-                                <th className="px-4 py-2 text-center text-lg rounded-r"># Ratings</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {searchResults.map((searchResult) => (
-                                <tr 
-                                    key={searchResult.book.work_id} 
-                                    onClick={() => handleRowClick(searchResult)} 
-                                    className="hover:bg-gray-100"
-                                >
-                                    <td className="px-4 py-2 text-center rounded-l">
-                                        <img src={searchResult.book.image_url} alt={searchResult.book.title} className="inline-block rounded" />
-                                    </td>
-                                    <td className="text-center">{searchResult.book.title}</td>
-                                    <td className="text-center">{searchResult.book.author}</td>
-                                    <td className="text-center">
-                                        {searchResult.book.average_rating ? searchResult.book.average_rating.toFixed(2) : '—'}
-                                    </td>
-                                    <td className="text-center rounded-r">
-                                        {searchResult.book.ratings_count.toLocaleString()}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
 
-                {rankingState.type === 'rating' && (
-                    <RateModal
-                        onClickFunction={handleAddFinishedBook}
-                        exitFunction={handleExit}
-                        addTBRFunction={handleAddTBR}
-                        book={rankingState.search_result.book}
-                        status={(() => {
-                            if (rankingState.search_result.in_library && rankingState.search_result.in_tbr) {
-                                console.error("Book cannot be in both library and TBR");
-                                return "SHOW_RATE_BUTTONS";
-                            }
-                            
-                            if (rankingState.search_result.in_library) return "SHOW_IN_LIBRARY";
-                            if (rankingState.search_result.in_tbr) return "SHOW_IN_TBR";
+            {rankingState.type === 'rating' && (
+                <RateModal
+                    onClickFunction={handleAddFinishedBook}
+                    exitFunction={handleExit}
+                    addTBRFunction={handleAddTBR}
+                    book={rankingState.search_result.book}
+                    status={(() => {
+                        if (rankingState.search_result.in_library && rankingState.search_result.in_tbr) {
+                            console.error("Book cannot be in both library and TBR");
                             return "SHOW_RATE_BUTTONS";
-                        })()}
-                    />
-                )}
-                
-                {rankingState.type === 'comparing' && comparisonData && (
-                    <CompareModal
-                        handleComparisonClick={handleComparisonClick}
-                        selectedBook={rankingState.book}
-                        comparedBook={comparisonData}
-                        exitFunction={handleExit}
-                    />
-                )}
-            </div>
+                        }
+                        
+                        if (rankingState.search_result.in_library) return "SHOW_IN_LIBRARY";
+                        if (rankingState.search_result.in_tbr) return "SHOW_IN_TBR";
+                        return "SHOW_RATE_BUTTONS";
+                    })()}
+                />
+            )}
+            
+            {rankingState.type === 'comparing' && (
+                <CompareModal
+                    handleComparisonClick={handleComparisonClick}
+                    selectedBook={rankingState.book}
+                    comparedBook={getComparisonMutation.data}
+                    exitFunction={handleExit}
+                    isLoading={getComparisonMutation.isPending}
+                />
+            )}
         </div>
     );
 }

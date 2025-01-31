@@ -8,6 +8,7 @@ import { Button } from "../components/ui/button";
 import { MultiSelect } from '../components/ui/MultiSelect';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useBookComparison } from '../hooks/useBookComparison';
 
 
 interface ComparisonParams {
@@ -53,6 +54,7 @@ function MyBooks() {
     const [sortDirection, setSortDirection] = useState<SortDirection>(defaultSortDirections["normalized_rating"]);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
     const [selectedBookTypes, setSelectedBookTypes] = useState<string[]>([]);
+    const [justRankedBookId, setJustRankedBookId] = useState<string | null>(null);
 
 
     const [currentPage, setCurrentPage] = useState(0);
@@ -67,7 +69,7 @@ function MyBooks() {
     const PER_PAGE = 10;
 
     // BOOK AND USER DATA useQuery HOOKS
-    const { data: booksData, isLoading: isBooksLoading } = useQuery({
+    const { data: booksData, isLoading: isBooksLoading, isFetching: isBooksFetching } = useQuery({
         queryKey: ['books', status],
         queryFn: async () => {
             const response = await axiosInstance.get<ApiResponse<Array<UserBook>>>('api/userbooks/', {
@@ -75,6 +77,7 @@ function MyBooks() {
             });
             return response.data.data || [];
         },
+        refetchOnWindowFocus: false,
     });
 
     const { data: userData, isLoading: isUserDataLoading } = useQuery({
@@ -93,7 +96,9 @@ function MyBooks() {
         mutationFn: (workId: string) => 
             axiosInstance.delete<ApiResponse<never>>(`api/userbooks/${workId}/`),
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['books'] });
+            queryClient.invalidateQueries({ 
+                queryKey: ['books', status]
+            });
         }
     });
 
@@ -180,43 +185,10 @@ function MyBooks() {
 
 
 
-    // GET NEXT UNRANKED BOOK
-    // const { data: unrankedBook, refetch: refetchUnrankedBook } = useQuery({
-    //     queryKey: ['unrankedBook'],
-    //     queryFn: async () => {
-    //         const response = await axiosInstance.get<ApiResponse<UserBook>>('api/unranked-books/');
-    //         return response.data.data || null;
-    //     },
-    //     enabled: false, // Don't fetch automatically
-    // });
-
-    // const handleRankUnrankedClick = () => {
-    //     setGetNextUnranked(true);
-    //     refetchUnrankedBook().then(({ data: book }) => {
-    //         if (!book) {
-    //             setRankingState({ type: 'idle' });
-    //             return;
-    //         }
-    //         if (book.bucket === null) {
-    //             setRankingState({ type: 'rating', book });
-    //         } else {
-    //             setRankingState({ type: 'comparing', book });
-    //         }
-    //     });
-    // };
-
-    // const unrankedBooks = useMemo(() => {
-    //     if (!booksData) return [];
-    //     // Filter for Skysworn book
-    //     return [...booksData]
-    //         .filter(book => !book.is_ranked)
-    //         .sort((a, b) => new Date(a.date_added).getTime() - new Date(b.date_added).getTime());
-    // }, [booksData]);
-
     const firstUnrankedBook = useMemo(() => {
         if (!booksData) return null;
         const unrankedBooks = [...booksData]
-            .filter(book => !book.is_ranked)
+            .filter(book => !book.is_ranked && book.work_id !== justRankedBookId)
             .sort((a, b) => new Date(a.date_added).getTime() - new Date(b.date_added).getTime());
         console.log('unrankedBooks:', unrankedBooks[0]);
         return unrankedBooks[0] || null;
@@ -230,79 +202,37 @@ function MyBooks() {
         }
     };
 
+
+
+    const { getComparisonMutation, handleComparisonClick: handleComparisonClickBase } = useBookComparison({
+        setJustRankedBookId,
+        onNoMoreComparisons: () => setRankingState({ type: 'idle' }),
+        getNextUnranked
+    });
+
+    // Use an effect to trigger the mutation when entering comparing state
     useEffect(() => {
-        console.log('firstUnrankedBook:', firstUnrankedBook);
-        console.log('getNextUnranked:', getNextUnranked);
-        console.log('rankingState.type:', rankingState.type);
-        if (getNextUnranked && rankingState.type === 'idle' && firstUnrankedBook) {
-            // const firstUnrankedBook = unrankedBooks[0];
+        if (rankingState.type === 'comparing') {
+            getComparisonMutation.mutate(rankingState.book.work_id);
+        }
+    }, [rankingState.type]);
+
+    useEffect(() => {
+        if (getNextUnranked && firstUnrankedBook) {
             setRankingState({ type: 'rating', book: firstUnrankedBook })
         }
     }, [firstUnrankedBook?.work_id]);
 
 
-    // if (getNextUnranked && rankingState.type === 'idle' && unrankedBooks.length > 0) {
-    //     const firstUnrankedBook = unrankedBooks[0];
-    //     setRankingState({ type: 'rating', book: firstUnrankedBook })
-        // if (firstUnrankedBook.bucket === null) {
-        //     setRankingState({ type: 'rating', book: firstUnrankedBook });
-        // } else {
-        //     setRankingState({ type: 'comparing', book: firstUnrankedBook });
-        // }
-    // }
-
-
-
-    // GET COMPARISON
-    const { data: comparisonData } = useQuery({
-        queryKey: ['comparison', rankingState.type === 'comparing' ? rankingState.book.work_id : null],
-        queryFn: async () => {
-            const response = await axiosInstance.get<ApiResponse<UserBook>>('api/compare-book/', {
-                params: { work_id: (rankingState as { type: 'comparing', book: UserBook }).book.work_id }
-            });
-            return response.data.data || null;
-        },
-        enabled: rankingState.type === 'comparing',
-    });
-
-    // if you're done comparing the book, set the ranking state to idle
-    useEffect(() => {
-        if (comparisonData === null && rankingState.type === 'comparing') {
-            setRankingState({ type: 'idle' });
-            queryClient.invalidateQueries({ queryKey: ['books'] });
-            queryClient.invalidateQueries({ queryKey: ['userData'] });
-        }
-    }, [comparisonData]);
-
-
 
     // COMPLETE COMPARISON
-    const compareBookMutation = useMutation({
-        mutationFn: ({ newBookId, existingBookId, outcome }: { newBookId: string, existingBookId: string, outcome: number }) =>
-            axiosInstance.post<ApiResponse<never>>('api/compare-book/', {
-                new_book_id: newBookId,
-                existing_book_id: existingBookId,
-                outcome: outcome,
-            }),
-        onSuccess: (_, { outcome, newBookId }) => {
-            if (rankingState.type === 'comparing') {
-                queryClient.invalidateQueries({ queryKey: ['comparison', rankingState.book.work_id] });
-            }
-            if (outcome !== -1) {
-                // only invalidate if the books were NOT marked as "not comparable"
-                queryClient.invalidateQueries({ queryKey: ['books'] });
-                queryClient.invalidateQueries({ queryKey: ['userData'] });
-            }
-        }
-    });
-
     const handleComparisonClick = (o: number) => {
-        if (rankingState.type !== 'comparing' || !comparisonData) return;
-        compareBookMutation.mutate({
-            newBookId: rankingState.book.work_id,
-            existingBookId: comparisonData.work_id,
-            outcome: o,
-        });
+        if (rankingState.type !== 'comparing' || !getComparisonMutation.data) return;
+        handleComparisonClickBase(
+            rankingState.book.work_id,
+            getComparisonMutation.data.work_id,
+            o
+        );
     };
 
     
@@ -531,10 +461,11 @@ function MyBooks() {
                     }}
                     book={rankingState.book}
                     status="SHOW_RATE_BUTTONS"
+                    isLoading={isBooksFetching}
                 />
             )}
 
-            {rankingState.type === 'comparing' && comparisonData && (
+            {rankingState.type === 'comparing' && (
                 <CompareModal
                     handleComparisonClick={handleComparisonClick}
                     exitFunction={() => {
@@ -542,7 +473,8 @@ function MyBooks() {
                         setRankingState({ type: 'idle' });
                     }}
                     selectedBook={rankingState.book}
-                    comparedBook={comparisonData}
+                    comparedBook={getComparisonMutation.data}
+                    isLoading={getComparisonMutation.isPending}
                 />
             )}
         </div>

@@ -55031,3 +55031,257 @@ INFO 2025-01-05 06:27:40,436 basehttp "GET /api/user/ HTTP/1.0" 200 225
 INFO 2025-01-05 06:27:40,743 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59489
 INFO 2025-01-05 06:27:40,965 basehttp "GET /api/user/ HTTP/1.0" 200 225
 INFO 2025-01-05 06:27:41,564 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59489
+INFO 2025-01-17 03:34:26,238 autoreload Watching for file changes with StatReloader
+INFO 2025-01-17 03:38:41,280 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-17 03:38:43,446 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:38:43,513 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59489
+INFO 2025-01-17 03:39:05,992 basehttp "PATCH /api/userbooks/1708725/ HTTP/1.0" 200 54
+INFO 2025-01-17 03:39:06,561 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:39:06,663 basehttp "POST /api/compare-book/ HTTP/1.0" 200 592
+INFO 2025-01-17 03:39:14,530 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:39:15,074 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:39:15,090 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:40:01,469 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:40:01,863 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:40:59,299 basehttp "PATCH /api/userbooks/1708725/ HTTP/1.0" 200 54
+INFO 2025-01-17 03:40:59,640 basehttp "POST /api/compare-book/ HTTP/1.0" 200 1173
+INFO 2025-01-17 03:40:59,838 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:41:01,495 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:41:02,205 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:41:02,296 basehttp "POST /api/compare-book/ HTTP/1.0" 200 1887
+INFO 2025-01-17 03:41:02,617 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:41:08,773 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:41:09,335 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:41:09,409 basehttp "POST /api/compare-book/ HTTP/1.0" 200 592
+INFO 2025-01-17 03:41:09,655 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:41:18,456 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:41:19,155 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:41:19,216 basehttp "POST /api/compare-book/ HTTP/1.0" 200 62
+INFO 2025-01-17 03:41:19,434 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:41:19,475 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59500
+INFO 2025-01-17 03:41:20,384 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59499
+INFO 2025-01-17 03:42:35,815 basehttp "PATCH /api/userbooks/51106215/ HTTP/1.0" 200 54
+INFO 2025-01-17 03:42:36,421 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59510
+INFO 2025-01-17 03:42:36,433 basehttp "POST /api/compare-book/ HTTP/1.0" 200 1173
+INFO 2025-01-17 03:42:38,819 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:42:39,376 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:42:39,424 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59510
+INFO 2025-01-17 03:42:39,454 basehttp "POST /api/compare-book/ HTTP/1.0" 200 1887
+INFO 2025-01-17 03:42:41,218 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:42:41,802 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:42:41,819 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59510
+INFO 2025-01-17 03:42:41,888 basehttp "POST /api/compare-book/ HTTP/1.0" 200 592
+INFO 2025-01-17 03:42:45,229 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:42:45,513 basehttp "POST /api/compare-book/ HTTP/1.0" 200 1269
+INFO 2025-01-17 03:42:49,302 basehttp "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-17 03:42:49,857 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:42:49,897 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59510
+INFO 2025-01-17 03:42:49,927 basehttp "POST /api/compare-book/ HTTP/1.0" 200 62
+INFO 2025-01-17 03:42:50,496 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-17 03:42:50,814 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59509
+INFO 2025-01-18 18:55:21,896 autoreload Watching for file changes with StatReloader
+INFO 2025-01-18 18:56:46,448 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 18:56:52,077 autoreload Watching for file changes with StatReloader
+INFO 2025-01-18 18:58:42,729 autoreload Watching for file changes with StatReloader
+INFO 2025-01-18 18:58:52,716 basehttp "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-18 18:59:34,982 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-18 18:59:35,234 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59509
+INFO 2025-01-18 19:10:53,444 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:11:06,927 autoreload Watching for file changes with StatReloader
+INFO 2025-01-18 19:11:14,940 basehttp "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-18 19:11:15,292 basehttp "GET /api/userbooks/?status=read HTTP/1.0" 200 59509
+INFO 2025-01-18 19:11:26,697 basehttp "GET /api/userbooks/?status=to_be_read HTTP/1.0" 200 67
+INFO 2025-01-18 19:11:30,344 basehttp "GET /api/userbooks/?status=currently_reading HTTP/1.0" 200 67
+ERROR 2025-01-18 19:13:34,540 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/middleware.py", line 19, in __call__
+    if request.method in ['POST', 'PATCH'] and hasattr(request, 'body'):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/http/request.py", line 328, in body
+    raise RawPostDataException(
+django.http.request.RawPostDataException: You cannot access body after reading from request's data stream
+ERROR 2025-01-18 19:13:34,551 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 500 70504
+INFO 2025-01-18 19:15:49,031 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/middleware.py changed, reloading.
+INFO 2025-01-18 19:16:03,140 autoreload Watching for file changes with StatReloader
+ERROR 2025-01-18 19:16:21,012 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 281, in partial_update
+    serializer = UserBookUpdateSerializer(data=request.data)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 220, in data
+    self._load_data_and_files()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 283, in _load_data_and_files
+    self._data, self._files = self._parse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 333, in _parse
+    stream = self.stream
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 207, in stream
+    self._load_stream()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 313, in _load_stream
+    self._stream = io.BytesIO(self.body)
+TypeError: a bytes-like object is required, not 'str'
+ERROR 2025-01-18 19:16:21,054 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 500 124362
+ERROR 2025-01-18 19:16:50,543 log Internal Server Error: /api/userbooks/52911130/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py", line 281, in partial_update
+    serializer = UserBookUpdateSerializer(data=request.data)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 220, in data
+    self._load_data_and_files()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 283, in _load_data_and_files
+    self._data, self._files = self._parse()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 333, in _parse
+    stream = self.stream
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 207, in stream
+    self._load_stream()
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/request.py", line 313, in _load_stream
+    self._stream = io.BytesIO(self.body)
+TypeError: a bytes-like object is required, not 'str'
+ERROR 2025-01-18 19:16:50,580 basehttp "PATCH /api/userbooks/52911130/ HTTP/1.0" 500 124362
+INFO 2025-01-18 19:18:11,404 autoreload /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:21:52,647 autoreload 16451 140029903310848 Watching for file changes with StatReloader
+INFO 2025-01-18 19:21:56,898 basehttp 16451 140029273826880 "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-18 19:22:04,035 basehttp 16451 140029273826880 "PATCH /api/compare-book/ HTTP/1.0" 200 56
+INFO 2025-01-18 19:22:04,593 basehttp 16451 140029264385600 "GET /api/user/ HTTP/1.0" 200 225
+INFO 2025-01-18 19:22:04,653 basehttp 16451 140029254944320 "POST /api/compare-book/ HTTP/1.0" 200 1173
+INFO 2025-01-18 19:22:04,972 basehttp 16451 140029273826880 "GET /api/userbooks/?status=read HTTP/1.0" 200 59520
+INFO 2025-01-18 19:22:52,396 autoreload 16451 140029903310848 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:27:17,653 autoreload 19403 139797243154432 Watching for file changes with StatReloader
+ERROR 2025-01-18 19:27:23,147 log 19403 139796613686848 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:27:23,190 basehttp 19403 139796613686848 "GET /api/userbooks/?status=to_be_read HTTP/1.0" 500 100668
+ERROR 2025-01-18 19:27:24,581 log 19403 139796613686848 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:27:24,611 basehttp 19403 139796613686848 "GET /api/userbooks/?status=to_be_read HTTP/1.0" 500 100668
+INFO 2025-01-18 19:28:34,826 autoreload 19403 139797243154432 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:28:48,415 autoreload 20190 140321480863744 Watching for file changes with StatReloader
+INFO 2025-01-18 19:30:06,385 autoreload 20190 140321480863744 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:33:15,116 autoreload 3739 139886729510912 Watching for file changes with StatReloader
+INFO 2025-01-18 19:33:20,640 basehttp 3739 139886099682880 "POST /api/login/ HTTP/1.0" 200 111
+INFO 2025-01-18 19:33:30,520 basehttp 3739 139886090241600 "GET /api/user/ HTTP/1.0" 200 225
+ERROR 2025-01-18 19:33:31,112 log 3739 139886099682880 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:33:31,151 basehttp 3739 139886099682880 "GET /api/userbooks/?status=read HTTP/1.0" 500 100970
+ERROR 2025-01-18 19:33:32,751 log 3739 139886099682880 Internal Server Error: /api/userbooks/
+Traceback (most recent call last):
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/mnt/c/Users/ryanb/Desktop/new_code/bookrank/.linux-venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/decorators.py", line 19, in inner
+    args[0].build_absolute_uri(),
+AttributeError: 'UserBooksViewSet' object has no attribute 'build_absolute_uri'
+ERROR 2025-01-18 19:33:32,779 basehttp 3739 139886099682880 "GET /api/userbooks/?status=read HTTP/1.0" 500 100970
+INFO 2025-01-18 19:34:29,692 autoreload 3739 139886729510912 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/middleware.py changed, reloading.
+INFO 2025-01-18 19:34:44,396 autoreload 4526 139946422747136 Watching for file changes with StatReloader
+INFO 2025-01-18 19:35:43,231 autoreload 5136 139916473438208 Watching for file changes with StatReloader
+INFO 2025-01-18 19:36:07,306 autoreload 5136 139916473438208 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2025-01-18 19:36:20,260 autoreload 5478 139677012918272 Watching for file changes with StatReloader
+INFO 2025-01-18 19:36:26,711 middleware 5478 139676383045184 GET /api/userbooks/ took 0.47s
+INFO 2025-01-18 19:36:26,770 basehttp 5478 139676383045184 "GET /api/userbooks/?status=read HTTP/1.0" 200 59520
+INFO 2025-01-18 19:37:52,165 autoreload 5478 139677012918272 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/settings.py changed, reloading.
+INFO 2025-01-18 19:38:05,481 autoreload 6380 140345976197120 Watching for file changes with StatReloader
+INFO 2025-01-18 20:42:10,872 autoreload 35559 139892507308032 Watching for file changes with StatReloader
+INFO 2025-01-18 21:41:59,494 autoreload 61767 140484946485248 Watching for file changes with StatReloader
+INFO 2025-01-18 22:56:23,372 autoreload 99012 140460468977664 Watching for file changes with StatReloader
+INFO 2025-01-20 22:31:20,794 autoreload 99012 140460468977664 /usr/lib/python3.10/mimetypes.py changed, reloading.
+INFO 2025-01-20 22:31:53,968 autoreload 298480 139936746582016 Watching for file changes with StatReloader
