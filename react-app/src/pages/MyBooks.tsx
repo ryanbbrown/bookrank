@@ -153,8 +153,15 @@ function MyBooks() {
     };
 
 
+    const addRecommendationsMutation = useMutation({
+        mutationFn: async ({ work_id }: { work_id: string }) => {
+            return axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
+                work_id
+            });
+        }
+    });
 
-    // UPDATE BOOK BUCKET
+    // Update the existing updateBucketMutation
     const updateBucketMutation = useMutation({
         mutationFn: ({ workId, status, bucket }: { workId: string, status: BookStatus, bucket: Bucket }) =>
             axiosInstance.patch<ApiResponse<never>>(`api/userbooks/${workId}/`, {
@@ -170,6 +177,12 @@ function MyBooks() {
                 });
             }
             queryClient.invalidateQueries({ queryKey: ['books'] });
+
+            // Add recommendations if bucket is high
+            if (variables.bucket === 'high') {
+                addRecommendationsMutation.mutate({ work_id: variables.workId });
+                queryClient.invalidateQueries({ queryKey: ['recommendations'] });
+            }
         }
     });
 

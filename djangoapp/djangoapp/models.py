@@ -341,12 +341,11 @@ class TBRBook(AbstractBook):
 
 
 class UserRecommendationManager(models.Manager):
-
-    def get_unviewed_recommendation(self, user):
+    def get_unviewed_recommendations(self, user, limit=5):
         """
-        Fetches the highest-scoring unviewed recommendation for the user.
+        Fetches up to 5 highest-scoring unviewed recommendations for the user.
         """
-        return self.filter(user=user, viewed=False).order_by('-score').first()
+        return self.filter(user=user, viewed=False).order_by('-score')[:limit]
 
     def mark_recommendation_as_viewed(self, user, work_id):
         """
@@ -354,7 +353,7 @@ class UserRecommendationManager(models.Manager):
         """
         self.filter(user=user, work_id=work_id).update(viewed=True)
 
-    def add_recommendations_from_seed(self, user, work_id, max_recommendations=3):
+    def add_recommendations_from_seed(self, user, work_id, max_recommendations=7):
         """
         Given a seed book, fetches recommendations and adds them to the database.
         Returns number of recommendations added.
@@ -396,6 +395,28 @@ class UserRecommendationManager(models.Manager):
                     continue
 
         return added_recs
+
+    def delete_similar_recommendation(self, user, work_id):
+        """
+        Given a work_id that the user wasn't interested in,
+        finds and deletes the most similar recommendation.
+        """
+        # Get all unviewed recommendations for this user
+        unviewed_recs = self.filter(user=user, viewed=False).exclude(work_id=work_id)
+        all_work_ids = list(unviewed_recs.values_list('work_id', flat=True)) + [work_id]
+        
+        if not all_work_ids:
+            return
+            
+        # Get the most similar work_id to remove
+        work_to_remove = pinecone_service.get_work_to_remove(all_work_ids, work_id)
+        
+        # Delete that work
+        if work_to_remove:
+            self.filter(user=user, work_id=work_to_remove).delete()
+        
+        
+        
 
 
 

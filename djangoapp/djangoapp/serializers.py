@@ -18,15 +18,19 @@ class UserBookSerializer(serializers.ModelSerializer):
             'genre', 'book_type', 'status', 'date_finished',
         ]
 
-class UserRecommendationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserRecommendation
-        fields = ['work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'score']
+
 
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ['work_id', 'title', 'author', 'description', 'image_url', 'book_type', 'genre', 'ratings_count', 'average_rating']
+
+class UserRecommendationSerializer(serializers.ModelSerializer):
+    reference_book = BookSerializer()
+    
+    class Meta:
+        model = UserRecommendation
+        fields = ['work_id', 'title', 'author', 'description', 'image_url', 'viewed', 'score', 'reference_book']
 
 class BookSearchResultSerializer(serializers.Serializer):
     book = BookSerializer()

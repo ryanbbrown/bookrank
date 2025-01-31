@@ -392,17 +392,17 @@ class RecommendationView(APIView):
     """
     def get(self, request):
         """
-        Fetches the highest-scoring unviewed recommendation for the current user.
+        Fetches up to 5 highest-scoring unviewed recommendations for the current user.
         """
         user = request.user
-        recommendation = UserRecommendation.objects.get_unviewed_recommendation(user)
+        recommendations = UserRecommendation.objects.get_unviewed_recommendations(user)
         
-        if recommendation:
-            serializer = UserRecommendationSerializer(recommendation)
+        if recommendations:
+            serializer = UserRecommendationSerializer(recommendations, many=True)
             return Response({
                 'success': True,
                 'data': serializer.data,
-                'message': 'Recommendation retrieved successfully'
+                'message': 'Recommendations retrieved successfully'
             })
         else:
             return Response({
@@ -444,6 +444,23 @@ class RecommendationView(APIView):
         return Response({
             'success': True,
             'message': f'Added {added_count} recommendations successfully'
+        })
+
+    def delete(self, request):
+        """
+        Deletes the most similar recommendation to the one provided.
+        """
+        serializer = RecommendationViewSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        
+        UserRecommendation.objects.delete_similar_recommendation(
+            user=request.user,
+            work_id=serializer.validated_data['work_id']
+        )
+
+        return Response({
+            'success': True,
+            'message': 'Similar recommendation removed successfully'
         })
 
 

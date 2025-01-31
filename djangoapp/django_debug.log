@@ -55285,3 +55285,22 @@ INFO 2025-01-18 21:41:59,494 autoreload 61767 140484946485248 Watching for file 
 INFO 2025-01-18 22:56:23,372 autoreload 99012 140460468977664 Watching for file changes with StatReloader
 INFO 2025-01-20 22:31:20,794 autoreload 99012 140460468977664 /usr/lib/python3.10/mimetypes.py changed, reloading.
 INFO 2025-01-20 22:31:53,968 autoreload 298480 139936746582016 Watching for file changes with StatReloader
+INFO 2025-01-31 17:19:47,248 autoreload 41535 139638051598336 Watching for file changes with StatReloader
+INFO 2025-01-31 18:36:47,954 autoreload 41535 139638051598336 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/serializers.py changed, reloading.
+INFO 2025-01-31 18:37:06,627 autoreload 75218 140101305143296 Watching for file changes with StatReloader
+INFO 2025-01-31 18:48:22,035 autoreload 75218 140101305143296 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-31 18:48:40,194 autoreload 80618 140111272792064 Watching for file changes with StatReloader
+INFO 2025-01-31 19:03:44,180 autoreload 80618 140111272792064 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-31 19:04:00,874 autoreload 88143 140265076736000 Watching for file changes with StatReloader
+INFO 2025-01-31 19:39:15,907 autoreload 88143 140265076736000 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2025-01-31 19:39:32,683 autoreload 104026 140677998759936 Watching for file changes with StatReloader
+INFO 2025-01-31 19:48:12,158 autoreload 104026 140677998759936 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-31 19:48:29,170 autoreload 107759 140031803531264 Watching for file changes with StatReloader
+INFO 2025-01-31 19:51:41,988 autoreload 107759 140031803531264 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/views.py changed, reloading.
+INFO 2025-01-31 19:52:03,029 autoreload 109317 140098532397056 Watching for file changes with StatReloader
+INFO 2025-01-31 19:55:40,306 autoreload 109317 140098532397056 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-31 19:56:37,082 autoreload 111996 140469744992256 Watching for file changes with StatReloader
+INFO 2025-01-31 19:57:45,111 autoreload 111996 140469744992256 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/models.py changed, reloading.
+INFO 2025-01-31 19:58:24,261 autoreload 113052 140139837607936 Watching for file changes with StatReloader
+INFO 2025-01-31 20:00:58,608 autoreload 113052 140139837607936 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/services.py changed, reloading.
+INFO 2025-01-31 20:01:15,356 autoreload 114416 140268850057216 Watching for file changes with StatReloader

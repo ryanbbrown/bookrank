@@ -1,82 +1,141 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axiosInstance from '../axiosConfig';
 import { Button } from '../components/ui/button';
-import { ApiResponse, Book } from '../types/types';
+import { ApiResponse, Book, BookStatus } from '../types/types';
 
 function Recommendations() {
-    const [recommendation, setRecommendation] = useState<Book | null>(null);
+    const queryClient = useQueryClient();
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const fetchRecommendation = () => {
-        axiosInstance.get<ApiResponse<Book>>('api/recommendations')
-            .then(response => {
-                setRecommendation(response.data.data || null);
+    const { data: recommendations = [], isLoading, isFetching } = useQuery({
+        queryKey: ['recommendations'],
+        queryFn: async () => {
+            const response = await axiosInstance.get<ApiResponse<Array<Book & { reference_book: Book }>>>('api/recommendations/');
+            return response.data.data || [];
+        },
+        refetchOnWindowFocus: false,
+        staleTime: 0,
+    });
+
+    const currentRecommendation = recommendations[currentIndex];
+    const remainingCount = recommendations.length - currentIndex;
+
+    // Function to handle moving to next recommendation
+    const moveToNext = async (currentWorkId: string, isLastItem: boolean) => {
+        const newIndex = currentIndex + 1;
+        // If we've reached the end of our recommendations
+        if (isLastItem) {
+            // Wait for the "mark as viewed" mutation to complete first
+            await markAsViewedMutation.mutateAsync(currentWorkId);
+            // Then fetch new recommendations
+            await queryClient.refetchQueries({ queryKey: ['recommendations'] });
+            setCurrentIndex(0);
+        } else {
+            setCurrentIndex(newIndex);
+            // Fire mutation but don't wait for it
+            markAsViewedMutation.mutate(currentWorkId);
+        }
+    };
+
+    const markAsViewedMutation = useMutation({
+        mutationFn: async (work_id: string) => {
+            return axiosInstance.patch<ApiResponse<never>>('api/recommendations/', { work_id });
+        }
+    });
+
+    const addToTBRMutation = useMutation({
+        mutationFn: async (book: Book) => {
+            return axiosInstance.post<ApiResponse<never>>('api/userbooks/', {
+                work_id: book.work_id,
+                status: BookStatus.TO_BE_READ
             });
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['books'] });
+        }
+    });
+
+    const deleteSimilarMutation = useMutation({
+        mutationFn: async (work_id: string) => {
+            return axiosInstance.delete<ApiResponse<never>>('api/recommendations/', { 
+                data: { work_id } 
+            });
+        }
+    });
+
+    const handleYesClick = async () => {
+        if (!currentRecommendation) return;
+        const { reference_book, ...bookData } = currentRecommendation;
+        const isLastItem = currentIndex === recommendations.length - 1;
+        
+        // Move to next recommendation
+        await moveToNext(currentRecommendation.work_id, isLastItem);
+        // Add to TBR (don't need to wait)
+        addToTBRMutation.mutate(bookData);
     };
 
-    useEffect(() => {
-        fetchRecommendation();
-    }, []);
-
-    const handleYesClick = () => {
-        if (!recommendation) return;
-
-        const { work_id, title, author, image_url } = recommendation;
-
-        axiosInstance.post<ApiResponse<never>>('api/to-be-read/', {
-            work_id,
-            title,
-            author,
-            image_url,
-        })
-        .then(() => {
-            axiosInstance.patch<ApiResponse<never>>('api/recommendations/', { work_id })
-                .then(() => {
-                    fetchRecommendation();
-                });
-        });
-    };
-
-    const handleNoClick = () => {
-        if (!recommendation) return;
-
-        axiosInstance.patch<ApiResponse<never>>('api/recommendations/', { 
-            work_id: recommendation.work_id 
-        })
-        .then(() => {
-            fetchRecommendation();
-        });
+    const handleNoClick = async () => {
+        if (!currentRecommendation) return;
+        const isLastItem = currentIndex === recommendations.length - 1;
+        
+        // Move to next recommendation (which handles the markAsViewed mutation)
+        await moveToNext(currentRecommendation.work_id, isLastItem);
+        
+        // Fire delete mutation but don't wait for it
+        deleteSimilarMutation.mutate(currentRecommendation.work_id);
     };
 
     return (
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 2xl:w-1/2">
             <h1 className="text-4xl font-bold mb-6 text-center">We think you might like...</h1>
-            {recommendation && (
-                <div className="bg-gray-100 p-6 rounded shadow-md text-center">
-                    <img 
-                        src={recommendation.image_url} 
-                        alt={`Cover of ${recommendation.title}`}
-                        className="mx-auto mb-4 rounded" 
-                    />
-                    <h2 className="text-2xl font-bold mb-4">{recommendation.title}</h2>
-                    <h3 className="text-xl mb-4">{recommendation.author}</h3>
-                    <p className="text-xs mb-4">{recommendation.description}</p>
-                    <div className="flex justify-between mt-6">
-                        <Button
-                            onClick={handleNoClick}
-                            variant="destructive"
-                            className="w-1/5 h-12"
-                        >
-                            Not Interested
-                        </Button>
-                        <Button
-                            onClick={handleYesClick}
-                            variant="default"
-                            className="w-1/5 h-12 bg-green-500 hover:bg-green-600"
-                        >
-                            Add to TBR
-                        </Button>
-                    </div>
+            
+            {remainingCount > 0 && (
+                <p className="text-center text-gray-600 mb-2">
+                    Swipe on {remainingCount} more to refresh recommendations
+                </p>
+            )}
+            {/* markAsViewedMutation.isPending || addToTBRMutation.isPending */}
+            {(isLoading || isFetching ) ? (
+                <div className="flex justify-center items-center h-96">
+                    <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
                 </div>
+            ) : currentRecommendation && (
+                <>
+                    {currentRecommendation.reference_book && (
+                        <p className="text-center text-gray-600 mb-6">
+                            because you read <span className="font-bold">{currentRecommendation.reference_book.title}</span> by <span className="font-bold">{currentRecommendation.reference_book.author}</span>
+                        </p>
+                    )}
+                    <div className="bg-gray-100 p-6 rounded shadow-md text-center">
+                        <img 
+                            src={currentRecommendation.image_url} 
+                            alt={`Cover of ${currentRecommendation.title}`}
+                            className="mx-auto mb-4 rounded" 
+                        />
+                        <h2 className="text-2xl font-bold mb-4">{currentRecommendation.title}</h2>
+                        <h3 className="text-xl mb-4">{currentRecommendation.author}</h3>
+                        <p className="text-xs mb-4">{currentRecommendation.description}</p>
+                        <div className="flex justify-between mt-6">
+                            <Button
+                                onClick={handleNoClick}
+                                variant="destructive"
+                                className="w-1/5 h-12"
+                                disabled={markAsViewedMutation.isPending}
+                            >
+                                Not Interested
+                            </Button>
+                            <Button
+                                onClick={handleYesClick}
+                                variant="default"
+                                className="w-1/5 h-12 bg-green-500 hover:bg-green-600"
+                                disabled={addToTBRMutation.isPending}
+                            >
+                                Add to TBR
+                            </Button>
+                        </div>
+                    </div>
+                </>
             )}
         </div>
     );

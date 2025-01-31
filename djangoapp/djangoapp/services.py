@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from opensearchpy import OpenSearch, RequestsHttpConnection
 import pandas as pd
+from scipy.spatial.distance import cosine
 
 load_dotenv()
 
@@ -33,6 +34,29 @@ class PineconeService:
             vector=seed_vector['values'],
             k=k
         )
+    
+    def get_work_to_remove(self, all_work_ids, bad_work_id):
+        """
+        Given all a users recommendations, and the recommendation they said no to,
+        find the single most similar rec to that rec, so it can be removed.
+
+        TODO: should be more complex logic based on analysis and etc
+        """
+        recs = self.index.fetch(ids=all_work_ids)
+        target_work_ids = [id for id in all_work_ids if id != bad_work_id]
+
+        if not target_work_ids:
+            return None
+
+        vector_dict = {
+            key: value.values for key, value in recs['vectors'].items()
+        }
+
+        distance_dict = {
+            key: cosine(vector_dict[bad_work_id], vector_dict[key]) for key in target_work_ids
+        }
+
+        return min(distance_dict, key=distance_dict.get)
 
 
 

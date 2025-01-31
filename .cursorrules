@@ -1,74 +1,21 @@
 
 You are a full-stack engineer, expert in TypeScript,React, Shadcn UI, Tailwind, Python, Django, and scalable web application development.
 
+Anytime you make code changes, change as little of the existing code as possible; don't get rid of extra whitespace, don't move things around if the code is staying the same.
+
+When making changes, check for any dependencies that may need to be updated. Be especially mindful of serializers.py in the backend and types.ts in the frontend.
 
 # Front-end
-Code Style and Structure
 - Write concise, technical TypeScript code with accurate examples.
-- Use functional and declarative programming patterns; avoid classes.
-- Prefer iteration and modularization over code duplication.
-- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
-- Structure files: exported component, subcomponents, helpers, static content, types.
-
-Naming Conventions
-- Use lowercase with dashes for directories (e.g., components/auth-wizard).
-- Favor named exports for components.
-
-TypeScript Usage
-- Use TypeScript for all code; prefer interfaces over types.
-- Avoid enums; use maps instead.
-- Use functional components with TypeScript interfaces.
-- Use explicit function declarations with type annotations instead of FC.
-
-Syntax and Formatting
 - Use the "function" keyword for pure functions.
-- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
-- Use declarative JSX.
-
+- Use functional components with TypeScript interfaces.
+- Avoid excessive useState; use the minimal state required, using derived state when possible.
+- Avoid useEffect unless absolutely necessary; it usually isn't. If you can calculate something during render, you don't need an effect.
+- Consider the most recent version of TanStack Query for any API requests made from the frontend.
 
 # Back-end
-Key Principles
-- Write clear, technical responses with precise Django examples.
+- Use fat models and skinny views; models and model managers should handle business logic, views should just handle request handling.
 - Use Django's built-in features and tools wherever possible to leverage its full capabilities.
-- Prioritize readability and maintainability; follow Django's coding style guide (PEP 8 compliance).
-- Use descriptive variable and function names; adhere to naming conventions (e.g., lowercase with underscores for functions and variables).
-- Structure your project in a modular way using Django apps to promote reusability and separation of concerns.
 
-Django/Python
-- Use Django’s class-based views (CBVs) for more complex views; prefer function-based views (FBVs) for simpler logic.
-- Leverage Django’s ORM for database interactions; avoid raw SQL queries unless necessary for performance.
-- Use Django’s built-in user model and authentication framework for user management.
-- Utilize Django's form and model form classes for form handling and validation.
-- Follow the MVT (Model-View-Template) pattern strictly for clear separation of concerns.
-- Use middleware judiciously to handle cross-cutting concerns like authentication, logging, and caching.
 
-Error Handling and Validation
-- Implement error handling at the view level and use Django's built-in error handling mechanisms.
-- Use Django's validation framework to validate form and model data.
-- Prefer try-except blocks for handling exceptions in business logic and views.
-- Customize error pages (e.g., 404, 500) to improve user experience and provide helpful information.
-- Use Django signals to decouple error handling and logging from core business logic.
-
-Dependencies to Consider
-- Django
-- Django REST Framework (for API development)
-- Celery (for background tasks)
-- Redis (for caching and task queues)
-- PostgreSQL or MySQL (preferred databases for production)
-
-Django-Specific Guidelines
-- Use Django templates for rendering HTML and DRF serializers for JSON responses.
-- Keep business logic in models and forms; keep views light and focused on request handling.
-- Use Django's URL dispatcher (urls.py) to define clear and RESTful URL patterns.
-- Apply Django's security best practices (e.g., CSRF protection, SQL injection protection, XSS prevention).
-- Use Django’s built-in tools for testing (unittest and pytest-django) to ensure code quality and reliability.
-- Leverage Django’s caching framework to optimize performance for frequently accessed data.
-- Use Django’s middleware for common tasks such as authentication, logging, and security.
-
-Key Conventions
-1. Follow Django's "Convention Over Configuration" principle for reducing boilerplate code.
-2. Prioritize security and performance optimization in every stage of development.
-3. Maintain a clear and logical project structure to enhance readability and maintainability.
-
-Refer to Django documentation for best practices in views, models, forms, and security considerations.
-
+TOP PRIORITY: Anytime you make code changes, change as little of the existing code as possible; don't get rid of extra whitespace, don't move things around if the code is staying the same.

@@ -60,6 +60,14 @@ function Search() {
     };
 
     // ADD FINISHED BOOK
+    const addRecommendationsMutation = useMutation({
+        mutationFn: async ({ work_id }: { work_id: string }) => {
+            return axiosInstance.post<ApiResponse<never>>('api/recommendations/', {
+                work_id
+            });
+        }
+    });
+
     const addFinishedBookMutation = useMutation({
         mutationFn: async ({ work_id, bucket }: { work_id: string, bucket: Bucket }) => {
             if (rankingState.type !== 'rating') return;
@@ -83,10 +91,12 @@ function Search() {
             setRankingState({ type: 'comparing', book: rankingState.search_result.book });
             queryClient.invalidateQueries({ queryKey: ['books'] });
             queryClient.invalidateQueries({ queryKey: ['searchBooks', query] });
-            // uncomment later when we have recommendations
-            // if (bucket === 'high') {
-            //     queryClient.invalidateQueries('recommendations');
-            // }
+            
+            // Add recommendations if bucket is high
+            if (bucket === 'high') {
+                addRecommendationsMutation.mutate({ work_id });
+                queryClient.invalidateQueries({ queryKey: ['recommendations'] });
+            }
         },
     });
 
