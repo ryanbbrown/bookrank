@@ -414,9 +414,12 @@ class UserRecommendationManager(models.Manager):
         # Delete that work
         if work_to_remove:
             self.filter(user=user, work_id=work_to_remove).delete()
-        
-        
-        
+
+    def get_viewed_recommendations_count(self, user):
+        """
+        Returns the count of viewed recommendations for a user.
+        """
+        return self.filter(user=user, viewed=True).count()
 
 
 

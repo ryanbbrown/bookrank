@@ -551,3 +551,15 @@ class UserView(APIView):
             'data': serializer.data,
             'message': 'User data retrieved successfully'
         })
+
+class RecommendationCountView(APIView):
+    """
+    This view returns the count of viewed recommendations for the current user.
+    """
+    def get(self, request):
+        count = UserRecommendation.objects.get_viewed_recommendations_count(request.user)
+        return Response({
+            'success': True,
+            'data': count,
+            'message': 'Recommendation count retrieved successfully'
+        })

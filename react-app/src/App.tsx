@@ -16,6 +16,7 @@ import axiosInstance from './axiosConfig';
 import { ApiResponse } from './types/types';
 import React from 'react';
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 
 // Move QueryClient outside of the component
 const queryClient = new QueryClient({
@@ -111,6 +112,7 @@ function App(): JSX.Element {
                                     <Route path="/myrecs" element={<Recommendations />} />
                                     <Route path="/goodreadsimport" element={<GoodreadsImport />} />
                                     <Route path="/termsofservice" element={<TermsOfService />} />
+                                    <Route path="/dashboard" element={<Dashboard />} />
                                 </Routes>
                             </React.Suspense>
                         </main>

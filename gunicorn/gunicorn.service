@@ -6,7 +6,7 @@ After=network.target
 User=ryanbrown
 Group=www-data
 WorkingDirectory=~/app/djangoapp
-ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:~/app/djangoapp/gunicorn.sock djangoapp.wsgi:application
+ExecStart=/usr/local/bin/gunicorn --workers 5 --bind unix:~/app/djangoapp/gunicorn.sock djangoapp.wsgi:application
 StandardOutput=append:/var/log/gunicorn/gunicorn.log
 StandardError=append:/var/log/gunicorn/gunicorn_error.log
 

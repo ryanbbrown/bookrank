@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 # from django.contrib.auth.views import LogoutView
 from . import views
+from .views import RecommendationCountView
 
 router = DefaultRouter()
 router.register(r'api/userbooks', views.UserBooksViewSet, basename='userbooks')
@@ -36,6 +37,8 @@ urlpatterns = [
     path('api/logout/', views.LogoutView.as_view()),
     path('api/signup/', views.SignupView.as_view()),
     path('api/user/', views.UserView.as_view(), name='user'),
+    path('dashboard/', views.ReactAppView.as_view(), name='dashboard'),
     path('', views.ReactAppView.as_view(), name='react-app'),
     path('', include(router.urls)),
+    path('api/recommendations/count/', RecommendationCountView.as_view(), name='recommendation-count'),
 ]
