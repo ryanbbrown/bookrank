@@ -142,32 +142,22 @@ export function BookRow({
             className="mb-4 cursor-pointer transition-none hover:bg-slate-50"
             onClick={onClick}
         >
-            <div className="flex p-4">
-                <div className="flex-shrink-0">
+            <div className="flex flex-col sm:flex-row p-4">
+                <div className="flex sm:flex-shrink-0">
                     <img 
                         src={book.image_url} 
                         alt={book.title} 
                         className="w-24 h-auto rounded shadow-sm"
                     />
+                    <div className="ml-6 flex-grow sm:hidden">
+                        <h3 className="text-xl font-semibold mb-1">{book.title}</h3>
+                        <p className="text-gray-600 mb-2">{book.author}</p>
+                    </div>
                 </div>
-                <div className="ml-6 flex-grow relative">
-                    <div className="flex justify-between items-start">
-                        <div>
-                            <h3 className="text-xl font-semibold mb-1">{book.title}</h3>
-                            <p className="text-gray-600 mb-2">{book.author}</p>
-                        </div>
-                        {!is_search_result && 'status' in book && (
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
-                                    <Button variant="ghost" size="sm">
-                                        <MoreHorizontal className="h-5 w-5" />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                    {getDropdownItems()}
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        )}
+                <div className="mt-4 sm:mt-0 sm:ml-6 sm:flex-grow">
+                    <div className="hidden sm:block">
+                        <h3 className="text-xl font-semibold mb-1">{book.title}</h3>
+                        <p className="text-gray-600 mb-2">{book.author}</p>
                     </div>
                     <div className="flex flex-col gap-2 text-sm text-gray-500">
                         {!is_search_result && 'status' in book && (
@@ -184,9 +174,23 @@ export function BookRow({
                                 )}
                             </div>
                         )}
-                        <div className="flex flex-wrap gap-2">
-                            <span className="bg-gray-100 px-2 py-1 rounded">{book.genre}</span>
-                            <span className="bg-gray-100 px-2 py-1 rounded">{book.book_type}</span>
+                        <div className="flex flex-wrap gap-2 items-center">
+                            <div className="flex-1 flex flex-wrap gap-2 items-center">
+                                <span className="bg-gray-100 px-2 py-1 rounded">{book.genre}</span>
+                                <span className="bg-gray-100 px-2 py-1 rounded">{book.book_type}</span>
+                                {!is_search_result && 'status' in book && (
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
+                                            <Button variant="ghost" size="sm" className="ml-auto">
+                                                <MoreHorizontal className="h-5 w-5" />
+                                            </Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end" side="top" sideOffset={5}>
+                                            {getDropdownItems()}
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

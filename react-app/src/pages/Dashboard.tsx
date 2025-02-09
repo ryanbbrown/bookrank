@@ -30,7 +30,7 @@ function Dashboard(): JSX.Element {
         <div className="container mx-auto flex flex-col p-4 pt-6 sm:w-4/5 md:w-3/4 lg:w-2/3">
             <h1 className="text-4xl font-bold mb-6 text-center">Dashboard</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 h-full">
                     <StatCard 
                         number={userData?.total_ranked_books_count ?? 0} 
                         label="books in library"

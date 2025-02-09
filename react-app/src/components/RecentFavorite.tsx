@@ -84,7 +84,7 @@ function RecentFavorite() {
                     <h3 className="font-semibold text-lg mb-1">{truncateTitle(recentFavorite.title)}</h3>
                     <p className="text-slate-600">{recentFavorite.author}</p>
                     <p className="text-sm text-slate-500 mt-2">
-                        Rating: {recentFavorite.normalized_rating?.toFixed(1)}/10
+                        Rating: {typeof recentFavorite.normalized_rating === 'number' ? recentFavorite.normalized_rating.toFixed(1) : '—'}/10
                     </p>
                     <Link 
                         to="/mybooks/read" 

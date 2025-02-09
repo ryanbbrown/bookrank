@@ -3,10 +3,13 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axiosInstance from '../axiosConfig';
 import { Button } from '../components/ui/button';
 import { ApiResponse, Book, BookStatus } from '../types/types';
+import { Card, CardContent, CardFooter } from '../components/ui/card';
+import { useState as useExpandState } from 'react';
 
 function Recommendations() {
     const queryClient = useQueryClient();
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isExpanded, setIsExpanded] = useExpandState(false);
 
     const { data: recommendations = [], isLoading, isFetching } = useQuery({
         queryKey: ['recommendations'],
@@ -95,8 +98,7 @@ function Recommendations() {
                     Swipe on {remainingCount} more to refresh recommendations
                 </p>
             )}
-            {/* markAsViewedMutation.isPending || addToTBRMutation.isPending */}
-            {(isLoading || isFetching ) ? (
+            {(isLoading || isFetching) ? (
                 <div className="flex justify-center items-center h-96">
                     <div className="w-8 h-8 border-4 border-gray-300 border-t-teal-800 rounded-full animate-spin"></div>
                 </div>
@@ -107,16 +109,34 @@ function Recommendations() {
                             because you read <span className="font-bold">{currentRecommendation.reference_book.title}</span> by <span className="font-bold">{currentRecommendation.reference_book.author}</span>
                         </p>
                     )}
-                    <div className="bg-gray-100 p-6 rounded shadow-md text-center">
-                        <img 
-                            src={currentRecommendation.image_url} 
-                            alt={`Cover of ${currentRecommendation.title}`}
-                            className="mx-auto mb-4 rounded" 
-                        />
-                        <h2 className="text-2xl font-bold mb-4">{currentRecommendation.title}</h2>
-                        <h3 className="text-xl mb-4">{currentRecommendation.author}</h3>
-                        <p className="text-xs mb-4">{currentRecommendation.description}</p>
-                        <div className="flex justify-between mt-6">
+                    <Card>
+                        <CardContent className="p-6">
+                            <img 
+                                src={currentRecommendation.image_url} 
+                                alt={`Cover of ${currentRecommendation.title}`}
+                                className="mx-auto mb-4 rounded h-64 object-contain" 
+                            />
+                            <h2 className="text-2xl font-bold mb-4 text-center">{currentRecommendation.title}</h2>
+                            <h3 className="text-xl mb-4 text-center">{currentRecommendation.author}</h3>
+                            {currentRecommendation.description && (
+                                <div className="relative">
+                                    <p className={`text-sm ${isExpanded ? 'max-h-48 overflow-y-auto' : ''}`}>
+                                        {isExpanded 
+                                            ? currentRecommendation.description 
+                                            : currentRecommendation.description.slice(0, 400)}
+                                        {!isExpanded && currentRecommendation.description.length > 400 && (
+                                            <span 
+                                                className="inline-block px-3 py-1 bg-gray-100 rounded-full text-blue-500 cursor-pointer ml-1 hover:bg-gray-200" 
+                                                onClick={() => setIsExpanded(true)}
+                                            >
+                                                ...
+                                            </span>
+                                        )}
+                                    </p>
+                                </div>
+                            )}
+                        </CardContent>
+                        <CardFooter className="justify-between p-6">
                             <Button
                                 onClick={handleNoClick}
                                 variant="destructive"
@@ -133,8 +153,8 @@ function Recommendations() {
                             >
                                 Add to TBR
                             </Button>
-                        </div>
-                    </div>
+                        </CardFooter>
+                    </Card>
                 </>
             )}
         </div>

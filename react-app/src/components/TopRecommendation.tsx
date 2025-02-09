@@ -58,7 +58,7 @@ function TopRecommendation() {
     return (
         <Card className="w-full">
             <CardHeader>
-                <CardTitle className="text-center text-xl">Today's Top Recommendation</CardTitle>
+                <CardTitle className="text-center text-xl">Today's Top Rec</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="text-center">
