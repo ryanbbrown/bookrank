@@ -20,7 +20,7 @@ const Homepage = ({
             {/* Hero Section */}
             <div className="flex flex-col items-center text-center relative px-6 py-20 mx-auto">
                 <div className="py-20 flex flex-col items-center text-center w-[95%] xl:w-[65%] relative">
-                    {/* Left reader illustration */}
+                    {/* Left reader illustration - Desktop */}
                     <img
                         src="reader_left.png"
                         alt="Person reading"
@@ -38,7 +38,25 @@ const Homepage = ({
                         "
                     />
 
-                    {/* Right reader illustration */}
+                    {/* Left reader illustration - Mobile */}
+                    {/* <img
+                        src="reader_left.png"
+                        alt="Person reading"
+                        className="
+                            absolute 
+                            block xl:hidden
+                            w-auto h-[10vh]
+                            right-[65%]
+                            top-[8%]
+                            transform -translate-y-1/2
+                            opacity-90
+                            pointer-events-none
+                            object-contain
+                            -z-10
+                        "
+                    /> */}
+
+                    {/* Right reader illustration - Desktop */}
                     <img
                         src="reader_right.png"
                         alt="Person reading"
@@ -55,6 +73,24 @@ const Homepage = ({
                             -z-10
                         "
                     />
+
+                    {/* Right reader illustration - Mobile */}
+                    {/* <img
+                        src="reader_right.png"
+                        alt="Person reading"
+                        className="
+                            absolute 
+                            block xl:hidden
+                            w-auto h-[20vh]
+                            left-[95%]
+                            top-[8%]
+                            transform -translate-y-1/2
+                            opacity-90
+                            pointer-events-none
+                            object-contain
+                            -z-10
+                        "
+                    /> */}
                     <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold tracking-tight max-w-4xl">
                         The <span className="text-homepage-blue">smarter</span>{" "}
                         way to discover your next read

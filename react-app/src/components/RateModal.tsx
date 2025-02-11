@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Book, Bucket, UserBook } from "../types/types";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
@@ -21,10 +21,11 @@ export function RateModal({
     status,
     isLoading = false,
 }: RateModalProps): JSX.Element {
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <Card className="relative w-1/2 shadow-lg">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center animate-in fade-in duration-200">
+            <Card className="relative w-[95%] sm:w-1/2 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300">
                 <Button
                     variant="ghost"
                     size="icon"
@@ -56,7 +57,24 @@ export function RateModal({
                                 />
                                 <h2 className="text-lg font-semibold mb-1">{book.title}</h2>
                                 <p className="text-gray-600 mb-2">{book.author}</p>
-                                <p className="text-sm text-gray-500">{book.description}</p>
+                                <div className="relative">
+                                    <p className={`text-sm text-gray-500 ${isExpanded ? 'max-h-48 overflow-y-auto' : ''}`}>
+                                        {isExpanded 
+                                            ? book.description 
+                                            : book.description?.slice(0, 200)}
+                                        {!isExpanded && book.description && book.description.length > 200 && (
+                                            <span 
+                                                className="inline-block px-3 py-1 bg-gray-100 rounded-full text-blue-500 cursor-pointer ml-1 hover:bg-gray-200" 
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setIsExpanded(true);
+                                                }}
+                                            >
+                                                ...
+                                            </span>
+                                        )}
+                                    </p>
+                                </div>
                             </div>
                             
                             {status === "SHOW_IN_LIBRARY" ? (
@@ -66,7 +84,7 @@ export function RateModal({
                             ) : (
                                 <>
                                     {onClickFunction && (
-                                        <div className="flex justify-around gap-4">
+                                        <div className="flex justify-around gap-2 sm:gap-4">
                                             <Button
                                                 className="bg-emerald-400 hover:bg-emerald-500 w-1/3"
                                                 onClick={() => onClickFunction("high")}

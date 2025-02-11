@@ -21,7 +21,7 @@ export function CompareModal({
 }: CompareModalProps): JSX.Element {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <Card className="relative w-1/2">
+            <Card className="relative w-[95%] sm:w-1/2">
                 {exitFunction && (
                     <Button
                         variant="ghost"
@@ -44,10 +44,10 @@ export function CompareModal({
                                 Which book was better?
                             </CardTitle>
                         </CardHeader>
-                        <CardContent>
-                            <div className="flex justify-around w-full mb-4">
+                        <CardContent className="p-2 sm:p-6">
+                            <div className="flex justify-between sm:justify-around w-full mb-4">
                                 <Card 
-                                    className="w-2/5 cursor-pointer" 
+                                    className="w-1/2 sm:w-2/5 cursor-pointer" 
                                     onClick={() => handleComparisonClick(1)}
                                 >
                                     <CardContent className="p-4 text-center">
@@ -56,15 +56,15 @@ export function CompareModal({
                                             alt={selectedBook.title}
                                             className="mx-auto mb-4 rounded shadow-sm" 
                                         />
-                                        <h2 className="text-lg font-semibold">{selectedBook.title}</h2>
+                                        <h2 className="text-md font-semibold">{selectedBook.title}</h2>
                                         <p className="text-gray-600">{selectedBook.author}</p>
-                                        <p className="text-sm text-gray-500">{selectedBook.book_type}, {selectedBook.genre}</p>
+                                        {/* <p className="text-sm text-gray-500">{selectedBook.book_type}, {selectedBook.genre}</p> */}
                                     </CardContent>
                                 </Card>
 
                                 {comparedBook && (
                                     <Card 
-                                        className="w-2/5 cursor-pointer" 
+                                        className="w-[48%] sm:w-2/5 cursor-pointer" 
                                         onClick={() => handleComparisonClick(0)}
                                     >
                                         <CardContent className="p-4 text-center">
@@ -73,10 +73,10 @@ export function CompareModal({
                                                 alt={comparedBook.title}
                                                 className="mx-auto mb-4 rounded shadow-sm" 
                                             />
-                                            <h2 className="text-lg font-semibold">{comparedBook.title}</h2>
+                                            <h2 className="text-md font-semibold">{comparedBook.title}</h2>
                                             <p className="text-gray-600">{comparedBook.author}</p>
                                             <p className="text-sm text-gray-500 mt-2">{comparedBook.normalized_rating}</p>
-                                            <p className="text-sm text-gray-500">{comparedBook.book_type}, {comparedBook.genre}</p>
+                                            {/* <p className="text-sm text-gray-500">{comparedBook.book_type}, {comparedBook.genre}</p> */}
                                         </CardContent>
                                     </Card>
                                 )}
@@ -87,13 +87,13 @@ export function CompareModal({
                                     className="bg-teal-800 hover:bg-teal-900"
                                     onClick={() => handleComparisonClick(0.5)}
                                 >
-                                    I like both equally
+                                    I like both
                                 </Button>
                                 <Button
                                     variant="secondary"
                                     onClick={() => handleComparisonClick(-1)}
                                 >
-                                    Books aren't comparable
+                                    Not comparable
                                 </Button>
                             </div>
                         </CardContent>
