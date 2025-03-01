@@ -1,11 +1,11 @@
 server {
-    listen 80;
-    # listen 443 ssl;
-    # ssl_certificate /home/ryanbrown/bookrank.ai.chained.crt;
-    # ssl_certificate_key /home/ryanbrown/bookrank.ai.key;
+listen 80;
+# listen 443 ssl;
+# ssl_certificate /home/ryanbrown/bookrank.ai.chained.crt;
+# ssl_certificate_key /home/ryanbrown/bookrank.ai.key;
 
-    server_name localhost;
-    # server_name bookrank.ai www.bookrank.ai;
+server_name localhost;
+# server_name bookrank.ai www.bookrank.ai;
 
     location / {
         root /home/ryanbrown/projects/bookrank/app/djangoapp/static;

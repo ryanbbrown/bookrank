@@ -110,7 +110,7 @@ const Homepage = ({
             </div>
 
             {/* Why Choose Us Section */}
-            <div className="pt-[30vh] px-6">
+            <div className="py-20 px-6 bg-gray-100">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">
                         Why use BookRank?
@@ -120,7 +120,7 @@ const Homepage = ({
                         your next favorite book
                     </p>
                 </div>
-                <div className="container mx-auto w-full sm:w-4/5 xl:w-full 2xl:w-4/5 grid grid-cols-1 xl:grid-cols-3 gap-12">
+                <div className="mx-auto w-full sm:w-4/5 xl:w-full 2xl:w-4/5 grid grid-cols-1 xl:grid-cols-3 gap-12">
                     <Card className="bg-white">
                         <CardContent className="p-6">
                             <img
@@ -172,7 +172,7 @@ const Homepage = ({
             </div>
 
             {/* Stats Section */}
-            <div className="pt-40 px-6">
+            <div className="py-20 px-6 bg-gray-50">
                 <div className="w-full sm:w-2/3 mx-auto text-center mb-12">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">
                         Is switching worth it?
@@ -211,12 +211,12 @@ const Homepage = ({
             </div>
 
             {/* How to get started */}
-            <div className="py-20">
+            <div className="py-20 bg-gray-100">
                 <div className="max-w-4xl text-center mb-12 mx-auto flex flex-col items-center">
                     <h2 className="md:text-5xl text-3xl font-bold tracking-tighter">
                         How to get started?
                     </h2>
-                    <p className="mt-4 text-gray-600">
+                    <p className="mt-4 text-gray-600 px-6">
                         It's easy! Just sign up, upload your reading history,
                         and start comparing books
                     </p>

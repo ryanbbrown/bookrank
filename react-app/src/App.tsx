@@ -77,8 +77,8 @@ function App(): JSX.Element {
     return (
         <QueryProvider>
             <BrowserRouter>
-                <div className="min-h-screen bg-white py-6">
-                    <div className="mx-auto w-[95%] md:w-[90%] lg:w-[75%] bg-gray-50 rounded-xl shadow-lg min-h-screen flex flex-col relative z-0">
+                <div className="min-h-screen bg-white md:py-6">
+                    <div className="mx-auto w-[100%] md:w-[90%] lg:w-[75%] bg-gray-50 rounded-xl shadow-lg min-h-screen flex flex-col relative z-0">
                         <Header 
                             isLoggedIn={isLoggedIn} 
                             handleLogout={handleLogout}

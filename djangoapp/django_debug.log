@@ -55311,3 +55311,5 @@ INFO 2025-02-08 18:06:31,194 autoreload 6974 140619220762624 /home/ryanbrown/pro
 INFO 2025-02-08 18:07:12,631 autoreload 46691 139774410743808 Watching for file changes with StatReloader
 INFO 2025-02-08 18:08:39,694 autoreload 46691 139774410743808 /home/ryanbrown/projects/bookrank/app/djangoapp/djangoapp/urls.py changed, reloading.
 INFO 2025-02-08 18:09:10,633 autoreload 47896 139672253104128 Watching for file changes with StatReloader
+INFO 2025-02-26 00:28:01,133 autoreload 47896 139672253104128 /usr/lib/python3.10/html/__init__.py changed, reloading.
+INFO 2025-02-26 00:29:00,248 autoreload 282616 140267803504640 Watching for file changes with StatReloader

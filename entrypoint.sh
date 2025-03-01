@@ -11,7 +11,7 @@ celery -A djangoapp worker --loglevel=info -P solo --without-gossip --concurrenc
 export PYTHONPATH=/app/djangoapp:/app && cd djangoapp
 
 # Start Gunicorn
-gunicorn djangoapp.wsgi:application --bind 0.0.0.0:8000 --workers 5 &
+gunicorn djangoapp.wsgi:application --bind 0.0.0.0:8000 --workers 5 --max-requests 500 --max-requests-jitter 75 &
 
 # Start Nginx
 nginx -g 'daemon off;'
