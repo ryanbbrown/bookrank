@@ -2,3 +2,10 @@ data/*
 node_modules/*
 djangoapp/static/*
 *.csv
+
+# Sensitive files - never commit
+djangoapp/.env
+ssl/
+*.key
+*.crt
+*.pem
