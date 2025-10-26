@@ -2,6 +2,7 @@ data/*
 node_modules/*
 djangoapp/static/*
 *.csv
+archive/*
 
 # Sensitive files - never commit
 djangoapp/.env
